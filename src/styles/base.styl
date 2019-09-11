@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap');
+
+@import "~@/styles/tokens.styl"
+
+:root
+  font-family "IBM Plex Sans", sans-serif
+  font-size 16px
+
+  *
+    // Reduce sudden change when changing theme
+    transition-property color, background-color
+    transition-duration $duration-long
+
+  body
+    margin 0
+
+  strong
+    font-weight $weight-semibold
