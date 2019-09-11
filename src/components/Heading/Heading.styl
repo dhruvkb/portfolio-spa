@@ -1,0 +1,29 @@
+@import "~@/styles/tokens.styl"
+@import "~@/styles/colors.styl"
+
+h1.heading
+  --size $size-gigantic
+
+h2.heading
+  --size $size-enormous
+
+h3.heading
+  --size $size-huge
+
+h4.heading
+  --size $size-large
+
+h5.heading
+  --size $size-big
+
+h6.heading
+  --size $size-normal
+
+.heading
+  colors('color')
+
+  font-family "Space Grotesk", sans-serif
+  font-size var(--size)
+
+  margin-top 0
+  margin-bottom $space-smallest
