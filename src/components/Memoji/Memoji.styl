@@ -1,0 +1,38 @@
+@import "~@/styles/tokens.styl"
+
+.memoji
+  --font-size 16em
+
+  &.small-sized
+    --font-size 14em
+
+  &.smaller-sized
+    --font-size 12em
+
+  &.smallest-sized
+    --font-size 8em
+
+  font-size var(--font-size)
+
+  height 1em
+
+  filter drop-shadow(
+    0.0078125em 0.0078125em 0 white
+  ) drop-shadow(
+    -0.0078125em 0.0078125em 0 white
+  ) drop-shadow(
+    0.0078125em -0.0078125em 0 white
+  ) drop-shadow(
+    -0.0078125em -0.0078125em  0 white
+  )
+
+  &.animated
+    transform-origin bottom center
+    animation bobble 2s ease-in-out infinite
+
+  @keyframes bobble
+    50%
+      transform rotate(10deg)
+
+    0%, 100%
+      transform rotate(0deg)
