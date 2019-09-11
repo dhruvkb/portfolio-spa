@@ -1,0 +1,8 @@
+// Generate given property for all colors and their shades
+
+colors(property)
+  $colors = 'yellow' 'orange' 'red' 'magenta' 'violet' 'blue' 'cyan' 'green'
+
+  for color in $colors
+    &.{color}-colored
+      {property} lookup('$color-accent-' + color)
