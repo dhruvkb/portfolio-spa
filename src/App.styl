@@ -1,0 +1,44 @@
+@import "~@/styles/base.styl"
+
+@import "~@/styles/tokens.styl"
+@import "~@/styles/theme.styl"
+
+#app
+  theme()
+
+  color var(--primary-content)
+  background-color var(--background)
+
+  .navigation
+    position fixed
+    z-index 1
+
+    display flex
+    flex-direction row
+    justify-content space-between
+    align-items center
+
+    background-color var(--background-highlights)
+
+    box-sizing border-box
+    height $height-navbar
+    width 100%
+
+    padding $space-normal
+
+    nav
+      a
+        color var(--secondary-content)
+
+        font-weight $weight-bold
+
+        text-decoration none
+
+        &:not(:last-of-type)
+          margin-right $space-smaller
+
+        &.active
+          color var(--primary-content)
+
+        &:hover
+          color var(--primary-content)
