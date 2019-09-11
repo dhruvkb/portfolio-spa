@@ -1,0 +1,35 @@
+@import "~@/styles/tokens.styl"
+@import "~@/styles/page.styl"
+
+.home
+  page()
+
+  position relative
+
+  display flex
+  flex-direction column
+  justify-content center
+  align-items center
+
+  footer
+    position absolute
+    bottom $space-normal
+
+    font-weight $weight-semibold
+
+    .wave
+      display inline-block
+
+      transform-origin 0 100%
+
+      animation-name wave
+      animation-duration $duration-longest
+      animation-timing-function ease-in-out
+      animation-iteration-count infinite
+
+      @keyframes wave
+        0%, 42.5%, 47.5%, 52.5%, 57.5%, 100%
+          transform rotate(0deg)
+
+        45%, 50%, 55%
+          transform rotate(15deg)
