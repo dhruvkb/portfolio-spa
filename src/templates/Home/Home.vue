@@ -1,24 +1,42 @@
 <template>
   <div class="home">
     <main>
-      <p>
+      <div class="left pane">
+        <Memoji
+          :role="role"/>
+      </div>
+      <div class="right pane">
         Hello there! I'm
-      </p>
-      <Heading
-        class="title"
-        :level="1"
-        color="red">
-        Dhruv Bhanushali,
-      </Heading>
-      <Heading
-        :level="5"
-        color="yellow">
-        a software developer and technical writer
-      </Heading>
-      <p>
-        who composes software and documentation<br/>
-        with utmost <strong>love</strong> and <strong>passion</strong>.
-      </p>
+        <Heading
+          :level="1"
+          color="red">
+          Dhruv Bhanushali,
+        </Heading>
+        <Heading
+          :level="5"
+          color="yellow">
+          a
+          <button
+            class="role"
+            @click="role = 'developer'">
+            software developer</button>
+          and
+          <button
+            class="role"
+            @click="role = 'writer'">
+            technical writer</button>
+        </Heading>
+        <p>
+          who, with utmost <strong>love</strong> and <strong>passion</strong>,
+          <br/>
+          composes code and documentation
+          <span
+            class="run-on"
+            title="Such as movies, music and memes!">
+            amongst other things.
+          </span>
+        </p>
+      </div>
     </main>
     <footer title="Wonderful to meet you!">
       <span class="face">
@@ -33,6 +51,7 @@
 
 <script>
   import Heading from '@/components/Heading/Heading'
+  import Memoji from '@/components/Memoji/Memoji'
 
   /**
    * This page is the landing page for the portfolio.
@@ -40,7 +59,13 @@
   export default {
     name: 'Home',
     components: {
-      Heading
+      Heading,
+      Memoji
+    },
+    data: function () {
+      return {
+        role: 'writer' // Writer has the cooler avatar
+      }
     }
   }
 </script>

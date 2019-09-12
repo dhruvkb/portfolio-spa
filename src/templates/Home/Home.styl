@@ -1,5 +1,7 @@
 @import "~@/styles/tokens.styl"
 @import "~@/styles/page.styl"
+@import "~@/styles/grid.styl"
+@import "~@/styles/button.styl"
 
 .home
   page()
@@ -10,6 +12,32 @@
   flex-direction column
   justify-content center
   align-items center
+
+  padding-bottom 'calc(2em + %s)' % $space-normal
+
+  main
+    grid()
+
+    .pane
+      &.left
+        display flex
+        align-items center
+        justify-content center
+
+      &.right
+        .role
+          button-reset()
+
+          color inherit
+          font inherit
+
+          cursor pointer
+
+          text-decoration underline
+          text-decoration-style dotted
+
+        .run-on
+          color var(--secondary-content)
 
   footer
     position absolute
