@@ -1,11 +1,11 @@
 <template>
   <button
     class="themer"
+    :title="helpText"
     @click="toggleTheme">
     <span class="content">
       <FontAwesomeIcon
         :icon="['fas', 'adjust']"
-        :title="helpText"
         fixed-width/>
     </span>
   </button>
