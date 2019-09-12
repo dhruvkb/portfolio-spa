@@ -1,35 +1,37 @@
 <template>
   <img class="memoji"
        :class="memojiClasses"
+       :src="memojiSource"
        alt="Dhruv Bhanushali"
-       src="@/assets/memoji.png"
-       title="That's what I look like, except real-er.">
+       title="That's what I look like, except I'm three dimensional.">
 </template>
 
 <script>
+  import Scaled from '@/mixins/scaled'
+
   /**
    * This component displays my memoji in various styles.
    */
   export default {
     name: 'Memoji',
+    mixins: [
+      Scaled
+    ],
     props: {
+      role: {
+        type: String,
+        default: 'writer',
+        validator: val => [
+          'developer',
+          'writer'
+        ].includes(val)
+      },
       /**
        * _whether or not to bobble my memoji_
        */
       isAnimated: {
         type: Boolean,
         default: false
-      },
-      /**
-       * _the size of the memoji to show_
-       */
-      size: {
-        type: String,
-        validator: val => [
-          'small',
-          'smaller',
-          'smallest'
-        ].includes(val)
       }
     },
     computed: {
@@ -37,15 +39,16 @@
        * _the classes to use on the memoji_
        */
       memojiClasses: function () {
-        let classes = [
+        return [
+          ...this.scaledClasses,
+
           {
             'animated': this.isAnimated
           }
         ]
-        if (this.size) {
-          classes.push(`${this.size}-sized`)
-        }
-        return classes
+      },
+      memojiSource: function () {
+        return require(`@/assets/memoji/${this.role}.png`)
       }
     }
   }
