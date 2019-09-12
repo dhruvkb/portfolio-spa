@@ -1,0 +1,51 @@
+@import "~@/styles/tokens.styl"
+@import "~@/styles/media.styl"
+
+a
+  display inline-flex
+  align-items center
+  justify-content center
+
+  color var(--secondary-content)
+
+  font-weight $weight-semibold
+
+  text-decoration none
+
+  box-sizing border-box
+  height $height-navbar
+  min-width $height-navbar
+
+  border-top-width $space-smaller
+  border-top-style solid
+  border-top-color transparent
+
+  transition-property color, background-color, border-top-color
+  transition-duration $duration-standard
+
+  .text
+    padding-left $space-small
+    padding-right $space-small
+
+    +phone-only()
+      display none
+
+  .icon
+    +tablet-portrait-up()
+      display none
+
+  &:hover
+    border-top-color var(--secondary-content)
+
+  &:focus
+    outline none
+
+    text-decoration underline
+    text-decoration-style dotted
+
+  &.router-link-active
+    color var(--primary-content)
+
+    background-color var(--background)
+
+    border-top-color var(--primary-content)
