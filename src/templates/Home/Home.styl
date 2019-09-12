@@ -36,6 +36,14 @@
           text-decoration underline
           text-decoration-style dotted
 
+          &.active
+            &::after
+              vertical-align super
+
+              content '\26AB'
+
+              font-size $size-small
+
         .run-on
           color var(--secondary-content)
 

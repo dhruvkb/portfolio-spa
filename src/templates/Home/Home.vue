@@ -18,11 +18,13 @@
           a
           <button
             class="role"
+            :class="{'active': role === 'developer'}"
             @click="role = 'developer'">
             software developer</button>
           and
           <button
             class="role"
+            :class="{'active': role === 'writer'}"
             @click="role = 'writer'">
             technical writer</button>
         </Heading>
@@ -63,8 +65,9 @@
       Memoji
     },
     data: function () {
+      let random = Math.random()
       return {
-        role: 'writer' // Writer has the cooler avatar
+        role: random < 0.5 ? 'writer' : 'developer'
       }
     }
   }
