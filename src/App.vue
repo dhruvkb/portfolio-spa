@@ -3,18 +3,11 @@
     :class="appClasses"
     id="app">
     <div class="navigation">
-      <nav>
-        <RouterLink
-          exact
-          active-class="active"
-          to="/">Home
-        </RouterLink>
-        <RouterLink
-          active-class="active"
-          to="/about">About
-        </RouterLink>
-      </nav>
-      <Themer :theme.sync="theme"/>
+      <Navigation>
+        <template #extras>
+          <Themer :theme.sync="theme"/>
+        </template>
+      </Navigation>
     </div>
     <RouterView/>
   </div>
@@ -22,6 +15,7 @@
 
 <script>
   import Themer from '@/components/Themer/Themer'
+  import Navigation from '@/components/Navigation/Navigation'
 
   /**
    * This is the root level App component.
@@ -29,6 +23,7 @@
   export default {
     name: 'App',
     components: {
+      Navigation,
       Themer
     },
     data: function () {
