@@ -1,0 +1,10 @@
+grid()
+  display grid
+
+  grid-template-columns repeat(12, 1fr)
+
+  .pane
+    grid-column span 6
+
+    +tablet-portrait-down()
+      grid-column span 12
