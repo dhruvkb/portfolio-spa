@@ -4,6 +4,8 @@
 .themer
   button-reset()
 
+  position relative
+
   display inline-flex
   align-items center
   justify-content center
@@ -13,10 +15,6 @@
   box-sizing border-box
   height $height-navbar
   width $height-navbar
-
-  border-top-width $space-smaller
-  border-top-style solid
-  border-top-color transparent
 
   transition-property color, background-color, border-top-color
   transition-duration $duration-standard
@@ -28,5 +26,31 @@
 
     color var(--background-opposite)
 
-  &:hover
-    border-top-color var(--background-opposite)
+  &::after
+    position absolute
+    top 0
+    left 50%
+
+    width 0
+    height $space-smaller
+
+    content ''
+
+    background-color var(--background-opposite)
+
+    transition-property width, left, background-color
+    transition-duration $duration-standard
+
+  &:hover,
+  &:focus
+    &::after
+      left 0
+
+      width 100%
+
+  &:focus
+    outline none
+
+  &::-moz-focus-inner
+    border none
+
