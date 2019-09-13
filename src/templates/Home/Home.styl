@@ -40,9 +40,15 @@
             &::after
               vertical-align super
 
-              content '\26AB'
+              content '•'
 
-              font-size $size-small
+          &:focus
+            outline none
+
+            text-decoration-style solid
+
+          &::-moz-focus-inner
+            border none
 
         .run-on
           color var(--secondary-content)
