@@ -52,10 +52,13 @@
           text-decoration underline
           text-decoration-style dotted
 
+          &::after
+            vertical-align super
+
+            content ' '
+
           &.active
             &::after
-              vertical-align super
-
               content '•'
 
           &:focus
