@@ -24,6 +24,22 @@
         align-items center
         justify-content center
 
+      .rotate-enter,
+      .rotate-leave-to
+        transform rotateY(-90deg)
+
+      .rotate-enter-active,
+      .rotate-leave-active
+        transform-style preserve-3d
+
+        transition-property transform
+        transition-duration $duration-short
+        transition-timing-function linear
+
+      .rotate-enter-to,
+      .rotate-leave
+        transform rotateY(0deg)
+
       &.right
         .role
           button-reset()

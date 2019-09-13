@@ -4,8 +4,11 @@
       <div class="left pane">
         <RouterLink
           :to="role">
-          <Memoji
-            :role="role"/>
+          <transition name="rotate" mode="out-in">
+            <Memoji
+              :key="role"
+              :role="role"/>
+          </transition>
         </RouterLink>
       </div>
       <div class="right pane">
