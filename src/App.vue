@@ -1,7 +1,5 @@
 <template>
-  <div
-    :class="appClasses"
-    id="app">
+  <div id="app">
     <div class="navigation">
       <Navigation>
         <template #extras>
@@ -9,7 +7,9 @@
         </template>
       </Navigation>
     </div>
-    <RouterView/>
+    <transition :name="transitionName" mode="out-in">
+      <RouterView/>
+    </transition>
   </div>
 </template>
 
@@ -28,23 +28,42 @@
     },
     data: function () {
       return {
-        theme: 'dark'
+        theme: null,
+        transitionName: null
       }
     },
     computed: {
       /**
-       * _the classes to apply on the entire #app div_
+       * _the classes to apply on the entire DOM root_
        */
-      appClasses: function () {
+      htmlClasses: function () {
         return [
           `${this.theme}-themed`
         ]
+      }
+    },
+    watch: {
+      $route: function (to, from) {
+        if (to.name && from.name) {
+          let routes = ['home', 'developer', 'writer', 'about']
+          let toIndex = routes.indexOf(to.name)
+          let fromIndex = routes.indexOf(from.name)
+
+          this.transitionName = toIndex > fromIndex ? 'slide-right' : 'slide-left'
+        } else {
+          this.transitionName = null
+        }
+      },
+      theme: function (to) {
+        document.documentElement.className = this.htmlClasses.join('')
       }
     },
     mounted: function () {
       if (localStorage.theme) {
         // Switch to last used theme
         this.theme = localStorage.theme
+      } else {
+        this.theme = 'dark'
       }
     }
   }

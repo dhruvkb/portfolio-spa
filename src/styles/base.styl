@@ -2,13 +2,23 @@
  * Page level resets
  */
 
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,600&display=swap');
 
 @import "~@/styles/tokens.styl"
+@import "~@/styles/theme.styl"
 
 :root
+  theme()
+
   font-family "IBM Plex Sans", sans-serif
   font-size 16px
+
+  line-height 1.4
+
+  background-color var(--background)
+
+  transition-property background-color
+  transition-duration $duration-standard
 
   *
     // Reduce sudden change when changing theme
@@ -20,3 +30,6 @@
 
   strong
     font-weight $weight-semibold
+
+  ul
+    padding-left $space-normal
