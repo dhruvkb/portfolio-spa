@@ -1,11 +1,11 @@
 <template>
-  <div
+  <component
     :is="tag"
     class="heading"
     :class="headingClasses">
     <!-- @slot Content goes here -->
     <slot/>
-  </div>
+  </component>
 </template>
 
 <script>
