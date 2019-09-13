@@ -2,8 +2,11 @@
   <div class="home">
     <main>
       <div class="left pane">
-        <Memoji
-          :role="role"/>
+        <RouterLink
+          :to="role">
+          <Memoji
+            :role="role"/>
+        </RouterLink>
       </div>
       <div class="right pane">
         Hello there! I'm
@@ -31,7 +34,8 @@
         <p>
           who, with utmost <strong>love</strong> and <strong>passion</strong>,
           <br/>
-          composes code and documentation
+          composes code, documentation and easter eggs
+          <br/>
           <span
             class="run-on"
             title="Such as movies, music and memes!">
