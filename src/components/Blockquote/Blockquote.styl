@@ -1,0 +1,40 @@
+@import "~@/styles/tokens.styl"
+@import "~@/styles/colors.styl"
+
+.blockquote
+  colors('--blockquote-color')
+
+  display flex
+  align-items center
+
+  border-left 1px solid var(--blockquote-color)
+
+  margin 0
+  margin-left $space-normal
+
+  .visual
+    background-color var(--background)
+
+    padding $space-small
+
+    transform translateX(-50%)
+
+    .icon
+      color var(--blockquote-color)
+
+  .content
+    margin-top $space-normal
+    margin-bottom $space-normal
+    margin-left '-%s' % $space-normal
+
+    .quotation
+      font-style italic
+
+      margin-bottom $space-smaller
+
+    .citation
+      display block
+
+      text-align right
+
+      font-style normal
