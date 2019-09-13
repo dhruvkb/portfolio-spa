@@ -3,11 +3,14 @@
  */
 
 @import "~@/styles/media.styl"
+@import "~@/styles/tokens.styl"
 
 grid()
   display grid
 
   grid-template-columns repeat(12, 1fr)
+
+  gap $space-large
 
   .pane
     grid-column span 6
