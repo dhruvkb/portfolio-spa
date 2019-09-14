@@ -13,12 +13,12 @@ export default new Router({
     {
       path: '/developer',
       name: 'developer',
-      component: () => import(/* webpackChunkName: "about" */ '@/templates/Developer/Developer')
+      component: () => import(/* webpackChunkName: "developer" */ '@/templates/Developer/Developer')
     },
     {
       path: '/writer',
       name: 'writer',
-      component: () => import(/* webpackChunkName: "about" */ '@/templates/Writer/Writer')
+      component: () => import(/* webpackChunkName: "writer" */ '@/templates/Writer/Writer')
     },
     {
       path: '/about',
