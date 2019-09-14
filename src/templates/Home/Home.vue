@@ -11,6 +11,7 @@
           </transition>
         </RouterLink>
       </div>
+
       <div class="right pane">
         Hello there! I'm
         <Heading
@@ -47,6 +48,7 @@
         </p>
       </div>
     </main>
+
     <footer title="Wonderful to meet you!">
       <span class="face">
         ( ˇ ▽ ˇ )
