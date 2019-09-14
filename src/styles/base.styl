@@ -20,6 +20,17 @@
   transition-property background-color
   transition-duration $duration-standard
 
+  scrollbar-color var(--background-highlights) var(--background)
+
+  ::-webkit-scrollbar
+    width $space-small
+
+  ::-webkit-scrollbar-track
+    background-color var(--background)
+
+  ::-webkit-scrollbar-thumb
+    background-color var(--background-highlights)
+
   *
     // Reduce sudden change when changing theme
     transition-property color, background-color
