@@ -1,7 +1,37 @@
-@import "~@/styles/tokens.styl"
 @import "~@/styles/page.styl"
+@import "~@/styles/grid.styl"
+@import "~@/styles/media.styl"
 
 .about
-  page()
+  main
+    +tablet-portrait-up()
+      height 100vh
 
-  text-align center
+      overflow-y scroll
+      scroll-snap-type y mandatory
+
+      .section
+        page()
+
+        scroll-snap-align start
+
+        display flex
+        flex-direction column
+        justify-content center
+        align-items center
+
+        &#intro
+          .content
+            max-width 48em
+
+        &#bites,
+        &#favs
+          .grid
+            grid()
+
+            .pane
+              width 23em
+
+
+    +phone-only()
+      page()
