@@ -15,15 +15,15 @@
           </p>
           <p>
             I was born in the heart of <strong>Mumbai</strong>. When you do that
-            you start to enjoy silent solitude. Couple that with an introvert
-            personality and you get me.
+            you start to enjoy silent solitude. Couple that with an
+            <strong>introvert personality</strong> and you get me.
           </p>
           <p>
-            From an early age, I been in love with computers, so much so that
-            working with them is both my career and my wind down. From my dad's
-            self-assembled Pentium III with a chonky CRT to the finest ThinkPad
-            of it's time, there's always been a computer no further than an
-            arm's distance from me.
+            From an early age, I've been <strong>in love with
+            computers</strong>, so much so that working with them is both my
+            career and my wind down. From my dad's self-assembled Pentium III
+            with a chonky CRT to the finest ThinkPad of it's time, there's
+            always been a computer no further than an arm's distance from me.
           </p>
         </div>
       </section>
@@ -52,16 +52,16 @@
               Opinions
             </Heading>
             <ul>
-              <li>Coffee > tea</li>
-              <li>Dark theme > light theme</li>
-              <li>Mozilla Firefox > Google Chrome</li>
+              <li><strong>Coffee</strong> > tea</li>
+              <li><strong>Dark theme</strong> > light theme</li>
+              <li><strong>Mozilla Firefox</strong> > Google Chrome</li>
               <li>
-                Fedora > any OS <em>but</em>
-                iOS > Android
+                <strong>Fedora</strong> > any OS <em>but</em>&nbsp;
+                <strong>iOS</strong> > Android
               </li>
               <li>
-                ThinkPads > Macbooks <em>but</em>
-                iPhones > Pixels
+                <strong>ThinkPads</strong> > Macbooks <em>but</em>&nbsp;
+                <strong>iPhones</strong> > Pixels
               </li>
             </ul>
           </div>
