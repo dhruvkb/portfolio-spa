@@ -31,6 +31,9 @@
 
   library.add(faQuoteLeft, faCircle)
 
+  /**
+   * This component styles a quote and its source.
+   */
   export default {
     name: 'Blockquote',
     components: {
@@ -39,10 +42,27 @@
     mixins: [
       Colored
     ],
+    props: {
+      /**
+       * _the orientation of the blockquote_
+       *
+       * ∈ {`'horizontal'`, `'vertical'`}
+       */
+      orientation: {
+        type: String,
+        default: 'horizontal',
+        validator: val => ['horizontal', 'vertical'].includes(val)
+      }
+    },
     computed: {
+      /**
+       * _the classes to apply on the blockquote_
+       */
       blockquoteClasses: function () {
         return [
-          ...this.coloredClasses
+          ...this.coloredClasses,
+
+          `${this.orientation}ly-oriented`
         ]
       }
     }

@@ -5,9 +5,14 @@
   colors('--blockquote-color')
 
   display flex
-  align-items center
 
-  border-left 1px solid var(--blockquote-color)
+  &.vertically-oriented
+    flex-direction column
+
+  &.horizontally-oriented
+    flex-direction row
+
+  align-items center
 
   margin 0
   margin-left $space-normal
@@ -17,15 +22,13 @@
 
     padding $space-small
 
-    transform translateX(-50%)
+    transform var(--visual-transform)
 
     .icon
       color var(--blockquote-color)
 
   .content
-    margin-top $space-normal
-    margin-bottom $space-normal
-    margin-left '-%s' % $space-normal
+    margin $space-normal
 
     .quotation
       font-style italic
@@ -38,3 +41,25 @@
       text-align right
 
       font-style normal
+
+  &.vertically-oriented
+    border-top 1px solid var(--blockquote-color)
+    border-bottom 1px solid var(--blockquote-color)
+
+  &.horizontally-oriented
+    border-left 1px solid var(--blockquote-color)
+    border-right 1px solid var(--blockquote-color)
+
+  &.vertically-oriented
+    .visual
+      transform translateY(-50%)
+
+    .content
+      margin-top '-%s' % $space-normal
+
+  &.horizontally-oriented
+    .visual
+      transform translateX(-50%)
+
+    .content
+      margin-left '-%s' % $space-normal
