@@ -17,7 +17,7 @@
       </Heading>
     </RouterLink>
 
-    <nav>
+    <nav class="links">
       <!-- @slot Content goes here -->
       <slot>
         <NavigationLink
