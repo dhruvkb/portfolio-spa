@@ -26,7 +26,7 @@
       Navigation,
       Themer
     },
-    data: function () {
+    data () {
       return {
         theme: null,
         transitionName: null
@@ -36,14 +36,17 @@
       /**
        * _the classes to apply on the entire DOM root_
        */
-      htmlClasses: function () {
+      htmlClasses () {
         return [
           `${this.theme}-themed`
         ]
       }
     },
     watch: {
-      $route: function (to, from) {
+      /**
+       * _the action to undertake when $route changes_
+       */
+      $route (to, from) {
         if (to.name && from.name) {
           let routes = ['home', 'portfolio', 'about']
           let toIndex = routes.indexOf(to.name)
@@ -54,11 +57,14 @@
           this.transitionName = null
         }
       },
-      theme: function (to) {
+      /**
+       * _the action to undertake when theme changes_
+       */
+      theme () {
         document.documentElement.className = this.htmlClasses.join('')
       }
     },
-    mounted: function () {
+    mounted () {
       if (localStorage.theme) {
         // Switch to last used theme
         this.theme = localStorage.theme

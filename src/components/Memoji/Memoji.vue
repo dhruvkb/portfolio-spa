@@ -1,9 +1,10 @@
 <template>
-  <img class="memoji"
-       :class="memojiClasses"
-       :src="source"
-       alt="Dhruv Bhanushali"
-       :title="title">
+  <img
+    class="memoji"
+    :class="memojiClasses"
+    :src="source"
+    alt="Dhruv Bhanushali"
+    :title="title">
 </template>
 
 <script>
@@ -48,7 +49,7 @@
       /**
        * _the classes to use on the memoji_
        */
-      memojiClasses: function () {
+      memojiClasses () {
         return [
           ...this.scaledClasses,
 
@@ -61,20 +62,16 @@
       /**
        * _the imported PNG source of the memoji_
        */
-      source: function () {
+      source () {
         return require(`@/assets/memoji/${this.role}.png`)
       },
-      title: function () {
-        let title
-        switch (this.role) {
-          case 'developer':
-            title = 'Gotta put on my thinking "red hat".'
-            break
-          case 'writer':
-            title = 'It\'s me, except I\'m in "3D".'
-            break
-        }
-        return title
+      /**
+       * _the appropriate title text for the memoji_
+       */
+      title () {
+        return this.role === 'developer'
+          ? 'Gotta put on my thinking "red hat".'
+          : 'It\'s me, except I\'m in "3D".'
       }
     }
   }

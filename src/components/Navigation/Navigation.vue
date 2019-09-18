@@ -57,7 +57,7 @@
       Heading,
       NavigationLink
     },
-    data: function () {
+    data () {
       return {
         homeLink: {
           to: '/',

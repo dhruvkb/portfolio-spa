@@ -7,6 +7,7 @@
       <span class="text">
         {{ link.text }}
       </span>
+
       <FontAwesomeIcon
         class="icon"
         :icon="['fas', link.icon]"

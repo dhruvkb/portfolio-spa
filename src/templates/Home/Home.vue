@@ -72,7 +72,7 @@
       Heading,
       Memoji
     },
-    data: function () {
+    data () {
       let random = Math.random()
       return {
         role: random < 0.5 ? 'writer' : 'developer'

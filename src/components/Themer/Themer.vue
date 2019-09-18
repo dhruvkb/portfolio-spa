@@ -41,7 +41,7 @@
       /**
        * _the theme variant opposite to the current one_
        */
-      otherTheme: function () {
+      otherTheme () {
         if (this.theme === 'light') {
           return 'dark'
         } else {
@@ -51,7 +51,7 @@
       /**
        * _the message indicating the action the component will perform_
        */
-      helpText: function () {
+      helpText () {
         return `Switch to the ${this.otherTheme} theme.`
       }
     },
@@ -61,7 +61,7 @@
        *
        * This changes the theme of the app to the opposite of the current one.
        */
-      toggleTheme: function () {
+      toggleTheme () {
         // Persist theme for future visits
         localStorage.theme = this.otherTheme
 

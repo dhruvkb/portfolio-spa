@@ -36,13 +36,13 @@
       /**
        * _the heading tag from `h1` to `h6` to use for the component_
        */
-      tag: function () {
+      tag () {
         return `h${this.level}`
       },
       /**
        * _the classes to use on the heading_
        */
-      headingClasses: function () {
+      headingClasses () {
         return [
           ...this.coloredClasses
         ]

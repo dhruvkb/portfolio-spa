@@ -6,11 +6,13 @@
         :icon="['fas', 'quote-left']"
         fixed-width/>
     </div>
+
     <div class="content">
       <div class="quotation">
         <!-- @slot Content goes here -->
         <slot/>
       </div>
+
       <cite class="citation">
         <!-- @slot Citation goes here -->
         <slot name="citation"/>
@@ -58,7 +60,7 @@
       /**
        * _the classes to apply on the blockquote_
        */
-      blockquoteClasses: function () {
+      blockquoteClasses () {
         return [
           ...this.coloredClasses,
 

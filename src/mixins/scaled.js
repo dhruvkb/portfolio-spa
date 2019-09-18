@@ -19,7 +19,10 @@ export default {
     }
   },
   computed: {
-    scaledClasses: function () {
+    /**
+     * _the classes describing the size of a component_
+     */
+    scaledClasses () {
       let classes = []
       if (this.size) {
         classes.push(`${this.size}-sized`)
