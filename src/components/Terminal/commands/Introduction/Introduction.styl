@@ -1,0 +1,17 @@
+@import "~@/styles/tokens.styl"
+@import "~@/styles/media.styl"
+
+.intro
+  .ascii-art
+    font-size $size-small
+    font-weight $weight-semibold
+
+    margin 0
+
+    +tablet-portrait-up()
+      &.miniaturised
+        display none
+
+    +phone-only()
+      &.full-sized
+        display none
