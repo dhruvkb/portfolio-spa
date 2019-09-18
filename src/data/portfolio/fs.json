@@ -1,0 +1,102 @@
+{
+  "name": "~",
+  "type": "folder",
+  "children": [
+    {
+      "name": "positions",
+      "type": "folder",
+      "children": [
+        {
+          "name": "ctc_at_img.md",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "internships",
+      "type": "folder",
+      "children": [
+        {
+          "name": "software_at_cc.md",
+          "type": "file"
+        },
+        {
+          "name": "infrastructure_at_he.md",
+          "type": "file"
+        },
+        {
+          "name": "software_at_he.md",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "open_source",
+      "type": "folder",
+      "children": [
+        {
+          "name": "vocabulary.js",
+          "type": "file"
+        },
+        {
+          "name": "omniport_backend.py",
+          "type": "file"
+        },
+        {
+          "name": "omniport_infrastructure.yml",
+          "type": "file"
+        },
+        {
+          "name": "omniport_documentation.rst",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "projects",
+      "type": "folder",
+      "children": [
+        {
+          "name": "rethink.md",
+          "type": "file"
+        },
+        {
+          "name": "placement_portal.md",
+          "type": "file"
+        },
+        {
+          "name": "lectut.md",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "writings",
+      "type": "folder",
+      "children": [
+        {
+          "name": "blogs.tex",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "skills",
+      "type": "folder",
+      "children": [
+        {
+          "name": "human_languages.txt",
+          "type": "file"
+        },
+        {
+          "name": "computer_languages.json",
+          "type": "file"
+        },
+        {
+          "name": "computer_software.md",
+          "type": "file"
+        }
+      ]
+    }
+  ]
+}
