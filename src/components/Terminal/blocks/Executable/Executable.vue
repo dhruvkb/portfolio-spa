@@ -12,6 +12,10 @@
 <script>
   import { mapMutations } from 'vuex'
 
+  /**
+   * This block represents a link to an executable command, which can be clicked
+   * with a mouse, instead of keyboard input, to invoke the command.
+   */
   export default {
     name: 'Executable',
     props: {

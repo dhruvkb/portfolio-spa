@@ -12,6 +12,10 @@
 <script>
   import { mapGetters, mapMutations } from 'vuex'
 
+  /**
+   * This block represents a link to a node in the file system, be it a folder
+   * or a file, which can be clicked to either enter or open it respectively.
+   */
   export default {
     name: 'Link',
     props: {
