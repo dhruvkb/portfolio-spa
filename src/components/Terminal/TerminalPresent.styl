@@ -1,0 +1,30 @@
+@import "~@/styles/tokens.styl"
+@import "~@/styles/reset.styl"
+
+.present
+  font inherit
+
+  .prompt-label
+    cursor pointer
+
+    text-decoration underline
+    text-decoration-style dotted
+
+  .command-field
+    reset-control()
+
+    caret-color transparent
+
+    &:focus ~ .caret
+      border none
+
+      border-bottom-width 3px
+      border-bottom-style solid
+      border-bottom-color var(--primary-content)
+
+  .caret
+    position relative
+
+    border-width 1px
+    border-style solid
+    border-color var(--secondary-content)

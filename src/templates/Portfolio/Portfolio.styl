@@ -1,0 +1,12 @@
+@import "~@/styles/page.styl"
+@import "~@/styles/media.styl"
+
+.portfolio
+  main
+    +tablet-portrait-up()
+      height 100vh
+
+      overflow-y scroll
+
+    +phone-only()
+      page()
