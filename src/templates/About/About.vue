@@ -54,6 +54,14 @@
             <ul>
               <li><strong>Coffee</strong> > tea</li>
               <li><strong>Dark theme</strong> > light theme</li>
+              <li>
+                <strong>Solarized</strong> >
+                Monokai, One, Base 16 <em>etc.</em>
+              </li>
+              <li>
+                <strong>IDE</strong> > editor <em>while</em>&nbsp;
+                <strong>VS Code</strong> > any other editor
+              </li>
               <li><strong>Mozilla Firefox</strong> > Google Chrome</li>
               <li>
                 <strong>Fedora</strong> > any OS <em>but</em>&nbsp;
