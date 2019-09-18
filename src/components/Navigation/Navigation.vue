@@ -38,8 +38,7 @@
   import { library } from '@fortawesome/fontawesome-svg-core'
   import {
     faHome,
-    faCode,
-    faPenNib,
+    faCubes,
     faUser
   } from '@fortawesome/free-solid-svg-icons'
 
@@ -48,8 +47,7 @@
 
   library.add(
     faHome,
-    faCode,
-    faPenNib,
+    faCubes,
     faUser
   )
 
@@ -70,15 +68,9 @@
         },
         links: [
           {
-            to: '/developer',
-            text: 'Software developer',
-            icon: 'code',
-            isExact: false
-          },
-          {
-            to: '/writer',
-            text: 'Technical writer',
-            icon: 'pen-nib',
+            to: '/portfolio',
+            text: 'Portfolio',
+            icon: 'cubes',
             isExact: false
           },
           {

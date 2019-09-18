@@ -11,14 +11,9 @@ export default new Router({
       component: () => import(/* webpackChunkName: "home" */ '@/templates/Home/Home')
     },
     {
-      path: '/developer',
-      name: 'developer',
-      component: () => import(/* webpackChunkName: "developer" */ '@/templates/Developer/Developer')
-    },
-    {
-      path: '/writer',
-      name: 'writer',
-      component: () => import(/* webpackChunkName: "writer" */ '@/templates/Writer/Writer')
+      path: '/portfolio/:dir([a-z_]*)?',
+      name: 'portfolio',
+      component: () => import(/* webpackChunkName: "portfolio" */ '@/templates/Portfolio/Portfolio')
     },
     {
       path: '/about',

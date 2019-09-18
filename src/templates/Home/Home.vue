@@ -2,8 +2,7 @@
   <div class="home">
     <main>
       <div class="left pane">
-        <RouterLink
-          :to="role">
+        <RouterLink to="/portfolio">
           <transition name="rotate" mode="out-in">
             <Memoji
               :key="role"
