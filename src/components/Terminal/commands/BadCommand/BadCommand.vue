@@ -8,7 +8,7 @@
       Command <strong>bad</strong> is not for public use.
     </template>
 
-    Try <Executable :command="helpCommand"/>.
+    Try <Executable :command="altCommand"/>.
   </div>
 </template>
 
@@ -35,11 +35,20 @@
       }
     },
     data () {
+      let name = 'help'
+      let command = mapping[name]
+      let description = command.description
+      if (command.args && !command.args.includes('[')) {
+        command = `${command.name} ${command.args}`
+      } else {
+        command = command.name
+      }
+
       return {
-        helpCommand: {
-          name: 'help',
-          command: 'help',
-          description: mapping.help.description
+        altCommand: {
+          name: name,
+          command: command,
+          description: description
         }
       }
     },
