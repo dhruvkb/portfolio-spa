@@ -1,29 +1,35 @@
 <template>
   <div class="tree">
-    <span
-      v-for="index in level"
-      :key="index">
-      <!-- TODO Generalise this algorithm to work on more than two levels -->
-      <template v-if="index === level">
-        {{ isLastChild ? '└' : '├'}}──
-      </template>
-      <template v-else>
-        {{ isParentLastChild ? '&nbsp;': '│'}}&nbsp;&nbsp;
-      </template>
-    </span>
+    <template v-if="isFound">
+      <span
+        v-for="index in level"
+        :key="index">
+        <!-- TODO Generalise this algorithm to work on more than two levels -->
+        <template v-if="index === level">
+          {{ isLastChild ? '└' : '├'}}──
+        </template>
+        <template v-else>
+          {{ isParentLastChild ? '&nbsp;': '│'}}&nbsp;&nbsp;
+        </template>
+      </span>
 
-    <Link :node="computedNode"/>
+      <Link :node="node"/>
 
-    <tree
-      v-for="child in computedNode.children"
-      :node="child"
-      :level="level + 1"
-      :key="child.name"/>
+      <tree
+        v-for="child in node.children"
+        :args="[]"
+        :passed-node="child"
+        :level="level + 1"
+        :key="child.name"/>
+    </template>
+    <template v-else>
+      <strong>{{ args[0] }}</strong> is not a valid directory.
+    </template>
   </div>
 </template>
 
 <script>
-  import { mapState } from 'vuex'
+  import { mapState, mapGetters } from 'vuex'
 
   import Link from '@/components/Terminal/blocks/Link/Link'
 
@@ -37,9 +43,16 @@
     },
     props: {
       /**
+       * _the arguments passed to the command_
+       */
+      args: {
+        type: Array,
+        required: true
+      },
+      /**
        * _the node below which the tree is to be rendered_
        */
-      node: {
+      passedNode: {
         type: Object
       },
       /**
@@ -52,30 +65,50 @@
     },
     computed: {
       /**
-       * _the node passed to the component, falling back to the root node_
+       * _the directory whose contents are to be shown_
        */
-      computedNode () {
-        return this.node || this.tree.root
+      dir () {
+        if (this.args.length === 0) {
+          if (this.passedNode) {
+            return this.passedNode
+          } else {
+            return this.currentNode
+          }
+        } else {
+          return this.nodeLocatedAt(this.args[0].replace(/\/$/, ''))
+        }
+      },
+      /**
+       * _whether a node matching the path was found_
+       */
+      isFound () {
+        return this.node
       },
       /**
        * _whether this node is the last child of its parent_
        */
       isLastChild () {
-        let siblings = this.computedNode.parent.children
-        return siblings.indexOf(this.computedNode) === siblings.length - 1
+        let siblings = this.node.parent.children
+        return siblings.indexOf(this.node) === siblings.length - 1
       },
       /**
        * _whether the parent of this node is the last child of its parent_
        */
       isParentLastChild () {
-        let parent = this.computedNode.parent
+        let parent = this.node.parent
         let parentSiblings = parent.parent.children
         return parentSiblings.indexOf(parent) === parentSiblings.length - 1
       },
 
       ...mapState('terminal', [
-        'tree'
+        'currentNode'
+      ]),
+      ...mapGetters('terminal', [
+        'nodeLocatedAt'
       ])
+    },
+    created () {
+      this.node = this.dir
     }
   }
 </script>
