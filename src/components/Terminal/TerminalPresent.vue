@@ -47,7 +47,11 @@
     data () {
       return {
         command: '',
-        caretPosition: 0
+        caretPosition: 0,
+        traversal: {
+          index: 0,
+          backup: ''
+        }
       }
     },
     computed: {
@@ -63,17 +67,35 @@
       },
 
       ...mapState('terminal', [
-        'currentNode'
+        'currentNode',
+        'commandHistory'
       ])
     },
     methods: {
       traverseHistoryUp () {
-        // TODO
-        console.log('Request to traverse up')
+        if (this.traversal.index === this.commandHistory.length) {
+          return
+        }
+
+        if (this.traversal.index === 0) {
+          this.traversal.backup = this.command
+        }
+        this.traversal.index++
+        let index = this.commandHistory.length - this.traversal.index
+        this.command = this.commandHistory[index].command
       },
       traverseHistoryDown () {
-        // TODO
-        console.log('Request to traverse down')
+        if (this.traversal.index === 0) {
+          return
+        }
+
+        this.traversal.index--
+        if (this.traversal.index === 0) {
+          this.command = this.traversal.backup
+        } else {
+          let index = this.commandHistory.length - this.traversal.index
+          this.command = this.commandHistory[index].command
+        }
       },
       autocompleteCommand () {
         // TODO
