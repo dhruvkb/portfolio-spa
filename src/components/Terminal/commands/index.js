@@ -31,42 +31,53 @@ export const components = {
 
 export const mapping = {
   bad: {
+    name: 'bad',
     component: 'BadCommand',
     description: 'See that a given command does not exist.',
     isHidden: true
   },
   cd: {
+    name: 'cd',
+    args: 'dirname',
     component: 'ChangeDirectory',
-    description: 'Switch to directory \'dirname\'.',
-    args: 'dirname'
+    description: 'Switch to directory \'dirname\'.'
   },
   cat: {
+    name: 'cat',
+    args: 'filename',
     component: 'Concatenate',
-    description: 'Read the contents of file \'filename\'.',
-    args: 'filename'
+    description: 'Read the contents of file \'filename\'.'
   },
   help: {
+    name: 'help',
+    args: '[--keyboard]',
     component: 'Help',
-    description: 'Get some help with using the CLI.',
-    args: '[--keyboard]'
+    description: 'Get some help with using the CLI.'
   },
   intro: {
+    name: 'intro',
     component: 'Introduction',
     description: 'Enjoy the introductory ASCII art.'
   },
   ls: {
+    name: 'ls',
+    args: '[dirname]',
     component: 'List',
-    description: 'List immediate contents of the current directory.'
+    description: 'List immediate contents of directory \'dirname\'.'
   },
   tree: {
+    name: 'tree',
+    args: '[dirname]',
     component: 'Tree',
-    description: 'Recursively list directories and contents.'
+    description: 'Recursively list contents of directory \'dirname\'.'
   },
   whoami: {
+    name: 'whoami',
     component: 'WhoAmI',
     description: 'Get your own username.'
   },
   pwd: {
+    name: 'pwd',
     component: 'WorkingDirectory',
     description: 'Remember the currently open directory.'
   }
