@@ -9,59 +9,53 @@ const state = {
 }
 
 const getters = {
-  nodeNamed: function (state) {
-    return function (nodeName) {
-      let nodeInQuestion = null
+  nodeNamed: state => nodeName => {
+    let nodeInQuestion = null
 
-      state.tree.traverseBreadthFirst(node => {
-        if (node.name === nodeName || node.alternativeName === nodeName) {
-          nodeInQuestion = node
-        }
-      })
-
-      return nodeInQuestion
-    }
-  },
-  nodeLocatedAt: function (state) {
-    return function (path) {
-      let nodeInQuestion = state.currentNode
-      let pathEntities = path.split('/')
-
-      for (let i = 0; i < pathEntities.length; i++) {
-        let entity = pathEntities[i]
-
-        if (entity === '~') {
-          nodeInQuestion = state.tree.root
-        } else if (entity === '.') {
-          // Do nothing as . refers to current directory
-        } else if (entity === '..') {
-          nodeInQuestion = nodeInQuestion.parent
-        } else {
-          let nextNode
-          for (let j = 0; j < nodeInQuestion.children.length; j++) {
-            let child = nodeInQuestion.children[j]
-            if (child.name === entity || child.alternativeName === entity) {
-              nextNode = child
-            }
-          }
-          if (nextNode === undefined) {
-            return null
-          } else {
-            nodeInQuestion = nextNode
-          }
-        }
+    state.tree.traverseBreadthFirst(node => {
+      if (node.name === nodeName || node.alternativeName === nodeName) {
+        nodeInQuestion = node
       }
+    })
 
-      return nodeInQuestion
-    }
+    return nodeInQuestion
   },
-  absolutePathTo: function (state, getters) {
-    return function (node) {
-      if (node.name === '~') {
-        return '~'
+  nodeLocatedAt: state => path => {
+    let nodeInQuestion = state.currentNode
+    let pathEntities = path.split('/')
+
+    for (let i = 0; i < pathEntities.length; i++) {
+      let entity = pathEntities[i]
+
+      if (entity === '~') {
+        nodeInQuestion = state.tree.root
+      } else if (entity === '.') {
+        // Do nothing as . refers to current directory
+      } else if (entity === '..') {
+        nodeInQuestion = nodeInQuestion.parent
       } else {
-        return `${getters.absolutePathTo(node.parent)}/${node.name}`
+        let nextNode
+        for (let j = 0; j < nodeInQuestion.children.length; j++) {
+          let child = nodeInQuestion.children[j]
+          if (child.name === entity || child.alternativeName === entity) {
+            nextNode = child
+          }
+        }
+        if (nextNode === undefined) {
+          return null
+        } else {
+          nodeInQuestion = nextNode
+        }
       }
+    }
+
+    return nodeInQuestion
+  },
+  absolutePathTo: (state, getters) => node => {
+    if (node.name === '~') {
+      return '~'
+    } else {
+      return `${getters.absolutePathTo(node.parent)}/${node.name}`
     }
   }
 }
@@ -69,19 +63,19 @@ const getters = {
 const actions = {}
 
 const mutations = {
-  resetState: function (state) {
+  resetState: state => {
     state.tree = null
     state.currentNode = null
     state.commandHistory = []
   },
-  setTree: function (state, payload) {
+  setTree: (state, payload) => {
     state.tree = generateTree(payload.fs)
     state.currentNode = state.tree.root
   },
-  setCurrentNode: function (state, payload) {
+  setCurrentNode: (state, payload) => {
     state.currentNode = payload.currentNode
   },
-  runCommand: function (state, payload) {
+  runCommand: (state, payload) => {
     let command = payload.command
 
     let directory = state.currentNode.name
