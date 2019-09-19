@@ -26,7 +26,7 @@
       These commands are supported. Hover over them for more info.
       <ul class="command-list">
         <li
-          v-for="(value, key, index) in mapping"
+          v-for="(value, key, index) in filteredMapping"
           :key="index">
           <span
             class="green-colored"
@@ -61,17 +61,24 @@
         type: Array
       }
     },
-    data () {
-      return {
-        mapping
-      }
-    },
     computed: {
       /**
        * _whether help pertaining to the use of the keyboard was requested_
        */
       isKeyboardMode () {
         return this.args && this.args.includes('--keyboard')
+      },
+      /**
+       * _the mapping object excluding commands that chose to be hidden_
+       */
+      filteredMapping () {
+        let filteredMapping = {}
+        Object.keys(mapping).forEach(key => {
+          if (!mapping[key].isHidden) {
+            filteredMapping[key] = mapping[key]
+          }
+        })
+        return filteredMapping
       }
     }
   }

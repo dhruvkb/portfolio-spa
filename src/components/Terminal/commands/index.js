@@ -32,7 +32,8 @@ export const components = {
 export const mapping = {
   bad: {
     component: 'BadCommand',
-    description: 'See that a given command does not exist.'
+    description: 'See that a given command does not exist.',
+    isHidden: true
   },
   cd: {
     component: 'ChangeDirectory',
