@@ -21,14 +21,64 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="<%= BASE_URL %>webfont/space_grotesk.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,600&display=swap">
 
     <!-- Icons -->
     <link rel="icon" href="<%= BASE_URL %>favicon.png">
+
+    <!-- Styling for when JS is disabled -->
+    <style>
+      html,
+      body {
+        margin: 0;
+      }
+
+      noscript {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+
+        background-color: #002b36;
+
+        height: 100vh;
+      }
+
+      noscript > h1 {
+        text-align: center;
+
+        color: #dc322f;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 3.1748rem;
+      }
+
+      noscript > p {
+        text-align: center;
+
+        color: #839496;
+        font-family: "IBM Plex Sans", sans-serif;
+      }
+
+      noscript > p > a {
+        color: inherit;
+
+        text-decoration-style: dotted;
+      }
+    </style>
   </head>
 
   <body>
     <noscript>
-      Apologies, but my portfolio needs JavaScript enabled.
+      <h1>
+        Dhruv Bhanushali
+      </h1>
+      <p>
+        Heartfelt apologies, but my portfolio needs JavaScript enabled.
+      </p>
+      <p>
+        Since you're here, wanna see my
+        <a href="https://dhruvkb.github.io/resume">résumé?</a>
+      </p>
     </noscript>
 
     <div id="app"></div>
