@@ -39,7 +39,7 @@
           with utmost <strong>love</strong> and <strong>passion</strong>,
           composes
           <br/>
-          code, documentation, designs and easter eggs
+          code, containers, docs, designs and easter eggs
           <br/>
           <span
             class="run-on"
@@ -77,8 +77,10 @@
     data () {
       let roles = [
         'software developer',
+        'infrastructure architect',
         'technical writer',
         'design dabbler',
+        'open sourcerer',
         'easter eggsmith'
       ]
       return {

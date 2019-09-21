@@ -27,8 +27,10 @@
         default: 'technical_writer',
         validator: val => [
           'software_developer',
+          'infrastructure_architect',
           'technical_writer',
           'design_dabbler',
+          'open_sourcerer',
           'easter_eggsmith'
         ].includes(val)
       },
@@ -76,11 +78,17 @@
           case 'software_developer':
             title = 'Where did I miss a semicolon?'
             break
+          case 'infrastructure_architect':
+            title = 'Containers all the way down!'
+            break
           case 'technical_writer':
             title = 'Whoa, a LaTeX-typeset equation!'
             break
           case 'design_dabbler':
             title = 'Hmmm, how about a pixel to the left?'
+            break
+          case 'open_sourcerer':
+            title = 'Feel free to fork my repository of spells.'
             break
           case 'easter_eggsmith':
             title = '⇧ ⇧ ⇩ ⇩ ⇦ ⇨ ⇦ ⇨ B A!'
