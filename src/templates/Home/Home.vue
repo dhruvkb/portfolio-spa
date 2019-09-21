@@ -76,11 +76,11 @@
     },
     data () {
       let roles = [
-        'software developer',
-        'infrastructure architect',
-        'technical writer',
-        'design dabbler',
         'open sourcerer',
+        'software developer',
+        'technical writer',
+        'infrastructure architect',
+        'design dabbler',
         'easter eggsmith'
       ]
       return {
