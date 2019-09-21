@@ -24,10 +24,12 @@
        */
       role: {
         type: String,
-        default: 'writer',
+        default: 'technical_writer',
         validator: val => [
-          'developer',
-          'writer'
+          'software_developer',
+          'technical_writer',
+          'design_dabbler',
+          'easter_eggsmith'
         ].includes(val)
       },
       /**
@@ -69,9 +71,22 @@
        * _the appropriate title text for the memoji_
        */
       title () {
-        return this.role === 'developer'
-          ? 'Gotta put on my thinking "red hat".'
-          : 'It\'s me, except I\'m in "3D".'
+        let title = 'Look\'s like I\'m missing a dimension.'
+        switch (this.role) {
+          case 'software_developer':
+            title = 'Where did I miss a semicolon?'
+            break
+          case 'technical_writer':
+            title = 'Whoa, a LaTeX-typeset equation!'
+            break
+          case 'design_dabbler':
+            title = 'Hmmm, how about a pixel to the left?'
+            break
+          case 'easter_eggsmith':
+            title = '⇧ ⇧ ⇩ ⇩ ⇦ ⇨ ⇦ ⇨ B A!'
+            break
+        }
+        return title
       }
     }
   }

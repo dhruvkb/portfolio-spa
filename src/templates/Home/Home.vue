@@ -3,41 +3,43 @@
     <main>
       <div class="left pane">
         <RouterLink to="/portfolio">
-          <transition name="rotate" mode="out-in">
-            <Memoji
-              :key="role"
-              :role="role"/>
-          </transition>
+          <div class="avatar-spinner">
+            <transition name="rotate-horizontal" mode="out-in">
+              <Memoji
+                :key="index"
+                :role="roles[index].replace(' ', '_')"/>
+            </transition>
+          </div>
         </RouterLink>
       </div>
 
       <div class="right pane">
         Hello there! I'm
+
         <Heading
           :level="1"
           color="red">
           Dhruv Bhanushali,
         </Heading>
+
         <Heading
+          class="role"
           :level="5"
           color="yellow">
-          a
-          <button
-            class="role"
-            :class="{'active': role === 'developer'}"
-            @click="role = 'developer'">
-            software developer</button>
-          and
-          <button
-            class="role"
-            :class="{'active': role === 'writer'}"
-            @click="role = 'writer'">
-            technical writer</button>
+          <transition name="rotate-vertical" mode="out-in">
+            <div :key="vowel">{{ vowel }}&nbsp;</div>
+          </transition>
+          <transition name="rotate-vertical" mode="out-in">
+            <div :key="index">{{ roles[index] }}</div>
+          </transition>
         </Heading>
+
         <p>
-          who, with utmost <strong>love</strong> and <strong>passion</strong>,
+          who,
+          with utmost <strong>love</strong> and <strong>passion</strong>,
+          composes
           <br/>
-          composes code, documentation and easter eggs
+          code, documentation, designs and easter eggs
           <br/>
           <span
             class="run-on"
@@ -73,10 +75,44 @@
       Memoji
     },
     data () {
-      let random = Math.random()
+      let roles = [
+        'software developer',
+        'technical writer',
+        'design dabbler',
+        'easter eggsmith'
+      ]
       return {
-        role: random < 0.5 ? 'writer' : 'developer'
+        roles,
+        index: 0,
+        interval: 8,
+        updateLooper: null
       }
+    },
+    computed: {
+      vowel () {
+        return [
+          'a',
+          'e',
+          'i',
+          'o',
+          'u'
+        ].includes(this.roles[this.index].charAt(0))
+          ? 'an'
+          : 'a'
+      }
+    },
+    methods: {
+      startLooping () {
+        this.updateLooper = setInterval(() => {
+          this.index = ++this.index % this.roles.length
+        }, this.interval * 1000)
+      }
+    },
+    created: function () {
+      this.startLooping()
+    },
+    beforeDestroy () {
+      clearInterval(this.updateLooper)
     }
   }
 </script>

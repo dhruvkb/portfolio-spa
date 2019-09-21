@@ -24,50 +24,52 @@
         align-items center
         justify-content center
 
-      .rotate-enter,
-      .rotate-leave-to
-        transform rotateY(-90deg)
+        .avatar-spinner
+          perspective 20em
 
-      .rotate-enter-active,
-      .rotate-leave-active
-        transform-style preserve-3d
+          .rotate-horizontal-enter
+            transform rotateY(90deg)
 
-        transition-property transform
-        transition-duration $duration-short
-        transition-timing-function linear
+          .rotate-horizontal-leave-to
+            transform rotateY(-90deg)
 
-      .rotate-enter-to,
-      .rotate-leave
-        transform rotateY(0deg)
+          .rotate-horizontal-enter-active,
+          .rotate-horizontal-leave-active
+            transform-style preserve-3d
+
+            transition-property transform
+            transition-duration $duration-normal
+            transition-timing-function linear
+
+          .rotate-horizontal-enter-to,
+          .rotate-horizontal-leave
+            transform rotateY(0deg)
 
       &.right
         .role
-          reset-control()
+          display flex
+          flex-direction row
 
-          color inherit
-          font inherit
+          perspective 20em
 
-          cursor pointer
+          .rotate-vertical-enter
+            transform rotateX(-90deg)
 
-          text-decoration underline
-          text-decoration-style dotted
+          .rotate-vertical-leave-to
+            transform rotateX(90deg)
 
-          &::after
-            vertical-align super
+          .rotate-vertical-enter-active,
+          .rotate-vertical-leave-active
+            transform-style preserve-3d
+            transform-origin 50% 100%
 
-            content ' '
+            transition-property transform, opacity
+            transition-duration $duration-normal
+            transition-timing-function linear
 
-          &.active
-            &::after
-              content '•'
-
-          &:focus
-            outline none
-
-            text-decoration-style solid
-
-          &::-moz-focus-inner
-            border none
+          .rotate-vertical-enter-to,
+          .rotate-vertical-leave
+            transform rotateX(0deg)
 
         .run-on
           color var(--secondary-content)
