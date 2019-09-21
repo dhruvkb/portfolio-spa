@@ -28,16 +28,18 @@
           perspective 20em
 
           .rotate-horizontal-enter
+            opacity 0
             transform rotateY(90deg)
 
           .rotate-horizontal-leave-to
+            opacity 0
             transform rotateY(-90deg)
 
           .rotate-horizontal-enter-active,
           .rotate-horizontal-leave-active
             transform-style preserve-3d
 
-            transition-property transform
+            transition-property transform, opacity
             transition-duration $duration-normal
             transition-timing-function linear
 
@@ -53,9 +55,11 @@
           perspective 20em
 
           .rotate-vertical-enter
+            opacity 0
             transform rotateX(-90deg)
 
           .rotate-vertical-leave-to
+            opacity 0
             transform rotateX(90deg)
 
           .rotate-vertical-enter-active,
