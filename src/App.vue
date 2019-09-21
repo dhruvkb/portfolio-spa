@@ -48,7 +48,7 @@
        */
       $route (to, from) {
         if (to.name && from.name) {
-          let routes = ['home', 'portfolio', 'about']
+          let routes = ['home', 'portfolio', 'about', 'credits']
           let toIndex = routes.indexOf(to.name)
           let fromIndex = routes.indexOf(from.name)
 

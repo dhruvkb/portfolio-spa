@@ -1,0 +1,49 @@
+@import "~@/styles/page.styl"
+@import "~@/styles/grid.styl"
+@import "~@/styles/media.styl"
+@import "~@/styles/colors.styl"
+
+.credits
+  main
+    +tablet-portrait-up()
+      height 100vh
+
+      overflow-y scroll
+      scroll-snap-type y mandatory
+
+      .section
+        page()
+
+        scroll-snap-align start
+
+        display flex
+        flex-direction column
+        justify-content center
+        align-items center
+
+        &#inspiration
+          .grid
+            grid()
+
+            .pane
+              width 23em
+    +phone-only()
+      page()
+
+    a
+      color inherit
+      text-decoration-style dotted
+
+      &:hover,
+      &:focus
+        text-decoration-style solid
+
+      &:focus
+        outline none
+
+    span
+      colors('--primary-color')
+
+      &[class*="-colored"]
+        color var(--primary-color)
+

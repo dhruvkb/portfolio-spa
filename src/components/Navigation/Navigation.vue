@@ -39,7 +39,8 @@
   import {
     faHome,
     faCubes,
-    faUser
+    faUser,
+    faHandshake
   } from '@fortawesome/free-solid-svg-icons'
 
   import Heading from '@/components/Heading/Heading'
@@ -48,7 +49,8 @@
   library.add(
     faHome,
     faCubes,
-    faUser
+    faUser,
+    faHandshake
   )
 
   export default {
@@ -77,6 +79,12 @@
             to: '/about',
             text: 'About',
             icon: 'user',
+            isExact: false
+          },
+          {
+            to: '/credits',
+            text: 'Credits',
+            icon: 'handshake',
             isExact: false
           }
         ]
