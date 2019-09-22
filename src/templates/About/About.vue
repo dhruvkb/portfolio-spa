@@ -26,6 +26,9 @@
             always been a computer no further than an arm's distance from me.
           </p>
         </div>
+        <footer>
+          <Indicator/>
+        </footer>
       </section>
 
       <section class="section" id="bites">
@@ -74,6 +77,9 @@
             </ul>
           </div>
         </div>
+        <footer>
+          <Indicator/>
+        </footer>
       </section>
 
       <section class="section" id="favs">
@@ -171,6 +177,7 @@
 <script>
   import Heading from '@/components/Heading/Heading'
   import Blockquote from '@/components/Blockquote/Blockquote'
+  import Indicator from '@/components/Indicator/Indicator'
 
   /**
    * This page describes me in deep, verging on excruciating, detail.
@@ -179,7 +186,8 @@
     name: 'About',
     components: {
       Blockquote,
-      Heading
+      Heading,
+      Indicator
     }
   }
 </script>
