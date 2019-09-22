@@ -53,6 +53,11 @@
           command: `cd ~/${startDir}`
         })
       }
+
+      // Show directory structure
+      this.runCommand({
+        command: 'tree .'
+      })
     }
   }
 </script>
