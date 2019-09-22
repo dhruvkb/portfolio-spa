@@ -1,12 +1,10 @@
 <template>
   <div id="app">
-    <div class="navigation">
-      <Navigation>
-        <template #extras>
-          <Themer :theme.sync="theme"/>
-        </template>
-      </Navigation>
-    </div>
+    <Navigation>
+      <template #extras>
+        <Themer :theme.sync="theme"/>
+      </template>
+    </Navigation>
     <transition :name="transitionName" mode="out-in">
       <RouterView/>
     </transition>
