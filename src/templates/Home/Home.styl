@@ -4,7 +4,7 @@
 @import "~@/styles/reset.styl"
 
 .home
-  page()
+  page-with-footer()
 
   position relative
 
@@ -12,8 +12,6 @@
   flex-direction column
   justify-content center
   align-items center
-
-  padding-bottom 'calc(2em + %s)' % $space-normal
 
   main
     grid()
@@ -79,9 +77,6 @@
           color var(--secondary-content)
 
   footer
-    position absolute
-    bottom $space-normal
-
     font-weight $weight-semibold
 
     .wave
