@@ -1,5 +1,7 @@
 <template>
-  <span class="prompt">[guest@dhruvkb {{directory}}]$</span>
+  <span class="prompt">
+    [guest@dhruvkb
+    <span class="directory">{{directory}}</span>]$</span>
 </template>
 
 <script>
