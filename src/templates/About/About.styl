@@ -1,6 +1,7 @@
 @import "~@/styles/page.styl"
 @import "~@/styles/grid.styl"
 @import "~@/styles/media.styl"
+@import "~@/styles/scrollbars.styl"
 
 .about
   main
@@ -9,6 +10,8 @@
 
       overflow-y scroll
       scroll-snap-type y mandatory
+
+      custom-scrollbars()
 
       .section
         page()
