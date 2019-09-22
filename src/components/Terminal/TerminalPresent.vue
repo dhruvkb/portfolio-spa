@@ -107,11 +107,6 @@
             command: this.command.substring(0)
           })
           this.command = ''
-          this.$nextTick(() => {
-            this.$refs.commandField.scrollIntoView({
-              behavior: 'smooth'
-            })
-          })
         }
       },
       cancelCommand () {
@@ -124,6 +119,15 @@
       ...mapMutations('terminal', [
         'runCommand'
       ])
+    },
+    watch: {
+      commandHistory () {
+        this.$nextTick(() => {
+          this.$refs.commandField.scrollIntoView({
+            behavior: 'smooth'
+          })
+        })
+      }
     },
     mounted () {
       this.$refs.commandField.focus()
