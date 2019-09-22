@@ -2,6 +2,21 @@
   <div class="credits">
     <main>
       <section class="section" id="dedication">
+        <Heading
+          :level="4"
+          color="green">
+          <FontAwesomeIcon
+            class="family"
+            :icon="['fas', 'male']"/>
+          <FontAwesomeIcon
+            class="family"
+            size="xs"
+            :icon="['fas', 'child']"
+            fixed-width/>
+          <FontAwesomeIcon
+            class="family"
+            :icon="['fas', 'female']"/>
+        </Heading>
         <p>
           Thank you,
           <span class="blue-colored"><strong>mummy</strong></span>.<br/>
@@ -10,7 +25,11 @@
           Thank you,
           <span class="magenta-colored"><strong>Anu</strong></span>.
         </p>
+        <footer>
+          <Indicator/>
+        </footer>
       </section>
+
       <section class="section" id="inspiration">
         <div class="grid">
           <div class="left pane">
@@ -87,7 +106,11 @@
             </p>
           </div>
         </div>
+        <footer>
+          <Indicator/>
+        </footer>
       </section>
+
       <section class="section" id="old">
         <p>
           My old portfolio, written entirely in vanilla JavaScript is still
@@ -99,11 +122,24 @@
 </template>
 
 <script>
+  import { library } from '@fortawesome/fontawesome-svg-core'
+  import {
+    faMale,
+    faFemale,
+    faChild
+  } from '@fortawesome/free-solid-svg-icons'
+  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
   import Heading from '@/components/Heading/Heading'
+  import Indicator from '@/components/Indicator/Indicator'
+
+  library.add(faMale, faFemale, faChild)
 
   export default {
     name: 'Credits',
     components: {
+      FontAwesomeIcon,
+      Indicator,
       Heading
     }
   }

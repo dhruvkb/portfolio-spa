@@ -2,7 +2,7 @@
   <div class="about">
     <main>
       <section class="section" id="intro">
-        <Blockquote color="blue" orientation="vertical">
+        <Blockquote color="green" orientation="vertical">
           &ldquo;Don't half-ass two things. Whole-ass one thing.&rdquo;
           <template #citation>
             - Ron Swanson
@@ -10,13 +10,15 @@
         </Blockquote>
         <div class="content">
           <p>
-            I'm <strong>Dhruv Bhanushali</strong>, an engineer-physicist from
-            the <strong>Indian Institute of Technology</strong> at Roorkee.
+            On those lines, I'm <strong>Dhruv Bhanushali</strong>, an
+            engineer-physicist from the
+            <strong>Indian Institute of Technology</strong> at Roorkee with a
+            love, passion and knack for full-stack software development.
           </p>
           <p>
-            I was born in the heart of <strong>Mumbai</strong>. When you do that
-            you start to enjoy silent solitude. Couple that with an
-            <strong>introvert personality</strong> and you get me.
+            I was born in the heart of <strong>Mumbai</strong>. Which is why I
+            started to enjoy silent solitude. Couple that with a
+            <strong>deeply introvert personality</strong> and you get me.
           </p>
           <p>
             From an early age, I've been <strong>in love with
