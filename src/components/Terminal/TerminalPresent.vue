@@ -107,7 +107,11 @@
             command: this.command.substring(0)
           })
           this.command = ''
-          this.$refs.commandField.scrollIntoView()
+          this.$nextTick(() => {
+            this.$refs.commandField.scrollIntoView({
+              behavior: 'smooth'
+            })
+          })
         }
       },
       cancelCommand () {
