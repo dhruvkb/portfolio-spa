@@ -11,3 +11,14 @@ page()
 
   padding $space-normal
   padding-top 'calc(%s + %s)' % ($height-navbar $space-normal)
+
+page-with-footer()
+  page()
+
+  position relative
+
+  padding-bottom 'calc(%s + %s)' % ($height-navbar $space-normal)
+
+  footer
+    position absolute
+    bottom $space-normal
