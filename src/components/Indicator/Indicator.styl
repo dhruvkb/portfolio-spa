@@ -1,0 +1,23 @@
+@import "~@/styles/tokens.styl"
+
+.indicator
+  .direction
+    animation-name swipe
+    animation-duration $duration-longer
+    animation-iteration-count infinite
+
+    &.delayed
+      animation-delay $duration-long
+
+    @keyframes swipe
+      0%, 100%
+        transform translateY(-50%)
+        opacity 0
+
+      50%
+        transform translateY(0)
+        opacity 1
+
+      99%
+        transform translateY(50%)
+        opacity 0
