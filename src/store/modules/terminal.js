@@ -5,7 +5,8 @@ import { mapping } from '@/components/Terminal/commands'
 const state = {
   tree: null,
   currentNode: null,
-  commandHistory: []
+  interactionHistory: [],
+  isProcessing: false
 }
 
 const getters = {
@@ -60,30 +61,53 @@ const getters = {
   }
 }
 
-const actions = {}
-
 const mutations = {
-  resetState: state => {
+  resetState (state) {
     state.tree = null
     state.currentNode = null
-    state.commandHistory = []
+    state.interactionHistory = []
+    state.isProcessing = false
   },
-  setTree: (state, payload) => {
+  setTree (state, payload) {
     state.tree = generateTree(payload.fs)
     state.currentNode = state.tree.root
   },
-  setCurrentNode: (state, payload) => {
+  setCurrentNode (state, payload) {
     state.currentNode = payload.currentNode
   },
-  runCommand: (state, payload) => {
-    let command = payload.command
+  setIsProcessing (state, payload) {
+    state.isProcessing = payload.isProcessing
+  },
+  pushInteraction (state, payload) {
+    state.interactionHistory.push(payload.interaction)
+  },
+  clearOutput (state) {
+    state.interactionHistory.forEach(interaction => {
+      interaction.isVisible = false
+    })
+  }
+}
 
+const actions = {
+  runCommand ({ commit }, payload) {
+    let command = payload.command
     let directory = state.currentNode.name
+    let input = {
+      command,
+      directory
+    }
 
     let bins = Object.keys(mapping)
     let [bin, ...args] = command.split(' ')
+
     let output = {}
     if (bins.includes(bin)) {
+      if (mapping[bin].isLongTerm) {
+        commit('setIsProcessing', {
+          isProcessing: true
+        })
+      }
+
       output.component = mapping[bin].component
       output.args = args
     } else {
@@ -91,13 +115,13 @@ const mutations = {
       output.args = [bin]
     }
 
-    state.commandHistory.push(
-      {
-        command,
-        directory,
-        output
+    commit('pushInteraction', {
+      interaction: {
+        input,
+        output,
+        isVisible: true
       }
-    )
+    })
   }
 }
 
@@ -105,6 +129,6 @@ export default {
   namespaced: true,
   state,
   getters,
-  actions,
-  mutations
+  mutations,
+  actions
 }

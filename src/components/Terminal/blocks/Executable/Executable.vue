@@ -10,7 +10,7 @@
 </template>
 
 <script>
-  import { mapMutations } from 'vuex'
+  import { mapActions } from 'vuex'
 
   /**
    * This block represents a link to an executable command, which can be clicked
@@ -37,7 +37,7 @@
         })
       },
 
-      ...mapMutations('terminal', [
+      ...mapActions('terminal', [
         'runCommand'
       ])
     }

@@ -54,7 +54,8 @@ export const mapping = {
     name: 'cat',
     args: 'filename',
     component: 'Concatenate',
-    description: 'Read the contents of file \'filename\'.'
+    description: 'Read the contents of file \'filename\'.',
+    isLongTerm: true
   },
   help: {
     name: 'help',

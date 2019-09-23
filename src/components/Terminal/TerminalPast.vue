@@ -1,14 +1,15 @@
 <template>
   <div class="past">
-    <template v-for="(command, index) in commandHistory">
+    <template v-for="(interaction, index) in visibleInteractions">
       <div
         class="interaction"
         :key="index">
-        <TerminalPrompt :directory="command.directory"/>{{ command.command }}
+        <TerminalPrompt :directory="interaction.input.directory"/>
+        <template>{{ interaction.input.command }}</template>
         <component
           class="output"
-          :is="command.output.component"
-          :args="command.output.args"/>
+          :is="interaction.output.component"
+          :args="interaction.output.args"/>
       </div>
     </template>
   </div>
@@ -34,8 +35,14 @@
       ...components
     },
     computed: {
+      visibleInteractions () {
+        return this.interactionHistory.filter(
+          interaction => interaction.isVisible
+        )
+      },
+
       ...mapState('terminal', [
-        'commandHistory'
+        'interactionHistory'
       ])
     }
   }

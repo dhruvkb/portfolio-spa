@@ -10,7 +10,7 @@
 </template>
 
 <script>
-  import { mapGetters, mapMutations } from 'vuex'
+  import { mapGetters, mapActions } from 'vuex'
 
   /**
    * This block represents a link to a node in the file system, be it a folder
@@ -69,7 +69,7 @@
         })
       },
 
-      ...mapMutations('terminal', [
+      ...mapActions('terminal', [
         'runCommand'
       ])
     }

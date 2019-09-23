@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import { mapMutations } from 'vuex'
+  import { mapMutations, mapActions } from 'vuex'
 
   import TerminalPast from '@/components/Terminal/TerminalPast'
   import TerminalPresent from '@/components/Terminal/TerminalPresent'
@@ -25,7 +25,9 @@
     methods: {
       ...mapMutations('terminal', [
         'resetState',
-        'setTree',
+        'setTree'
+      ]),
+      ...mapActions('terminal', [
         'runCommand'
       ])
     },

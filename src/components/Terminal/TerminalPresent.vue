@@ -31,7 +31,7 @@
 </template>
 
 <script>
-  import { mapState, mapMutations } from 'vuex'
+  import { mapState, mapActions } from 'vuex'
 
   import TerminalPrompt from '@/components/Terminal/TerminalPrompt'
 
@@ -68,12 +68,13 @@
 
       ...mapState('terminal', [
         'currentNode',
-        'commandHistory'
+        'interactionHistory',
+        'isProcessing'
       ])
     },
     methods: {
       traverseHistoryUp () {
-        if (this.traversal.index === this.commandHistory.length) {
+        if (this.traversal.index === this.interactionHistory.length) {
           return
         }
 
@@ -81,8 +82,8 @@
           this.traversal.backup = this.command
         }
         this.traversal.index++
-        let index = this.commandHistory.length - this.traversal.index
-        this.command = this.commandHistory[index].command
+        let index = this.interactionHistory.length - this.traversal.index
+        this.command = this.interactionHistory[index].input.command
       },
       traverseHistoryDown () {
         if (this.traversal.index === 0) {
@@ -93,8 +94,8 @@
         if (this.traversal.index === 0) {
           this.command = this.traversal.backup
         } else {
-          let index = this.commandHistory.length - this.traversal.index
-          this.command = this.commandHistory[index].command
+          let index = this.interactionHistory.length - this.traversal.index
+          this.command = this.interactionHistory[index].input.command
         }
       },
       autocompleteCommand () {
@@ -107,26 +108,41 @@
             command: this.command.substring(0)
           })
           this.command = ''
+          this.resetTraversal()
         }
       },
       cancelCommand () {
         this.command = ''
+        this.resetTraversal()
       },
       processKeyUp () {
         this.caretPosition = this.$refs.commandField.selectionStart
       },
 
-      ...mapMutations('terminal', [
-        'runCommand'
-      ])
-    },
-    watch: {
-      commandHistory () {
+      resetTraversal () {
+        this.traversal = {
+          index: 0,
+          backup: ''
+        }
+      },
+      scrollToCommandField () {
         this.$nextTick(() => {
           this.$refs.commandField.scrollIntoView({
             behavior: 'smooth'
           })
         })
+      },
+
+      ...mapActions('terminal', [
+        'runCommand'
+      ])
+    },
+    watch: {
+      interactionHistory () {
+        this.scrollToCommandField()
+      },
+      isProcessing () {
+        this.scrollToCommandField()
       }
     },
     mounted () {
