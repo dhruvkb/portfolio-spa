@@ -57,15 +57,15 @@
       "type": "folder",
       "children": [
         {
-          "name": "rethink.md",
+          "name": "rethink.py",
           "type": "file"
         },
         {
-          "name": "placement_portal.md",
+          "name": "placement_portal.py",
           "type": "file"
         },
         {
-          "name": "lectut.md",
+          "name": "lectut.java",
           "type": "file"
         }
       ]
@@ -85,11 +85,11 @@
       "type": "folder",
       "children": [
         {
-          "name": "human_languages.txt",
+          "name": "human_languages.md",
           "type": "file"
         },
         {
-          "name": "computer_languages.json",
+          "name": "computer_languages.md",
           "type": "file"
         },
         {
