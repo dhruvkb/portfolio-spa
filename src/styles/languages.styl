@@ -1,0 +1,16 @@
+@import "~@/styles/latex.styl"
+@import "~@/styles/tokens.styl"
+
+@import "~@/styles/languages/md.styl"
+
+languages()
+  [class*="lang"]
+    *
+      font-size 1em
+      font-weight $weight-normal
+      margin 0
+
+    latex()
+
+  .lang-md
+    md()

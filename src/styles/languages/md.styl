@@ -1,0 +1,31 @@
+md()
+  h1, h2, h3, h4, h5, h6
+    font-weight $weight-bold
+
+    margin-top $space-line
+    margin-bottom $space-line
+
+  h1
+    color $color-accent-green
+
+    &::before
+      content '# '
+
+  h2
+    color $color-accent-violet
+
+    &::before
+      content '## '
+
+  ul
+    list-style none
+
+    padding-left 2ch
+
+    li
+      &::before
+        content '- '
+
+        color $color-accent-cyan
+
+        margin-left -2ch

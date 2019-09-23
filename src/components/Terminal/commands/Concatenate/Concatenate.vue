@@ -1,8 +1,8 @@
 <template>
   <div class="cat">
     <template v-if="isFound">
-      <!-- TODO Render file contents -->
-      // Contents
+      <div v-if="contents" v-html="contents"></div>
+      <Spinner v-else/>
     </template>
 
     <template v-else>
@@ -12,13 +12,18 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
+  import { mapGetters, mapMutations } from 'vuex'
+
+  import Spinner from '@/components/Terminal/blocks/Spinner/Spinner'
 
   /**
    * This command prints the contents of a file 'filename'.
    */
   export default {
     name: 'Concatenate',
+    components: {
+      Spinner
+    },
     props: {
       /**
        * _the arguments passed to the command_
@@ -26,6 +31,11 @@
       args: {
         type: Array,
         required: true
+      }
+    },
+    data () {
+      return {
+        contents: null
       }
     },
     computed: {
@@ -41,17 +51,57 @@
       isFound () {
         return this.node && this.node.type === 'file'
       },
+      path () {
+        return require(`@/assets/content/${this.node.name}.content.html`)
+      },
 
       ...mapGetters('terminal', [
         'nodeLocatedAt'
+      ])
+    },
+    methods: {
+      stopProcessing (state) {
+        if (state === 'FAIL') {
+          this.contents = 'An unexpected error occurred.'
+        }
+        this.setIsProcessing({
+          isProcessing: false
+        })
+      },
+      loadContent () {
+        try {
+          let path = this.path
+          fetch(path)
+            .then(stream => stream.text())
+            .then(data => {
+              setTimeout(() => {
+                this.contents = data
+                this.stopProcessing('PASS')
+              }, 1000)
+            })
+            .catch(() => {
+              this.stopProcessing('FAIL')
+            })
+        } catch (error) {
+          this.stopProcessing('FAIL')
+        }
+      },
+
+      ...mapMutations('terminal', [
+        'setIsProcessing'
       ])
     },
     created () {
       this.node = this.nodeLocatedAt(this.filename)
 
       if (this.node) {
-        console.log(this.node)
+        setTimeout(this.loadContent, 0)
+      } else {
+        this.stopProcessing('FAIL')
       }
     }
   }
 </script>
+
+<style scoped lang="stylus" src="./Concatenate.styl">
+</style>
