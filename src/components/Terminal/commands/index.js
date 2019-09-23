@@ -1,5 +1,7 @@
 import BadCommand
   from '@/components/Terminal/commands/BadCommand/BadCommand'
+import Clear
+  from '@/components/Terminal/commands/Clear/Clear'
 import ChangeDirectory
   from '@/components/Terminal/commands/ChangeDirectory/ChangeDirectory'
 import Concatenate
@@ -19,6 +21,7 @@ import WorkingDirectory
 
 export const components = {
   BadCommand,
+  Clear,
   ChangeDirectory,
   Concatenate,
   Help,
@@ -35,6 +38,11 @@ export const mapping = {
     component: 'BadCommand',
     description: 'See that a given command does not exist.',
     isHidden: true
+  },
+  clear: {
+    name: 'clear',
+    component: 'Clear',
+    description: 'Clear the screen, preserving history.'
   },
   cd: {
     name: 'cd',
