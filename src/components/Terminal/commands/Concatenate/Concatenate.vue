@@ -1,7 +1,7 @@
 <template>
   <div class="cat">
     <template v-if="isFound">
-      <div v-if="contents" v-html="contents"></div>
+      <v-runtime-template v-if="contents" :template="contents"/>
       <Spinner v-else/>
     </template>
 
@@ -14,7 +14,20 @@
 <script>
   import { mapGetters, mapMutations } from 'vuex'
 
+  import { library } from '@fortawesome/fontawesome-svg-core'
+  import {
+    faMapMarkerAlt,
+    faBuilding,
+    faCalendarDay
+  } from '@fortawesome/free-solid-svg-icons'
+  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+  import VRuntimeTemplate from 'v-runtime-template'
+
   import Spinner from '@/components/Terminal/blocks/Spinner/Spinner'
+  import Link from '@/components/Terminal/blocks/Link/Link'
+
+  library.add(faMapMarkerAlt, faBuilding, faCalendarDay)
 
   /**
    * This command prints the contents of a file 'filename'.
@@ -22,7 +35,13 @@
   export default {
     name: 'Concatenate',
     components: {
-      Spinner
+      VRuntimeTemplate,
+      Spinner,
+
+      // eslint-disable-next-line vue/no-unused-components
+      FontAwesomeIcon,
+      // eslint-disable-next-line vue/no-unused-components
+      Link
     },
     props: {
       /**
@@ -62,7 +81,7 @@
     methods: {
       stopProcessing (state) {
         if (state === 'FAIL') {
-          this.contents = 'An unexpected error occurred.'
+          this.contents = '<div>An unexpected error occurred.</div>'
         }
         this.setIsProcessing({
           isProcessing: false
