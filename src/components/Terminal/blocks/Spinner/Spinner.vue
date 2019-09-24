@@ -12,10 +12,11 @@
     data () {
       return {
         spinnerStrings: [
-          '⣷', '⣯', '⣟', '⡿', '⢿', '⣻', '⣽', '⣾'
+          '⡇⠀', '⣆⠀', '⣄⡀', '⣀⣀', '⢀⣠', '⠀⣰',
+          '⠀⢸', '⠀⠹', '⠈⠙', '⠉⠉', '⠋⠁', '⠏⠀'
         ],
         index: 0,
-        interval: 0.1,
+        interval: 0.05,
         updateLooper: null
       }
     },
