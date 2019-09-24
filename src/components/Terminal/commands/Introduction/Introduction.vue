@@ -18,7 +18,7 @@
     <p>
       <strong>resume: </strong>
       <span class="yellow-colored boxed">
-        <a href="https://dhruvkb.github.io/resume/writer.pdf" target="_blank">
+        <a href="https://dhruvkb.github.io/resume/developer.pdf" target="_blank">
           <strong>software developer</strong>
           <FontAwesomeIcon
             :icon="['fas', 'download']"
