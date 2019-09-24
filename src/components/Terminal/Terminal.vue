@@ -58,7 +58,7 @@
 
       // Show directory structure
       this.runCommand({
-        command: 'tree .'
+        command: 'ls'
       })
     }
   }
