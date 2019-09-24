@@ -15,19 +15,44 @@
 / _  / _ \/ __/ // / |/ /  '_// _ \
 \_,_/_//_/_/  \_,_/|___/_/\_\/_.__/</pre>
     </div>
-
-    <span class="yellow-colored"><strong>software developer</strong></span>
-    and
-    <span class="yellow-colored"><strong>technical writer</strong></span>
+    <p>
+      <strong>resume: </strong>
+      <span class="yellow-colored boxed">
+        <a href="https://dhruvkb.github.io/resume/writer.pdf" target="_blank">
+          <strong>software developer</strong>
+          <FontAwesomeIcon
+            :icon="['fas', 'download']"
+            fixed-width/>
+        </a>
+      </span>
+      and
+      <span class="yellow-colored boxed">
+        <a href="https://dhruvkb.github.io/resume/writer.pdf" target="_blank">
+          <strong>technical writer</strong>
+          <FontAwesomeIcon
+            :icon="['fas', 'download']"
+            fixed-width/>
+        </a>
+      </span>
+    </p>
   </div>
 </template>
 
 <script>
+  import { library } from '@fortawesome/fontawesome-svg-core'
+  import { faDownload } from '@fortawesome/free-solid-svg-icons'
+  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+  library.add(faDownload)
+
   /**
    * This command presents the introductory ASCII art.
    */
   export default {
-    name: 'Introduction'
+    name: 'Introduction',
+    components: {
+      FontAwesomeIcon
+    }
   }
 </script>
 
