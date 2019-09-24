@@ -5,6 +5,11 @@ md()
     margin-top $space-line
     margin-bottom $space-line
 
+    &::before
+      color var(--secondary-content)
+
+      font-weight $weight-normal
+
   h1
     color $color-accent-green
 
@@ -17,6 +22,48 @@ md()
     &::before
       content '## '
 
+  h3
+    color $color-accent-blue
+
+    &::before
+      content '### '
+
+  p
+    margin-top $space-line
+    margin-bottom $space-line
+
+  a:not(.avoid)
+    text-decoration underline
+    text-decoration-style dotted
+
+    &::before
+      content '['
+
+    &::after
+      content '](' attr(href) ')'
+
+  em
+    color $color-accent-blue
+
+    &::before,
+    &::after
+      content '_'
+
+      color var(--secondary-content)
+
+  strong
+    color $color-accent-cyan
+
+    font-weight $weight-bold
+
+    &::before,
+    &::after
+      content '**'
+
+      color var(--secondary-content)
+
+      font-weight $weight-normal
+
   ul
     list-style none
 
@@ -26,6 +73,6 @@ md()
       &::before
         content '- '
 
-        color $color-accent-cyan
+        color var(--secondary-content)
 
         margin-left -2ch
