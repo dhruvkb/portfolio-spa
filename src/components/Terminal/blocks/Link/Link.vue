@@ -4,7 +4,7 @@
       href="#"
       :title="description"
       @click.prevent="execute">
-      {{ node.name }}
+      <template>{{ node.name }}</template>
     </a>
   </span>
 </template>
