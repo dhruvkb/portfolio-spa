@@ -1,0 +1,50 @@
+<div class="lang-gen">
+<pre><code class="comment">/**
+ * LecTut is the official study portal of IIT Roorkee.
+ * Students and professors upload study material
+ * such as lecture notes, classroom slide decks and quizzes.
+ *
+ * @<strong>since</strong> <!--
+   -->{<FontAwesomeIcon :icon="['fas', 'calendar-day']" fixed-width/>} <!--
+   -->February 2017
+ * @<strong>deprecated</strong> <!--
+   -->{<FontAwesomeIcon :icon="['fas', 'server']" fixed-width/>} <!--
+   -->April 2017
+ */</code>
+<code class="keyword">public</code> <code class="keyword">class</code> <code class="identifier">LecTut</code> {
+
+  <code class="keyword">String</code>[] <code class="identifier">attributes</code>;
+  <code class="keyword">HashMap</code>&lt;<code class="keyword">String</code>, <code class="keyword">String</code>&gt; <code class="identifier">links</code>;
+
+  <code class="comment">/**
+   * Mandatory default constructor
+   */</code>
+  <code class="keyword">public</code> <code class="identifier">LecTut</code>() {
+    <code class="comment">// Do nothing</code>
+  }
+
+  <code class="comment">/**
+   * Return a new instance of the app.
+   *
+   * @return newly created LecTut instance
+   */</code>
+  <code class="keyword">public</code> <code class="keyword">static</code> LecTut <code class="identifier">newInstance</code> () {
+    LecTut <code class="identifier">app</code> = <code class="keyword">new</code> LecTut();
+
+    app.<code class="identifier">attributes</code> = {
+      <code class="string">Developed a companion Android app for LecTut.</code>,
+      <code class="string">Built offline capabilities into the app.</code>,
+      <code class="string">Allows study from downloaded sources.</code>
+    }
+    app.<code class="identifier">links</code>.put(
+      <code class="string">Play store</code>,
+      <code class="string"><!--
+      --><a href="https://play.google.com/store/apps/details?id=in.channeli.lectut"><!--
+        -->https://play.google.com/store/apps/details?id=in.channeli.lectut<!--
+      --></a></code>
+    )
+
+    <code class="keyword">return</code> app;
+  }
+}</pre>
+</div>
