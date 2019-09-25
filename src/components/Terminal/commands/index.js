@@ -6,6 +6,10 @@ import ChangeDirectory
   from '@/components/Terminal/commands/ChangeDirectory/ChangeDirectory'
 import Concatenate
   from '@/components/Terminal/commands/Concatenate/Concatenate'
+import E
+  from '@/components/Terminal/commands/E/E'
+import F
+  from '@/components/Terminal/commands/F/F'
 import Help
   from '@/components/Terminal/commands/Help/Help'
 import Introduction
@@ -24,6 +28,8 @@ export const components = {
   Clear,
   ChangeDirectory,
   Concatenate,
+  E,
+  F,
   Help,
   Introduction,
   List,
@@ -56,6 +62,18 @@ export const mapping = {
     component: 'Concatenate',
     description: 'Read the contents of file \'filename\'.',
     isLongTerm: true
+  },
+  e: {
+    name: 'e',
+    component: 'E',
+    description: 'E!',
+    isHidden: true
+  },
+  f: {
+    name: 'f',
+    component: 'F',
+    description: 'Pay respects.',
+    isHidden: true
   },
   help: {
     name: 'help',

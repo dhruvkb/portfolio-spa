@@ -1,6 +1,6 @@
 <template>
   <div class="intro">
-    <div class="red-colored">
+    <div class="red-colored" title="This terminal has easter-eggs!">
       <pre class="ascii-art full-sized">
   __   __                                __       __
  /\ \ /\ \                              /\ \     /\ \
