@@ -32,6 +32,7 @@
           <transition name="rotate-vertical" mode="out-in">
             <div :key="index">{{ roles[index] }}</div>
           </transition>
+          <div class="border" :key="index">&nbsp;</div>
         </Heading>
 
         <p>
@@ -39,7 +40,7 @@
           with utmost <strong>love</strong> and <strong>passion</strong>,
           composes
           <br/>
-          code, containers, docs, designs and easter eggs
+          code, docs, designs, containers and easter eggs
           <br/>
           <span
             class="run-on"
@@ -75,16 +76,15 @@
       Memoji
     },
     data () {
-      let roles = [
-        'open sourcerer',
-        'software developer',
-        'technical writer',
-        'infrastructure architect',
-        'design dabbler',
-        'easter eggsmith'
-      ]
       return {
-        roles,
+        roles: [
+          'open sourcerer',
+          'software developer',
+          'technical writer',
+          'design dabbler',
+          'infrastructure architect',
+          'easter eggsmith'
+        ],
         index: 0,
         interval: 8,
         updateLooper: null
