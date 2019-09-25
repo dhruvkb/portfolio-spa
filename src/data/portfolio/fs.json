@@ -57,6 +57,10 @@
       "type": "folder",
       "children": [
         {
+          "name": "portfolio.js",
+          "type": "file"
+        },
+        {
           "name": "rethink.py",
           "type": "file"
         },
@@ -76,6 +80,10 @@
       "children": [
         {
           "name": "blogs.tex",
+          "type": "file"
+        },
+        {
+          "name": "resume.tex",
           "type": "file"
         }
       ]
