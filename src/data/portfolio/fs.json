@@ -69,7 +69,8 @@
           "type": "file"
         },
         {
-          "name": "lectut.java",
+          "name": "LecTut.java",
+          "alternativeName": "lectut.java",
           "type": "file"
         }
       ]
