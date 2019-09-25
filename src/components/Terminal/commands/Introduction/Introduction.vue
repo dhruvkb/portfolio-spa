@@ -16,7 +16,7 @@
 \_,_/_//_/_/  \_,_/|___/_/\_\/_.__/</pre>
     </div>
     <p>
-      <strong>resume: </strong>
+      <strong>résumé: </strong>
       <span class="yellow-colored boxed">
         <a href="https://dhruvkb.github.io/resume/developer.pdf" target="_blank">
           <strong>software developer</strong>
