@@ -59,7 +59,7 @@
 
           {
             'animated': this.isAnimated,
-            'outline': this.isOutlined
+            'outlined': this.isOutlined
           }
         ]
       },

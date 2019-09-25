@@ -27,14 +27,16 @@
 
   &.outlined
     filter drop-shadow(
-      0.0078125em 0.0078125em 0 white
+      0.0078125em 0.0078125em 0 var(--background-opposite)
     ) drop-shadow(
-      -0.0078125em 0.0078125em 0 white
+      -0.0078125em 0.0078125em 0 var(--background-opposite)
     ) drop-shadow(
-      0.0078125em -0.0078125em 0 white
+      0.0078125em -0.0078125em 0 var(--background-opposite)
     ) drop-shadow(
-      -0.0078125em -0.0078125em  0 white
+      -0.0078125em -0.0078125em  0 var(--background-opposite)
     )
+
+    transition-property filter
 
   &.animated
     transform-origin bottom center
