@@ -1,38 +1,14 @@
 md()
-  h1, h2, h3, h4, h5, h6
-    font-weight $weight-bold
-
-    margin-top $space-line
-    margin-bottom $space-line
-
-    &::before
-      color var(--secondary-content)
-
-      font-weight $weight-normal
-
-  h1
-    color $color-accent-green
-
-    &::before
+  h1::before
       content '# '
 
-  h2
-    color $color-accent-violet
-
-    &::before
+  h2::before
       content '## '
 
-  h3
-    color $color-accent-blue
-
-    &::before
+  h3::before
       content '### '
 
-  p
-    margin-top $space-line
-    margin-bottom $space-line
-
-  a:not(.avoid)
+  a
     text-decoration underline
     text-decoration-style dotted
 
@@ -49,20 +25,12 @@ md()
     &::after
       content '_'
 
-      color var(--secondary-content)
-
   strong
     color $color-accent-cyan
-
-    font-weight $weight-bold
 
     &::before,
     &::after
       content '**'
-
-      color var(--secondary-content)
-
-      font-weight $weight-normal
 
   ul
     list-style none
@@ -73,6 +41,6 @@ md()
       &::before
         content '- '
 
-        color var(--secondary-content)
+        color $color-accent-cyan
 
         margin-left -2ch

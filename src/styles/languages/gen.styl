@@ -1,0 +1,27 @@
+gen()
+  pre
+    white-space pre-wrap
+    word-wrap break-word
+
+  a
+    text-decoration underline
+    text-decoration-style dotted
+
+  .comment
+    color var(--secondary-content)
+
+  .string
+    color $color-accent-green
+
+    &::before,
+    &::after
+      content '"'
+
+  .keyword
+    color $color-accent-orange
+
+  .identifier
+    color $color-accent-cyan
+
+  .key
+    color $color-accent-violet

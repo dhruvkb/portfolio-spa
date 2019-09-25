@@ -18,7 +18,8 @@
   import {
     faMapMarkerAlt,
     faBuilding,
-    faCalendarDay
+    faCalendarDay,
+    faServer
   } from '@fortawesome/free-solid-svg-icons'
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -27,7 +28,12 @@
   import Spinner from '@/components/Terminal/blocks/Spinner/Spinner'
   import Link from '@/components/Terminal/blocks/Link/Link'
 
-  library.add(faMapMarkerAlt, faBuilding, faCalendarDay)
+  library.add(
+    faMapMarkerAlt,
+    faBuilding,
+    faCalendarDay,
+    faServer
+  )
 
   /**
    * This command prints the contents of a file 'filename'.
@@ -70,8 +76,13 @@
       isFound () {
         return this.node && this.node.type === 'file'
       },
+      /**
+       * _the imported HTML of the file_
+       */
       path () {
-        return require(`@/assets/content/${this.node.name}.content.html`)
+        let dirName = this.node.parent.name
+        let fileName = this.node.name
+        return require(`@/assets/content/${dirName}/${fileName}.content.html`)
       },
 
       ...mapGetters('terminal', [

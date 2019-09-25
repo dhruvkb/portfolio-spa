@@ -1,0 +1,67 @@
+rst()
+  h1, h2, h3
+    position relative
+
+    width max-content
+    overflow-x hidden
+
+    padding-bottom $space-line
+
+    &::after
+      display block
+
+      position absolute
+      bottom 0
+      left 0
+
+  h1
+    color $color-accent-green
+
+    &::after
+      content '================================'
+
+  h2
+    color $color-accent-violet
+
+    &::after
+      content '--------------------------------'
+
+  h3
+    color $color-accent-blue
+
+    &::after
+      content '................................'
+
+  ul
+    list-style none
+
+    padding-left 2ch
+
+    li
+      &::before
+        content '- '
+
+        color $color-accent-cyan
+
+        margin-left -2ch
+
+  dl
+    dt
+      &::before,
+      &::after
+        content ':'
+
+    dd
+      margin-left 2ch
+
+  a
+    color $color-accent-magenta
+
+    text-decoration underline
+    text-decoration-style dotted
+
+    &::before
+      content '`'
+
+    &::after
+      content '<' attr(href) '>`_'

@@ -1,0 +1,54 @@
+tex()
+  h1, h2, h3, h4, h5, h6
+    &::after
+      content '}'
+
+  h1::before
+    content '\\section{'
+
+  h2::before
+    content '\\subsection{'
+
+  h3::before
+    content '\\subsubsection{'
+
+  a
+    color $color-accent-magenta
+
+    text-decoration underline
+    text-decoration-style dotted
+
+    &::before
+      content '\\href{' attr(data-minhref) '}{'
+      white-space pre
+
+    &::after
+      content '}'
+      white-space pre
+
+  ul
+    list-style none
+
+    padding-left 8ch
+
+    &::before
+      content '\\begin{itemize}'
+
+      color $color-accent-blue
+
+      margin-left -8ch
+
+    &::after
+      content '\\end{itemize}'
+
+      color $color-accent-blue
+
+      margin-left -8ch
+
+    li
+      &::before
+        content '\\item '
+
+        color $color-accent-cyan
+
+        margin-left -6ch
