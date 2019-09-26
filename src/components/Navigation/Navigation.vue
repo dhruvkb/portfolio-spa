@@ -46,7 +46,8 @@
     faHome,
     faCubes,
     faUser,
-    faHandshake
+    faHandshake,
+    faPrayingHands
   } from '@fortawesome/free-solid-svg-icons'
 
   import Heading from '@/components/Heading/Heading'
@@ -56,7 +57,8 @@
     faHome,
     faCubes,
     faUser,
-    faHandshake
+    faHandshake,
+    faPrayingHands
   )
 
   export default {
@@ -90,13 +92,13 @@
           {
             to: '/contact',
             text: 'Contact',
-            icon: 'user',
+            icon: 'handshake',
             isExact: false
           },
           {
             to: '/credits',
             text: 'Credits',
-            icon: 'handshake',
+            icon: 'praying-hands',
             isExact: false
           }
         ]
