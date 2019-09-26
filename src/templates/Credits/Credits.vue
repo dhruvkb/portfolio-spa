@@ -83,7 +83,7 @@
               <li>
                 <strong>design</strong>:
                 <a href="https://theindianotaku.github.io">Debashish Nayak</a>'s
-                porfolio
+                portfolio
               </li>
               <li>
                 <strong>landing</strong>:
