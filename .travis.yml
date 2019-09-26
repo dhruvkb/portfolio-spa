@@ -16,8 +16,13 @@ after_success:
 
 deploy:
   provider: pages
-  skip_cleanup: true
   github_token: $GITHUB_TOKEN
+
+  skip_cleanup: true
   local_dir: dist
+
+  repo: dhruvkb/dhruvkb.github.io
+  target_branch: master
+  committer_from_gh: true
   on:
     branch: master
