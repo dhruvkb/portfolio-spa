@@ -6,29 +6,16 @@
   color var(--primary-content)
   background-color var(--background)
 
-  overflow-x hidden
-
-  .slide-left-enter,
-  .slide-right-leave-to
+  .fade-enter,
+  .fade-leave-to
     opacity 0
-    transform translateX(-3em)
 
-  .slide-right-enter,
-  .slide-left-leave-to
-    opacity 0
-    transform translateX(3em)
-
-  .slide-left-enter-active,
-  .slide-left-leave-active,
-  .slide-right-enter-active,
-  .slide-right-leave-active
-    transition-property transform, opacity
-    transition-duration $duration-short
+  .fade-enter-active,
+  .fade-leave-active
+    transition-property opacity
+    transition-duration $duration-normal
     transition-timing-function linear
 
-  .slide-left-enter-to,
-  .slide-left-leave,
-  .slide-right-enter-to,
-  .slide-right-leave
+  .fade-leave,
+  .fade-enter-to
     opacity 1
-    transform translate(0)

@@ -5,7 +5,7 @@
         <Themer :theme.sync="theme"/>
       </template>
     </Navigation>
-    <transition :name="transitionName" mode="out-in">
+    <transition name="fade" mode="out-in">
       <RouterView/>
     </transition>
   </div>
@@ -26,7 +26,7 @@
     },
     data () {
       return {
-        theme: null,
+        theme: 'dark',
         transitionName: null
       }
     },
@@ -42,52 +42,16 @@
     },
     watch: {
       /**
-       * _the action to undertake when $route changes_
-       */
-      $route (to, from) {
-        if (to.name && from.name) {
-          let routes = [
-            'home',
-            'portfolio',
-            'about',
-            'contact',
-            'credits'
-          ]
-          let toIndex = routes.indexOf(to.name)
-          let fromIndex = routes.indexOf(from.name)
-
-          this.transitionName = toIndex > fromIndex
-            ? 'slide-right'
-            : 'slide-left'
-        } else {
-          this.transitionName = null
-        }
-      },
-      /**
        * _the action to undertake when theme changes_
        */
       theme () {
         document.documentElement.className = this.htmlClasses.join('')
       }
     },
-    methods: {
-      handleShortkey (event) {
-        switch (event.srcKey) {
-          case 'home':
-            this.$router.push('home')
-            break
-          case 'portfolio':
-            this.$router.push('portfolio')
-            break
-        }
-      }
-    },
-    mounted () {
+    created () {
       if (localStorage.theme) {
         // Switch to last used theme
         this.theme = localStorage.theme
-      } else {
-        this.theme = 'dark'
       }
     }
   }
