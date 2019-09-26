@@ -1,8 +1,10 @@
 <template>
   <button
+    v-shortkey="['t']"
     class="themer"
     :title="helpText"
-    @click="toggleTheme">
+    @click="toggleTheme"
+    @shortkey="toggleTheme">
     <span class="content">
       <FontAwesomeIcon
         :icon="['fas', 'adjust']"
@@ -52,7 +54,7 @@
        * _the message indicating the action the component will perform_
        */
       helpText () {
-        return `Switch to the ${this.otherTheme} theme.`
+        return `[T] Switch to the ${this.otherTheme} theme.`
       }
     },
     methods: {

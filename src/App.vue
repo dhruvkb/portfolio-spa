@@ -46,11 +46,19 @@
        */
       $route (to, from) {
         if (to.name && from.name) {
-          let routes = ['home', 'portfolio', 'about', 'credits']
+          let routes = [
+            'home',
+            'portfolio',
+            'about',
+            'contact',
+            'credits'
+          ]
           let toIndex = routes.indexOf(to.name)
           let fromIndex = routes.indexOf(from.name)
 
-          this.transitionName = toIndex > fromIndex ? 'slide-right' : 'slide-left'
+          this.transitionName = toIndex > fromIndex
+            ? 'slide-right'
+            : 'slide-left'
         } else {
           this.transitionName = null
         }
@@ -60,6 +68,18 @@
        */
       theme () {
         document.documentElement.className = this.htmlClasses.join('')
+      }
+    },
+    methods: {
+      handleShortkey (event) {
+        switch (event.srcKey) {
+          case 'home':
+            this.$router.push('home')
+            break
+          case 'portfolio':
+            this.$router.push('portfolio')
+            break
+        }
       }
     },
     mounted () {

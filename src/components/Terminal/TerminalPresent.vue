@@ -3,10 +3,11 @@
     <label
       class="prompt-label"
       for="command-field"
-      title="Click here to focus.">
+      title="[Ctrl + C] Focus on the prompt.">
       <TerminalPrompt :directory="currentNode.name"/>
     </label>
     <input
+      v-shortkey.focus="['ctrl', 'c']"
       v-model="command"
       class="command-field"
       id="command-field"

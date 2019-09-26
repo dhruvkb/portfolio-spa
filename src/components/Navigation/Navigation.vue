@@ -1,8 +1,11 @@
 <template>
   <div class="navigation">
     <RouterLink
+      v-shortkey="['h']"
       :to="homeLink.to"
-      :exact="homeLink.isExact">
+      :exact="homeLink.isExact"
+      title="[H] Go to the homepage."
+      @shortkey.native="navigateTo(homeLink.to)">
       <Heading
         class="full nav-title"
         :level="4"
@@ -21,9 +24,12 @@
       <!-- @slot Content goes here -->
       <slot>
         <NavigationLink
+          v-shortkey="[index+1]"
           v-for="(link, index) in links"
           :key="index"
-          :link="link"/>
+          :link="link"
+          :title="`[${index+1}] Go to ${link.text}.`"
+          @shortkey.native="navigateTo(link.to)"/>
       </slot>
     </nav>
 
@@ -82,12 +88,30 @@
             isExact: false
           },
           {
+            to: '/contact',
+            text: 'Contact',
+            icon: 'user',
+            isExact: false
+          },
+          {
             to: '/credits',
             text: 'Credits',
             icon: 'handshake',
             isExact: false
           }
         ]
+      }
+    },
+    methods: {
+      navigateTo (to) {
+        this.$router.push(to)
+          .catch(err => {
+            if (err.name === 'NavigationDuplicated') {
+              // Do nothing
+            } else {
+              console.log(err)
+            }
+          })
       }
     }
   }
