@@ -100,8 +100,12 @@
         }
       },
       autocompleteCommand () {
-        // TODO
-        console.log('Request to autocomplete:', this.command)
+        if (this.command === '') {
+          this.command = 'help'
+        } else {
+          // TODO
+          console.log('Request to autocomplete:', this.command)
+        }
       },
       submitCommand () {
         if (this.command.trim()) {
