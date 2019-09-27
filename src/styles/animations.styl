@@ -1,0 +1,88 @@
+wave()
+  animation-name wave
+  animation-timing-function ease-in-out
+  animation-iteration-count infinite
+
+  @keyframes wave
+    0%, 42.5%, 47.5%, 52.5%, 57.5%, 100%
+      transform rotate(0deg)
+
+    45%, 50%, 55%
+      transform rotate(15deg)
+
+grow()
+  animation-name grow
+  animation-timing-function linear
+  animation-fill-mode forwards
+
+  @keyframes grow
+    0%
+      background-position 0
+      opacity 0
+
+    75%
+      background-position -100%
+      opacity 1
+
+    100%
+      background-position -100%
+      opacity 0
+
+swipe()
+  animation-name swipe
+  animation-iteration-count infinite
+
+  @keyframes swipe
+    0%, 100%
+      transform translateY(-50%)
+      opacity 0
+
+    50%
+      transform translateY(0)
+      opacity 1
+
+    99%
+      transform translateY(50%)
+      opacity 0
+
+bobble()
+  animation-name bobble
+  animation-timing-function ease-in-out
+  animation-iteration-count infinite
+
+  @keyframes bobble
+    50%
+      transform rotate(10deg)
+
+    0%, 100%
+      transform rotate(0deg)
+
+rainbow()
+  animation-name rainbow
+  animation-timing-function ease-in-out
+  animation-iteration-count infinite
+
+  @keyframes rainbow
+    0%, 10%, 100%
+      color $color-accent-yellow
+
+    12.5%, 22.5%
+      color $color-accent-orange
+
+    25%, 35%
+      color $color-accent-red
+
+    37.5%, 47.5%
+      color $color-accent-magenta
+
+    50%, 60%
+      color $color-accent-violet
+
+    62.5%, 72.5%
+      color $color-accent-blue
+
+    75%, 85%
+      color $color-accent-cyan
+
+    87.5%, 97.5%
+      color $color-accent-green
