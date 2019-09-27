@@ -1,61 +1,50 @@
 @import "~@/styles/page.styl"
-@import "~@/styles/grid.styl"
 @import "~@/styles/media.styl"
-@import "~@/styles/colors.styl"
-@import "~@/styles/scrollbars.styl"
+@import "~@/styles/animations.styl"
 
 .credits
   main
-    +tablet-portrait-up()
-      height 100vh
+    .section
+      display flex
+      flex-direction column
+      justify-content center
 
-      overflow-y scroll
-      scroll-snap-type y mandatory
-
-      custom-scrollbars()
-
-      .section
+      &#dedication
         page-with-footer()
 
-        scroll-snap-align start
-
-        display flex
-        flex-direction column
-        justify-content center
         align-items center
 
-        &#dedication
+        .imagery
+          display flex
+          flex-direction column
+          align-items center
+          justify-content center
+
+          height 100%
+
           .family
             vertical-align bottom
 
-        &#inspiration
-          .grid
-            grid()
+      &#thanks
+        page()
 
-            .pane
-              width 23em
+        .solarized
+          rainbow()
+          animation-duration 'calc(4 * %s)' % $duration-content
 
-    +phone-only()
-      page()
+        .carousel-content
+          display flex
+          flex-direction column
+          align-items center
 
-      .section
-        footer
-          display none
+          .image
+            height 3em
 
-    a
-      color inherit
-      text-decoration-style dotted
+            border-radius $space-small
 
-      &:hover,
-      &:focus
-        text-decoration-style solid
+            margin-bottom $space-small
 
-      &:focus
-        outline none
+          .text
+            color $color-accent-cyan
 
-    span
-      colors('--primary-color')
-
-      &[class*="-colored"]
-        color var(--primary-color)
-
+            font-weight $weight-bold

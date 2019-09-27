@@ -2,120 +2,129 @@
   <div class="credits">
     <main>
       <section class="section" id="dedication">
+        <Grid>
+          <GridCell :span-set="headSpanSet">
+            <div class="imagery">
+              <Heading
+                :level="2"
+                color="green">
+                <FontAwesomeIcon
+                  class="family"
+                  :icon="['fas', 'male']"/>
+                <FontAwesomeIcon
+                  class="family"
+                  size="xs"
+                  :icon="['fas', 'child']"
+                  fixed-width/>
+                <FontAwesomeIcon
+                  class="family"
+                  :icon="['fas', 'female']"/>
+              </Heading>
+            </div>
+          </GridCell>
+
+          <GridCell :span-set="headSpanSet">
+            <div>
+              Thank you,
+              <span class="blue-colored"><strong>mummy</strong></span>.<br/>
+              Thank you,
+              <span class="violet-colored"><strong>papa</strong></span>.<br/>
+              Thank you,
+              <span class="magenta-colored"><strong>Anu</strong></span>.
+            </div>
+          </GridCell>
+        </Grid>
+
+        <footer>
+          <Indicator/>
+        </footer>
+      </section>
+
+      <section class="section" id="thanks">
         <Heading
-          :level="4"
+          :level="2"
           color="green">
-          <FontAwesomeIcon
-            class="family"
-            :icon="['fas', 'male']"/>
-          <FontAwesomeIcon
-            class="family"
-            size="xs"
-            :icon="['fas', 'child']"
-            fixed-width/>
-          <FontAwesomeIcon
-            class="family"
-            :icon="['fas', 'female']"/>
+          Thanks
         </Heading>
-        <p>
-          Thank you,
-          <span class="blue-colored"><strong>mummy</strong></span>.<br/>
-          Thank you,
-          <span class="violet-colored"><strong>papa</strong></span>.<br/>
-          Thank you,
-          <span class="magenta-colored"><strong>Anu</strong></span>.
-        </p>
-        <footer>
-          <Indicator/>
-        </footer>
-      </section>
 
-      <section class="section" id="inspiration">
-        <div class="grid">
-          <div class="left pane">
-            <Heading
-              :level="5"
-              color="violet">
-              Color scheme
-            </Heading>
-            <p>
-              The color scheme of the site is
-              <span class="yellow-colored">S</span>
-              <span class="orange-colored">o</span>
-              <span class="red-colored">l</span>
-              <span class="magenta-colored">a</span>
-              <span class="violet-colored">r</span>
-              <span class="blue-colored">i</span>
-              <span class="cyan-colored">z</span>
-              <span class="green-colored">e</span>
-              <span class="yellow-colored">d</span>
-              by Ethan Schoonover. Solarized has unique features such as
-            </p>
-            <ul>
-              <li>
-                a symmetric colour palette
-              </li>
-              <li>
-                both light and dark themes
-              </li>
-              <li>
-                precisely calibrated colours
-              </li>
-              <li>
-                selective contrast for stress-free reading
-              </li>
-              <li>
-                beautiful accent colours
-              </li>
-            </ul>
-          </div>
-          <div class="right pane">
-            <Heading
-              :level="5"
-              color="violet">
-              Homage
-            </Heading>
-            <p>
-              A lot of awesome people inspired a lot of awesome functionality
-              on the site, namely
-            </p>
-            <ul>
-              <li>
-                <strong>design</strong>:
-                <a href="https://theindianotaku.github.io">Debashish Nayak</a>'s
-                portfolio
-              </li>
-              <li>
-                <strong>landing</strong>:
-                <a href="https://mohitvirli.github.io">Mohit Virli</a>'s
-                portfolio
-              </li>
-              <li>
-                <strong>content</strong>:
-                <a href="https://pradumangoyal.github.io">Praduman Goyal</a>'s
-                portfolio
-              </li>
-              <li>
-                <strong>terminal</strong>:
-                <a href="https://meetvora.github.io">Meet Vora</a>'s
-                portfolio
-              </li>
-            </ul>
-            <p>
-              Do check them out!
-            </p>
-          </div>
-        </div>
-        <footer>
-          <Indicator/>
-        </footer>
-      </section>
+        <Grid>
+          <GridCell :span-set="spanSet">
+            <Card>
+              <template #title>
+                <Heading
+                  class="top"
+                  color="violet"
+                  :level="6">
+                  Color scheme
+                </Heading>
+              </template>
 
-      <section class="section" id="old">
-        <p>
-          My old portfolio, written entirely in vanilla JavaScript is still
-          available <a href="https://vjs.dhruvkb.now.sh">here</a>.
-        </p>
+              <Heading class="solarized" :level="2">
+                <a href="https://ethanschoonover.com/solarized/">
+                  Solarized
+                </a>
+              </Heading>
+              Ethan Schoonover
+            </Card>
+          </GridCell>
+
+          <GridCell :span-set="spanSet">
+            <Card>
+              <template #title>
+                <Heading
+                  class="top"
+                  color="cyan"
+                  :level="6">
+                  Inspirations
+                </Heading>
+              </template>
+
+              <p>
+                Shoutout to these awesome people
+                whose portfolios inspired parts of mine.
+              </p>
+              <Carousel :content="inspirations">
+                <template #default="{ item }">
+                  <div class="carousel-content">
+                    <img
+                      class="image"
+                      :src="item.imageSource"
+                      :alt="item.imageAlternativeText"
+                      :title="item.imageAlternativeText"/>
+                    <span class="text">
+                      <a :href="item.link">{{ item.text }}</a>
+                    </span>
+                    {{ item.subtext }}
+                  </div>
+                </template>
+              </Carousel>
+            </Card>
+          </GridCell>
+
+          <GridCell :span-set="compensatingSpanSet">
+            <Card>
+              <template #title>
+                <Heading
+                  class="top"
+                  color="blue"
+                  :level="6">
+                  History
+                </Heading>
+              </template>
+
+              <p>
+                My old portfolio,
+                written entirely in vanilla JavaScript,
+                is still available
+                <span class="blue-colored">
+                  <a href="https://vjs.dhruvkb.now.sh">
+                    <strong>here</strong>
+                  </a>
+                </span>.
+              </p>
+            </Card>
+          </GridCell>
+        </Grid>
       </section>
     </main>
   </div>
@@ -130,6 +139,10 @@
   } from '@fortawesome/free-solid-svg-icons'
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+  import Card from '@/components/Card/Card'
+  import Carousel from '@/components/Carousel/Carousel'
+  import Grid from '@/components/Grid/Grid'
+  import GridCell from '@/components/Grid/GridCell'
   import Heading from '@/components/Heading/Heading'
   import Indicator from '@/components/Indicator/Indicator'
 
@@ -139,8 +152,50 @@
     name: 'Credits',
     components: {
       FontAwesomeIcon,
-      Indicator,
-      Heading
+
+      Card,
+      Carousel,
+      Grid,
+      GridCell,
+      Heading,
+      Indicator
+    },
+    data () {
+      return {
+        headSpanSet: [12, 6],
+        spanSet: [12, 6, 6, 4, 4],
+        compensatingSpanSet: [12, 12, 12, 4, 4],
+        inspirations: [
+          {
+            text: 'Debashish Nayak',
+            subtext: 'Design',
+            imageAlternativeText: 'Debashish Nayak',
+            imageSource: 'https://avatars0.githubusercontent.com/u/20753255',
+            link: 'https://theindianotaku.github.io'
+          },
+          {
+            text: 'Mohit Virli',
+            subtext: 'Landing',
+            imageAlternativeText: 'Mohit Virli',
+            imageSource: 'https://avatars0.githubusercontent.com/u/11966122',
+            link: 'https://mohitvirli.github.io'
+          },
+          {
+            text: 'Praduman Goyal',
+            subtext: 'Content',
+            imageAlternativeText: 'Praduman Goyal',
+            imageSource: 'https://avatars0.githubusercontent.com/u/34851451',
+            link: 'https://pradumangoyal.github.io'
+          },
+          {
+            text: 'Meet Vora',
+            subtext: 'Terminal',
+            imageAlternativeText: 'Meet Vora',
+            imageSource: 'https://avatars0.githubusercontent.com/u/5457219',
+            link: 'https://meetvora.github.io'
+          }
+        ]
+      }
     }
   }
 </script>

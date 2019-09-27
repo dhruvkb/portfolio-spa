@@ -2,184 +2,200 @@
   <div class="about">
     <main>
       <section class="section" id="intro">
-        <Blockquote color="green" orientation="vertical">
-          &ldquo;Don't half-ass two things. Whole-ass one thing.&rdquo;
-          <template #citation>
-            - Ron Swanson
-          </template>
-        </Blockquote>
-        <div class="content">
-          <p>
-            On those lines, I'm <strong>Dhruv Bhanushali</strong>, an
-            engineer-physicist from the
-            <strong>Indian Institute of Technology</strong> at Roorkee with a
-            love, passion and knack for full-stack software development.
-          </p>
-          <p>
-            I was born in the heart of <strong>Mumbai</strong>. Which is why I
-            started to enjoy silent solitude. Couple that with a
-            <strong>deeply introvert personality</strong> and you get me.
-          </p>
-          <p>
-            From an early age, I've been <strong>in love with
-            computers</strong>, so much so that working with them is both my
-            career and my wind down. From my dad's self-assembled Pentium III
-            with a chonky CRT to the finest ThinkPad of it's time, there's
-            always been a computer no further than an arm's distance from me.
-          </p>
-        </div>
+        <Grid>
+          <GridCell :span-set="headSpanSet">
+            <div class="imagery">
+              <Heading
+                :level="2"
+                color="green">
+                <FontAwesomeIcon
+                  :icon="['fas', 'hand-peace']"/>
+              </Heading>
+              <Heading
+                :level="2"
+                color="green">
+                It me!
+              </Heading>
+            </div>
+          </GridCell>
+
+          <GridCell :span-set="headSpanSet">
+            <div class="content">
+              <p>
+                I'm
+                <span class="red-colored">
+                  <strong>Dhruv Bhanushali</strong>
+                </span>,
+                an engineer-physicist
+                from the Indian Institute of Technology
+                at Roorkee.
+              </p>
+              <p>
+                I was born in the clamour and the bustle of Mumbai in India.
+                Understandably, I tended to cherish silent solitude. That, and
+                my introvert personality, means you'll not hear me speak at
+                first and not hear the end of it soon after.
+              </p>
+              <p>
+                At an early age, I fell in love with my first computer, my dad's
+                self-assembled Pentium III with a chonky CRT running Windows 95.
+                Between then and now, with my ThinkPad, there has always been a
+                computer no further than an arm's distance from me.
+              </p>
+            </div>
+          </GridCell>
+        </Grid>
+
         <footer>
           <Indicator/>
         </footer>
       </section>
 
-      <section class="section" id="bites">
-        <div class="grid">
-          <div class="left pane">
-            <Heading
-              :level="5"
-              color="violet">
-              Hobbies
-            </Heading>
-            <ul>
-              <li>Binging on TV series</li>
-              <li>Watching movies</li>
-              <li>Surfing Reddit</li>
-              <li>Organising and listening to music</li>
-              <li>Talking long strolls late night or early morning</li>
-            </ul>
-          </div>
+      <section class="section" id="bytes">
+        <Heading
+          :level="2"
+          color="green">
+          Byte-sized info
+        </Heading>
 
-          <div class="right pane">
-            <Heading
-              :level="5"
-              color="violet">
-              Opinions
-            </Heading>
-            <ul>
-              <li><strong>Coffee</strong> > tea</li>
-              <li><strong>Dark theme</strong> > light theme</li>
-              <li>
-                <strong>Solarized</strong> >
-                Monokai, One, Base 16 <em>etc.</em>
-              </li>
-              <li>
-                <strong>IDE</strong> > editor <em>while</em>&nbsp;
-                <strong>VS Code</strong> > any other editor
-              </li>
-              <li><strong>Mozilla Firefox</strong> > Google Chrome</li>
-              <li>
-                <strong>Fedora</strong> > any OS <em>but</em>&nbsp;
-                <strong>iOS</strong> > Android
-              </li>
-              <li>
-                <strong>ThinkPads</strong> > Macbooks <em>but</em>&nbsp;
-                <strong>iPhones</strong> > Pixels
-              </li>
-            </ul>
-          </div>
-        </div>
-        <footer>
-          <Indicator/>
-        </footer>
-      </section>
+        <Grid>
+          <GridCell
+            :span-set="compensatingSpanSet">
+            <Card class="quote-card">
+              <template #title>
+                <Heading
+                  class="top"
+                  color="orange"
+                  :level="6">
+                  Favourite quote
+                </Heading>
+              </template>
 
-      <section class="section" id="favs">
-        <div class="grid">
-          <div class="left pane">
-            <Heading
-              :level="5"
-              color="violet">
-              Favourite TV genres
-            </Heading>
-            <ul>
-              <li>
-                Science fiction
-                <ul>
-                  <li>Westworld</li>
-                  <li>Black Mirror</li>
-                </ul>
-              </li>
-              <li>
-                Comedy
-                <ul>
-                  <li>The Office (US)</li>
-                  <li>Parks and Recreation</li>
-                  <li>Community</li>
-                </ul>
-              </li>
-              <li>
-                News satire
-                <ul>
-                  <li>Last Week Tonight</li>
-                  <li>Patriot Act</li>
-                </ul>
-              </li>
-              <li>
-                Nature documentaries
-                <ul>
-                  <li>Planet Earth</li>
-                </ul>
-              </li>
-            </ul>
-          </div>
+              <Blockquote color="orange" orientation="vertical">
+                &ldquo;Don't half-ass two things. Whole-ass one thing.&rdquo;
+                <template #citation>
+                  - Ron Swanson
+                </template>
+              </Blockquote>
+            </Card>
+          </GridCell>
 
-          <div class="right pane">
-            <Heading
-              :level="5"
-              color="violet">
-              Favourite music genres
-            </Heading>
-            <ul>
-              <li>
-                Avant, post and psychedelic rock
-                <ul>
-                  <li>Sigur Rós</li>
-                  <li>Tame Impala</li>
-                  <li>M83</li>
-                </ul>
-              </li>
-              <li>
-                Indie folk and pop
-                <ul>
-                  <li>Gregory Alan Isakov</li>
-                  <li>George Ezra</li>
-                  <li>Tom Rosenthal</li>
-                </ul>
-              </li>
-              <li>
-                Mainstream pop
-                <ul>
-                  <li>Ed Sheeran</li>
-                  <li>Coldplay</li>
-                </ul>
-              </li>
-              <li>
-                Lo-fi and vaporwave
-                <ul>
-                  <li>Jack Strauber</li>
-                  <li>Joji</li>
-                </ul>
-              </li>
-              <li>
-                Electronic
-                <ul>
-                  <li>EDEN</li>
-                  <li>Kero Kero Bonito</li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
+          <GridCell
+            v-for="(category, index) in topRow"
+            :key="`1${index}`"
+            :span-set="spanSet">
+            <Card>
+              <template #title>
+                <Heading
+                  class="top"
+                  color="blue"
+                  :level="6">
+                  {{ category.heading }}
+                </Heading>
+              </template>
+
+              <Carousel :content="category.list">
+                <template #default="{ item }">
+                  <div class="carousel-content">
+                    <span class="blue-colored">
+                      <FontAwesomeIcon
+                        class="image"
+                        :icon="item.icon"
+                        size="2x"
+                        fixed-width/>
+                    </span>
+                    {{ item.text }}
+                  </div>
+                </template>
+              </Carousel>
+            </Card>
+          </GridCell>
+
+          <GridCell
+            v-for="(category, index) in bottomRow"
+            :key="`2${index}`"
+            :span-set="spanSet">
+            <Card>
+              <template #title>
+                <Heading
+                  class="top"
+                  color="cyan"
+                  :level="6">
+                  {{ category.heading }}
+                </Heading>
+              </template>
+
+              <Carousel :content="category.list">
+                <template #default="{ item }">
+                  <div class="lefted">
+                    <span class="cyan-colored">
+                      <strong>{{ item.text }}</strong>
+                    </span>
+                    <ul>
+                      <li
+                        v-for="(example, index) in item.examples"
+                        :key="index">
+                        {{ example }}
+                      </li>
+                    </ul>
+                  </div>
+                </template>
+              </Carousel>
+            </Card>
+          </GridCell>
+        </Grid>
       </section>
     </main>
   </div>
 </template>
 
 <script>
-  import Heading from '@/components/Heading/Heading'
+  import { library } from '@fortawesome/fontawesome-svg-core'
+  import {
+    faAdjust,
+    faFilm,
+    faHandPeace,
+    faLaptop,
+    faMobile,
+    faMugHot,
+    faMusic,
+    faTv,
+    faWalking
+  } from '@fortawesome/free-solid-svg-icons'
+  import {
+    faApple,
+    faFirefox,
+    faRedditAlien,
+    faRedhat
+  } from '@fortawesome/free-brands-svg-icons'
+  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
   import Blockquote from '@/components/Blockquote/Blockquote'
+  import Card from '@/components/Card/Card'
+  import Grid from '@/components/Grid/Grid'
+  import GridCell from '@/components/Grid/GridCell'
+  import Heading from '@/components/Heading/Heading'
   import Indicator from '@/components/Indicator/Indicator'
+  import Carousel from '@/components/Carousel/Carousel'
+
+  library.add(
+    faAdjust,
+    faFilm,
+    faHandPeace,
+    faLaptop,
+    faMobile,
+    faMugHot,
+    faMusic,
+    faTv,
+    faWalking
+  )
+
+  library.add(
+    faApple,
+    faFirefox,
+    faRedditAlien,
+    faRedhat
+  )
 
   /**
    * This page describes me in deep, verging on excruciating, detail.
@@ -187,9 +203,145 @@
   export default {
     name: 'About',
     components: {
+      FontAwesomeIcon,
+
+      Carousel,
       Blockquote,
+      Card,
+      Grid,
+      GridCell,
       Heading,
       Indicator
+    },
+    data () {
+      return {
+        headSpanSet: [12, 6],
+        spanSet: [12, 6, 3, 3],
+        compensatingSpanSet: [12],
+        topRow: [
+          {
+            heading: 'Opinions',
+            list: [
+              {
+                icon: ['fas', 'mug-hot'],
+                text: 'Coffee > tea'
+              },
+              {
+                icon: ['fas', 'adjust'],
+                text: 'Dark theme > light theme'
+              },
+              {
+                icon: ['fab', 'firefox'],
+                text: 'Mozilla Firefox > Google Chrome'
+              },
+              {
+                icon: ['fab', 'redhat'],
+                text: 'Fedora > any OS'
+              },
+              {
+                icon: ['fab', 'apple'],
+                text: 'iOS > Android'
+              },
+            ]
+          },
+          {
+            heading: 'Hobbies',
+            list: [
+              {
+                icon: ['fas', 'tv'],
+                text: 'Binging on TV series'
+              },
+              {
+                icon: ['fas', 'film'],
+                text: 'Watching movies'
+              },
+              {
+                icon: ['fas', 'music'],
+                text: 'Organising and listening to music'
+              },
+              {
+                icon: ['fas', 'walking'],
+                text: 'Talking long strolls in the dark'
+              }
+            ]
+          }
+        ],
+        bottomRow: [
+          {
+            heading: 'Favourite TV',
+            list: [
+              {
+                text: 'Science fiction',
+                examples: [
+                  'Westworld',
+                  'Black Mirror'
+                ]
+              },
+              {
+                text: 'Comedy',
+                examples: [
+                  'The Office (US)',
+                  'Parks and Recreation'
+                ]
+              },
+              {
+                text: 'News satire',
+                examples: [
+                  'Last Week Tonight',
+                  'Patriot Act'
+                ]
+              },
+              {
+                text: 'Nature documentaries',
+                examples: [
+                  'Planet Earth',
+                  'Planet Earth II'
+                ]
+              }
+            ]
+          },
+          {
+            heading: 'Favourite music',
+            list: [
+              {
+                text: 'Post and psych rock',
+                examples: [
+                  'Sigur Rós',
+                  'Tame Impala'
+                ]
+              },
+              {
+                text: 'Indie folk and pop',
+                examples: [
+                  'Gregory Alan Isakov',
+                  'George Ezra'
+                ]
+              },
+              {
+                text: 'Mainstream pop',
+                examples: [
+                  'Ed Sheeran',
+                  'Coldplay'
+                ]
+              },
+              {
+                text: 'Lo-fi and vaporwave',
+                examples: [
+                  'Jack Strauber',
+                  'Joji'
+                ]
+              },
+              {
+                text: 'Electronic',
+                examples: [
+                  'EDEN',
+                  'Kero Kero Bonito'
+                ]
+              }
+            ]
+          }
+        ]
+      }
     }
   }
 </script>
