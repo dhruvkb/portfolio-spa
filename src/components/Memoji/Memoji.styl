@@ -1,4 +1,5 @@
 @import "~@/styles/tokens.styl"
+@import "~@/styles/animations.styl"
 
 .memoji
   --font-size 16em
@@ -40,11 +41,6 @@
 
   &.animated
     transform-origin bottom center
-    animation bobble 2s ease-in-out infinite
 
-  @keyframes bobble
-    50%
-      transform rotate(10deg)
-
-    0%, 100%
-      transform rotate(0deg)
+    bobble()
+    animation-duration $duration-longer

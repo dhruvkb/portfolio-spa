@@ -2,6 +2,8 @@
 @import "~@/styles/page.styl"
 @import "~@/styles/grid.styl"
 @import "~@/styles/reset.styl"
+@import "~@/styles/animations.styl"
+@import "~@/styles/transitions.styl"
 
 .home
   page-with-footer()
@@ -23,55 +25,14 @@
         justify-content center
 
         .avatar-spinner
-          perspective 20em
-
-          .rotate-horizontal-enter
-            opacity 0
-            transform rotateY(90deg)
-
-          .rotate-horizontal-leave-to
-            opacity 0
-            transform rotateY(-90deg)
-
-          .rotate-horizontal-enter-active,
-          .rotate-horizontal-leave-active
-            transform-style preserve-3d
-
-            transition-property transform, opacity
-            transition-duration $duration-standard
-            transition-timing-function linear
-
-          .rotate-horizontal-enter-to,
-          .rotate-horizontal-leave
-            transform rotateY(0deg)
+          rotate-horizontal()
 
       &.right
         .role
           display inline-flex
           flex-direction row
 
-          perspective 20em
-
-          .rotate-vertical-enter
-            opacity 0
-            transform rotateX(-90deg)
-
-          .rotate-vertical-leave-to
-            opacity 0
-            transform rotateX(90deg)
-
-          .rotate-vertical-enter-active,
-          .rotate-vertical-leave-active
-            transform-style preserve-3d
-            transform-origin 50% 100%
-
-            transition-property transform, opacity
-            transition-duration $duration-standard
-            transition-timing-function linear
-
-          .rotate-vertical-enter-to,
-          .rotate-vertical-leave
-            transform rotateX(0deg)
+          rotate-vertical()
 
           .border
             position absolute
@@ -88,24 +49,9 @@
             width 100%
             height $space-smallest
 
-            animation-name grow
+            grow()
             animation-duration 'calc(8s - %s)' % $duration-standard
             animation-delay $duration-standard
-            animation-timing-function linear
-            animation-fill-mode forwards
-
-            @keyframes grow
-              0%
-                background-position 0
-                opacity 0
-
-              75%
-                background-position -100%
-                opacity 1
-
-              100%
-                background-position -100%
-                opacity 0
 
         .run-on
           color var(--secondary-content)
@@ -118,14 +64,5 @@
 
       transform-origin 0 100%
 
-      animation-name wave
+      wave()
       animation-duration $duration-longest
-      animation-timing-function ease-in-out
-      animation-iteration-count infinite
-
-      @keyframes wave
-        0%, 42.5%, 47.5%, 52.5%, 57.5%, 100%
-          transform rotate(0deg)
-
-        45%, 50%, 55%
-          transform rotate(15deg)
