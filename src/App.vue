@@ -26,7 +26,7 @@
     },
     data () {
       return {
-        theme: 'dark',
+        theme: null,
         transitionName: null
       }
     },
@@ -52,6 +52,8 @@
       if (localStorage.theme) {
         // Switch to last used theme
         this.theme = localStorage.theme
+      } else {
+        this.theme = 'dark'
       }
     }
   }
