@@ -84,15 +84,15 @@
             isExact: false
           },
           {
-            to: '/about',
-            text: 'About',
-            icon: 'user',
-            isExact: false
-          },
-          {
             to: '/contact',
             text: 'Contact',
             icon: 'handshake',
+            isExact: false
+          },
+          {
+            to: '/about',
+            text: 'About',
+            icon: 'user',
             isExact: false
           },
           {

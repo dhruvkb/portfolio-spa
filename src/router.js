@@ -16,14 +16,14 @@ export default new Router({
       component: () => import(/* webpackChunkName: "portfolio" */ '@/templates/Portfolio/Portfolio')
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import(/* webpackChunkName: "about" */ '@/templates/About/About')
-    },
-    {
       path: '/contact',
       name: 'contact',
       component: () => import(/* webpackChunkName: "about" */ '@/templates/Contact/Contact')
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: () => import(/* webpackChunkName: "about" */ '@/templates/About/About')
     },
     {
       path: '/credits',
