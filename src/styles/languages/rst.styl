@@ -14,23 +14,14 @@ rst()
       bottom 0
       left 0
 
-  h1
-    color $color-accent-green
+  h1::after
+    content '================================'
 
-    &::after
-      content '================================'
+  h2::after
+    content '--------------------------------'
 
-  h2
-    color $color-accent-violet
-
-    &::after
-      content '--------------------------------'
-
-  h3
-    color $color-accent-blue
-
-    &::after
-      content '................................'
+  h3::after
+    content '................................'
 
   ul
     list-style none
@@ -55,11 +46,6 @@ rst()
       margin-left 2ch
 
   a
-    color $color-accent-magenta
-
-    text-decoration underline
-    text-decoration-style dotted
-
     &::before
       content '`'
 
