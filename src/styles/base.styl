@@ -1,8 +1,9 @@
 /**
- * Page level resets
+ * Page level resets and functionality
  */
 @import "~@/styles/tokens.styl"
 @import "~@/styles/theme.styl"
+@import "~@/styles/colors.styl"
 @import "~@/styles/scrollbars.styl"
 
 :root
@@ -33,3 +34,30 @@
 
   ul
     padding-left $space-normal
+
+  a
+    color inherit
+    text-decoration-style dotted
+
+    &:hover,
+    &:focus
+      text-decoration-style solid
+
+    &:focus
+      outline none
+
+  span,
+  div
+    colors('--primary-color')
+
+    &[class*="-colored"]
+      &:not(.inverted)
+        color var(--primary-color)
+
+      &.inverted
+        color var(--background)
+
+        background-color var(--primary-color)
+
+      &.boxed
+        border 1px solid var(--primary-color)
