@@ -1,0 +1,67 @@
+@import "~@/styles/transitions.styl"
+@import "~@/styles/reset.styl"
+@import "~@/styles/media.styl"
+@import "~@/styles/scrollbars.styl"
+
+.carousel
+  fade()
+
+  display flex
+  flex-direction column
+  align-items center
+
+  text-align center
+
+  width 100%
+  height 100%
+
+  overflow-x hidden
+
+  .viewport
+    display flex
+    flex-direction row
+
+    max-width 100%
+
+    overflow-x scroll
+    scroll-snap-type x mandatory
+
+    padding-top $space-normal
+    padding-bottom $space-normal
+
+    // Essentially hide scrollbar
+    custom-scrollbars(
+      var(--background-highlights),
+      var(--background-highlights)
+    )
+
+    .item
+      flex-grow 0
+      flex-shrink 0
+
+      word-break break-word // Prevent parent from widening too much
+
+      scroll-snap-align start
+
+      width 100%
+
+  .controls
+    margin-top auto
+
+    transition-property opacity
+    transition-duration $duration-standard
+
+    button
+      reset-control()
+
+      font-size $size-small
+
+      cursor pointer
+
+      padding $space-smaller
+
+      .icon
+        color var(--secondary-content)
+
+        &.active
+          color var(--primary-content)

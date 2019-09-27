@@ -1,0 +1,29 @@
+@import "~@/styles/tokens.styl"
+
+.card
+  position relative
+
+  background-color var(--background-highlights)
+
+  box-sizing border-box
+  height 100%
+  max-width 100%
+
+  padding $space-large
+  padding-top $space-large + $space-normal
+
+  border-radius $space-small
+
+  .title
+    position absolute
+
+    top $space-normal
+    left $space-large
+
+  .content
+    display flex
+    flex-direction column
+    align-items center
+    justify-content center
+
+    height 100%
