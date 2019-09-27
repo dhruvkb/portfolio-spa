@@ -1,54 +1,59 @@
 <template>
   <div class="home">
     <main>
-      <div class="left pane">
-        <RouterLink to="/portfolio">
-          <div class="avatar-spinner">
-            <transition name="rotate-horizontal" mode="out-in">
-              <Memoji
-                :key="index"
-                :role="roles[index].replace(' ', '_')"/>
+      <Grid>
+        <GridCell
+          class="left pane"
+          :span-set="[12, 6]">
+          <RouterLink to="/portfolio">
+            <div class="avatar-spinner">
+              <transition name="rotate-horizontal" mode="out-in">
+                <Memoji
+                  :key="index"
+                  :role="roles[index].replace(' ', '_')"/>
+              </transition>
+            </div>
+          </RouterLink>
+        </GridCell>
+        <GridCell
+          class="right pane"
+          :span-set="[12, 6]">
+          Hello there! I'm
+
+          <Heading
+            :level="1"
+            color="red">
+            Dhruv Bhanushali,
+          </Heading>
+
+          <Heading
+            class="role"
+            :level="5"
+            color="yellow">
+            <transition name="rotate-vertical" mode="out-in">
+              <div :key="vowel">{{ vowel }}&nbsp;</div>
             </transition>
-          </div>
-        </RouterLink>
-      </div>
+            <transition name="rotate-vertical" mode="out-in">
+              <div :key="index">{{ roles[index] }}</div>
+            </transition>
+            <div class="border" :key="index">&nbsp;</div>
+          </Heading>
 
-      <div class="right pane">
-        Hello there! I'm
-
-        <Heading
-          :level="1"
-          color="red">
-          Dhruv Bhanushali,
-        </Heading>
-
-        <Heading
-          class="role"
-          :level="5"
-          color="yellow">
-          <transition name="rotate-vertical" mode="out-in">
-            <div :key="vowel">{{ vowel }}&nbsp;</div>
-          </transition>
-          <transition name="rotate-vertical" mode="out-in">
-            <div :key="index">{{ roles[index] }}</div>
-          </transition>
-          <div class="border" :key="index">&nbsp;</div>
-        </Heading>
-
-        <p>
-          who,
-          with utmost <strong>love</strong> and <strong>passion</strong>,
-          composes
-          <br/>
-          code, docs, designs, containers and easter eggs
-          <br/>
-          <span
-            class="run-on"
-            title="Such as movies, music and memes!">
+          <p>
+            who,
+            with utmost <strong>love</strong> and <strong>passion</strong>,
+            composes
+            <br/>
+            code, docs, designs, containers and easter eggs
+            <br/>
+            <span
+              class="run-on"
+              title="Such as movies, music and memes!">
             amongst other things.
           </span>
-        </p>
-      </div>
+          </p>
+        </GridCell>
+      </Grid>
     </main>
 
     <footer title="Wonderful to meet you!">
@@ -63,6 +68,8 @@
 </template>
 
 <script>
+  import Grid from '@/components/Grid/Grid'
+  import GridCell from '@/components/Grid/GridCell'
   import Heading from '@/components/Heading/Heading'
   import Memoji from '@/components/Memoji/Memoji'
 
@@ -72,6 +79,8 @@
   export default {
     name: 'Home',
     components: {
+      Grid,
+      GridCell,
       Heading,
       Memoji
     },
