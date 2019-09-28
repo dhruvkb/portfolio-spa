@@ -80,40 +80,41 @@
             </Card>
           </GridCell>
 
-          <GridCell
-            v-for="(category, index) in topRow"
-            :key="`1${index}`"
-            :span-set="spanSet">
+          <GridCell :span-set="spanSet">
             <Card>
               <template #title>
                 <Heading
                   class="top"
                   color="blue"
                   :level="6">
-                  {{ category.heading }}
+                  Birth
                 </Heading>
               </template>
+              <Heading :level="2">
+                <span class="blue-colored">Mumbai, 1996</span>
+              </Heading>
+            </Card>
+          </GridCell>
 
-              <Carousel :content="category.list">
-                <template #default="{ item }">
-                  <div class="carousel-content">
-                    <span class="blue-colored">
-                      <FontAwesomeIcon
-                        class="image"
-                        :icon="item.icon"
-                        size="2x"
-                        fixed-width/>
-                    </span>
-                    {{ item.text }}
-                  </div>
-                </template>
-              </Carousel>
+          <GridCell :span-set="spanSet">
+            <Card>
+              <template #title>
+                <Heading
+                  class="top"
+                  color="magenta"
+                  :level="6">
+                  Current computer
+                </Heading>
+              </template>
+              <Heading :level="2">
+                <span class="magenta-colored">ThinkPad X220</span>
+              </Heading>
             </Card>
           </GridCell>
 
           <GridCell
-            v-for="(category, index) in bottomRow"
-            :key="`2${index}`"
+            v-for="(category, index) in topRow"
+            :key="`1${index}`"
             :span-set="spanSet">
             <Card>
               <template #title>
@@ -125,21 +126,22 @@
                 </Heading>
               </template>
 
-              <Carousel :content="category.list">
-                <template #default="{ item }">
-                  <div class="lefted">
-                    <span class="cyan-colored">
-                      <strong>{{ item.text }}</strong>
-                    </span>
-                    <ul>
-                      <li
-                        v-for="(example, index) in item.examples"
-                        :key="index">
-                        {{ example }}
-                      </li>
-                    </ul>
-                  </div>
-                </template>
+              <Carousel
+                class="carousel"
+                v-bind="carouselOptions">
+                <Slide
+                  class="carousel-content"
+                  v-for="(item, count) in category.list"
+                  :key="count">
+                  <span class="cyan-colored">
+                    <FontAwesomeIcon
+                      class="image"
+                      :icon="item.icon"
+                      size="2x"
+                      fixed-width/>
+                  </span>
+                  {{ item.text }}
+                </Slide>
               </Carousel>
             </Card>
           </GridCell>
@@ -170,13 +172,14 @@
   } from '@fortawesome/free-brands-svg-icons'
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+  import { Carousel, Slide } from 'vue-carousel'
+
   import Blockquote from '@/components/Blockquote/Blockquote'
   import Card from '@/components/Card/Card'
   import Grid from '@/components/Grid/Grid'
   import GridCell from '@/components/Grid/GridCell'
   import Heading from '@/components/Heading/Heading'
   import Indicator from '@/components/Indicator/Indicator'
-  import Carousel from '@/components/Carousel/Carousel'
 
   library.add(
     faAdjust,
@@ -206,6 +209,8 @@
       FontAwesomeIcon,
 
       Carousel,
+      Slide,
+
       Blockquote,
       Card,
       Grid,
@@ -216,8 +221,20 @@
     data () {
       return {
         headSpanSet: [12, 6],
-        spanSet: [12, 6, 3, 3],
-        compensatingSpanSet: [12],
+        spanSet: [12, 12, 6, 6, 3],
+        compensatingSpanSet: [12, 12],
+        carouselOptions: {
+          autoplay: true,
+          autoplayHoverPause: true,
+          autoplayTimeout: 8000,
+          loop: true,
+          perPage: 1,
+          centerMode: true,
+          paginationColor: 'var(--background)',
+          paginationActiveColor: 'var(--background-opposite)',
+          paginationPadding: 4,
+          paginationSize: 8
+        },
         topRow: [
           {
             heading: 'Opinions',
@@ -241,7 +258,7 @@
               {
                 icon: ['fab', 'apple'],
                 text: 'iOS > Android'
-              },
+              }
             ]
           },
           {
@@ -262,81 +279,6 @@
               {
                 icon: ['fas', 'walking'],
                 text: 'Talking long strolls in the dark'
-              }
-            ]
-          }
-        ],
-        bottomRow: [
-          {
-            heading: 'Favourite TV',
-            list: [
-              {
-                text: 'Science fiction',
-                examples: [
-                  'Westworld',
-                  'Black Mirror'
-                ]
-              },
-              {
-                text: 'Comedy',
-                examples: [
-                  'The Office (US)',
-                  'Parks and Recreation'
-                ]
-              },
-              {
-                text: 'News satire',
-                examples: [
-                  'Last Week Tonight',
-                  'Patriot Act'
-                ]
-              },
-              {
-                text: 'Nature documentaries',
-                examples: [
-                  'Planet Earth',
-                  'Planet Earth II'
-                ]
-              }
-            ]
-          },
-          {
-            heading: 'Favourite music',
-            list: [
-              {
-                text: 'Post and psych rock',
-                examples: [
-                  'Sigur Rós',
-                  'Tame Impala'
-                ]
-              },
-              {
-                text: 'Indie folk and pop',
-                examples: [
-                  'Gregory Alan Isakov',
-                  'George Ezra'
-                ]
-              },
-              {
-                text: 'Mainstream pop',
-                examples: [
-                  'Ed Sheeran',
-                  'Coldplay'
-                ]
-              },
-              {
-                text: 'Lo-fi and vaporwave',
-                examples: [
-                  'Jack Strauber',
-                  'Joji'
-                ]
-              },
-              {
-                text: 'Electronic',
-                examples: [
-                  'EDEN',
-                  'Kero Kero Bonito'
-                ]
               }
             ]
           }

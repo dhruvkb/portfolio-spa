@@ -83,20 +83,25 @@
                 Shoutout to these awesome people
                 whose portfolios inspired parts of mine.
               </p>
-              <Carousel :content="inspirations">
-                <template #default="{ item }">
-                  <div class="carousel-content">
-                    <img
-                      class="image"
-                      :src="item.imageSource"
-                      :alt="item.imageAlternativeText"
-                      :title="item.imageAlternativeText"/>
-                    <span class="text">
-                      <a :href="item.link">{{ item.text }}</a>
-                    </span>
-                    {{ item.subtext }}
-                  </div>
-                </template>
+              <Carousel
+                class="carousel"
+                v-bind="carouselOptions">
+                <Slide
+                  class="carousel-content"
+                  v-for="(inspiration, index) in inspirations"
+                  :key="index">
+                  <img
+                    class="image"
+                    :src="inspiration.imageSource"
+                    :alt="inspiration.imageAlternativeText"
+                    :title="inspiration.imageAlternativeText"/>
+                  <span class="cyan-colored">
+                    <a :href="inspiration.link">
+                      <strong>{{ inspiration.text }}</strong>
+                    </a>
+                  </span>
+                  &ldquo;{{ inspiration.subtext }}&rdquo;
+                </Slide>
               </Carousel>
             </Card>
           </GridCell>
@@ -112,7 +117,7 @@
                 </Heading>
               </template>
 
-              <p>
+              <p class="old-portfolio">
                 My old portfolio,
                 written entirely in vanilla JavaScript,
                 is still available
@@ -139,8 +144,9 @@
   } from '@fortawesome/free-solid-svg-icons'
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+  import { Carousel, Slide } from 'vue-carousel'
+
   import Card from '@/components/Card/Card'
-  import Carousel from '@/components/Carousel/Carousel'
   import Grid from '@/components/Grid/Grid'
   import GridCell from '@/components/Grid/GridCell'
   import Heading from '@/components/Heading/Heading'
@@ -153,8 +159,10 @@
     components: {
       FontAwesomeIcon,
 
-      Card,
       Carousel,
+      Slide,
+
+      Card,
       Grid,
       GridCell,
       Heading,
@@ -163,8 +171,20 @@
     data () {
       return {
         headSpanSet: [12, 6],
-        spanSet: [12, 6, 6, 4, 4],
+        spanSet: [12, 12, 6, 4, 4],
         compensatingSpanSet: [12, 12, 12, 4, 4],
+        carouselOptions: {
+          autoplay: true,
+          autoplayHoverPause: true,
+          autoplayTimeout: 8000,
+          loop: true,
+          perPage: 1,
+          centerMode: true,
+          paginationColor: 'var(--background)',
+          paginationActiveColor: 'var(--background-opposite)',
+          paginationPadding: 4,
+          paginationSize: 8
+        },
         inspirations: [
           {
             text: 'Debashish Nayak',
