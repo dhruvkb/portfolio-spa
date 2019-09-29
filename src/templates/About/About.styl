@@ -1,42 +1,10 @@
-@import "~@/styles/page.styl"
-@import "~@/styles/media.styl"
+@import "~@/styles/content.styl"
 
 .about
-  main
-    .section
-      display flex
-      flex-direction column
-      justify-content center
+  content()
 
-      &#intro
-        page-with-footer()
+  .quote-card
+    --blockquote-background var(--background-highlights)
 
-        align-items center
-
-        .imagery
-          display flex
-          flex-direction column
-          align-items center
-          justify-content center
-
-          height 100%
-
-        .content
-          max-width 32em
-
-      &#bytes
-        page()
-
-        .quote-card
-          --blockquote-background var(--background-highlights)
-
-        .carousel-content
-          display inline-flex
-          flex-direction column
-          align-items center
-
-          .image
-            margin-bottom $space-small
-
-        .lefted
-          text-align left
+  .mumbai
+    height 1em

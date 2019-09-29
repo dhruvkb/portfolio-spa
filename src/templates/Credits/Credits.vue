@@ -1,7 +1,7 @@
 <template>
   <div class="credits">
     <main>
-      <section class="section" id="dedication">
+      <section class="section" id="first">
         <Grid>
           <GridCell :span-set="headSpanSet">
             <div class="imagery">
@@ -40,7 +40,7 @@
         </footer>
       </section>
 
-      <section class="section" id="thanks">
+      <section class="section">
         <Heading
           :level="2"
           color="green">
@@ -59,12 +59,16 @@
                 </Heading>
               </template>
 
-              <Heading class="solarized" :level="2">
+              <div>This is</div>
+              <Heading
+                class="solarized"
+                :level="3">
                 <a href="https://ethanschoonover.com/solarized/">
                   Solarized
                 </a>
               </Heading>
-              Ethan Schoonover
+              <div>by <strong>Ethan Schoonover</strong></div>
+              <div>for your reading pleasure.</div>
             </Card>
           </GridCell>
 
@@ -73,19 +77,17 @@
               <template #title>
                 <Heading
                   class="top"
-                  color="cyan"
+                  color="blue"
                   :level="6">
                   Inspirations
                 </Heading>
               </template>
 
               <p>
-                Shoutout to these awesome people
+                Shoutout to these awesome people<br/>
                 whose portfolios inspired parts of mine.
               </p>
-              <Carousel
-                class="carousel"
-                v-bind="carouselOptions">
+              <Carousel v-bind="carouselOptions">
                 <Slide
                   class="carousel-content"
                   v-for="(inspiration, index) in inspirations"
@@ -95,7 +97,7 @@
                     :src="inspiration.imageSource"
                     :alt="inspiration.imageAlternativeText"
                     :title="inspiration.imageAlternativeText"/>
-                  <span class="cyan-colored">
+                  <span class="blue-colored">
                     <a :href="inspiration.link">
                       <strong>{{ inspiration.text }}</strong>
                     </a>
@@ -111,7 +113,7 @@
               <template #title>
                 <Heading
                   class="top"
-                  color="blue"
+                  color="cyan"
                   :level="6">
                   History
                 </Heading>
@@ -121,7 +123,7 @@
                 My old portfolio,
                 written entirely in vanilla JavaScript,
                 is still available
-                <span class="blue-colored">
+                <span class="cyan-colored">
                   <a href="https://vjs.dhruvkb.now.sh">
                     <strong>here</strong>
                   </a>
@@ -146,6 +148,8 @@
 
   import { Carousel, Slide } from 'vue-carousel'
 
+  import Content from '@/mixins/content'
+
   import Card from '@/components/Card/Card'
   import Grid from '@/components/Grid/Grid'
   import GridCell from '@/components/Grid/GridCell'
@@ -156,6 +160,9 @@
 
   export default {
     name: 'Credits',
+    mixins: [
+      Content
+    ],
     components: {
       FontAwesomeIcon,
 
@@ -170,21 +177,8 @@
     },
     data () {
       return {
-        headSpanSet: [12, 6],
         spanSet: [12, 12, 6, 4, 4],
         compensatingSpanSet: [12, 12, 12, 4, 4],
-        carouselOptions: {
-          autoplay: true,
-          autoplayHoverPause: true,
-          autoplayTimeout: 8000,
-          loop: true,
-          perPage: 1,
-          centerMode: true,
-          paginationColor: 'var(--background)',
-          paginationActiveColor: 'var(--background-opposite)',
-          paginationPadding: 4,
-          paginationSize: 8
-        },
         inspirations: [
           {
             text: 'Debashish Nayak',

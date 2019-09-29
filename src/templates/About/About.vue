@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <main>
-      <section class="section" id="intro">
+      <section class="section" id="first">
         <Grid>
           <GridCell :span-set="headSpanSet">
             <div class="imagery">
@@ -22,25 +22,17 @@
           <GridCell :span-set="headSpanSet">
             <div class="content">
               <p>
-                I'm
-                <span class="red-colored">
-                  <strong>Dhruv Bhanushali</strong>
-                </span>,
-                an engineer-physicist
-                from the Indian Institute of Technology
-                at Roorkee.
+                I take it you're interested to know me.
               </p>
               <p>
-                I was born in the clamour and the bustle of Mumbai in India.
-                Understandably, I tended to cherish silent solitude. That, and
-                my introvert personality, means you'll not hear me speak at
-                first and not hear the end of it soon after.
+                In that case, let's start with computers, Since two years into
+                this life, there has always been a computer no further than an
+                arm's distance from me. What can I say? I just love computers.
               </p>
               <p>
-                At an early age, I fell in love with my first computer, my dad's
-                self-assembled Pentium III with a chonky CRT running Windows 95.
-                Between then and now, with my ThinkPad, there has always been a
-                computer no further than an arm's distance from me.
+                How about something personal? I was born in the clamour and the
+                bustle of Mumbai in India so quite understandably, I cherish
+                silence and solitude. And I'm an introvert.
               </p>
             </div>
           </GridCell>
@@ -51,7 +43,7 @@
         </footer>
       </section>
 
-      <section class="section" id="bytes">
+      <section class="section">
         <Heading
           :level="2"
           color="green">
@@ -59,19 +51,66 @@
         </Heading>
 
         <Grid>
+          <GridCell :span-set="[12, 6, 5, 5, 5]">
+            <Card>
+              <template #title>
+                <Heading
+                  class="top"
+                  color="violet"
+                  :level="6">
+                  Home
+                </Heading>
+              </template>
+
+              <Heading :level="3">
+                <span class="violet-colored">
+                  <svg class="mumbai" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <use href="@/assets/images/mumbai.svg#mumbai"></use>
+                  </svg>
+                  Mumbai
+                </span>
+              </Heading>
+              <span class="violet-colored">
+                <strong>मुंबई</strong>
+              </span>
+            </Card>
+          </GridCell>
+
+          <GridCell :span-set="[12, 6, 7, 7, 7]">
+            <Card>
+              <template #title>
+                <Heading
+                  class="top"
+                  color="violet"
+                  :level="6">
+                  Education
+                </Heading>
+              </template>
+
+              <Heading :level="3">
+                <span class="violet-colored">
+                  IIT Roorkee
+                </span>
+              </Heading>
+              <span class="violet-colored">
+                <strong>B. Tech. (Engineering Physics)</strong>
+              </span>
+            </Card>
+          </GridCell>
+
           <GridCell
             :span-set="compensatingSpanSet">
             <Card class="quote-card">
               <template #title>
                 <Heading
                   class="top"
-                  color="orange"
+                  color="blue"
                   :level="6">
                   Favourite quote
                 </Heading>
               </template>
 
-              <Blockquote color="orange" orientation="vertical">
+              <Blockquote color="blue" orientation="vertical">
                 &ldquo;Don't half-ass two things. Whole-ass one thing.&rdquo;
                 <template #citation>
                   - Ron Swanson
@@ -80,60 +119,66 @@
             </Card>
           </GridCell>
 
-          <GridCell :span-set="spanSet">
-            <Card>
-              <template #title>
-                <Heading
-                  class="top"
-                  color="blue"
-                  :level="6">
-                  Birth
-                </Heading>
-              </template>
-              <Heading :level="2">
-                <span class="blue-colored">Mumbai, 1996</span>
-              </Heading>
-            </Card>
-          </GridCell>
-
-          <GridCell :span-set="spanSet">
-            <Card>
-              <template #title>
-                <Heading
-                  class="top"
-                  color="magenta"
-                  :level="6">
-                  Current computer
-                </Heading>
-              </template>
-              <Heading :level="2">
-                <span class="magenta-colored">ThinkPad X220</span>
-              </Heading>
-            </Card>
-          </GridCell>
-
-          <GridCell
-            v-for="(category, index) in topRow"
-            :key="`1${index}`"
-            :span-set="spanSet">
+          <GridCell :span-set="[12, 6, 7, 7, 7]">
             <Card>
               <template #title>
                 <Heading
                   class="top"
                   color="cyan"
                   :level="6">
+                  Current computer
+                </Heading>
+              </template>
+
+              <Heading :level="3">
+                <span class="cyan-colored">ThinkPad X220</span>
+              </Heading>
+              <span class="cyan-colored">
+                <strong>with the 7 row keyboard</strong>
+              </span>
+            </Card>
+          </GridCell>
+
+          <GridCell :span-set="[12, 6, 5, 5, 5]">
+            <Card>
+              <template #title>
+                <Heading
+                  class="top"
+                  color="cyan"
+                  :level="6">
+                  First computer
+                </Heading>
+              </template>
+
+              <Heading :level="3">
+                <span class="cyan-colored">Pentium III</span>
+              </Heading>
+              <span class="cyan-colored">
+                <strong>with a chonky CRT</strong>
+              </span>
+            </Card>
+          </GridCell>
+
+          <GridCell
+            v-for="(category, index) in dataPoints"
+            :key="`1${index}`"
+            :span-set="carouselSpanSet">
+            <Card>
+              <template #title>
+                <Heading
+                  class="top"
+                  color="yellow"
+                  :level="6">
                   {{ category.heading }}
                 </Heading>
               </template>
 
-              <Carousel
-                class="carousel"
-                v-bind="carouselOptions">
+              <Carousel v-bind="carouselOptions">
                 <Slide
                   class="carousel-content"
                   v-for="(item, count) in category.list"
                   :key="count">
-                  <span class="cyan-colored">
+                  <span class="yellow-colored">
                     <FontAwesomeIcon
                       class="image"
                       :icon="item.icon"
@@ -154,6 +199,7 @@
 <script>
   import { library } from '@fortawesome/fontawesome-svg-core'
   import {
+    faUniversity,
     faAdjust,
     faFilm,
     faHandPeace,
@@ -174,6 +220,8 @@
 
   import { Carousel, Slide } from 'vue-carousel'
 
+  import Content from '@/mixins/content'
+
   import Blockquote from '@/components/Blockquote/Blockquote'
   import Card from '@/components/Card/Card'
   import Grid from '@/components/Grid/Grid'
@@ -182,6 +230,7 @@
   import Indicator from '@/components/Indicator/Indicator'
 
   library.add(
+    faUniversity,
     faAdjust,
     faFilm,
     faHandPeace,
@@ -205,6 +254,9 @@
    */
   export default {
     name: 'About',
+    mixins: [
+      Content
+    ],
     components: {
       FontAwesomeIcon,
 
@@ -220,22 +272,9 @@
     },
     data () {
       return {
-        headSpanSet: [12, 6],
-        spanSet: [12, 12, 6, 6, 3],
+        carouselSpanSet: [12, 12, 6, 6, 3],
         compensatingSpanSet: [12, 12],
-        carouselOptions: {
-          autoplay: true,
-          autoplayHoverPause: true,
-          autoplayTimeout: 8000,
-          loop: true,
-          perPage: 1,
-          centerMode: true,
-          paginationColor: 'var(--background)',
-          paginationActiveColor: 'var(--background-opposite)',
-          paginationPadding: 4,
-          paginationSize: 8
-        },
-        topRow: [
+        dataPoints: [
           {
             heading: 'Opinions',
             list: [

@@ -86,3 +86,15 @@ rainbow()
 
     87.5%, 97.5%
       color $color-accent-green
+
+blink()
+  animation-name blink
+  animation-timing-function linear
+  animation-iteration-count infinite
+
+  @keyframes blink
+    0%, 75%, 100%
+      opacity 1
+
+    25%, 50%
+      opacity 0

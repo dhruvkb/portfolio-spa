@@ -1,4 +1,20 @@
-@import "~@/styles/page.styl"
+@import "~@/styles/tokens.styl"
+@import "~@/styles/content.styl"
+@import "~@/styles/animations.styl"
 
 .contact
-  page()
+  content()
+
+  .plain.icon
+    blink()
+    animation-duration $duration-longest
+
+  .box
+    display inline-block
+
+  .email,
+  .phone
+    height $size-huge
+
+  .lefted
+    align-self stretch

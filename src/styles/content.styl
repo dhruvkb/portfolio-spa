@@ -1,0 +1,36 @@
+@import "~@/styles/page.styl"
+@import "~@/styles/media.styl"
+
+content()
+  main
+    .section
+      display flex
+      flex-direction column
+      justify-content center
+
+      &#first
+        page-with-footer()
+
+        align-items center
+
+        .imagery
+          display flex
+          flex-direction column
+          align-items center
+          justify-content center
+
+          height 100%
+
+        .content
+          max-width 32em
+
+      &:not(#first)
+        page()
+
+  .carousel-content
+    display inline-flex
+    flex-direction column
+    align-items center
+
+    .image
+      margin-bottom $space-small

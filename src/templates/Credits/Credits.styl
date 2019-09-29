@@ -1,48 +1,22 @@
-@import "~@/styles/page.styl"
-@import "~@/styles/media.styl"
+@import "~@/styles/tokens.styl"
+@import "~@/styles/content.styl"
 @import "~@/styles/animations.styl"
 
 .credits
-  main
-    .section
-      display flex
-      flex-direction column
-      justify-content center
+  content()
 
-      &#dedication
-        page-with-footer()
+  .family
+    vertical-align bottom
 
-        align-items center
+  .solarized
+    rainbow()
+    animation-duration 'calc(4 * %s)' % $duration-content
 
-        .imagery
-          display flex
-          flex-direction column
-          align-items center
-          justify-content center
+  .carousel-content
+    .image
+      height 3em
 
-          height 100%
+      border-radius $space-small
 
-          .family
-            vertical-align bottom
-
-      &#thanks
-        page()
-
-        .solarized
-          rainbow()
-          animation-duration 'calc(4 * %s)' % $duration-content
-
-        .carousel-content
-          display flex
-          flex-direction column
-          align-items center
-
-          .image
-            height 3em
-
-            border-radius $space-small
-
-            margin-bottom $space-small
-
-        .old-portfolio
-          text-align center
+  .old-portfolio
+    text-align center
