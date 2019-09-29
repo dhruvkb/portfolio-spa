@@ -18,6 +18,7 @@
       autocomplete="off"
       autocapitalize="off"
       spellcheck="false"
+      @keydown.escape.exact.prevent="giveUpFocus"
       @keydown.arrow-up.exact.prevent="traverseHistoryUp"
       @keydown.arrow-down.exact.prevent="traverseHistoryDown"
       @keydown.tab.exact.prevent="autocompleteCommand"
@@ -74,6 +75,9 @@
       ])
     },
     methods: {
+      giveUpFocus () {
+        this.$refs.commandField.blur()
+      },
       traverseHistoryUp () {
         if (this.traversal.index === this.interactionHistory.length) {
           return
