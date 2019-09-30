@@ -11,12 +11,15 @@
                 <transition appear name="spin">
                   <FontAwesomeLayers>
                     <FontAwesomeIcon
-                      class="icon"
-                      :icon="['fas', 'comment']"
-                      fixed-width/>
+                      class="pulse"
+                      :icon="['fas', 'comment']"/>
                     <FontAwesomeIcon
-                      :icon="['fas', 'comment-dots']"
-                      fixed-width/>
+                      v-for="index in 3"
+                      :key="index"
+                      class="dot"
+                      :data-pos="index"
+                      :icon="['fas', 'circle']"
+                      size="xs"/>
                   </FontAwesomeLayers>
                 </transition>
               </Heading>
@@ -168,7 +171,7 @@
   import { library } from '@fortawesome/fontawesome-svg-core'
   import {
     faComment,
-    faCommentDots,
+    faCircle,
     faEnvelope,
     faPhoneAlt
   } from '@fortawesome/free-solid-svg-icons'
@@ -194,7 +197,7 @@
 
   library.add(
     faComment,
-    faCommentDots,
+    faCircle,
     faEnvelope,
     faPhoneAlt
   )

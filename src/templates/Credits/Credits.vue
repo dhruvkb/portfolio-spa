@@ -10,8 +10,9 @@
                 color="green">
                 <transition appear name="shift-right">
                   <FontAwesomeIcon
-                    class="family"
-                    :icon="['fas', 'male']"/>
+                    class="family dad"
+                    :icon="['fas', 'male']"
+                    fixed-width/>
                 </transition>
                 <FontAwesomeIcon
                   class="family"
@@ -20,9 +21,14 @@
                   fixed-width/>
                 <transition appear name="shift-left">
                   <FontAwesomeIcon
-                    class="family"
-                    :icon="['fas', 'female']"/>
+                    class="family mom"
+                    :icon="['fas', 'female']"
+                    fixed-width/>
                 </transition>
+                <div class="heart">
+                  <FontAwesomeIcon
+                    :icon="['fas', 'heart']"/>
+                </div>
               </Heading>
             </div>
           </GridCell>
@@ -144,11 +150,14 @@
 <script>
   import { library } from '@fortawesome/fontawesome-svg-core'
   import {
+    faHeart,
     faMale,
     faFemale,
     faChild
   } from '@fortawesome/free-solid-svg-icons'
-  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+  import {
+    FontAwesomeIcon
+  } from '@fortawesome/vue-fontawesome'
 
   import { Carousel, Slide } from 'vue-carousel'
 
@@ -160,7 +169,12 @@
   import Heading from '@/components/Heading/Heading'
   import Indicator from '@/components/Indicator/Indicator'
 
-  library.add(faMale, faFemale, faChild)
+  library.add(
+    faHeart,
+    faMale,
+    faFemale,
+    faChild
+  )
 
   export default {
     name: 'Credits',

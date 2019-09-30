@@ -7,12 +7,39 @@
   content()
 
   .imagery
+    position relative
+
     shift('left', $space-smaller, 0, 0, 0)
 
     shift('right', '-%s' % $space-smaller, 0, 0, 0)
 
     .family
       vertical-align bottom
+
+      &.dad
+        margin-right '-%s' % $space-small
+
+      &.mom
+        margin-left '-%s' % $space-small
+
+    .heart
+      opacity 0
+
+      position absolute
+      top 0
+      left 0
+
+      font-size 0.33em
+      text-align center
+
+      width 100%
+
+      swipe(0, 0, 0, 50%, 0, -50%)
+      animation-duration $duration-longer
+      animation-delay $duration-longer
+
+      &.delayed
+        animation-delay $duration-long
 
   .solarized
     rainbow()

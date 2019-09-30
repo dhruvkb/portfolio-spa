@@ -9,6 +9,13 @@
   .imagery
     shift('up', 0, 0, $space-smaller, 0)
 
+    perspective 20em
+
+    .hand
+      mirror()
+      animation-duration $duration-content
+      animation-delay $duration-longer
+
   .quote-card
     --blockquote-background var(--background-highlights)
 

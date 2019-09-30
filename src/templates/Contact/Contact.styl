@@ -9,9 +9,31 @@
   .imagery
     spin()
 
-    .icon
+    .pulse
+      pulse()
+      animation-duration $duration-long
+      animation-delay $duration-longer
+
+    .dot
+      opacity 0
+
+      color var(--background)
+      font-size 0.33rem
+
       blink()
-      animation-duration $duration-longest
+      animation-duration $duration-long
+      animation-delay $duration-longer
+
+      &[data-pos="1"]
+        transform translateX(-150%)
+
+      &[data-pos="2"]
+        animation-delay 'calc(1 * %s / 3 + %s)' % ($duration-long $duration-longer)
+
+      &[data-pos="3"]
+        transform translateX(150%)
+
+        animation-delay 'calc(2 * %s / 3 + %s)' % ($duration-long $duration-longer)
 
   .box
     display inline-block

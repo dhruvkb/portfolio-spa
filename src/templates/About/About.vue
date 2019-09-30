@@ -10,6 +10,7 @@
                   :level="2"
                   color="green">
                   <FontAwesomeIcon
+                    class="hand"
                     :icon="['fas', 'hand-peace']"/>
                 </Heading>
               </transition>

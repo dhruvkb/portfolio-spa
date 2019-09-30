@@ -8,8 +8,8 @@ fade()
   .fade-enter-active,
   .fade-leave-active
     transition-property opacity
-    transition-duration $duration-short
-    transition-timing-function linear
+    transition-duration $duration-standard
+    transition-timing-function ease-in-out
 
   .fade-leave,
   .fade-enter-to
@@ -39,7 +39,7 @@ flip(name, xfrom=0deg, xmid=0deg, xto=0deg, yfrom=0deg, ymid=0deg, yto=0deg)
   .flip-{name}-leave
     transform rotateX(xmid) rotateY(ymid)
 
-shift(name, xfrom = 0, xto = 0, yfrom = 0, yto = 0)
+shift(name, xfrom=0, xto=0, yfrom=0, yto=0)
   .shift-{name}-enter
     transform translate(xfrom, yfrom)
     opacity 0
@@ -53,7 +53,6 @@ shift(name, xfrom = 0, xto = 0, yfrom = 0, yto = 0)
     transform translate(xto, yto)
     opacity 1
 
-// Contact page - Comment icon
 spin()
   .spin-enter
     transform rotateZ(30deg) scale(0)
@@ -63,7 +62,7 @@ spin()
 
     transition-property transform, opacity
     transition-duration $duration-standard
-    transition-timing-function ease-in-out
+    transition-timing-function linear
 
   .spin-enter-to
     transform rotateZ(0deg) scale(1)
