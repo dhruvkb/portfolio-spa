@@ -1,6 +1,7 @@
 import Vue from 'vue'
 
 import VueShortkey from 'vue-shortkey'
+import VueObserveVisibility from 'vue-observe-visibility'
 
 import router from './router'
 import store from './store'
@@ -10,6 +11,8 @@ import App from './App.vue'
 Vue.use(VueShortkey, {
   prevent: ['input', 'textarea']
 })
+
+Vue.use(VueObserveVisibility)
 
 Vue.config.productionTip = false
 
