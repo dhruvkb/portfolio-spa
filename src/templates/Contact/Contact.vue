@@ -80,7 +80,10 @@
               </template>
 
               <p>
-                You can hit me up at my email address.
+                <FontAwesomeIcon
+                  :icon="['fas', 'envelope']"/>
+                You can hit me up
+                at my email address.
               </p>
               <span class="violet-colored">
                 <svg
@@ -106,7 +109,10 @@
               </template>
 
               <p>
-                You can call me on my phone number.
+                <FontAwesomeIcon
+                  :icon="['fas', 'phone-alt']"/>
+                You can call me
+                on my phone number.
               </p>
               <span class="violet-colored">
                 <svg
@@ -160,7 +166,9 @@
   import { library } from '@fortawesome/fontawesome-svg-core'
   import {
     faComment,
-    faCommentDots
+    faCommentDots,
+    faEnvelope,
+    faPhoneAlt
   } from '@fortawesome/free-solid-svg-icons'
   import {
     faGithub,
@@ -184,7 +192,9 @@
 
   library.add(
     faComment,
-    faCommentDots
+    faCommentDots,
+    faEnvelope,
+    faPhoneAlt
   )
 
   library.add(
