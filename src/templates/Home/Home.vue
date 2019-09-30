@@ -7,7 +7,7 @@
           :span-set="[12, 6]">
           <RouterLink to="/portfolio">
             <div class="avatar-spinner">
-              <transition name="rotate-horizontal" mode="out-in">
+              <transition appear name="flip-horizontal" mode="out-in">
                 <Memoji
                   :key="index"
                   :role="roles[index].replace(' ', '_')"/>
@@ -28,12 +28,12 @@
 
           <Heading
             class="role"
-            :level="5"
+            :level="4"
             color="yellow">
-            <transition name="rotate-vertical" mode="out-in">
+            <transition appear name="flip-vertical" mode="out-in">
               <div :key="vowel">{{ vowel }}&nbsp;</div>
             </transition>
-            <transition name="rotate-vertical" mode="out-in">
+            <transition appear name="flip-vertical" mode="out-in">
               <div :key="index">{{ roles[index] }}</div>
             </transition>
             <div class="border" :key="index">&nbsp;</div>

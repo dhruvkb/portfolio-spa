@@ -1,13 +1,17 @@
 @import "~@/styles/tokens.styl"
 @import "~@/styles/content.styl"
 @import "~@/styles/animations.styl"
+@import "~@/styles/transitions.styl"
 
 .contact
   content()
 
-  .plain.icon
-    blink()
-    animation-duration $duration-longest
+  .imagery
+    spin()
+
+    .icon
+      blink()
+      animation-duration $duration-longest
 
   .box
     display inline-block

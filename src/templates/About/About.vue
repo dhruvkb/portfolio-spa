@@ -5,12 +5,14 @@
         <Grid>
           <GridCell :span-set="headSpanSet">
             <div class="imagery">
-              <Heading
-                :level="2"
-                color="green">
-                <FontAwesomeIcon
-                  :icon="['fas', 'hand-peace']"/>
-              </Heading>
+              <transition appear name="shift-up">
+                <Heading
+                  :level="2"
+                  color="green">
+                  <FontAwesomeIcon
+                    :icon="['fas', 'hand-peace']"/>
+                </Heading>
+              </transition>
               <Heading
                 :level="2"
                 color="green">

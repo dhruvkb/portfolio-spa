@@ -1,12 +1,18 @@
 @import "~@/styles/tokens.styl"
 @import "~@/styles/content.styl"
 @import "~@/styles/animations.styl"
+@import "~@/styles/transitions.styl"
 
 .credits
   content()
 
-  .family
-    vertical-align bottom
+  .imagery
+    shift('left', $space-smaller, 0, 0, 0)
+
+    shift('right', '-%s' % $space-smaller, 0, 0, 0)
+
+    .family
+      vertical-align bottom
 
   .solarized
     rainbow()

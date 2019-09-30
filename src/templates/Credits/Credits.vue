@@ -8,17 +8,21 @@
               <Heading
                 :level="2"
                 color="green">
-                <FontAwesomeIcon
-                  class="family"
-                  :icon="['fas', 'male']"/>
+                <transition appear name="shift-right">
+                  <FontAwesomeIcon
+                    class="family"
+                    :icon="['fas', 'male']"/>
+                </transition>
                 <FontAwesomeIcon
                   class="family"
                   size="xs"
                   :icon="['fas', 'child']"
                   fixed-width/>
-                <FontAwesomeIcon
-                  class="family"
-                  :icon="['fas', 'female']"/>
+                <transition appear name="shift-left">
+                  <FontAwesomeIcon
+                    class="family"
+                    :icon="['fas', 'female']"/>
+                </transition>
               </Heading>
             </div>
           </GridCell>

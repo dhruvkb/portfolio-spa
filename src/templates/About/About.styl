@@ -1,8 +1,13 @@
 @import "~@/styles/content.styl"
 @import "~@/styles/media.styl"
+@import "~@/styles/animations.styl"
+@import "~@/styles/transitions.styl"
 
 .about
   content()
+
+  .imagery
+    shift('up', 0, 0, $space-smaller, 0)
 
   .quote-card
     --blockquote-background var(--background-highlights)

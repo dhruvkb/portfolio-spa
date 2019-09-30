@@ -1,52 +1,5 @@
 @import "~@/styles/tokens.styl"
 
-rotate-vertical()
-  perspective 20em
-
-  .rotate-vertical-enter
-    opacity 0
-    transform rotateX(-90deg)
-
-  .rotate-vertical-leave-to
-    opacity 0
-    transform rotateX(90deg)
-
-  .rotate-vertical-enter-active,
-  .rotate-vertical-leave-active
-    transform-style preserve-3d
-    transform-origin 50% 100%
-
-    transition-property transform, opacity
-    transition-duration $duration-standard
-    transition-timing-function linear
-
-  .rotate-vertical-enter-to,
-  .rotate-vertical-leave
-    transform rotateX(0deg)
-
-rotate-horizontal()
-  perspective 20em
-
-  .rotate-horizontal-enter
-    opacity 0
-    transform rotateY(90deg)
-
-  .rotate-horizontal-leave-to
-    opacity 0
-    transform rotateY(-90deg)
-
-  .rotate-horizontal-enter-active,
-  .rotate-horizontal-leave-active
-    transform-style preserve-3d
-
-    transition-property transform, opacity
-    transition-duration $duration-standard
-    transition-timing-function linear
-
-  .rotate-horizontal-enter-to,
-  .rotate-horizontal-leave
-    transform rotateY(0deg)
-
 fade()
   .fade-enter,
   .fade-leave-to
@@ -62,22 +15,55 @@ fade()
   .fade-enter-to
     opacity 1
 
-slide()
-  .slide-enter
-    transform translateX(5em)
-    opacity 0
+flip(name, xfrom=0deg, xmid=0deg, xto=0deg, yfrom=0deg, ymid=0deg, yto=0deg)
+  perspective 20em
 
-  .slide-leave-to
-    transform translateX(-5em)
+  .flip-{name}-enter
     opacity 0
+    transform rotateX(xfrom) rotateY(yfrom)
 
-  .slide-enter-active,
-  .slide-leave-active
+  .flip-{name}-leave-to
+    opacity 0
+    transform rotateX(xto) rotateY(yto)
+
+  .flip-{name}-enter-active,
+  .flip-{name}-leave-active
+    transform-style preserve-3d
+    transform-origin 50% 100%
+
     transition-property transform, opacity
     transition-duration $duration-standard
     transition-timing-function linear
 
-  .slide-enter-to,
-  .slide-leave
+  .flip-{name}-enter-to,
+  .flip-{name}-leave
+    transform rotateX(xmid) rotateY(ymid)
+
+shift(name, xfrom = 0, xto = 0, yfrom = 0, yto = 0)
+  .shift-{name}-enter
+    transform translate(xfrom, yfrom)
+    opacity 0
+
+  .shift-{name}-enter-active
+    transition-property transform, opacity
+    transition-duration $duration-standard
+    transition-timing-function linear
+
+  .shift-{name}-enter-to
+    transform translate(xto, yto)
     opacity 1
-    transform translateX(0)
+
+// Contact page - Comment icon
+spin()
+  .spin-enter
+    transform rotateZ(30deg) scale(0)
+
+  .spin-enter-active
+    transform-origin 0 100%
+
+    transition-property transform, opacity
+    transition-duration $duration-standard
+    transition-timing-function ease-in-out
+
+  .spin-enter-to
+    transform rotateZ(0deg) scale(1)

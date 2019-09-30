@@ -8,15 +8,17 @@
               <Heading
                 :level="2"
                 color="green">
-                <FontAwesomeLayers>
-                  <FontAwesomeIcon
-                    class="plain icon"
-                    :icon="['fas', 'comment']"
-                    fixed-width/>
-                  <FontAwesomeIcon
-                    :icon="['fas', 'comment-dots']"
-                    fixed-width/>
-                </FontAwesomeLayers>
+                <transition appear name="spin">
+                  <FontAwesomeLayers>
+                    <FontAwesomeIcon
+                      class="icon"
+                      :icon="['fas', 'comment']"
+                      fixed-width/>
+                    <FontAwesomeIcon
+                      :icon="['fas', 'comment-dots']"
+                      fixed-width/>
+                  </FontAwesomeLayers>
+                </transition>
               </Heading>
               <Heading
                 :level="2"
