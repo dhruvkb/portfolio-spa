@@ -99,7 +99,7 @@
           </GridCell>
 
           <GridCell
-            :span-set="compensatingSpanSet">
+            :span-set="[12]">
             <Card class="quote-card">
               <template #title>
                 <Heading
@@ -119,7 +119,7 @@
             </Card>
           </GridCell>
 
-          <GridCell :span-set="[12, 6, 7, 7, 7]">
+          <GridCell :span-set="[12, 6, 7, 7, 3]">
             <Card>
               <template #title>
                 <Heading
@@ -139,7 +139,7 @@
             </Card>
           </GridCell>
 
-          <GridCell :span-set="[12, 6, 5, 5, 5]">
+          <GridCell :span-set="[12, 6, 5, 5, 3]">
             <Card>
               <template #title>
                 <Heading
@@ -162,7 +162,7 @@
           <GridCell
             v-for="(category, index) in dataPoints"
             :key="`1${index}`"
-            :span-set="carouselSpanSet">
+            :span-set="[12, 12, 6, 6, 3]">
             <Card>
               <template #title>
                 <Heading
@@ -185,7 +185,37 @@
                       size="2x"
                       fixed-width/>
                   </span>
-                  {{ item.text }}
+                  <span v-html="item.text"></span>
+                </Slide>
+              </Carousel>
+            </Card>
+          </GridCell>
+
+          <GridCell :span-set="[12]">
+            <Card>
+              <template #title>
+                <Heading
+                  class="top"
+                  color="orange"
+                  :level="6">
+                  Photos
+                </Heading>
+              </template>
+
+              <Carousel
+                class="gallery"
+                v-bind="carouselGalleryOptions">
+                <Slide
+                  v-for="(photo, index) in photos"
+                  :key="index">
+                  <div class="content">
+                    <div
+                      class="photo"
+                      :style="{'--image-url': `url(${photo.source})`}"
+                      :title="photo.description.replace(/<\/?[a-z]+>/g, '')">
+                    </div>
+                    <span class="caption" v-html="photo.description"></span>
+                  </div>
                 </Slide>
               </Carousel>
             </Card>
@@ -272,31 +302,29 @@
     },
     data () {
       return {
-        carouselSpanSet: [12, 12, 6, 6, 3],
-        compensatingSpanSet: [12, 12],
         dataPoints: [
           {
             heading: 'Opinions',
             list: [
               {
                 icon: ['fas', 'mug-hot'],
-                text: 'Coffee > tea'
+                text: '<strong>Coffee</strong> > tea'
               },
               {
                 icon: ['fas', 'adjust'],
-                text: 'Dark theme > light theme'
+                text: '<strong>Dark theme</strong> > light theme'
               },
               {
                 icon: ['fab', 'firefox'],
-                text: 'Mozilla Firefox > Google Chrome'
+                text: '<strong>Mozilla Firefox</strong> > Google Chrome'
               },
               {
                 icon: ['fab', 'redhat'],
-                text: 'Fedora > any OS'
+                text: '<strong>Fedora</strong> > any OS'
               },
               {
                 icon: ['fab', 'apple'],
-                text: 'iOS > Android'
+                text: '<strong>iOS</strong> > Android'
               }
             ]
           },
@@ -305,21 +333,71 @@
             list: [
               {
                 icon: ['fas', 'tv'],
-                text: 'Binging on TV series'
+                text: 'Binging on <strong>TV series</strong>'
               },
               {
                 icon: ['fas', 'film'],
-                text: 'Watching movies'
+                text: 'Watching <strong>movies</strong>'
               },
               {
                 icon: ['fas', 'music'],
-                text: 'Organising and listening to music'
+                text: 'Organising and listening to <strong>music</strong>'
               },
               {
                 icon: ['fas', 'walking'],
-                text: 'Talking long strolls in the dark'
+                text: 'Talking <strong>long strolls</strong> in the dark'
               }
             ]
+          }
+        ],
+        photos: [
+          {
+            source: require('@/assets/photos/1.jpg'),
+            description: 'I love <strong>doggos</strong>…'
+          },
+          {
+            source: require('@/assets/photos/2.jpg'),
+            description: '…and <strong>flowers</strong>…'
+          },
+          {
+            source: require('@/assets/photos/3.jpg'),
+            description: '…and <strong>gardens</strong>…'
+          },
+          {
+            source: require('@/assets/photos/4.jpg'),
+            description: '…and, of course, <strong>coffee</strong>.'
+          },
+          {
+            source: require('@/assets/photos/5.jpg'),
+            description: '<strong>Ronak</strong> and <strong>Vipul</strong> are my friends…'
+          },
+          {
+            source: require('@/assets/photos/8.jpg'),
+            description: '…and so is <strong>Bhushan</strong>.'
+          },
+          {
+            source: require('@/assets/photos/6.jpg'),
+            description: 'Meet <strong>Surya</strong>…'
+          },
+          {
+            source: require('@/assets/photos/7.jpg'),
+            description: '… and <strong>Praduman</strong>. We love memes.'
+          },
+          {
+            source: require('@/assets/photos/9.jpg'),
+            description: '<strong>Vineet</strong> sir is a designer…'
+          },
+          {
+            source: require('@/assets/photos/10.jpg'),
+            description: '…and <strong>Debashish</strong> sir is a frontend developer.'
+          },
+          {
+            source: require('@/assets/photos/12.jpg'),
+            description: 'This is <strong>Aman</strong>…'
+          },
+          {
+            source: require('@/assets/photos/11.jpg'),
+            description: '…and my juniors from a <strong>trekking trip</strong>.'
           }
         ]
       }

@@ -1,4 +1,5 @@
 @import "~@/styles/content.styl"
+@import "~@/styles/media.styl"
 
 .about
   content()
@@ -8,3 +9,27 @@
 
   .mumbai
     height 1em
+
+  .gallery
+    width 100%
+
+    .content
+      box-sizing border-box
+
+      padding 0 $space-small
+
+      .photo
+        background-image var(--image-url)
+        background-size cover
+        background-position center center
+
+        width 100%
+        // Hack to maintain aspect ratio
+        height 0
+        padding-top (32/48) * 100%
+
+        border-radius $space-small
+
+      .caption
+        +tablet-landscape-down()
+          display none
