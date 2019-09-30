@@ -30,5 +30,12 @@ export default new Router({
       name: 'credits',
       component: () => import(/* webpackChunkName: "credits" */ '@/templates/Credits/Credits')
     }
-  ]
+  ],
+  scrollBehavior () {
+    // Always scroll to the top
+    return {
+      x: 0,
+      y: 0
+    }
+  }
 })
