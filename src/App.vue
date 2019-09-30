@@ -5,7 +5,7 @@
         <Themer :theme.sync="theme"/>
       </template>
     </Navigation>
-    <transition name="fade" mode="out-in">
+    <transition appear name="fade" mode="out-in">
       <RouterView/>
     </transition>
   </div>
