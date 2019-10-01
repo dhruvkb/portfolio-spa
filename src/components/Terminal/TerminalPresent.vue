@@ -1,9 +1,11 @@
 <template>
-  <div class="present">
+  <div
+    class="present"
+    @click="takeFocus"
+    title="[Ctrl + C] Focus on the prompt.">
     <label
       class="prompt-label"
-      for="command-field"
-      title="[Ctrl + C] Focus on the prompt.">
+      for="command-field">
       <TerminalPrompt :directory="currentNode.name"/>
     </label>
     <input
@@ -18,7 +20,7 @@
       autocomplete="off"
       autocapitalize="off"
       spellcheck="false"
-      @keydown.escape.exact.prevent="giveUpFocus"
+      @keydown.escape.exact.prevent="loseFocus"
       @keydown.arrow-up.exact.prevent="traverseHistoryUp"
       @keydown.arrow-down.exact.prevent="traverseHistoryDown"
       @keydown.tab.exact.prevent="autocompleteCommand"
@@ -27,8 +29,7 @@
       @keyup="processKeyUp">
     <span
       class="caret"
-      :style="caretStyles"
-      title="Click the prompt to focus.">&nbsp;</span>
+      :style="caretStyles">&nbsp;</span>
   </div>
 </template>
 
@@ -75,7 +76,10 @@
       ])
     },
     methods: {
-      giveUpFocus () {
+      takeFocus () {
+        this.$refs.commandField.focus()
+      },
+      loseFocus () {
         this.$refs.commandField.blur()
       },
       traverseHistoryUp () {
