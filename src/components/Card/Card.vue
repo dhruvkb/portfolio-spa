@@ -43,7 +43,6 @@
     },
     methods: {
       visibilityChanged (isVisible) {
-        console.log(isVisible)
         if (isVisible) {
           this.isVisible = true
         }
