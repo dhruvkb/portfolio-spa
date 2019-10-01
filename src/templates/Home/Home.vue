@@ -13,6 +13,15 @@
                   :role="roles[index].replace(' ', '_')"/>
               </transition>
             </div>
+
+            <!-- Sinful terrible hack to prefetch images -->
+            <div style="display: none;">
+              <Memoji
+                v-for="(role, index) in roles"
+                :key="index"
+                :role="role.replace(' ', '_')"/>
+            </div>
+            <!-- Sin ends here -->
           </RouterLink>
         </GridCell>
         <GridCell
