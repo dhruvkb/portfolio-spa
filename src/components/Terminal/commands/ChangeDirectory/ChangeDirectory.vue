@@ -31,10 +31,14 @@
     },
     computed: {
       /**
-       * _the path to which the current directory should be changed_
+       * _the directory to which the current directory should be changed_
        */
-      dirname () {
-        return this.args[0].replace(/\/$/, '')
+      dir () {
+        if (this.args.length === 0) {
+          return this.nodeLocatedAt('~')
+        } else {
+          return this.nodeLocatedAt(this.args[0].replace(/\/$/, ''))
+        }
       },
       /**
        * _whether a folder matching the path was found_
@@ -54,7 +58,7 @@
       ])
     },
     created () {
-      this.node = this.nodeLocatedAt(this.dirname)
+      this.node = this.dir
 
       if (this.node) {
         this.setCurrentNode({

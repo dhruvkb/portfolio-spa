@@ -52,7 +52,7 @@ export const mapping = {
   },
   cd: {
     name: 'cd',
-    args: 'dirname',
+    args: '[dirname]',
     component: 'ChangeDirectory',
     description: 'Switch to directory \'dirname\'.'
   },
