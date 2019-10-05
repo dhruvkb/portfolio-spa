@@ -4,7 +4,10 @@
       href="#"
       :title="description"
       @click.prevent="execute">
-      <template>{{ node.name }}</template>
+      <template v-if="as">
+        <span :title="node.name">{{ as }}</span>
+      </template>
+      <template v-else>{{ node.name }}</template>
     </a>
   </span>
 </template>
@@ -25,6 +28,12 @@
       node: {
         type: Object,
         required: true
+      },
+      /**
+       * _alternate text to display in place of the node name_
+       */
+      as: {
+        type: String
       }
     },
     computed: {
