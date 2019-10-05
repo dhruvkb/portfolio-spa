@@ -4,7 +4,7 @@
       href="#"
       :title="command.description"
       @click.prevent="execute">
-      <strong>{{ command.name }}</strong>
+      <strong>{{ generatedCommand }}</strong>
     </a>
   </span>
 </template>
@@ -25,6 +25,22 @@
       command: {
         type: Object,
         required: true
+      },
+      /**
+       * _the arguments passed to the command_
+       */
+      argv: {
+        type: Array,
+        default: () => []
+      }
+    },
+    computed: {
+      generatedCommand () {
+        let genCommand = `${this.command.name}`
+        if (this.argv.length !== 0) {
+          genCommand = `${genCommand} ${this.argv.join(' ')}`
+        }
+        return genCommand
       }
     },
     methods: {
@@ -33,7 +49,7 @@
        */
       execute () {
         this.runCommand({
-          command: this.command.command
+          command: this.generatedCommand
         })
       },
 
