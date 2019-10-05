@@ -1,29 +1,34 @@
 <template>
   <div class="tree">
     <template v-if="isFound">
-      <span
-        v-for="index in level"
-        :key="index">
-        <!-- TODO Generalise this algorithm to work on more than two levels -->
-        <template v-if="index === level">
-          {{ isLastChild ? '└' : '├'}}──
-        </template>
-        <template v-else>
-          {{ isParentLastChild ? '&nbsp;': '│'}}&nbsp;&nbsp;
-        </template>
-      </span>
+      <template v-if="!args.flatten">
+        <span
+          v-for="index in level"
+          :key="index">
+          <!-- TODO Generalise this algorithm to work on more than two levels -->
+          <template v-if="index === level">
+            {{ isLastChild ? '└' : '├'}}──
+          </template>
+          <template v-else>
+            {{ isParentLastChild ? '&nbsp;': '│'}}&nbsp;&nbsp;
+          </template>
+        </span>
+      </template>
 
-      <Link :node="node"/>
+      <template v-if="!(args.flatten && node.type === 'folder')">
+        <template v-if="args.flatten">─ </template>
+        <Link :node="node"/>
+      </template>
 
       <tree
         v-for="child in node.children"
-        :args="[]"
+        :argv="argv"
         :passed-node="child"
         :level="level + 1"
         :key="child.name"/>
     </template>
     <template v-else>
-      <strong>{{ args[0] }}</strong> is not a valid directory.
+      <strong>{{ args.dirname }}</strong> is not a valid directory.
     </template>
   </div>
 </template>
@@ -33,21 +38,43 @@
 
   import Link from '@/components/Terminal/blocks/Link/Link'
 
+  import Command from '@/mixins/command'
+
   /**
    * This command recursively lists all directories and their contents.
    */
   export default {
     name: 'Tree',
+    mixins: [
+      Command
+    ],
     components: {
       Link
+    },
+    argSpec: {
+      args: [
+        {
+          name: 'dirname',
+          type: String,
+          default: '.'
+        }
+      ],
+      kwargs: [
+        {
+          name: '--flatten',
+          type: Boolean,
+          aliases: [
+            '-f'
+          ]
+        }
+      ]
     },
     props: {
       /**
        * _the arguments passed to the command_
        */
-      args: {
-        type: Array,
-        required: true
+      argv: {
+        type: Array
       },
       /**
        * _the node below which the tree is to be rendered_
@@ -68,14 +95,10 @@
        * _the directory whose contents are to be shown_
        */
       dir () {
-        if (this.args.length === 0) {
-          if (this.passedNode) {
-            return this.passedNode
-          } else {
-            return this.currentNode
-          }
+        if (this.passedNode) {
+          return this.passedNode
         } else {
-          return this.nodeLocatedAt(this.args[0].replace(/\/$/, ''))
+          return this.nodeLocatedAt(this.args.dirname.replace(/\/$/, ''))
         }
       },
       /**

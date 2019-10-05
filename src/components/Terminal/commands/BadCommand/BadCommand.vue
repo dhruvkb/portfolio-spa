@@ -1,14 +1,14 @@
 <template>
   <div class="bad">
-    <template v-if="command">
-      Command <strong>{{ command }}</strong> does not exist in this CLI.
+    <template v-if="args.cmdname">
+      Command <strong>{{ args.cmdname }}</strong> does not exist in this CLI.
     </template>
 
     <template v-else>
       Command <strong>bad</strong> is not for public use.
     </template>
 
-    Try <Executable :command="altCommand"/>.
+    Try <Executable :command="altCommand" :argv="altArgv"/>.
   </div>
 </template>
 
@@ -17,47 +17,40 @@
 
   import { mapping } from '@/components/Terminal/commands'
 
+  import Command from '@/mixins/command'
+
   /**
    * This command shows that a given command does not exist in the CLI.
    */
   export default {
     name: 'BadCommand',
+    mixins: [
+      Command
+    ],
     components: {
       Executable
+    },
+    argSpec: {
+      args: [
+        {
+          name: 'cmdname',
+          type: String
+        }
+      ],
+      kwargs: []
     },
     props: {
       /**
        * _the arguments passed to the command_
        */
-      args: {
-        type: Array,
-        required: true
+      argv: {
+        type: Array
       }
     },
     data () {
-      let name = 'help'
-      let command = mapping[name]
-      let description = command.description
-      if (command.args && !command.args.includes('[')) {
-        command = `${command.name} ${command.args}`
-      } else {
-        command = command.name
-      }
-
       return {
-        altCommand: {
-          name: name,
-          command: command,
-          description: description
-        }
-      }
-    },
-    computed: {
-      /**
-       * _the command that resulted in a bad command error_
-       */
-      command () {
-        return this.args[0]
+        altCommand: mapping['help'],
+        altArgv: []
       }
     }
   }

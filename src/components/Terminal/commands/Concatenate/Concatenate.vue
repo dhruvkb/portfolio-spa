@@ -6,7 +6,7 @@
     </template>
 
     <template v-else>
-      <strong>{{ args[0] }}</strong> is not a valid file.
+      <strong>{{ args.filename }}</strong> is not a valid file.
     </template>
   </div>
 </template>
@@ -25,8 +25,11 @@
 
   import VRuntimeTemplate from 'v-runtime-template'
 
+  import Blockquote from '@/components/Blockquote/Blockquote'
   import Spinner from '@/components/Terminal/blocks/Spinner/Spinner'
   import Link from '@/components/Terminal/blocks/Link/Link'
+
+  import Command from '@/mixins/command'
 
   library.add(
     faMapMarkerAlt,
@@ -40,6 +43,9 @@
    */
   export default {
     name: 'Concatenate',
+    mixins: [
+      Command
+    ],
     components: {
       VRuntimeTemplate,
       Spinner,
@@ -47,15 +53,26 @@
       // eslint-disable-next-line vue/no-unused-components
       FontAwesomeIcon,
       // eslint-disable-next-line vue/no-unused-components
-      Link
+      Link,
+      // eslint-disable-next-line vue/no-unused-components
+      Blockquote
+    },
+    argSpec: {
+      args: [
+        {
+          name: 'filename',
+          type: String,
+          default: 'VANITY'
+        }
+      ],
+      kwargs: []
     },
     props: {
       /**
        * _the arguments passed to the command_
        */
-      args: {
-        type: Array,
-        required: true
+      argv: {
+        type: Array
       }
     },
     data () {
@@ -65,24 +82,35 @@
     },
     computed: {
       /**
-       * _the path to the file which should be opened_
+       * _the directory to which the current directory should be changed_
        */
-      filename () {
-        return this.args[0]
+      file () {
+        if (this.args.filename === 'VANITY') {
+          return null
+        } else {
+          return this.nodeLocatedAt(this.args.filename)
+        }
       },
       /**
        * _whether a file matching the path was found_
        */
       isFound () {
-        return this.node && this.node.type === 'file'
+        return this.args.filename === 'VANITY' ||
+          (this.node && this.node.type === 'file')
       },
       /**
        * _the imported HTML of the file_
        */
       path () {
-        let dirName = this.node.parent.name
-        let fileName = this.node.name
-        return require(`@/assets/content/${dirName}/${fileName}.content.html`)
+        let filePath
+        if (this.args.filename === 'VANITY') {
+          filePath = 'vanity_card.content.html'
+        } else {
+          let dirName = this.node.parent.name
+          let fileName = this.node.name
+          filePath = `${dirName}/${fileName}.content.html`
+        }
+        return require(`@/assets/content/${filePath}`)
       },
 
       ...mapGetters('terminal', [
@@ -122,9 +150,9 @@
       ])
     },
     created () {
-      this.node = this.nodeLocatedAt(this.filename)
+      this.node = this.file
 
-      if (this.node) {
+      if (this.isFound) {
         setTimeout(this.loadContent, 0)
       } else {
         this.stopProcessing('FAIL')

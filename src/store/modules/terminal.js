@@ -91,16 +91,18 @@ const mutations = {
 const actions = {
   runCommand ({ commit }, payload) {
     let command = payload.command
+
+    let [bin, ...argv] = command.split(' ')
+
     let directory = state.currentNode.name
+
     let input = {
       command,
       directory
     }
+    let output = {}
 
     let bins = Object.keys(mapping)
-    let [bin, ...args] = command.split(' ')
-
-    let output = {}
     if (bins.includes(bin)) {
       if (mapping[bin].isLongTerm) {
         commit('setIsProcessing', {
@@ -109,10 +111,10 @@ const actions = {
       }
 
       output.component = mapping[bin].component
-      output.args = args
+      output.argv = argv
     } else {
       output.component = mapping.bad.component
-      output.args = [bin]
+      output.argv = [bin]
     }
 
     commit('pushInteraction', {

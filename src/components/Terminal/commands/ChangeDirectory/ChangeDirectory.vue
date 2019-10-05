@@ -8,25 +8,39 @@
   <div
     v-else
     class="cd">
-    <strong>{{ args[0] }}</strong> is not a valid directory.
+    <strong>{{ args.dirname }}</strong> is not a valid directory.
   </div>
 </template>
 
 <script>
   import { mapGetters, mapMutations } from 'vuex'
 
+  import Command from '@/mixins/command'
+
   /**
    * This command switches to a given directory 'dirname'.
    */
   export default {
     name: 'ChangeDirectory',
+    mixins: [
+      Command
+    ],
+    argSpec: {
+      args: [
+        {
+          name: 'dirname',
+          type: String,
+          default: '~'
+        }
+      ],
+      kwargs: []
+    },
     props: {
       /**
        * _the arguments passed to the command_
        */
-      args: {
-        type: Array,
-        required: true
+      argv: {
+        type: Array
       }
     },
     computed: {
@@ -34,11 +48,7 @@
        * _the directory to which the current directory should be changed_
        */
       dir () {
-        if (this.args.length === 0) {
-          return this.nodeLocatedAt('~')
-        } else {
-          return this.nodeLocatedAt(this.args[0].replace(/\/$/, ''))
-        }
+        return this.nodeLocatedAt(this.args.dirname.replace(/\/$/, ''))
       },
       /**
        * _whether a folder matching the path was found_
@@ -60,7 +70,7 @@
     created () {
       this.node = this.dir
 
-      if (this.node) {
+      if (this.isFound) {
         this.setCurrentNode({
           currentNode: this.node
         })

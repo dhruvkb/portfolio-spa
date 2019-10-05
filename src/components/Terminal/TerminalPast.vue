@@ -9,7 +9,7 @@
         <component
           class="output"
           :is="interaction.output.component"
-          :args="interaction.output.args"/>
+          :argv="interaction.output.argv"/>
       </div>
     </template>
   </div>

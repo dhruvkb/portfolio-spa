@@ -1,14 +1,23 @@
 <template>
   <div class="ls">
     <ul v-if="isFound">
+      <template v-if="args.all">
+        <li>
+          <Link :node="node" as="."/>
+        </li>
+        <li>
+          <Link :node="node.parent" as=".."/>
+        </li>
+      </template>
       <li
         v-for="(child, index) in node.children"
         :key="index">
         <Link :node="child"/>
       </li>
     </ul>
+
     <template v-else>
-      <strong>{{ args[0] }}</strong> is not a valid directory.
+      <strong>{{ args.dirname }}</strong> is not a valid directory.
     </template>
   </div>
 </template>
@@ -18,21 +27,44 @@
 
   import Link from '@/components/Terminal/blocks/Link/Link'
 
+  import Command from '@/mixins/command'
+
   /**
    * This command lists the immediate contents of the current directory.
    */
   export default {
     name: 'List',
+    mixins: [
+      Command
+    ],
     components: {
       Link
+    },
+    argSpec: {
+      args: [
+        {
+          name: 'dirname',
+          type: String,
+          default: '.'
+        }
+      ],
+      kwargs: [
+        {
+          name: '--all',
+          type: Boolean,
+          aliases: [
+            '-a'
+          ]
+        }
+      ]
     },
     props: {
       /**
        * _the arguments passed to the command_
        */
-      args: {
+      argv: {
         type: Array,
-        required: true
+        default: () => []
       }
     },
     computed: {
@@ -40,11 +72,7 @@
        * _the directory whose contents are to be shown_
        */
       dir () {
-        if (this.args.length === 0) {
-          return this.currentNode
-        } else {
-          return this.nodeLocatedAt(this.args[0].replace(/\/$/, ''))
-        }
+        return this.nodeLocatedAt(this.args.dirname.replace(/\/$/, ''))
       },
       /**
        * _whether a folder matching the path was found_

@@ -52,13 +52,13 @@ export const mapping = {
   },
   cd: {
     name: 'cd',
-    args: '[dirname]',
+    args: ChangeDirectory.argSpec,
     component: 'ChangeDirectory',
     description: 'Switch to directory \'dirname\'.'
   },
   cat: {
     name: 'cat',
-    args: 'filename',
+    args: Concatenate.argSpec,
     component: 'Concatenate',
     description: 'Read the contents of file \'filename\'.',
     isLongTerm: true
@@ -77,7 +77,7 @@ export const mapping = {
   },
   help: {
     name: 'help',
-    args: '[--keyboard]',
+    args: Help.argSpec,
     component: 'Help',
     description: 'Get some help with using the CLI.'
   },
@@ -88,13 +88,13 @@ export const mapping = {
   },
   ls: {
     name: 'ls',
-    args: '[dirname]',
+    args: List.argSpec,
     component: 'List',
     description: 'List immediate contents of directory \'dirname\'.'
   },
   tree: {
     name: 'tree',
-    args: '[dirname]',
+    args: Tree.argSpec,
     component: 'Tree',
     description: 'Recursively list contents of directory \'dirname\'.'
   },
