@@ -31,11 +31,13 @@ export default new Router({
       component: () => import(/* webpackChunkName: "credits" */ '@/templates/Credits/Credits')
     }
   ],
-  scrollBehavior () {
-    // Always scroll to the top
-    return {
-      x: 0,
-      y: 0
+  scrollBehavior (to, from) {
+    if (from.name !== to.name) {
+      // Always scroll to the top
+      return {
+        x: 0,
+        y: 0
+      }
     }
   }
 })
