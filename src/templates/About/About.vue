@@ -133,8 +133,10 @@
                 </Heading>
               </template>
 
-              <Heading :level="3">
-                <span class="cyan-colored">ThinkPad X220</span>
+              <Heading
+                :level="3"
+                color="cyan">
+                ThinkPad X220
               </Heading>
               <span class="cyan-colored">
                 <strong>with the 7 row keyboard</strong>
@@ -153,8 +155,10 @@
                 </Heading>
               </template>
 
-              <Heading :level="3">
-                <span class="cyan-colored">Pentium III</span>
+              <Heading
+                :level="3"
+                color="cyan">
+                Pentium III
               </Heading>
               <span class="cyan-colored">
                 <strong>with a chonky CRT</strong>
