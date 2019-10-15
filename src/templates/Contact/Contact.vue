@@ -39,8 +39,13 @@
                   to="/portfolio"
                   title="Enjoyed the terminal?">
                   <template>portfolio</template>
-                </RouterLink>
-                ?
+                </RouterLink>?
+                And did you enjoy my
+                <RouterLink
+                  to="/blog"
+                  title="Liked reading my thoughts?">
+                  <template>blog</template>
+                </RouterLink>?
               </p>
               <p>
                 Whether you're looking for an developer experienced in building

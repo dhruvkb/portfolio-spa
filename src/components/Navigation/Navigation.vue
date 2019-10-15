@@ -45,6 +45,7 @@
   import {
     faHome,
     faCubes,
+    faPenAlt,
     faUser,
     faHandshake,
     faPrayingHands
@@ -56,6 +57,7 @@
   library.add(
     faHome,
     faCubes,
+    faPenAlt,
     faUser,
     faHandshake,
     faPrayingHands
@@ -81,6 +83,12 @@
             to: '/portfolio',
             text: 'Portfolio',
             icon: 'cubes',
+            isExact: false
+          },
+          {
+            to: '/blog',
+            text: 'Blog',
+            icon: 'pen-alt',
             isExact: false
           },
           {

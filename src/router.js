@@ -16,6 +16,11 @@ export default new Router({
       component: () => import(/* webpackChunkName: "portfolio" */ '@/templates/Portfolio/Portfolio')
     },
     {
+      path: '/blog',
+      name: 'blog',
+      component: () => import(/* webpackChunkName: "about" */ '@/templates/Blog/Blog')
+    },
+    {
       path: '/contact',
       name: 'contact',
       component: () => import(/* webpackChunkName: "about" */ '@/templates/Contact/Contact')
