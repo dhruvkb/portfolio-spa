@@ -60,7 +60,10 @@
                   class="top"
                   :color="accentColor(index)"
                   :level="6">
-                  Published {{ timestamp(post.created) }}
+                  <FontAwesomeIcon
+                  :icon="['fas', 'clock']"
+                  fixed-width/>
+                  {{ timestamp(post.created) }}
                 </Heading>
               </template>
 
@@ -79,7 +82,6 @@
                   target="_blank">
                   <FontAwesomeIcon
                     :icon="['fas', 'external-link-alt']"
-                    size="xs"
                     fixed-width/>
                   Read more...
                 </a>
@@ -95,6 +97,7 @@
 <script>
   import { library } from '@fortawesome/fontawesome-svg-core'
   import {
+    faClock,
     faPenFancy,
     faExternalLinkAlt,
     faStar
@@ -113,6 +116,7 @@
   import GridCell from '@/components/Grid/GridCell'
 
   library.add(
+    faClock,
     faPenFancy,
     faExternalLinkAlt,
     faStar
@@ -155,11 +159,14 @@
         return colors[index % colors.length]
       },
       spanSet (index) {
-        if (index === 0) {
-          return [12]
-        } else {
-          return [12, 12, 12, 6, 6]
-        }
+        const spans = [
+          [12, 12, 6],
+          [12, 5, 6],
+          [12, 7, 4],
+          [12, 7, 4],
+          [12, 5, 4]
+        ]
+        return spans[index]
       }
     },
     mounted () {
