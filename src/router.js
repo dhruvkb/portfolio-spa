@@ -40,7 +40,10 @@ export default new Router({
     let scrollPreservingRoutes = [
       'post'
     ]
-    if (!scrollPreservingRoutes.includes(to.name)) {
+    if (
+      from.name !== to.name &&
+      !scrollPreservingRoutes.includes(to.name)
+    ) {
       // Always scroll to the top
       return {
         x: 0,
