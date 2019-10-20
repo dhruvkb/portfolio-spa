@@ -2,6 +2,7 @@ import Vue from 'vue'
 
 import VueShortkey from 'vue-shortkey'
 import VueObserveVisibility from 'vue-observe-visibility'
+import VuePrism from 'vue-prism'
 
 import router from './router'
 import store from './store'
@@ -13,6 +14,8 @@ Vue.use(VueShortkey, {
 })
 
 Vue.use(VueObserveVisibility)
+
+Vue.use(VuePrism)
 
 Vue.config.productionTip = false
 
