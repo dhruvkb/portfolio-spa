@@ -87,17 +87,17 @@ rainbow()
     87.5%, 97.5%
       color $color-accent-green
 
-blink()
+blink(upper=1, lower=0)
   animation-name blink
   animation-timing-function linear
   animation-iteration-count infinite
 
   @keyframes blink
     0%, 100%
-      opacity 0.6
+      opacity lower
 
     50%
-      opacity 1
+      opacity upper
 
 pulse()
   backface-visibility hidden // Backface hack to reduce blur
