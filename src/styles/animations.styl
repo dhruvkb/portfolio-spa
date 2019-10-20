@@ -100,16 +100,18 @@ blink()
       opacity 1
 
 pulse()
+  backface-visibility hidden // Backface hack to reduce blur
+
   animation-name pulse
   animation-timing-function linear
   animation-iteration-count infinite
 
   @keyframes pulse
     0%, 100%
-      tranform scale(1)
+      tranform scale(1) translateZ(0) // Translate hack to reduce blur
 
     50%
-      transform scale(1.05)
+      transform scale(1.05) translateZ(0)
 
 mirror()
   transform-origin 50% 100%
