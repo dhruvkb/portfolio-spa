@@ -23,6 +23,8 @@
   } from '@fortawesome/free-solid-svg-icons'
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+  import axios from 'axios'
+
   import VRuntimeTemplate from 'v-runtime-template'
 
   import Blockquote from '@/components/Blockquote/Blockquote'
@@ -129,11 +131,13 @@
       loadContent () {
         try {
           let path = this.path
-          fetch(path)
-            .then(stream => stream.text())
-            .then(data => {
+          axios
+            .get(path, {
+              responseType: 'text'
+            })
+            .then(response => {
               setTimeout(() => {
-                this.contents = data
+                this.contents = response.data
                 this.stopProcessing('PASS')
               }, 1000)
             })
@@ -153,7 +157,7 @@
       this.node = this.file
 
       if (this.isFound) {
-        setTimeout(this.loadContent, 0)
+        this.loadContent()
       } else {
         this.stopProcessing('FAIL')
       }
