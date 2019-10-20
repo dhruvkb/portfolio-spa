@@ -23,7 +23,7 @@ export default new Router({
     {
       path: '/contact',
       name: 'contact',
-      component: () => import(/* webpackChunkName: "about" */ '@/templates/Contact/Contact')
+      component: () => import(/* webpackChunkName: "contact" */ '@/templates/Contact/Contact')
     },
     {
       path: '/about',
@@ -37,7 +37,10 @@ export default new Router({
     }
   ],
   scrollBehavior (to, from) {
-    if (from.name !== to.name) {
+    let scrollPreservingRoutes = [
+      'post'
+    ]
+    if (!scrollPreservingRoutes.includes(to.name)) {
       // Always scroll to the top
       return {
         x: 0,
