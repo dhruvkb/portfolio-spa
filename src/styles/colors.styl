@@ -10,3 +10,6 @@ colors(property)
   for color in $colors
     &.{color}-colored
       {property} lookup('$color-accent-' + color)
+
+  &.secondary-colored
+    {property} var(--secondary-content)
