@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -36,19 +36,26 @@ export default new Router({
       component: () => import(/* webpackChunkName: "credits" */ '@/templates/Credits/Credits')
     }
   ],
-  scrollBehavior (to, from) {
-    let scrollPreservingRoutes = [
+  scrollBehavior: (to, from) => new Promise(resolve => {
+    const scrollPreservingRoutes = [
       'post'
     ]
+
+    const position = {}
     if (
       from.name !== to.name &&
       !scrollPreservingRoutes.includes(to.name)
     ) {
       // Always scroll to the top
-      return {
-        x: 0,
-        y: 0
-      }
+      position.x = 0
+      position.y = 0
     }
-  }
+
+    // Scroll is reset after leave, before enter transition
+    router.app.$root.$once('triggerScroll', () => {
+      resolve(position)
+    })
+  })
 })
+
+export default router

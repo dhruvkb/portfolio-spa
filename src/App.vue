@@ -5,7 +5,11 @@
         <Themer :theme.sync="theme"/>
       </template>
     </Navigation>
-    <transition appear name="fade" mode="out-in">
+    <transition
+      name="fade"
+      mode="out-in"
+      appear
+      @after-leave="emitSignal">
       <RouterView/>
     </transition>
   </div>
@@ -46,6 +50,11 @@
        */
       theme () {
         document.documentElement.className = this.htmlClasses.join('')
+      }
+    },
+    methods: {
+      emitSignal () {
+        this.$root.$emit('triggerScroll')
       }
     },
     created () {
