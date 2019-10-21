@@ -37,15 +37,22 @@
 
           <Heading
             class="role"
-            :level="4"
-            color="yellow">
+            :level="4">
             <transition appear name="flip-vertical" mode="out-in">
-              <div :key="vowel">{{ vowel }}&nbsp;</div>
+              <div
+                :key="vowel"
+                class="secondary-colored">
+                {{ vowel }}&nbsp;
+              </div>
             </transition>
             <transition appear name="flip-vertical" mode="out-in">
-              <div :key="index">{{ roles[index] }}</div>
+              <div
+                :key="index"
+                :class="`${$solarizedColors[index]}-colored`">
+                {{ roles[index] }}
+              </div>
             </transition>
-            <div class="border" :key="index">&nbsp;</div>
+            <div class="border plus" :key="index">&nbsp;</div>
           </Heading>
 
           <p>
@@ -56,7 +63,7 @@
             code, docs, designs, containers and easter eggs
             <br/>
             <span
-              class="run-on"
+              class="secondary-colored"
               title="Such as movies, music and memes!">
             amongst other things.
           </span>
@@ -80,7 +87,8 @@
   import Grid from '@/components/Grid/Grid'
   import GridCell from '@/components/Grid/GridCell'
   import Heading from '@/components/Heading/Heading'
-  import Memoji from '@/components/Memoji/Memoji'
+
+  import Memoji from './elements/Memoji/Memoji'
 
   /**
    * This page is the landing page for the portfolio.

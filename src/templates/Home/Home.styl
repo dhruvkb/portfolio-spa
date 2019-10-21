@@ -33,25 +33,24 @@
 
           .border
             position absolute
-            bottom '-%s' % $space-smallest
-            left 0
+            top 0
+            left '-%s' % $space-smaller
+
+            z-index -1
 
             background-image linear-gradient(
               90deg,
               transparent 50%,
-              var(--heading-color) 50%
+              var(--background-highlights) 50%
             )
             background-size 200%
 
-            width 100%
-            height $space-smallest
+            width 'calc(100% + 2 * %s)' % $space-smaller
+            height 100%
 
             grow()
             animation-duration 'calc(8s - %s)' % $duration-standard
             animation-delay $duration-standard
-
-        .run-on
-          color var(--secondary-content)
 
   footer
     font-weight $weight-semibold
