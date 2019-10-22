@@ -14,5 +14,9 @@ export default {
       'red',
       'magenta'
     ]
+
+    Vue.prototype.$getSolarizedColor = function (index) {
+      return this.$solarizedColors[index % this.$solarizedColors.length]
+    }
   }
 }

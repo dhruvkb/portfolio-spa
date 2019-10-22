@@ -48,7 +48,7 @@
             <transition appear name="flip-vertical" mode="out-in">
               <div
                 :key="index"
-                :class="`${$solarizedColors[index]}-colored`">
+                :class="`${$getSolarizedColor(index)}-colored`">
                 {{ roles[index] }}
               </div>
             </transition>
