@@ -49,7 +49,7 @@
 </template>
 
 <script>
-  import { mapping } from '@/components/Terminal/commands'
+  import { mapping } from '@/templates/Portfolio/commands'
 
   import Command from '@/mixins/command'
 

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import { mapState, mapGetters } from 'vuex'
+  import { mapGetters, mapState } from 'vuex'
 
   /**
    * This command reminds the currently open directory.

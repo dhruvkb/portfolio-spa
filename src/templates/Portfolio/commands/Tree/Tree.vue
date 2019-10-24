@@ -34,9 +34,9 @@
 </template>
 
 <script>
-  import { mapState, mapGetters } from 'vuex'
+  import { mapGetters, mapState } from 'vuex'
 
-  import Link from '@/components/Terminal/blocks/Link/Link'
+  import Link from '@/templates/Portfolio/elements/Link/Link'
 
   import Command from '@/mixins/command'
 

@@ -13,9 +13,9 @@
 </template>
 
 <script>
-  import Executable from '@/components/Terminal/blocks/Executable/Executable'
+  import Executable from '@/templates/Portfolio/elements/Executable/Executable'
 
-  import { mapping } from '@/components/Terminal/commands'
+  import { mapping } from '@/templates/Portfolio/commands'
 
   import Command from '@/mixins/command'
 

@@ -1,27 +1,18 @@
-import BadCommand
-  from '@/components/Terminal/commands/BadCommand/BadCommand'
-import Clear
-  from '@/components/Terminal/commands/Clear/Clear'
+import BadCommand from '@/templates/Portfolio/commands/BadCommand/BadCommand'
+import Clear from '@/templates/Portfolio/commands/Clear/Clear'
 import ChangeDirectory
-  from '@/components/Terminal/commands/ChangeDirectory/ChangeDirectory'
-import Concatenate
-  from '@/components/Terminal/commands/Concatenate/Concatenate'
-import E
-  from '@/components/Terminal/commands/E/E'
-import F
-  from '@/components/Terminal/commands/F/F'
-import Help
-  from '@/components/Terminal/commands/Help/Help'
+  from '@/templates/Portfolio/commands/ChangeDirectory/ChangeDirectory'
+import Concatenate from '@/templates/Portfolio/commands/Concatenate/Concatenate'
+import E from '@/templates/Portfolio/commands/E/E'
+import F from '@/templates/Portfolio/commands/F/F'
+import Help from '@/templates/Portfolio/commands/Help/Help'
 import Introduction
-  from '@/components/Terminal/commands/Introduction/Introduction'
-import List
-  from '@/components/Terminal/commands/List/List'
-import Tree
-  from '@/components/Terminal/commands/Tree/Tree'
-import WhoAmI
-  from '@/components/Terminal/commands/WhoAmI/WhoAmI'
+  from '@/templates/Portfolio/commands/Introduction/Introduction'
+import List from '@/templates/Portfolio/commands/List/List'
+import Tree from '@/templates/Portfolio/commands/Tree/Tree'
+import WhoAmI from '@/templates/Portfolio/commands/WhoAmI/WhoAmI'
 import WorkingDirectory
-  from '@/components/Terminal/commands/WorkingDirectory/WorkingDirectory'
+  from '@/templates/Portfolio/commands/WorkingDirectory/WorkingDirectory'
 
 export const components = {
   BadCommand,
