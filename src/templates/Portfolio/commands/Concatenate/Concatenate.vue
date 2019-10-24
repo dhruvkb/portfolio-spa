@@ -1,7 +1,7 @@
 <template>
   <div class="cat">
     <template v-if="isFound">
-      <v-runtime-template v-if="contents" :template="contents"/>
+      <div v-if="contents" v-html="contents"></div>
       <Spinner v-else/>
     </template>
 
@@ -15,23 +15,17 @@
   import { mapGetters, mapMutations } from 'vuex'
 
   import { library } from '@fortawesome/fontawesome-svg-core'
-  import {
-    faMapMarkerAlt,
-    faBuilding,
-    faCalendarDay,
-    faServer
-  } from '@fortawesome/free-solid-svg-icons'
-  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+  import { faBuilding, faCalendarDay, faMapMarkerAlt, faServer } from '@fortawesome/free-solid-svg-icons'
 
   import axios from 'axios'
 
-  import VRuntimeTemplate from 'v-runtime-template'
-
-  import Blockquote from '@/components/Blockquote/Blockquote'
-  import Spinner from '@/components/Terminal/blocks/Spinner/Spinner'
-  import Link from '@/components/Terminal/blocks/Link/Link'
+  import Spinner from '@/templates/Portfolio/elements/Spinner/Spinner'
+  import Link from '@/templates/Portfolio/elements/Link/Link'
 
   import Command from '@/mixins/command'
+
+  import Prism from 'prismjs'
+  import '@/styles/prism-override.styl'
 
   library.add(
     faMapMarkerAlt,
@@ -49,15 +43,10 @@
       Command
     ],
     components: {
-      VRuntimeTemplate,
       Spinner,
 
       // eslint-disable-next-line vue/no-unused-components
-      FontAwesomeIcon,
-      // eslint-disable-next-line vue/no-unused-components
-      Link,
-      // eslint-disable-next-line vue/no-unused-components
-      Blockquote
+      Link
     },
     argSpec: {
       args: [
@@ -138,7 +127,8 @@
             .then(response => {
               setTimeout(() => {
                 this.contents = response.data
-                this.stopProcessing('PASS')
+
+                this.$nextTick(this.formatOutput)
               }, 1000)
             })
             .catch(() => {
@@ -148,6 +138,10 @@
           this.stopProcessing('FAIL')
         }
       },
+      formatOutput () {
+        Prism.highlightAll()
+        this.stopProcessing('PASS')
+      },
 
       ...mapMutations('terminal', [
         'setIsProcessing'
@@ -155,7 +149,8 @@
     },
     created () {
       this.node = this.file
-
+    },
+    mounted () {
       if (this.isFound) {
         this.loadContent()
       } else {
@@ -164,6 +159,3 @@
     }
   }
 </script>
-
-<style scoped lang="stylus" src="./Concatenate.styl">
-</style>
