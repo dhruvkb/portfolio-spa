@@ -2,7 +2,6 @@ import Vue from 'vue'
 
 import VueShortkey from 'vue-shortkey'
 import VueObserveVisibility from 'vue-observe-visibility'
-import VuePrism from 'vue-prism'
 
 import VueSolarized from '@/plugins/solarized'
 
@@ -15,7 +14,6 @@ Vue.use(VueShortkey, {
   prevent: ['input', 'textarea']
 })
 Vue.use(VueObserveVisibility)
-Vue.use(VuePrism)
 
 Vue.use(VueSolarized)
 
