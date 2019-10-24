@@ -1,58 +1,41 @@
-<div class="lang-gen">
-<pre><code class="comment">/**
- * # <strong>Porfolio</strong>
+<pre><code class="language-javascript">/**
+ * Portfolio
+ * =========
  *
  * My portfolio is my small personal slice of the Internet.
  *
- * @<strong>since</strong> <!--
-   -->{<FontAwesomeIcon :icon="['fas', 'calendar-day']" fixed-width/>} <!--
-   -->September 2019
- * @<strong>requires</strong> <!--
-   -->{<FontAwesomeIcon :icon="['fas', 'server']" fixed-width/>} <!--
-   -->Vue, Vue Router, Vuex
- */</code>
-<code class="keyword">export</code> <code class="keyword">default</code> {
-  <code class="key">name</code>: <code class="string">Portfolio</code>,
-  <code class="key">attributes</code>: () => [
-    <code class="string">Updated my online portfolio using new Web technologies.</code>,
-    <code class="string">Integrated a highly functional 'terminal emulator'-emulator.</code>,
-    <code class="string">Utilised the Solarized theme for optimum readability.</code>,
-    <code class="string">Enabled two-tone theming, supporting both light and dark modes.</code>,
-    <code class="string">Made the site completely mobile responsive.</code>,
-    <code class="string">Set up continuous deployment to GitHub Pages.</code>,
-    <code class="string" title="Go hover over a bunch of stuff!"><!--
-      -->Hid a bunch of easter eggs in the porfolio.<!--
-    --></code>
+ * @since September 2019
+ * @requires Vue, Vue Router, Vuex
+ */
+export default {
+  name: 'Portfolio',
+  attributes: () => [
+    'Updated my online portfolio using new Web technologies.',
+    'Integrated a highly functional \'terminal emulator\'-emulator.',
+    'Utilised the Solarized theme for optimum readability.',
+    'Enabled two-tone theming, supporting both light and dark modes.',
+    'Made the site completely mobile responsive.',
+    'Set up continuous deployment to GitHub Pages.',
+    'Hid a bunch of easter eggs in the porfolio.'
   ],
-  <code class="key">links</code>: () => [
+  links: () => [
     {
-      <code class="key">name</code>: <code class="string">Source code</code>,
-      <code class="key">link</code>: <code class="string"><!--
-      --><a href="https://github.com/dhruvkb/portfolio/"><!--
-        -->https://github.com/dhruvkb/portfolio<!--
-      --></a></code>
+      name: 'Source code',
+      link: 'https://github.com/dhruvkb/portfolio'
     },
     {
-      <code class="key">name</code>: <code class="string">Homepage</code>,
-      <code class="key">link</code>: <code class="string"><!--
-      --><a href="https://dhruvkb.now.sh/"><!--
-        -->https://dhruvkb.now.sh/<!--
-      --></a></code>
+      name: 'Homepage',
+      link: 'https://dhruvkb.now.sh/'
     },
     {
-      <code class="key">name</code>: <code class="string">Old source code</code>,
-      <code class="key">link</code>: <code class="string"><!--
-      --><a href="https://github.com/dhruvkb/portfolio-old/"><!--
-        -->https://github.com/dhruvkb/portfolio-old<!--
-      --></a></code>
+      name: 'Old source code',
+      link: 'https://github.com/dhruvkb/portfolio-old'
     },
     {
-      <code class="key">name</code>: <code class="string">Old homepage</code>,
-      <code class="key">link</code>: <code class="string"><!--
-      --><a href="https://vjs.dhruvkb.now.sh/"><!--
-        -->https://vjs.dhruvkb.now.sh/<!--
-      --></a></code>
-    }
+      name: 'Old homepage',
+      link: 'https://vjs.dhruvkb.now.sh/'
+    },
   ]
-}</pre>
-</div>
+}
+
+</code></pre>

@@ -1,55 +1,38 @@
-<div class="lang-gen">
-<pre><code class="comment">/**
- * # <strong>Vocabulary</strong>
+<pre><code class="language-javascript">/**
+ * Vocabulary
+ * ==========
  *
  * Vocabulary is a cohesive design system
  * to unite the web facing Creative Commons.
  *
- * @<strong>since</strong> <!--
-   -->{<FontAwesomeIcon :icon="['fas', 'calendar-day']" fixed-width/>} <!--
-   -->May 2019
- * @<strong>requires</strong> <!--
-   -->{<FontAwesomeIcon :icon="['fas', 'server']" fixed-width/>} <!--
-   -->Vue, Styleguidist, Storybook
- */</code>
-<code class="keyword">export</code> <code class="keyword">default</code> {
-  <code class="key">name</code>: <code class="string">Vocabulary</code>,
-  <code class="key">attributes</code>: () => [
-    <code class="string">Developed close to 40 components for the project.</code>,
-    <code class="string">Wrote the documentation and styleguide for the library.</code>,
-    <code class="string">Developed an interactive playground for the components.</code>,
-    <code class="string">Deployed all these products to GitHub Pages.</code>,
-    <code class="string">Identified easy issues to encourage beginner contributors.</code>
+ * @since May 2019
+ * @requires Vue, Styleguidist, Storybook
+ */
+export default {
+  name: 'Vocabulary',
+  attributes: () => [
+    'Developed close to 40 components for the project.',
+    'Wrote the documentation and styleguide for the library.',
+    'Developed an interactive playground for the components.',
+    'Deployed all these products to GitHub Pages.',
+    'Identified easy issues to encourage beginner contributors.'
   ],
-  <code class="key">links</code>: () => [
+  links: () => [
     {
-      <code class="key">name</code>: <code class="string">Source code</code>,
-      <code class="key">link</code>: <code class="string"><!--
-      --><a href="https://github.com/creativecommons/cc-vocabulary/"><!--
-        -->https://github.com/creativecommons/cc-vocabulary/<!--
-      --></a></code>
+      name: 'Source',
+      link: 'https://github.com/creativecommons/cc-vocabulary/'
     },
     {
-      <code class="key">name</code>: <code class="string">Homepage</code>,
-      <code class="key">link</code>: <code class="string"><!--
-      --><a href="https://creativecommons.github.io/cc-vocabulary/"><!--
-        -->https://creativecommons.github.io/cc-vocabulary/<!--
-      --></a></code>
+      name: 'Homepage',
+      link: 'https://creativecommons.github.io/cc-vocabulary/'
     },
     {
-      <code class="key">name</code>: <code class="string">Styleguide</code>,
-      <code class="key">link</code>: <code class="string"><!--
-      --><a href="https://creativecommons.github.io/cc-vocabulary/styleguide/"><!--
-        -->https://creativecommons.github.io/cc-vocabulary/styleguide<!--
-      --></a></code>
+      name: 'Styleguide',
+      link: 'https://creativecommons.github.io/cc-vocabulary/styleguide'
     },
     {
-      <code class="key">name</code>: <code class="string">Storybook</code>,
-      <code class="key">link</code>: <code class="string"><!--
-      --><a href="https://creativecommons.github.io/cc-vocabulary/storybook"><!--
-        -->https://creativecommons.github.io/cc-vocabulary/storybook<!--
-      --></a></code>
+      name: 'Storybook',
+      link: 'https://creativecommons.github.io/cc-vocabulary/storybook'
     }
   ]
-}</pre>
-</div>
+}</code></pre>
