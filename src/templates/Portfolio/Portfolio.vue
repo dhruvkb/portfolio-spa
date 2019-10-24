@@ -7,7 +7,7 @@
 </template>
 
 <script>
-  import Terminal from '@/components/Terminal/Terminal'
+  import Terminal from '@/templates/Portfolio/components/Terminal/Terminal'
 
   /**
    * This page describes my portfolio using an interactive CLI.

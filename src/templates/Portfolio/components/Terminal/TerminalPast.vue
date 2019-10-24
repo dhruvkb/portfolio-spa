@@ -18,9 +18,9 @@
 <script type="text/jsx">
   import { mapState } from 'vuex'
 
-  import TerminalPrompt from '@/components/Terminal/TerminalPrompt'
+  import TerminalPrompt from '@/templates/Portfolio/components/Terminal/TerminalPrompt'
 
-  import { components } from '@/components/Terminal/commands'
+  import { components } from '@/templates/Portfolio/commands'
 
   /**
    * This component represents the past of the terminal, displaying all the

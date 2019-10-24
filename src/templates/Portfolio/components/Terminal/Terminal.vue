@@ -6,10 +6,10 @@
 </template>
 
 <script>
-  import { mapMutations, mapActions } from 'vuex'
+  import { mapActions, mapMutations } from 'vuex'
 
-  import TerminalPast from '@/components/Terminal/TerminalPast'
-  import TerminalPresent from '@/components/Terminal/TerminalPresent'
+  import TerminalPast from '@/templates/Portfolio/components/Terminal/TerminalPast'
+  import TerminalPresent from '@/templates/Portfolio/components/Terminal/TerminalPresent'
 
   import fs from '@/data/portfolio/fs'
 

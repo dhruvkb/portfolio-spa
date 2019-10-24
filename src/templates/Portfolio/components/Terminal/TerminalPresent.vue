@@ -2,14 +2,14 @@
   <div
     class="present"
     @click="takeFocus"
-    title="[Ctrl + C] Focus on the prompt.">
+    title="[Ctrl + Shift + C] Focus on the prompt.">
     <label
       class="prompt-label"
       for="command-field">
       <TerminalPrompt :directory="currentNode.name"/>
     </label>
     <input
-      v-shortkey.focus="['ctrl', 'c']"
+      v-shortkey.focus="['ctrl', 'shift', 'c']"
       v-model="command"
       class="command-field"
       id="command-field"
@@ -34,9 +34,9 @@
 </template>
 
 <script>
-  import { mapState, mapActions } from 'vuex'
+  import { mapActions, mapState } from 'vuex'
 
-  import TerminalPrompt from '@/components/Terminal/TerminalPrompt'
+  import TerminalPrompt from '@/templates/Portfolio/components/Terminal/TerminalPrompt'
 
   /**
    * This command represents the present of the terminal, waiting for the user's
