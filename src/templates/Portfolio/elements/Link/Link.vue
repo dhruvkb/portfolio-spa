@@ -13,7 +13,7 @@
 </template>
 
 <script>
-  import { mapGetters, mapActions } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex'
 
   /**
    * This block represents a link to a node in the file system, be it a folder
