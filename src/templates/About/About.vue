@@ -17,7 +17,7 @@
               <Heading
                 :level="2"
                 color="green">
-                It me!
+                It's-a me!
               </Heading>
             </div>
           </GridCell>
