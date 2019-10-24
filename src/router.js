@@ -17,8 +17,19 @@ const router = new Router({
     },
     {
       path: '/blog',
-      name: 'blog',
-      component: () => import(/* webpackChunkName: "about" */ '@/templates/Blog/Blog')
+      component: () => import(/* webpackChunkName: "blog" */ '@/templates/Blog/Blog'),
+      children: [
+        {
+          path: '',
+          name: 'blog',
+          component: () => import(/* webpackChunkName: "blog-home" */ '@/templates/Blog/BlogHome')
+        },
+        {
+          path: 'post/:slug',
+          name: 'post',
+          component: () => import(/* webpackChunkName: "post" */ '@/templates/Blog/BlogPost')
+        }
+      ]
     },
     {
       path: '/contact',
