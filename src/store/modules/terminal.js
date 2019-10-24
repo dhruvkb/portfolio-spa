@@ -1,6 +1,6 @@
 import { generateTree } from '@/data/portfolio/tree'
 
-import { mapping } from '@/components/Terminal/commands'
+import { mapping } from '@/templates/Portfolio/commands'
 
 const state = {
   tree: null,
