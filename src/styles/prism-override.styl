@@ -1,0 +1,43 @@
+@import "~@/styles/tokens.styl"
+@import "~@/styles/scrollbars.styl"
+
+// Color scheme overrides
+
+html.dark-themed
+  code[class*="language-"],
+  pre[class*="language-"]
+    color $color-content-base0
+
+  .token.comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata
+    color $color-content-base01
+
+  .token.punctuation
+    color $color-content-base1
+
+  .token.entity
+    color $color-content-base0
+    background $color-background-base02
+
+// General overrides for Prism
+
+pre[class*="language-"],
+code[class*="language-"]
+  font-family "Fira Code" !important
+  font-size 15px !important
+
+  background-color unset !important
+
+  padding 0 !important
+
+  margin 0 !important
+
+  white-space pre-wrap
+
+  custom-scrollbars()
+
+  &::selection,
+  ::selection
+    background var(--background-highlights) !important
