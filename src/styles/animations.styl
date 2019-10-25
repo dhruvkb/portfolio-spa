@@ -45,17 +45,17 @@ swipe(xfrom=0, xmid=0, xto=0, yfrom=0, ymid=0, yto=0)
       transform translate(xto, yto)
       opacity 0
 
-bobble()
+bobble(upper=10deg, lower=0deg)
   animation-name bobble
   animation-timing-function ease-in-out
   animation-iteration-count infinite
 
   @keyframes bobble
     50%
-      transform rotate(10deg)
+      transform rotate(upper)
 
     0%, 100%
-      transform rotate(0deg)
+      transform rotate(lower)
 
 rainbow()
   animation-name rainbow
