@@ -4,6 +4,7 @@ import VueShortkey from 'vue-shortkey'
 import VueObserveVisibility from 'vue-observe-visibility'
 
 import VueSolarized from '@/plugins/solarized'
+import VueNavigation from '@/plugins/navigation'
 
 import router from './router'
 import store from './store'
@@ -16,6 +17,7 @@ Vue.use(VueShortkey, {
 Vue.use(VueObserveVisibility)
 
 Vue.use(VueSolarized)
+Vue.use(VueNavigation)
 
 Vue.config.productionTip = false
 
