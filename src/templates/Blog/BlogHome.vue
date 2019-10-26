@@ -90,7 +90,9 @@
                 </div>
               </div>
               <div class="lefted">
-                <RouterLink :to="{name: 'post', params: {slug: post.slug}}">
+                <RouterLink
+                  :to="{name: 'post', params: {slug: post.slug}}"
+                  :title="`Read '${post.title}'.`">
                   <FontAwesomeIcon
                     :icon="['fas', 'external-link-alt']"
                     fixed-width/>

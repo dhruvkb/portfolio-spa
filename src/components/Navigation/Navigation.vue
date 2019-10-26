@@ -4,8 +4,8 @@
       v-shortkey="['h']"
       :to="homeLink.to"
       :exact="homeLink.isExact"
-      title="[H] Go to the homepage."
-      @shortkey.native="navigateTo(homeLink.to)">
+      :title="homeLink.title"
+      @shortkey.native="$navigateTo(homeLink.to)">
       <Heading
         class="full nav-title"
         :level="4"
@@ -29,7 +29,7 @@
           :key="index"
           :link="link"
           :title="`[${index+1}] Go to ${link.text}.`"
-          @shortkey.native="navigateTo(link.to)"/>
+          @shortkey.native="$navigateTo(link.to)"/>
       </slot>
     </nav>
 
@@ -42,14 +42,7 @@
 
 <script>
   import { library } from '@fortawesome/fontawesome-svg-core'
-  import {
-    faHome,
-    faCubes,
-    faPenAlt,
-    faUser,
-    faHandshake,
-    faPrayingHands
-  } from '@fortawesome/free-solid-svg-icons'
+  import { faCubes, faHandshake, faHome, faPenAlt, faPrayingHands, faUser } from '@fortawesome/free-solid-svg-icons'
 
   import Heading from '@/components/Heading/Heading'
   import NavigationLink from '@/components/Navigation/NavigationLink'
@@ -76,52 +69,36 @@
           fullText: 'Dhruv Bhanushali',
           shortText: 'DB',
           icon: 'home',
+          title: '[H] Go to the homepage.',
           isExact: true
         },
         links: [
           {
-            to: '/portfolio',
+            to: { name: 'portfolio' },
             text: 'Portfolio',
-            icon: 'cubes',
-            isExact: false
+            icon: 'cubes'
           },
           {
-            to: '/blog',
+            to: { name: 'blog' },
             text: 'Blog',
-            icon: 'pen-alt',
-            isExact: false
+            icon: 'pen-alt'
           },
           {
-            to: '/contact',
+            to: { name: 'contact' },
             text: 'Contact',
-            icon: 'handshake',
-            isExact: false
+            icon: 'handshake'
           },
           {
-            to: '/about',
+            to: { name: 'about' },
             text: 'About',
-            icon: 'user',
-            isExact: false
+            icon: 'user'
           },
           {
-            to: '/credits',
+            to: { name: 'credits' },
             text: 'Credits',
-            icon: 'praying-hands',
-            isExact: false
+            icon: 'praying-hands'
           }
         ]
-      }
-    },
-    methods: {
-      navigateTo (to) {
-        this.$router.push(to)
-          .catch(err => {
-            if (err.name === 'NavigationDuplicated') {
-              // Do nothing
-            } else {
-              console.log(err)
-            }
-          })
       }
     }
   }

@@ -36,13 +36,13 @@
               <p>
                 So, did you like my
                 <RouterLink
-                  to="/portfolio"
+                  :to="{name: 'portfolio'}"
                   title="Enjoyed the terminal?">
                   <template>portfolio</template>
                 </RouterLink>?
                 And did you enjoy my
                 <RouterLink
-                  to="/blog"
+                  :to="{name: 'blog'}"
                   title="Liked reading my thoughts?">
                   <template>blog</template>
                 </RouterLink>?
@@ -55,7 +55,7 @@
               <p>
                 Or we could talk over coffee. I really like coffee. Want to
                 <RouterLink
-                  to="/about"
+                  :to="{name: 'about'}"
                   title="It's a little personal.">
                   <template>learn more</template>
                 </RouterLink>
@@ -174,23 +174,9 @@
 
 <script>
   import { library } from '@fortawesome/fontawesome-svg-core'
-  import {
-    faComment,
-    faCircle,
-    faEnvelope,
-    faPhoneAlt
-  } from '@fortawesome/free-solid-svg-icons'
-  import {
-    faGithub,
-    faLinkedin,
-    faFacebookF,
-    faTwitter,
-    faApple
-  } from '@fortawesome/free-brands-svg-icons'
-  import {
-    FontAwesomeIcon,
-    FontAwesomeLayers
-  } from '@fortawesome/vue-fontawesome'
+  import { faCircle, faComment, faEnvelope, faPhoneAlt } from '@fortawesome/free-solid-svg-icons'
+  import { faApple, faFacebookF, faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
+  import { FontAwesomeIcon, FontAwesomeLayers } from '@fortawesome/vue-fontawesome'
 
   import Content from '@/mixins/content'
 

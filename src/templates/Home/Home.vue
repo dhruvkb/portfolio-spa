@@ -5,7 +5,9 @@
         <GridCell
           class="left pane"
           :span-set="[12, 6]">
-          <RouterLink to="/portfolio">
+          <RouterLink
+            :to="{name: 'portfolio'}"
+            title="See my portfolio">
             <div class="avatar-spinner">
               <transition appear name="flip-horizontal" mode="out-in">
                 <Memoji

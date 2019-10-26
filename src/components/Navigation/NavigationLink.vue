@@ -1,7 +1,5 @@
 <template>
-  <RouterLink
-    :exact="link.isExact"
-    :to="link.to">
+  <RouterLink :to="link.to">
     <!-- Content goes here -->
     <slot>
       <span class="text">
@@ -11,8 +9,7 @@
       <FontAwesomeIcon
         class="icon"
         :icon="['fas', link.icon]"
-        fixed-width
-        :title="link.text"/>
+        fixed-width/>
     </slot>
   </RouterLink>
 </template>
@@ -32,12 +29,12 @@
       /**
        * _the attributes of the link, encapsulated in an object_
        *
-       * Keys ∈ {`'to'`, `'isExact'`, `'text'`, `'icon'`}
+       * Keys ∈ {`'to'`, `'text'`, `'icon'`}
        */
       link: {
         type: Object,
         required: true,
-        validator: val => ['to', 'isExact', 'text', 'icon'].every(
+        validator: val => ['to', 'text', 'icon'].every(
           key => val.hasOwnProperty(key)
         )
       }

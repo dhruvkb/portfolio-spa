@@ -9,7 +9,11 @@
         key="loaded"
         class="section">
         <div class="back">
-          <RouterLink to="/blog">
+          <RouterLink
+            v-shortkey="['b']"
+            :to="{name: 'blog'}"
+            title="[B] Go to main blog page."
+            @shortkey.native="$navigateTo({name: 'blog'})">
             <FontAwesomeIcon
               :icon="['fas', 'arrow-left']"
               fixed-width/>
