@@ -9,9 +9,9 @@
                 :level="2"
                 color="green">
                 <transition appear name="spin">
-                  <FontAwesomeLayers>
+                  <FontAwesomeLayers
+                    class="pulse">
                     <FontAwesomeIcon
-                      class="pulse"
                       :icon="['fas', 'comment']"/>
                     <FontAwesomeIcon
                       v-for="index in 3"
