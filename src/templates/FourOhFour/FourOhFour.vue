@@ -22,7 +22,8 @@
               <p>
                 Please make yourself at
                 <RouterLink
-                  :to="{name: 'home'}">
+                  :to="{name: 'home'}"
+                  title="[H] Go to the homepage.">
                   <template>home</template>
                 </RouterLink>
                 and since you're here, do explore using the navigation above.
