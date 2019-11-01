@@ -73,7 +73,7 @@
     },
     computed: {
       /**
-       * _the directory to which the current directory should be changed_
+       * _the file whose contents must be displayed_
        */
       file () {
         if (this.args.filename === 'VANITY') {
