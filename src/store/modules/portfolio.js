@@ -3,6 +3,7 @@ import { generateTree } from '@/data/portfolio/tree'
 import { mapping } from '@/templates/Portfolio/commands'
 
 const state = {
+  isFirstRun: true,
   tree: null,
   currentNode: null,
   interactionHistory: [],
@@ -77,6 +78,9 @@ const mutations = {
   },
   setIsProcessing (state, payload) {
     state.isProcessing = payload.isProcessing
+  },
+  setIsFirstRun (state, payload) {
+    state.isFirstRun = payload.isFirstRun
   },
   pushInteraction (state, payload) {
     state.interactionHistory.push(payload.interaction)
