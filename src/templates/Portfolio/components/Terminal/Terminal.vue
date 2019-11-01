@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import { mapActions, mapMutations } from 'vuex'
+  import { mapActions, mapMutations, mapState } from 'vuex'
 
   import TerminalPast from '@/templates/Portfolio/components/Terminal/TerminalPast'
   import TerminalPresent from '@/templates/Portfolio/components/Terminal/TerminalPresent'
@@ -22,44 +22,38 @@
       TerminalPast,
       TerminalPresent
     },
+    computed: {
+      ...mapState('portfolio', [
+        'isFirstRun'
+      ])
+    },
     methods: {
-      ...mapMutations('terminal', [
+      ...mapMutations('portfolio', [
         'resetState',
-        'setTree'
+        'setTree',
+        'setIsFirstRun'
       ]),
-      ...mapActions('terminal', [
+      ...mapActions('portfolio', [
         'runCommand'
       ])
     },
     created () {
-      // Reset terminal state
-      this.resetState()
-
-      // Set up filesystem tree
-      this.setTree({
-        fs: fs
-      })
-
-      // Run initial commands
-      this.runCommand({
-        command: 'intro'
-      })
-
-      // Switch to starting directory
-      let startDir = this.$route.params.dir
-      if (startDir === undefined || startDir === '') {
-        // startDir is '~'
-        // Do nothing
-      } else {
+      if (this.isFirstRun) {
+        // Run initial commands
         this.runCommand({
-          command: `cd ~/${startDir}`
+          command: 'intro'
+        })
+
+        // Show directory structure
+        this.runCommand({
+          command: 'ls'
+        })
+
+        // Indicate first run to be complete
+        this.setIsFirstRun({
+          isFirstRun: false
         })
       }
-
-      // Show directory structure
-      this.runCommand({
-        command: 'ls'
-      })
     }
   }
 </script>

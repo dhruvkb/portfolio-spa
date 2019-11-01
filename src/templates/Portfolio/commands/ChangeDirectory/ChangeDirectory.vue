@@ -74,16 +74,6 @@
         this.setCurrentNode({
           currentNode: this.node
         })
-        this.$router.push({
-          name: 'portfolio',
-          params: {
-            dir: this.absolutePathTo(this.node).substring(2)
-          }
-        }).catch(err => {
-          if (err.name === 'NavigationDuplicated') {
-            // Do nothing
-          }
-        })
       }
     }
   }
