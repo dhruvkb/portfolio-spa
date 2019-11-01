@@ -69,7 +69,7 @@
         }
       },
 
-      ...mapState('terminal', [
+      ...mapState('portfolio', [
         'currentNode',
         'interactionHistory',
         'isProcessing'
@@ -149,7 +149,7 @@
         })
       },
 
-      ...mapActions('terminal', [
+      ...mapActions('portfolio', [
         'runCommand'
       ])
     },

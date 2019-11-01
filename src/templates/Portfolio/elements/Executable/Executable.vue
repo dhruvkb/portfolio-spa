@@ -53,7 +53,7 @@
         })
       },
 
-      ...mapActions('terminal', [
+      ...mapActions('portfolio', [
         'runCommand'
       ])
     }

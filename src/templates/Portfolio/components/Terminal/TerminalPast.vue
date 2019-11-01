@@ -41,7 +41,7 @@
         )
       },
 
-      ...mapState('terminal', [
+      ...mapState('portfolio', [
         'interactionHistory'
       ])
     }

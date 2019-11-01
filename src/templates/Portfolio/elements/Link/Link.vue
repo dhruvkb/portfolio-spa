@@ -58,7 +58,7 @@
           : `Open file '${this.node.name}'.`
       },
 
-      ...mapGetters('terminal', [
+      ...mapGetters('portfolio', [
         'absolutePathTo'
       ])
     },
@@ -78,7 +78,7 @@
         })
       },
 
-      ...mapActions('terminal', [
+      ...mapActions('portfolio', [
         'runCommand'
       ])
     }
