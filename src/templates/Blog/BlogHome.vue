@@ -93,10 +93,10 @@
                 <RouterLink
                   :to="{name: 'post', params: {slug: post.slug}}"
                   :title="`Read '${post.title}'.`">
-                  <FontAwesomeIcon
-                    :icon="['fas', 'external-link-alt']"
-                    fixed-width/>
                   Read more…
+                  <FontAwesomeIcon
+                    :icon="['fas', 'arrow-right']"
+                    fixed-width/>
                 </RouterLink>
               </div>
             </Card>
@@ -119,7 +119,12 @@
   import { mapActions, mapState } from 'vuex'
 
   import { library } from '@fortawesome/fontawesome-svg-core'
-  import { faCalendarDay, faExternalLinkAlt, faHashtag, faPenNib } from '@fortawesome/free-solid-svg-icons'
+  import {
+    faCalendarDay,
+    faHashtag,
+    faPenNib,
+    faArrowRight
+  } from '@fortawesome/free-solid-svg-icons'
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
   import moment from 'moment'
@@ -138,7 +143,7 @@
     faCalendarDay,
     faHashtag,
     faPenNib,
-    faExternalLinkAlt
+    faArrowRight
   )
 
   export default {
