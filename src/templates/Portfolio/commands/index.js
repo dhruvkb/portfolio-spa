@@ -18,6 +18,8 @@ import List
   from '@/templates/Portfolio/commands/List/List'
 import Tree
   from '@/templates/Portfolio/commands/Tree/Tree'
+import Vim
+  from '@/templates/Portfolio/commands/Vim/Vim'
 import WhoAmI
   from '@/templates/Portfolio/commands/WhoAmI/WhoAmI'
 import WorkingDirectory
@@ -34,6 +36,7 @@ export const components = {
   Introduction,
   List,
   Tree,
+  Vim,
   WhoAmI,
   WorkingDirectory
 }
@@ -97,6 +100,12 @@ export const mapping = {
     args: Tree.argSpec,
     component: 'Tree',
     description: 'Recursively list contents of directory \'dirname\'.'
+  },
+  vim: {
+    name: 'vim',
+    args: Vim.argSpec,
+    component: 'Vim',
+    description: 'Open the file in a view of its own.'
   },
   whoami: {
     name: 'whoami',
