@@ -1,24 +1,35 @@
 <template>
   <div class="portfolio">
-    <main>
-      <Terminal/>
-    </main>
+    <transition name="fade" mode="out-in">
+      <RouterView/>
+    </transition>
   </div>
 </template>
 
 <script>
-  import Terminal from '@/templates/Portfolio/components/Terminal/Terminal'
+  import { mapMutations } from 'vuex'
+
+  import fs from '@/data/portfolio/fs'
 
   /**
    * This page describes my portfolio using an interactive CLI.
    */
   export default {
     name: 'Portfolio',
-    components: {
-      Terminal
+    methods: {
+      ...mapMutations('portfolio', [
+        'resetState',
+        'setTree'
+      ])
+    },
+    created () {
+      // Reset terminal state
+      this.resetState()
+
+      // Set up filesystem tree
+      this.setTree({
+        fs: fs
+      })
     }
   }
 </script>
-
-<style scoped lang="stylus" src="./Portfolio.styl">
-</style>

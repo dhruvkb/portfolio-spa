@@ -11,8 +11,6 @@
   import TerminalPast from '@/templates/Portfolio/components/Terminal/TerminalPast'
   import TerminalPresent from '@/templates/Portfolio/components/Terminal/TerminalPresent'
 
-  import fs from '@/data/portfolio/fs'
-
   /**
    * This is the terminal component, the textual playground for my portfolio.
    */
