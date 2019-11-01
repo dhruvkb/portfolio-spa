@@ -36,12 +36,10 @@
 </template>
 
 <script>
-
   import Content from '@/mixins/content'
 
   import Grid from '@/components/Grid/Grid'
   import GridCell from '@/components/Grid/GridCell'
-  import Heading from '@/components/Heading/Heading'
   import Glitch from '@/templates/FourOhFour/elements/Glitch/Glitch'
 
   export default {
@@ -51,7 +49,6 @@
     ],
     components: {
       Glitch,
-      Heading,
       Grid,
       GridCell
     }
