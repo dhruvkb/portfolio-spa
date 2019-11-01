@@ -11,7 +11,7 @@
   export default {
     name: 'Clear',
     methods: {
-      ...mapMutations('terminal', [
+      ...mapMutations('portfolio', [
         'clearOutput'
       ])
     },

@@ -81,10 +81,10 @@
         return this.node && this.node.type === 'folder'
       },
 
-      ...mapState('terminal', [
+      ...mapState('portfolio', [
         'currentNode'
       ]),
-      ...mapGetters('terminal', [
+      ...mapGetters('portfolio', [
         'nodeLocatedAt'
       ])
     },

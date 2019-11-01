@@ -123,10 +123,10 @@
         return parentSiblings.indexOf(parent) === parentSiblings.length - 1
       },
 
-      ...mapState('terminal', [
+      ...mapState('portfolio', [
         'currentNode'
       ]),
-      ...mapGetters('terminal', [
+      ...mapGetters('portfolio', [
         'nodeLocatedAt'
       ])
     },

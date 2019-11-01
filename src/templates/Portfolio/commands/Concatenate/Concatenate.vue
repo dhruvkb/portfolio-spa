@@ -104,7 +104,7 @@
         return require(`@/assets/content/${filePath}`)
       },
 
-      ...mapGetters('terminal', [
+      ...mapGetters('portfolio', [
         'nodeLocatedAt'
       ])
     },
@@ -143,7 +143,7 @@
         this.stopProcessing('PASS')
       },
 
-      ...mapMutations('terminal', [
+      ...mapMutations('portfolio', [
         'setIsProcessing'
       ])
     },

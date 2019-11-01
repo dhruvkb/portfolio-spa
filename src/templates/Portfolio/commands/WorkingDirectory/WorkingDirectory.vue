@@ -20,10 +20,10 @@
         return this.absolutePathTo(this.node)
       },
 
-      ...mapState('terminal', [
+      ...mapState('portfolio', [
         'currentNode'
       ]),
-      ...mapGetters('terminal', [
+      ...mapGetters('portfolio', [
         'absolutePathTo'
       ])
     },

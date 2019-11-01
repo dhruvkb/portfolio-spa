@@ -57,13 +57,13 @@
         return this.node && this.node.type === 'folder'
       },
 
-      ...mapGetters('terminal', [
+      ...mapGetters('portfolio', [
         'nodeLocatedAt',
         'absolutePathTo'
       ])
     },
     methods: {
-      ...mapMutations('terminal', [
+      ...mapMutations('portfolio', [
         'setCurrentNode'
       ])
     },
