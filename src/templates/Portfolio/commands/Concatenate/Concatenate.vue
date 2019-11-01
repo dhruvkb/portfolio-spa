@@ -14,9 +14,6 @@
 <script>
   import { mapGetters, mapMutations } from 'vuex'
 
-  import { library } from '@fortawesome/fontawesome-svg-core'
-  import { faBuilding, faCalendarDay, faMapMarkerAlt, faServer } from '@fortawesome/free-solid-svg-icons'
-
   import axios from 'axios'
 
   import Spinner from '@/templates/Portfolio/elements/Spinner/Spinner'
@@ -26,13 +23,6 @@
 
   import Prism from 'prismjs'
   import '@/styles/prism-override.styl'
-
-  library.add(
-    faMapMarkerAlt,
-    faBuilding,
-    faCalendarDay,
-    faServer
-  )
 
   /**
    * This command prints the contents of a file 'filename'.
