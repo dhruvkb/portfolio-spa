@@ -25,7 +25,7 @@
       @keydown.arrow-down.exact.prevent="traverseHistoryDown"
       @keydown.tab.exact.prevent="autocompleteCommand"
       @keydown.enter.exact.prevent="submitCommand"
-      @keydown.c.ctrl.exact.prevent="cancelCommand"
+      @keydown.c.shift.ctrl.exact.prevent="cancelCommand"
       @keyup="processKeyUp">
     <span
       class="caret"
@@ -138,7 +138,11 @@
       },
 
       processKeyUp () {
-        this.caretPosition = this.$refs.commandField.selectionStart
+        if (this.$refs.commandField) {
+          // This situation may arise if a command leads to a route change
+          // For example, vim
+          this.caretPosition = this.$refs.commandField.selectionStart
+        }
       },
 
       scrollToCommandField () {
