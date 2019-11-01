@@ -85,6 +85,14 @@ const mutations = {
   pushInteraction (state, payload) {
     state.interactionHistory.push(payload.interaction)
   },
+  clearSelectOutput (state, payload) {
+    const deletedComponents = payload.deletedComponents
+    state.interactionHistory.filter(interaction => {
+      if (deletedComponents.includes(interaction.output.component)) {
+        interaction.output = {}
+      }
+    })
+  },
   clearOutput (state) {
     state.interactionHistory.forEach(interaction => {
       interaction.isVisible = false
