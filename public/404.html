@@ -20,18 +20,18 @@
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
+        w[l] = w[l] || []
         w[l].push({
           'gtm.start': new Date().getTime(),
           event: 'gtm.js'
-        });
+        })
         var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s),
-            dl = l !== 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window,document, 'script', 'dataLayer', 'GTM-KWBQS6V');
+          j = d.createElement(s),
+          dl = l !== 'dataLayer' ? '&l=' + l : ''
+        j.async = true
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
+        f.parentNode.insertBefore(j, f)
+      })(window, document, 'script', 'dataLayer', 'GTM-KWBQS6V')
     </script>
 
     <meta name="description" content="Dhruv Bhanushali - software developer & technical author">
@@ -48,23 +48,24 @@
     <meta name="google-site-verification" content="rDaR4bofozdONdJoKYHh4JKPdCXaVt9QpLiZEcqbr7I">
 
     <!-- Preloaded resources -->
-    <link rel="preload" href="<%= BASE_URL %>webfont/space_grotesk.css" as="style">
+    <link rel="preload" href="./webfont/space_grotesk.css" as="style">
     <link rel="preload" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,600&display=swap" as="style">
     <link rel="preload" href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.207/distr/fira_code.css" as="style">
 
-    <link rel="preload" href="<%= BASE_URL %>webfont/SpaceGrotesk-Bold.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="./webfont/SpaceGrotesk-Bold.woff2" as="font" crossorigin="anonymous">
 
     <!-- Meta information -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="<%= BASE_URL %>webfont/space_grotesk.css">
+    <link rel="stylesheet" href="./webfont/space_grotesk.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,600&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.207/distr/fira_code.css">
 
     <!-- Icons -->
-    <link rel="icon" href="<%= BASE_URL %>favicon.png">
+    <link rel="icon" href="./favicon.png">
 
     <!-- Styling -->
     <style>
@@ -73,65 +74,38 @@
         margin: 0;
       }
 
-      .jsonly {
+      h1 {
+        text-align: center;
+
+        color: #dc322f;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 3.1748rem;
+      }
+
+      #app > .whatever {
         display: flex;
         flex-direction: column;
         align-items: stretch;
         justify-content: center;
 
+        background-color: #002b36;
+
         height: 100vh;
       }
 
-      .jsonly > p {
+      p {
         text-align: center;
 
-        color: black;
+        color: #839496;
         font-family: "IBM Plex Sans", sans-serif;
       }
+
+      p > a {
+        color: inherit;
+
+        text-decoration-style: dotted;
+      }
     </style>
-
-    <!-- Styling for when JS is disabled -->
-    <noscript>
-      <style>
-        h1 {
-          text-align: center;
-
-          color: #dc322f;
-          font-family: "Space Grotesk", sans-serif;
-          font-size: 3.1748rem;
-        }
-
-        #app > noscript {
-          display: flex;
-          flex-direction: column;
-          align-items: stretch;
-          justify-content: center;
-
-          background-color: #002b36;
-
-          height: 100vh;
-        }
-
-        p {
-          text-align: center;
-
-          color: #839496;
-          font-family: "IBM Plex Sans", sans-serif;
-        }
-
-        p > a {
-          color: inherit;
-
-          text-decoration-style: dotted;
-        }
-
-        .jsonly {
-          display: none;
-        }
-      </style>
-    </noscript>
-
-    <!-- Additional head stuff will be auto injected here -->
   </head>
 
   <body>
@@ -146,24 +120,22 @@
     </noscript>
 
     <div id="app">
-      <noscript>
+      <div class="whatever">
         <h1>
           Dhruv Bhanushali
         </h1>
         <p>
-          Heartfelt apologies, but my portfolio needs JavaScript enabled.
+          You're lost. Or maybe you came here intentionally. I'm no seer.
           <br/>
-          How about I show you my
-          <a href="https://dhruvkb.github.io/resume">résumés</a>?
-        </p>
-      </noscript>
-      <div class="jsonly">
-        <p>
-          ...
+          If I were you, I'd go
+          <a href="/">home</a>.
         </p>
       </div>
     </div>
 
-    <!-- Built files will be auto injected here -->
+    <script>
+      // Automatically redirect if JS is enabled
+      window.location = `${location.protocol}//${location.host}/#404`
+    </script>
   </body>
 </html>
