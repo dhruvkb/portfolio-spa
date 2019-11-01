@@ -45,6 +45,11 @@ const router = new Router({
       path: '/credits',
       name: 'credits',
       component: () => import(/* webpackChunkName: "credits" */ '@/templates/Credits/Credits')
+    },
+    {
+      path: '*',
+      name: 'fourohfour',
+      component: () => import(/* webpackChunkName: "four-oh-four" */ '@/templates/FourOhFour/FourOhFour')
     }
   ],
   scrollBehavior: (to, from) => new Promise(resolve => {
