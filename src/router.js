@@ -11,9 +11,20 @@ const router = new Router({
       component: () => import(/* webpackChunkName: "home" */ '@/templates/Home/Home')
     },
     {
-      path: '/portfolio/:dir([a-z_]*)?',
-      name: 'portfolio',
-      component: () => import(/* webpackChunkName: "portfolio" */ '@/templates/Portfolio/Portfolio')
+      path: '/portfolio',
+      component: () => import(/* webpackChunkName: "portfolio" */ '@/templates/Portfolio/Portfolio'),
+      children: [
+        {
+          path: '',
+          name: 'portfolio',
+          component: () => import(/* webpackChunkName: "portfolio-home" */ '@/templates/Portfolio/PortfolioHome')
+        },
+        {
+          path: 'work/:slug',
+          name: 'work',
+          component: () => import(/* webpackChunkName: "work" */ '@/templates/Portfolio/PortfolioWork')
+        }
+      ]
     },
     {
       path: '/blog',
