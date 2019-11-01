@@ -1,5 +1,5 @@
 <template>
-  <main ref="post">
+  <main>
     <transition
       name="fade"
       mode="out-in"
@@ -28,29 +28,37 @@
               color="green">
               {{ post.title }}
             </Heading>
-            <div>
-              <Heading
-                :level="6"
-                color="secondary">
-                <FontAwesomeIcon
-                  :icon="['fas', 'calendar-day']"
-                  fixed-width/>
-                <span :title="absoluteDate">
+            <Heading
+              :level="6"
+              color="secondary">
+              <FontAwesomeIcon
+                :icon="['fas', 'calendar-day']"
+                fixed-width/>
+              <span :title="absoluteDate">
                   {{ relativeDate }}
                 </span>
-                <template v-if="post.tags.length">
-                  &emsp;
-                  <FontAwesomeIcon
-                    :icon="['fas', 'hashtag']"
-                    fixed-width/>
-                  {{ post.tags.join(', ') }}
-                </template>
-              </Heading>
-            </div>
+              <template v-if="post.tags.length">
+                &emsp;
+                <FontAwesomeIcon
+                  :icon="['fas', 'hashtag']"
+                  fixed-width/>
+                {{ post.tags.join(', ') }}
+              </template>
+            </Heading>
           </div>
 
           <div class="content" v-html="post.body"></div>
         </div>
+
+        <footer>
+          <div>
+            Read this blog on
+            <a
+              :href="`${domain}/${post.slug}`">
+              Write.as
+            </a>
+          </div>
+        </footer>
       </section>
 
       <section
@@ -97,6 +105,7 @@
     data () {
       return {
         url: 'https://api.dhruvkb.now.sh/api/post',
+        domain: 'https://dhruvkb.writeas.com',
         post: null
       }
     },
