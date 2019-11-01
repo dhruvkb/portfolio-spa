@@ -82,6 +82,7 @@
       loseFocus () {
         this.$refs.commandField.blur()
       },
+
       traverseHistoryUp () {
         if (this.traversal.index === this.interactionHistory.length) {
           return
@@ -107,6 +108,13 @@
           this.command = this.interactionHistory[index].input.command
         }
       },
+      resetTraversal () {
+        this.traversal = {
+          index: 0,
+          backup: ''
+        }
+      },
+
       autocompleteCommand () {
         if (this.command === '') {
           this.command = 'help'
@@ -128,16 +136,11 @@
         this.command = ''
         this.resetTraversal()
       },
+
       processKeyUp () {
         this.caretPosition = this.$refs.commandField.selectionStart
       },
 
-      resetTraversal () {
-        this.traversal = {
-          index: 0,
-          backup: ''
-        }
-      },
       scrollToCommandField () {
         this.$nextTick(() => {
           this.$refs.commandField.scrollIntoView({
