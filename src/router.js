@@ -22,7 +22,8 @@ const router = new Router({
         {
           path: 'work/:slug',
           name: 'work',
-          component: () => import(/* webpackChunkName: "work" */ '@/templates/Portfolio/PortfolioWork')
+          component: () => import(/* webpackChunkName: "work" */ '@/templates/Portfolio/PortfolioWork'),
+          props: true
         }
       ]
     },
@@ -38,7 +39,8 @@ const router = new Router({
         {
           path: 'post/:slug',
           name: 'post',
-          component: () => import(/* webpackChunkName: "post" */ '@/templates/Blog/BlogPost')
+          component: () => import(/* webpackChunkName: "post" */ '@/templates/Blog/BlogPost'),
+          props: true
         }
       ]
     },

@@ -14,6 +14,15 @@
     components: {
       Vim
     },
+    props: {
+      /**
+       * _the name of the work to display_
+       */
+      slug: {
+        type: String,
+        required: true
+      }
+    },
     data () {
       return {
         node: null
@@ -25,7 +34,7 @@
       ])
     },
     mounted () {
-      this.node = this.nodeNamed(this.$route.params.slug)
+      this.node = this.nodeNamed(this.slug)
       if (!this.node) {
         this.$router.push({
           name: 'portfolio'

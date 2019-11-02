@@ -102,6 +102,15 @@
 
       Spinner
     },
+    props: {
+      /**
+       * _the name of the post to display_
+       */
+      slug: {
+        type: String,
+        required: true
+      }
+    },
     data () {
       return {
         url: 'https://api.dhruvkb.now.sh/api/post',
@@ -126,7 +135,7 @@
       axios
         .get(this.url, {
           params: {
-            slug: this.$route.params.slug
+            slug: this.slug
           }
         })
         .then(response => {
