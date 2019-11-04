@@ -1,8 +1,6 @@
 <template>
   <div class="portfolio">
-    <transition name="fade" mode="out-in">
-      <RouterView/>
-    </transition>
+    <RouterView/>
   </div>
 </template>
 
