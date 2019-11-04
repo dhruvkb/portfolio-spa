@@ -64,6 +64,7 @@ const getters = {
 
 const mutations = {
   resetState (state) {
+    state.isFirstRun = true
     state.tree = null
     state.currentNode = null
     state.interactionHistory = []
