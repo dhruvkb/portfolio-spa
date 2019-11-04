@@ -3,20 +3,15 @@
     <template v-if="isFound">
       <template v-if="!args.flatten">
         <span
-          v-for="index in level"
+          v-for="(rule, index) in lineRules"
           :key="index">
-          <!-- TODO Generalise this algorithm to work on more than two levels -->
-          <template v-if="index === level">
-            {{ isLastChild ? '└' : '├'}}──
-          </template>
-          <template v-else>
-            {{ isParentLastChild ? '&nbsp;': '│'}}&nbsp;&nbsp;
-          </template>
+          {{ rule ? '&nbsp;': '│'}}&nbsp;&nbsp;
         </span>
+        {{ isLastChild ? '└' : '├'}}──
       </template>
 
       <template v-if="!(args.flatten && node.type === 'folder')">
-        <template v-if="args.flatten">─ </template>
+        <template v-if="args.flatten">─</template>
         <Link :node="node"/>
       </template>
 
@@ -24,7 +19,7 @@
         v-for="child in node.children"
         :argv="argv"
         :passed-node="child"
-        :level="level + 1"
+        :line-rules="[...lineRules, isLastChild]"
         :key="child.name"/>
     </template>
     <template v-else>
@@ -83,14 +78,17 @@
         type: Object
       },
       /**
-       * _the current depth of the tree_
+       * _the rules to draw lines before every element of this tree_
        */
-      level: {
-        type: Number,
-        default: 0
+      lineRules: {
+        type: Array,
+        default: () => []
       }
     },
     computed: {
+      level () {
+        return this.lineRules.length
+      },
       /**
        * _the directory whose contents are to be shown_
        */
@@ -111,16 +109,12 @@
        * _whether this node is the last child of its parent_
        */
       isLastChild () {
-        let siblings = this.node.parent.children
-        return siblings.indexOf(this.node) === siblings.length - 1
-      },
-      /**
-       * _whether the parent of this node is the last child of its parent_
-       */
-      isParentLastChild () {
-        let parent = this.node.parent
-        let parentSiblings = parent.parent.children
-        return parentSiblings.indexOf(parent) === parentSiblings.length - 1
+        if (this.level === 0) { // Root node
+          return true
+        } else {
+          let siblings = this.node.parent.children
+          return siblings.indexOf(this.node) === siblings.length - 1
+        }
       },
 
       ...mapState('portfolio', [
