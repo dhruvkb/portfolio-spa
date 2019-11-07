@@ -52,7 +52,7 @@
 
         <footer>
           <div>
-            Read this blog on
+            Read this blog post on
             <a
               :href="`${domain}/${post.slug}`">
               Write.as
