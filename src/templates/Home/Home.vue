@@ -1,87 +1,101 @@
 <template>
   <div class="home">
     <main>
-      <Grid>
-        <GridCell
-          class="left pane"
-          :span-set="[12, 6]">
-          <RouterLink
-            :to="{name: 'portfolio'}"
-            title="See my portfolio">
-            <div class="avatar-spinner">
-              <transition appear name="flip-horizontal" mode="out-in">
-                <Memoji
-                  :key="index"
-                  :role="roles[index].replace(' ', '_')"/>
+      <section class="section" id="first">
+        <Grid>
+          <GridCell
+            class="left pane"
+            :span-set="[12, 6]">
+            <div class="imagery">
+              <RouterLink
+                :to="{name: 'portfolio'}"
+                title="See my portfolio">
+                <div class="avatar-spinner">
+                  <transition appear name="flip-horizontal" mode="out-in">
+                    <Memoji
+                      :key="index"
+                      :role="roles[index].replace(' ', '_')"/>
+                  </transition>
+                </div>
+
+                <!-- Sinful terrible hack to prefetch images -->
+                <div style="display: none;">
+                  <Memoji
+                    v-for="(role, index) in roles"
+                    :key="index"
+                    :role="role.replace(' ', '_')"/>
+                </div>
+                <!-- Sin ends here -->
+              </RouterLink>
+            </div>
+          </GridCell>
+
+          <GridCell
+            class="right pane"
+            :span-set="[12, 6]">
+            {{ $t('hello') }}! {{ $t('iam') }}
+
+            <Heading :level="1">
+            <span class="red-colored">
+            {{ $t('dhruv') }} {{ $t('bhanushali') }}</span>,
+            </Heading>
+
+            <Heading
+              class="role"
+              :level="4">
+              <transition appear name="flip-vertical" mode="out-in">
+                <div
+                  :key="vowel"
+                  class="secondary-colored">
+                  {{ $t(vowel) }}&nbsp;
+                </div>
               </transition>
-            </div>
+              <transition appear name="flip-vertical" mode="out-in">
+                <div
+                  :key="index"
+                  :class="`${$getSolarizedColor(index)}-colored`">
+                  {{ $t(`roles.${roles[index]}`) }}
+                </div>
+              </transition>
+              <div class="border plus" :key="index">&nbsp;</div>
+            </Heading>
 
-            <!-- Sinful terrible hack to prefetch images -->
-            <div style="display: none;">
-              <Memoji
-                v-for="(role, index) in roles"
-                :key="index"
-                :role="role.replace(' ', '_')"/>
-            </div>
-            <!-- Sin ends here -->
-          </RouterLink>
-        </GridCell>
-        <GridCell
-          class="right pane"
-          :span-set="[12, 6]">
-          Hello there! I'm
+            <p>
+              <i18n path="who" tag="span">
+                <template #love>
+                  <strong>{{ $t('love') }}</strong>
+                </template>
+                <template #passion>
+                  <strong>{{ $t('passion') }}</strong>
+                </template>
+              </i18n>
+              <br/>
+              {{ $t('compositions') }}
+              <br/>
+              <span
+                class="secondary-colored"
+                :title="$t('3m')">
+                  {{ $t('other') }}
+                </span>
+            </p>
+          </GridCell>
+        </Grid>
 
-          <Heading
-            :level="1"
-            color="red">
-            Dhruv Bhanushali,
-          </Heading>
-
-          <Heading
-            class="role"
-            :level="4">
-            <transition appear name="flip-vertical" mode="out-in">
-              <div
-                :key="vowel"
-                class="secondary-colored">
-                {{ vowel }}&nbsp;
-              </div>
-            </transition>
-            <transition appear name="flip-vertical" mode="out-in">
-              <div
-                :key="index"
-                :class="`${$getSolarizedColor(index)}-colored`">
-                {{ roles[index] }}
-              </div>
-            </transition>
-            <div class="border plus" :key="index">&nbsp;</div>
-          </Heading>
-
-          <p>
-            who,
-            with utmost <strong>love</strong> and <strong>passion</strong>,
-            composes
-            <br/>
-            code, docs, designs, containers and easter eggs
-            <br/>
-            <span
-              class="secondary-colored"
-              title="Such as movies, music and memes!">
-            amongst other things.
-          </span>
-          </p>
-        </GridCell>
-      </Grid>
+        <footer>
+          <div
+            class="kaomoji"
+            title="Wonderful to meet you!">
+            <span class="face">
+              ( ˇ ▽ ˇ )
+            </span>
+                <span class="wave">
+              ﾉ
+            </span>
+          </div>
+          <Locale v-show="false"/>
+        </footer>
+      </section>
     </main>
-
-    <footer title="Wonderful to meet you!">
-      <span class="face">
-        ( ˇ ▽ ˇ )
-      </span>
-      <span class="wave">
-        ﾉ
-      </span>
-    </footer>
   </div>
 </template>
 
@@ -91,6 +105,7 @@
   import Heading from '@/components/Heading/Heading'
 
   import Memoji from './elements/Memoji/Memoji'
+  import Locale from '@/components/Locale/Locale'
 
   /**
    * This page is the landing page for the portfolio.
@@ -101,6 +116,7 @@
       Grid,
       GridCell,
       Heading,
+      Locale,
       Memoji
     },
     data () {
@@ -149,3 +165,6 @@
 
 <style scoped lang="stylus" src="./Home.styl">
 </style>
+
+<i18n src="./lang.json">
+</i18n>

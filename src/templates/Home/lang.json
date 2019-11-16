@@ -1,0 +1,46 @@
+{
+  "en": {
+    "hello": "Hello there",
+    "iam": "I am",
+    "a": "a",
+    "an": "an",
+    "roles": {
+      "open sourcerer": "open sourcerer",
+      "software developer": "software developer",
+      "technical writer": "technical writer",
+      "design dabbler": "design dabbler",
+      "infrastructure architect": "infrastructure architect",
+      "easter eggsmith": "easter eggsmith"
+    },
+    "who": "who, with utmost {love} and {passion}, composes",
+    "compositions": "code, docs, designs, containers and easter eggs",
+    "love": "love",
+    "passion": "passion",
+    "other": "amongst other things.",
+    "3m": "Such as movies, music and memes!"
+  },
+  "hi": {
+    "hello": "नमस्ते",
+    "iam": "मैं हूँ",
+    "a": "एक",
+    "an": "एक",
+    "roles": {
+      "open sourcerer": "ओपन सौरसरर",
+      "software developer": "सॉफ्टवेयर डेवलपर",
+      "technical writer": "तकनीकी लेखक",
+      "design dabbler": "डिजाइन आकांक्षी",
+      "infrastructure architect": "इंफ्रास्ट्रक्चर वास्तुकार",
+      "easter eggsmith": "ईस्टर एग निर्माता"
+    },
+    "who": "जो, अत्यंत {love} और {passion} के साथ, बनाता है",
+    "compositions": "कोड, डॉक्स, डिजाइन, कंटेनर और ईस्टर एग्स",
+    "love": "प्रेम",
+    "passion": "जुनून",
+    "other": "और चीजों के साथ।",
+    "3m": "जैसे फ़िल्म, संगीत और मेमे!"
+  },
+  "pr": {
+    "hello": "Ahoy thar",
+    "iam": "Here be"
+  }
+}

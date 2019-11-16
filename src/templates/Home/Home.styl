@@ -1,64 +1,58 @@
 @import "~@/styles/tokens.styl"
-@import "~@/styles/page.styl"
-@import "~@/styles/reset.styl"
+@import "~@/styles/content.styl"
 @import "~@/styles/animations.styl"
 @import "~@/styles/transitions.styl"
 
 .home
-  page-with-footer()
+  content()
 
-  position relative
+  .avatar-spinner
+    flip('horizontal', 0deg, 0deg, 0deg, 90deg, 0deg, -90deg)
 
-  display flex
-  flex-direction column
-  justify-content center
-  align-items center
+  .role
+    display inline-flex
+    flex-direction row
 
-  main
-    .pane
-      &.left
-        display flex
-        align-items center
-        justify-content center
+    flip('vertical', -90deg, 0deg, 90deg, 0deg, 0deg, 0deg)
 
-        .avatar-spinner
-          flip('horizontal', 0deg, 0deg, 0deg, 90deg, 0deg, -90deg)
+    .border
+      position absolute
+      top 0
+      left '-%s' % $space-smaller
 
-      &.right
-        .role
-          display inline-flex
-          flex-direction row
+      z-index -1
 
-          flip('vertical', -90deg, 0deg, 90deg, 0deg, 0deg, 0deg)
+      background var(--background-highlights)
+      width 0
 
-          .border
-            position absolute
-            top 0
-            left '-%s' % $space-smaller
-
-            z-index -1
-
-            background-image linear-gradient(
-              90deg,
-              transparent 50%,
-              var(--background-highlights) 50%
-            )
-            background-size 200%
-
-            width 'calc(100% + 2 * %s)' % $space-smaller
-            height 100%
-
-            grow()
-            animation-duration 'calc(8s - %s)' % $duration-standard
-            animation-delay $duration-standard
+      grow(100%, 100%, 0, 'calc(100% + 2 * %s)' % $space-smaller)
+      animation-duration 'calc(8s - %s)' % $duration-standard
+      animation-delay $duration-standard
 
   footer
-    font-weight $weight-semibold
+    display flex
 
-    .wave
-      display inline-block
+    flex-direction row
 
-      transform-origin 0 100%
+    align-items center
+    justify-content space-between
 
-      wave()
-      animation-duration $duration-longest
+    width 100%
+    box-sizing border-box
+
+    padding-left $space-normal
+    padding-right $space-normal
+
+    .kaomoji
+      font-weight $weight-semibold
+
+      margin-left auto
+      margin-right auto
+
+      .wave
+        display inline-block
+
+        transform-origin 0 100%
+
+        wave()
+        animation-duration $duration-longest
