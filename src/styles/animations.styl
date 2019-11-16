@@ -10,21 +10,24 @@ wave()
     45%, 50%, 55%
       transform rotate(15deg)
 
-grow()
+grow(heightfrom=0, heightto=0, widthfrom=0, widthto=0)
   animation-name grow
   animation-timing-function linear
   animation-fill-mode forwards
 
   @keyframes grow
     0%
-      background-position 0
+      width widthfrom
+      height heightfrom
 
     75%, 90%
-      background-position -100%
+      width widthto
+      height heightto
       opacity 1
 
     100%
-      background-position -100%
+      width widthto
+      height heightto
       opacity 0
 
 swipe(xfrom=0, xmid=0, xto=0, yfrom=0, ymid=0, yto=0)
