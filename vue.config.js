@@ -8,5 +8,14 @@ module.exports = {
       .options({
         name: 'content/[name].[hash:8].[ext]'
       })
+  },
+
+  pluginOptions: {
+    i18n: {
+      locale: 'en',
+      fallbackLocale: 'en',
+      localeDir: 'locales',
+      enableInSFC: true
+    }
   }
 }
