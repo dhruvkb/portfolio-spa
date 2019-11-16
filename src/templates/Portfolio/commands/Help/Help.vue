@@ -107,7 +107,7 @@
         } else {
           return false
         }
-      },
+      }
     },
     methods: {
       commandSyntax (command) {
