@@ -31,13 +31,9 @@
     components: {
       FontAwesomeIcon
     },
-    props: {
-      /**
-       * _the current theme of the app_
-       */
-      theme: {
-        type: String,
-        validator: val => ['light', 'dark'].includes(val)
+    data () {
+      return {
+        theme: null
       }
     },
     computed: {
@@ -58,18 +54,31 @@
         return `[T] Switch to the ${this.otherTheme} theme.`
       }
     },
+    watch: {
+      theme (to, from) {
+        if (to !== from) { // Breaks recursion
+          document.documentElement.classList.remove(`${from}-themed`)
+          document.documentElement.classList.add(`${to}-themed`)
+
+          // Persist theme to local storage
+          localStorage.theme = to
+        }
+      }
+    },
     methods: {
       /**
-       * Save and emit the other theme value.
-       *
-       * This changes the theme of the app to the opposite of the current one.
+       * Change the theme of the app to the opposite of the current one.
        */
       toggleTheme () {
-        // Persist theme for future visits
-        localStorage.theme = this.otherTheme
-
-        // Emit change to parent
-        this.$emit('update:theme', this.otherTheme)
+        this.theme = this.otherTheme
+      }
+    },
+    created () {
+      if (localStorage.theme) {
+        // Switch to last used theme
+        this.theme = localStorage.theme
+      } else {
+        this.theme = 'dark'
       }
     }
   }

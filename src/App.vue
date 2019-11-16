@@ -2,7 +2,7 @@
   <div id="app">
     <Navigation>
       <template #extras>
-        <Themer :theme.sync="theme"/>
+        <Themer/>
       </template>
     </Navigation>
     <transition
@@ -28,41 +28,9 @@
       Navigation,
       Themer
     },
-    data () {
-      return {
-        theme: null,
-        transitionName: null
-      }
-    },
-    computed: {
-      /**
-       * _the classes to apply on the entire DOM root_
-       */
-      htmlClasses () {
-        return [
-          `${this.theme}-themed`
-        ]
-      }
-    },
-    watch: {
-      /**
-       * _the action to undertake when theme changes_
-       */
-      theme () {
-        document.documentElement.className = this.htmlClasses.join('')
-      }
-    },
     methods: {
       emitSignal () {
         this.$root.$emit('triggerScroll')
-      }
-    },
-    created () {
-      if (localStorage.theme) {
-        // Switch to last used theme
-        this.theme = localStorage.theme
-      } else {
-        this.theme = 'dark'
       }
     }
   }
