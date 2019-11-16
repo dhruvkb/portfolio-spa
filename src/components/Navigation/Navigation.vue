@@ -10,13 +10,13 @@
         class="full nav-title"
         :level="4"
         color="red">
-        {{ homeLink.fullText }}
+        {{ $t('dhruv') }} {{ $t('bhanushali') }}
       </Heading>
       <Heading
         class="short nav-title"
         :level="4"
         color="red">
-        {{ homeLink.shortText }}
+        {{ $t('initials') }}
       </Heading>
     </RouterLink>
 
