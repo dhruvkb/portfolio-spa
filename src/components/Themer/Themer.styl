@@ -26,6 +26,10 @@
 
     color var(--background-opposite)
 
+    .icon
+      transition-property transform
+      transition-duration $duration-standard
+
   &::after
     position absolute
     top 0
@@ -53,4 +57,9 @@
 
   &::-moz-focus-inner
     border none
+
+.dark-themed
+  .themer
+    .icon
+      transform rotate(360deg)
 

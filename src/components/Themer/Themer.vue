@@ -7,6 +7,7 @@
     @shortkey="toggleTheme">
     <span class="content">
       <FontAwesomeIcon
+        class="icon"
         :icon="['fas', 'adjust']"
         fixed-width/>
     </span>
