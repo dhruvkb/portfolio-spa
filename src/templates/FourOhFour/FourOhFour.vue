@@ -5,7 +5,7 @@
         <Grid>
           <GridCell :span-set="headSpanSet">
             <div class="imagery">
-              <Glitch>404</Glitch>
+              <Glitch>{{ $t('404') }}</Glitch>
             </div>
           </GridCell>
           <GridCell :span-set="headSpanSet">
@@ -58,3 +58,6 @@
 
 <style scoped lang="stylus" src="./FourOhFour.styl">
 </style>
+
+<i18n src="./lang.json">
+</i18n>
