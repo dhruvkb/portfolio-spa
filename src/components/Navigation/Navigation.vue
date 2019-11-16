@@ -66,8 +66,6 @@
       return {
         homeLink: {
           to: '/',
-          fullText: 'Dhruv Bhanushali',
-          shortText: 'DB',
           icon: 'home',
           title: '[H] Go to the homepage.',
           isExact: true
