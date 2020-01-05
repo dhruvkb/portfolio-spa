@@ -175,7 +175,7 @@
 <script>
   import { library } from '@fortawesome/fontawesome-svg-core'
   import { faCircle, faComment, faEnvelope, faPhoneAlt } from '@fortawesome/free-solid-svg-icons'
-  import { faApple, faFacebookF, faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
+  import { faApple, faFacebookF, faGithub, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
   import { FontAwesomeIcon, FontAwesomeLayers } from '@fortawesome/vue-fontawesome'
 
   import Content from '@/mixins/content'
@@ -194,11 +194,12 @@
   )
 
   library.add(
-    faGithub,
-    faLinkedin,
+    faApple,
     faFacebookF,
-    faTwitter,
-    faApple
+    faGithub,
+    faInstagram,
+    faLinkedin,
+    faTwitter
   )
 
   export default {
@@ -246,6 +247,11 @@
                 icon: 'twitter',
                 name: 'Twitter',
                 link: 'https://twitter.com/dhruvkb'
+              },
+              {
+                icon: 'instagram',
+                name: 'Instagram',
+                link: 'https://instagram.com/dhruvkb_'
               }
             ]
           },
