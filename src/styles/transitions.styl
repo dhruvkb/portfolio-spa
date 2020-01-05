@@ -19,11 +19,9 @@ flip(name, xfrom=0deg, xmid=0deg, xto=0deg, yfrom=0deg, ymid=0deg, yto=0deg)
   perspective 20em
 
   .flip-{name}-enter
-    opacity 0
     transform rotateX(xfrom) rotateY(yfrom)
 
   .flip-{name}-leave-to
-    opacity 0
     transform rotateX(xto) rotateY(yto)
 
   .flip-{name}-enter-active,

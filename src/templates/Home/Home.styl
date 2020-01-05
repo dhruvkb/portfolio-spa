@@ -9,6 +9,12 @@
   .avatar-spinner
     flip('horizontal', 0deg, 0deg, 0deg, 90deg, 0deg, -90deg)
 
+    transition-property transform
+    transition-duration $duration-short
+
+    &:hover
+      transform scale(1.05)
+
   .role
     display inline-flex
     flex-direction row
