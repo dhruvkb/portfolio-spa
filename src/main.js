@@ -6,11 +6,11 @@ import VueObserveVisibility from 'vue-observe-visibility'
 import VueSolarized from '@/plugins/solarized'
 import VueNavigation from '@/plugins/navigation'
 
-import router from './router'
-import store from './store'
-import i18n from './i18n'
+import router from '@/router'
+import store from '@/store'
+import i18n from '@/i18n'
 
-import App from './App.vue'
+import App from '@/App.vue'
 
 Vue.use(VueShortkey, {
   prevent: ['input', 'textarea']
