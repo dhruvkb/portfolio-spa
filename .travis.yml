@@ -24,7 +24,7 @@ deploy:
   provider: pages
   strategy: git
 
-  cleanup: false
+  skip_cleanup: true
   local_dir: dist
   repo: dhruvkb/dhruvkb.github.io
   target_branch: master
