@@ -1,0 +1,9 @@
+@import 'styles/base';
+@import 'styles/motion/transitions';
+
+#app {
+  color: var(--primary-content);
+  background-color: var(--background);
+
+  @include fade;
+}

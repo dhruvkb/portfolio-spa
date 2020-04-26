@@ -1,0 +1,22 @@
+@import '~@/styles/tokens/sizes';
+@import '~@/styles/mixins/colored';
+@import '~@/styles/motion';
+
+.role {
+  @include colored('color');
+  @include flip('vertical', -90deg, 0deg, 90deg, 0deg, 0deg, 0deg);
+
+  display: inline-block;
+
+  .border {
+    position: absolute;
+    top: -0.1em;
+    left: -0.1em;
+
+    z-index: -1;
+
+    background: var(--background-highlights);
+    width: calc(0.2em + 100%);
+    height: 1.5em;
+  }
+}

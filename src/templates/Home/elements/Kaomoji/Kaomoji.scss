@@ -1,0 +1,16 @@
+@import '~@/styles/tokens/weights';
+@import '~@/styles/motion';
+
+.kaomoji {
+  cursor: grab; // closest thing to a waving hand
+
+  margin-left: auto;
+  margin-right: auto;
+
+  .wave {
+    display: inline-block;
+    transform-origin: 0 100%;
+
+    @include wave(4s);
+  }
+}

@@ -1,22 +1,28 @@
 <template>
-  <img
+  <div
     class="memoji"
-    :class="memojiClasses"
-    :src="source"
-    alt="Dhruv Bhanushali"
-    :title="title">
+    :class="memojiClasses">
+    <transition appear name="flip-horizontal" mode="out-in">
+      <img
+        :key="role"
+        class="image"
+        :src="source"
+        alt="Dhruv Bhanushali"
+        :title="title">
+    </transition>
+  </div>
 </template>
 
 <script>
-  import Scaled from '@/mixins/scaled'
+  import Colored from '@/mixins/colored'
 
   /**
-   * This component displays my memoji in various styles.
+   * This component displays my memoji in various colours.
    */
   export default {
     name: 'Memoji',
     mixins: [
-      Scaled
+      Colored
     ],
     props: {
       /**
@@ -24,29 +30,7 @@
        */
       role: {
         type: String,
-        default: 'technical_writer',
-        validator: val => [
-          'software_developer',
-          'infrastructure_architect',
-          'technical_writer',
-          'design_dabbler',
-          'open_sourcerer',
-          'easter_eggsmith'
-        ].includes(val)
-      },
-      /**
-       * _whether or not to bobble my memoji_
-       */
-      isAnimated: {
-        type: Boolean,
-        default: false
-      },
-      /**
-       * _whether or not to show a white outline on the edges of the memoji_
-       */
-      isOutlined: {
-        type: Boolean,
-        default: false
+        default: 'technical_writer'
       }
     },
     computed: {
@@ -55,12 +39,7 @@
        */
       memojiClasses () {
         return [
-          ...this.scaledClasses,
-
-          {
-            'animated': this.isAnimated,
-            'outlined': this.isOutlined
-          }
+          ...this.coloredClasses
         ]
       },
       /**
@@ -85,13 +64,13 @@
             title = 'Whoa, a LaTeX-typeset equation!'
             break
           case 'design_dabbler':
-            title = 'Hmmm, how about a pixel to the left?'
+            title = 'Hmmm, maybe a pixel to the left?'
             break
           case 'open_sourcerer':
             title = 'Feel free to fork my repository of spells.'
             break
           case 'easter_eggsmith':
-            title = '⇧ ⇧ ⇩ ⇩ ⇦ ⇨ ⇦ ⇨ B A!'
+            title = '⬆️ ⬆️ ⬇️ ⬇️ ⬅️ ➡️ ⬅️ ➡️ B A!'
             break
         }
         return title
@@ -100,5 +79,5 @@
   }
 </script>
 
-<style scoped lang="stylus" src="./Memoji.styl">
+<style scoped lang="scss" src="./Memoji.scss">
 </style>

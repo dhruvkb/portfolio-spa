@@ -5,6 +5,7 @@ import VueObserveVisibility from 'vue-observe-visibility'
 
 import VueSolarized from '@/plugins/solarized'
 import VueNavigation from '@/plugins/navigation'
+import VueRole from '@/plugins/role'
 
 import router from '@/router'
 import store from '@/store'
@@ -19,6 +20,7 @@ Vue.use(VueObserveVisibility)
 
 Vue.use(VueSolarized)
 Vue.use(VueNavigation)
+Vue.use(VueRole)
 
 Vue.config.productionTip = false
 

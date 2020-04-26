@@ -1,0 +1,45 @@
+// Background tones
+
+$color-background-base03: #002b36; // 15
+$color-background-base02: #073642; // 20
+
+$color-background-base2:  #eee8d5; // 92
+$color-background-base3:  #fdf6e3; // 97
+
+// Content tones
+
+$color-content-base01: #586e75; // 45
+$color-content-base00: #657b83; // 50
+
+$color-content-base0:  #839496; // 60
+$color-content-base1:  #93a1a1; // 65
+
+// Accent colors
+
+$color-accent-yellow:  #b58900; // Split comp
+$color-accent-orange:  #cb4b16; // Complement
+$color-accent-red:     #dc322f; // Triad
+$color-accent-magenta: #d33682; // Tetrad
+$color-accent-violet:  #6c71c4; // Analogous
+$color-accent-blue:    #268bd2; // Monotone
+$color-accent-cyan:    #2aa198; // Analogous
+$color-accent-green:   #859900; // Tetrad
+
+$colors: (
+  'yellow':  $color-accent-yellow,
+  'orange':  $color-accent-orange,
+  'red':     $color-accent-red,
+  'magenta': $color-accent-magenta,
+  'violet':  $color-accent-violet,
+  'blue':    $color-accent-blue,
+  'cyan':    $color-accent-cyan,
+  'green':   $color-accent-green
+);
+
+@mixin colors($property) {
+  @each $color-name, $color-hex in $colors {
+    .#{$color-name}-colored {
+      #{$property}: $color-hex;
+    }
+  }
+}

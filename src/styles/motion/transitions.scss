@@ -1,0 +1,47 @@
+@import '../tokens/durations';
+
+@mixin fade {
+  .fade-enter,
+  .fade-leave-to {
+    opacity: 0;
+  }
+
+  .fade-enter-active,
+  .fade-leave-active {
+    transition-property: opacity;
+    transition-duration: $duration-m;
+    transition-timing-function: ease-in-out;
+  }
+
+  .fade-leave,
+  .fade-enter-to {
+    opacity: 1;
+  }
+}
+
+@mixin flip($name, $xfrom: 0deg, $xmid: 0deg, $xto: 0deg, $yfrom: 0deg, $ymid: 0deg, $yto: 0deg) {
+  perspective: 24em;
+
+  .flip-#{$name}-enter {
+    transform: rotateX($xfrom) rotateY($yfrom);
+  }
+
+  .flip-#{$name}-enter-to,
+  .flip-#{$name}-leave {
+    transform: rotateX($xmid) rotateY($ymid)
+  }
+
+  .flip-#{$name}-leave-to {
+    transform: rotateX($xto) rotateY($yto);
+  }
+
+  .flip-#{$name}-enter-active,
+  .flip-#{$name}-leave-active {
+    transform-style: preserve-3d;
+    transform-origin: 50% 100%;
+
+    transition-property: transform, opacity;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
+  }
+}

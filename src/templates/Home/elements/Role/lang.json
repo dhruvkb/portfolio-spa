@@ -1,0 +1,38 @@
+{
+  "en": {
+    "a": "a",
+    "an": "an",
+    "roles": {
+      "open_sourcerer": "open sourcerer",
+      "software_developer": "software developer",
+      "technical_writer": "technical writer",
+      "design_dabbler": "design dabbler",
+      "infrastructure_architect": "infrastructure architect",
+      "easter_eggsmith": "easter eggsmith"
+    }
+  },
+  "hi": {
+    "a": "एक",
+    "an": "एक",
+    "roles": {
+      "open_sourcerer": "ओपन सौरसरर",
+      "software_developer": "सॉफ्टवेयर डेवलपर",
+      "technical_writer": "तकनीकी लेखक",
+      "design_dabbler": "डिजाइन आकांक्षी",
+      "infrastructure_architect": "इंफ्रास्ट्रक्चर वास्तुकार",
+      "easter_eggsmith": "ईस्टर एग निर्माता"
+    }
+  },
+  "pr": {
+    "a": "one",
+    "an": "one",
+    "roles": {
+      "open_sourcerer": "sourcerer of freedom",
+      "software_developer": "developer of software",
+      "technical_writer": "writer of technical booty",
+      "design_dabbler": "dabbler in design",
+      "infrastructure_architect": "architect of infrastructure",
+      "easter_eggsmith": "smith of easter eggs"
+    }
+  }
+}

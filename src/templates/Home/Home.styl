@@ -6,37 +6,11 @@
 .home
   content()
 
-  .avatar-spinner
-    flip('horizontal', 0deg, 0deg, 0deg, 90deg, 0deg, -90deg)
+  .site-title
+    margin-left -6px
 
-    transition-property transform
-    transition-duration $duration-short
-
-    &:hover
-      transform scale(1.05)
-
-  .role
-    display inline-flex
-    flex-direction row
-
-    flip('vertical', -90deg, 0deg, 90deg, 0deg, 0deg, 0deg)
-
-    .secondary-colored
-      margin-right 0.5ch
-
-    .border
-      position absolute
-      top 0
-      left '-%s' % $space-smaller
-
-      z-index -1
-
-      background var(--background-highlights)
-      width 0
-
-      grow(100%, 100%, 0, 'calc(100% + 2 * %s)' % $space-smaller)
-      animation-duration 'calc(8s - %s)' % $duration-standard
-      animation-delay $duration-standard
+  .roles
+    font-size $size-large
 
   footer
     display flex
@@ -51,17 +25,3 @@
 
     padding-left $space-normal
     padding-right $space-normal
-
-    .kaomoji
-      font-weight $weight-semibold
-
-      margin-left auto
-      margin-right auto
-
-      .wave
-        display inline-block
-
-        transform-origin 0 100%
-
-        wave()
-        animation-duration $duration-longest

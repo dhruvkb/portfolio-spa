@@ -3,12 +3,9 @@
     <template v-if="isFound">
       <template v-if="!args.flatten">
         <span
+          :class="rule ? 'extra-space' : 'space'"
           v-for="(rule, index) in lineRules"
-          :key="index">
-          {{ rule ? '&nbsp;': '│'}}&nbsp;&nbsp;
-        </span>
-        {{ isLastChild ? '└' : '├'}}──
-      </template>
+          :key="index">{{ rule ? '': '│'}}</span>{{ isLastChild ? '└' : '├'}}──&nbsp;</template>
 
       <template v-if="!(args.flatten && node.type === 'folder')">
         <template v-if="args.flatten">─</template>
@@ -129,3 +126,6 @@
     }
   }
 </script>
+
+<style scoped lang="scss" src="./Tree.scss">
+</style>

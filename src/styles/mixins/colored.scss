@@ -1,0 +1,20 @@
+@import '../tokens/colors';
+
+@mixin colored($property) {
+  $colors: (
+    'yellow': $color-accent-yellow,
+    'orange': $color-accent-orange,
+    'red': $color-accent-red,
+    'magenta': $color-accent-magenta,
+    'violet': $color-accent-violet,
+    'blue': $color-accent-blue,
+    'cyan': $color-accent-cyan,
+    'green': $color-accent-green
+  );
+
+  @each $color-name, $color-var in $colors {
+    &.#{$color-name}-colored {
+      #{$property}: $color-var;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+@mixin wave($duration) {
+  animation-name: wave;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: $duration;
+
+  @keyframes wave {
+    0%, 42.5%, 47.5%, 52.5%, 57.5%, 100% {
+      transform: rotate(0deg);
+    }
+
+    45%, 50%, 55% {
+      transform: rotate(15deg);
+    }
+  }
+}

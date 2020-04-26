@@ -7,7 +7,6 @@
 @import "~@/styles/tokens.styl"
 @import "~@/styles/theme.styl"
 @import "~@/styles/colors.styl"
-@import "~@/styles/scrollbars.styl"
 
 :root
   theme()
@@ -22,15 +21,10 @@
   transition-property background-color
   transition-duration $duration-standard
 
-  custom-scrollbars()
-
   *
     // Reduce sudden change when changing theme
     transition-property color, background-color
     transition-duration $duration-standard
-
-  body
-    margin 0
 
   strong
     font-weight $weight-semibold

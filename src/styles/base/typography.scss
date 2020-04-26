@@ -1,0 +1,44 @@
+@import '../tokens/fonts';
+@import '../tokens/sizes';
+@import '../tokens/weights';
+
+:root {
+  font-family: $family-body;
+  font-size: $size-m;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $family-heading;
+  font-weight: $weight-medium;
+  line-height: 1.0;
+}
+
+$heading-sizes: (
+  1: $size-5xl,
+  2: $size-4xl,
+  3: $size-3xl,
+  4: $size-2xl,
+  5: $size-xl,
+  6: $size-l
+);
+
+@each $heading-level, $heading-size in $heading-sizes {
+  h#{$heading-level} {
+    font-size: $heading-size;
+  }
+}
+
+pre, code {
+  font-family: $family-code;
+}
+
+a {
+  text-decoration: none;
+}
+
+div, span {
+  &.boxed {
+    border: 1px solid var(--primary-color);
+  }
+}

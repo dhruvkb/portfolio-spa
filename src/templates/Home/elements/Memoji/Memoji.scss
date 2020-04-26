@@ -1,0 +1,27 @@
+@import '~@/styles/mixins/colored';
+@import '~@/styles/motion';
+
+.memoji {
+  @include colored('--outline-color');
+  @include flip('horizontal', 0deg, 0deg, 0deg, 90deg, 0deg, -90deg);
+
+  transition-property: transform, filter;
+
+  .image {
+    height: 20em;
+
+    filter: drop-shadow(
+      2px 2px 0 var(--outline-color)
+    ) drop-shadow(
+      -2px 2px 0 var(--outline-color)
+    ) drop-shadow(
+      2px -2px 0 var(--outline-color)
+    ) drop-shadow(
+      -2px -2px 0 var(--outline-color)
+    );
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}

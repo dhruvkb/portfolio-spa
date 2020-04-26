@@ -8,24 +8,12 @@
             :span-set="[12, 6]">
             <div class="imagery">
               <RouterLink
+                class="avatar-spinner"
                 :to="{name: 'portfolio'}"
                 title="See my portfolio">
-                <div class="avatar-spinner">
-                  <transition appear name="flip-horizontal" mode="out-in">
-                    <Memoji
-                      :key="index"
-                      :role="roles[index].replace(' ', '_')"/>
-                  </transition>
-                </div>
-
-                <!-- Sinful terrible hack to prefetch images -->
-                <div style="display: none;">
-                  <Memoji
-                    v-for="(role, index) in roles"
-                    :key="index"
-                    :role="role.replace(' ', '_')"/>
-                </div>
-                <!-- Sin ends here -->
+                <Memoji
+                  :role="$getRole(index)"
+                  :color="$getSolarizedColor(index)"/>
               </RouterLink>
             </div>
           </GridCell>
@@ -33,40 +21,32 @@
           <GridCell
             class="right pane"
             :span-set="[12, 6]">
+
             {{ $t('hello') }}! {{ $t('iam') }}
-
-            <Heading :level="1">
-            <span class="red-colored">
-            {{ $t('dhruv') }} {{ $t('bhanushali') }}</span>,
-            </Heading>
-
             <Heading
-              class="role"
-              :level="4">
-              <transition appear name="flip-vertical" mode="out-in">
-                <div
-                  :key="vowel"
-                  class="secondary-colored">
-                  {{ $t(vowel) }}&nbsp;
-                </div>
-              </transition>
-              <transition appear name="flip-vertical" mode="out-in">
-                <div
-                  :key="index"
-                  :class="`${$getSolarizedColor(index)}-colored`">
-                  {{ $t(`roles.${roles[index]}`) }}
-                </div>
-              </transition>
-              <div class="border plus" :key="index">&nbsp;</div>
+              class="site-title"
+              :level="1">
+              <span class="red-colored">{{ $t('dhruv') }} {{ $t('bhanushali') }}</span>,
             </Heading>
+            {{ $t('hats') }}
+
+            <p class="roles">
+              {{ $t('iam') }}
+              <Role
+                :role="$getRole(index)"
+                :color="$getSolarizedColor(index)"/>
+            </p>
 
             <p>
-              <i18n path="who" tag="span">
+              <i18n path="composes" tag="span">
                 <template #love>
                   <strong>{{ $t('love') }}</strong>
                 </template>
                 <template #passion>
                   <strong>{{ $t('passion') }}</strong>
+                </template>
+                <template #meticulousness>
+                  <strong>{{ $t('meticulousness') }}</strong>
                 </template>
               </i18n>
               <br/>
@@ -74,24 +54,15 @@
               <br/>
               <span
                 class="secondary-colored"
-                :title="$t('3m')">
-                  {{ $t('other') }}
+                :title="`${$t('3m')}${$t('fullstop')}`">
+                  {{ $t('other') }}{{ $t('fullstop') }}
                 </span>
             </p>
           </GridCell>
         </Grid>
 
         <footer>
-          <div
-            class="kaomoji"
-            title="Wonderful to meet you!">
-            <span class="face">
-              ( ˇ ▽ ˇ )
-            </span>
-                <span class="wave">
-              ﾉ
-            </span>
-          </div>
+          <Kaomoji/>
           <Locale v-show="false"/>
         </footer>
       </section>
@@ -105,6 +76,9 @@
   import Heading from '@/components/Heading/Heading'
 
   import Memoji from './elements/Memoji/Memoji'
+  import Role from './elements/Role/Role'
+
+  import Kaomoji from './elements/Kaomoji/Kaomoji'
   import Locale from '@/components/Locale/Locale'
 
   /**
@@ -117,34 +91,15 @@
       GridCell,
       Heading,
       Locale,
-      Memoji
+      Kaomoji,
+      Memoji,
+      Role
     },
     data () {
       return {
-        roles: [
-          'open sourcerer',
-          'software developer',
-          'technical writer',
-          'design dabbler',
-          'infrastructure architect',
-          'easter eggsmith'
-        ],
         index: 0,
         interval: 8,
         updateLooper: null
-      }
-    },
-    computed: {
-      vowel () {
-        return [
-          'a',
-          'e',
-          'i',
-          'o',
-          'u'
-        ].includes(this.roles[this.index].charAt(0))
-          ? 'an'
-          : 'a'
       }
     },
     methods: {

@@ -1,0 +1,38 @@
+// Body font
+
+$mac: -apple-system, 'Helvetica Neue', 'Helvetica', 'Apple Color Emoji';
+$windows: 'Segoe UI', 'Segoe UI Emoji', 'Segoe UI Symbol';
+$android: 'Roboto';
+$linux: 'Cantarell', 'Ubuntu', 'Oxygen';
+$system: system-ui;
+$family-body: $mac, $windows, $android, $linux, $system, sans-serif;
+
+// Heading font
+
+@import '~@ibm/plex/css/ibm-plex.css';
+
+$ibm-plex-sans: 'IBM Plex Sans', 'IBM Plex Sans Devanagari';
+$family-heading: $ibm-plex-sans, sans-serif;
+
+// Code font
+
+$font-weights: (
+  normal: 'Regular',
+  bold: 'Bold'
+);
+
+@each $font-weight, $font-name in $font-weights {
+  @font-face {
+    font-family: 'JetBrains Mono';
+    font-weight: $font-weight;
+    font-style: normal;
+
+    src: url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/web/eot/JetBrainsMono-#{$font-name}.eot')     format('embedded-opentype'),
+         url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/web/woff2/JetBrainsMono-#{$font-name}.woff2') format('woff2'),
+         url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/web/woff/JetBrainsMono-#{$font-name}.woff')   format('woff'),
+         url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/ttf/JetBrainsMono-#{$font-name}.ttf')         format('truetype');
+  }
+}
+
+$jetbrains-mono: 'JetBrains Mono';
+$family-code: $jetbrains-mono, monospace;
