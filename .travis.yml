@@ -19,12 +19,13 @@ after_success:
   - npm run build
 
 deploy:
+  token: $GITHUB_TOKEN
+
   provider: pages
-  github_token: $GITHUB_TOKEN
+  strategy: git
 
-  cleanup: true
+  cleanup: false
   local_dir: dist
-
   repo: dhruvkb/dhruvkb.github.io
   target_branch: master
   committer_from_gh: true
