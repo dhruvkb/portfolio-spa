@@ -15,9 +15,5 @@ export default {
     Vue.prototype.$getRole = function (index) {
       return this.$roles[index % this.$roles.length]
     }
-
-    Vue.prototype.$getSanitizedRole = function (index) {
-      return this.$getRole(index).replace(/_/g, ' ')
-    }
   }
 }
