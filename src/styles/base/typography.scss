@@ -10,17 +10,17 @@
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $family-heading;
-  font-weight: $weight-medium;
+  font-weight: $weight-bold;
   line-height: 1.0;
 }
 
 $heading-sizes: (
-  1: $size-5xl,
-  2: $size-4xl,
-  3: $size-3xl,
-  4: $size-2xl,
-  5: $size-xl,
-  6: $size-l
+  1: $size-6xl,
+  2: $size-5xl,
+  3: $size-4xl,
+  4: $size-3xl,
+  5: $size-2xl,
+  6: $size-1xl
 );
 
 @each $heading-level, $heading-size in $heading-sizes {
