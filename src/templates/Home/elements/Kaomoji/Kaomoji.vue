@@ -8,24 +8,44 @@
 </template>
 
 <script>
+  /**
+   * This component displays a waving composite kaomoji.
+   */
   export default {
     name: 'Kaomoji',
     data () {
       return {
-        faces: [
-          '( ˇ ◡ ˇ )',
-          '( ❛ ᴗ ❛ )',
-          '( ＾ ◡ ＾ )',
-          '( ´ ▽ ` )',
-          '(´｡• ᵕ •｡`)',
-          '( ◕ヮ◕ )'
+        edgesList: [
+          ['(', ')']
+        ],
+        eyesList: [
+          ['ˇ', 'ˇ'],
+          ['❛', '❛'],
+          ['^', '^'],
+          ['＾', '＾'],
+          ['´•', '•`'],
+          ['◕', '◕']
+        ],
+        mouthList: [
+          '◡',
+          'ᴗ',
+          'ᵕ',
+          '▽',
+          'ヮ'
         ]
       }
     },
     computed: {
+      /**
+       * Get a face comprising of randomly chosen parts.
+       * @returns {string} the assembled face
+       */
       face () {
-        let random = Math.floor(Math.random() * this.faces.length)
-        return this.faces[random]
+        let [edgeLeft, edgeRight] = this.edgesList[Math.floor(Math.random() * this.edgesList.length)]
+        let [eyeLeft, eyeRight] = this.eyesList[Math.floor(Math.random() * this.eyesList.length)]
+        let mouth = this.mouthList[Math.floor(Math.random() * this.mouthList.length)]
+
+        return `${edgeLeft} ${eyeLeft} ${mouth} ${eyeRight} ${edgeRight}`
       }
     }
   }
