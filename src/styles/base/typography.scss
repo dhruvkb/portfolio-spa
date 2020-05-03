@@ -1,6 +1,6 @@
-@import '../tokens/fonts';
-@import '../tokens/sizes';
-@import '../tokens/weights';
+@import '~@/styles/tokens/fonts';
+@import '~@/styles/tokens/sizes';
+@import '~@/styles/tokens/weights';
 
 :root {
   font-family: $family-body;

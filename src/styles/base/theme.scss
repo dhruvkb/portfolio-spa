@@ -1,5 +1,5 @@
-@import '../tokens/colors';
-@import '../tokens/durations';
+@import '~@/styles/tokens/colors';
+@import '~@/styles/tokens/durations';
 
 @mixin theme {
   &.dark-themed {

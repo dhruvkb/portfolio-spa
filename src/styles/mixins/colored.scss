@@ -1,4 +1,4 @@
-@import '../tokens/colors';
+@import '~@/styles/tokens/colors';
 
 @mixin colored($property) {
   $colors: (
