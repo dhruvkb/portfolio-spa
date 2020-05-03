@@ -1,8 +1,9 @@
+@import '~@/styles/tokens/durations';
 @import '~@/styles/mixins/colored';
 @import '~@/styles/motion/transitions';
 
 .memoji {
-  @include flip('horizontal', 0deg, 0deg, 0deg, 90deg, 0deg, -90deg);
+  @include flip('horizontal', $duration-m, 0deg, 0deg, 0deg, 90deg, 0deg, -90deg);
 
   transition-property: transform, filter;
 

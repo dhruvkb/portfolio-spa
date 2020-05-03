@@ -1,9 +1,11 @@
-@import 'styles/base';
-@import 'styles/motion/transitions';
+@import '~@/styles/tokens/durations';
+@import '~@/styles/motion/transitions';
+
+@import '~@/styles/base';
 
 #app {
   color: var(--primary-content);
   background-color: var(--background);
 
-  @include fade;
+  @include fade($duration-m);
 }

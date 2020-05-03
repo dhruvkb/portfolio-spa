@@ -4,7 +4,7 @@
 
 .role {
   @include colored('color');
-  @include flip('vertical', -90deg, 0deg, 90deg, 0deg, 0deg, 0deg);
+  @include flip('vertical', $duration-m, -90deg, 0deg, 90deg, 0deg, 0deg, 0deg);
 
   display: inline-flex;
   flex-direction: row;
