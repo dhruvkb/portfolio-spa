@@ -8,11 +8,12 @@
             :span-set="[12, 6]">
             <div class="imagery">
               <RouterLink
-                class="avatar-spinner"
                 :to="{name: 'portfolio'}"
-                title="See my portfolio">
+                title="See my portfolio"
+                @mouseenter.native="stopLooping"
+                @mouseleave.native="startLooping">
                 <Memoji
-                  :role="$getRole(index)"
+                  :index="index"
                   :color="$getSolarizedColor(index)"/>
               </RouterLink>
             </div>
@@ -32,9 +33,15 @@
 
             <p class="roles">
               {{ $t('iam') }}
-              <Role
-                :role="$getRole(index)"
-                :color="$getSolarizedColor(index)"/>
+              <RouterLink
+                :to="{name: 'portfolio'}"
+                title="See my portfolio"
+                @mouseenter.native="stopLooping"
+                @mouseleave.native="startLooping">
+                <Role
+                  :index="index"
+                  :color="$getSolarizedColor(index)"/>
+              </RouterLink>
             </p>
 
             <p>
@@ -107,13 +114,16 @@
         this.updateLooper = setInterval(() => {
           this.index = ++this.index % this.roles.length
         }, this.interval * 1000)
+      },
+      stopLooping () {
+        clearInterval(this.updateLooper)
       }
     },
     created: function () {
       this.startLooping()
     },
     beforeDestroy () {
-      clearInterval(this.updateLooper)
+      this.stopLooping()
     }
   }
 </script>
