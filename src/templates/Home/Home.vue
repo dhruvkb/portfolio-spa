@@ -128,7 +128,7 @@
   }
 </script>
 
-<style scoped lang="stylus" src="./Home.styl">
+<style scoped lang="scss" src="./Home.scss">
 </style>
 
 <i18n src="./lang.json">

@@ -1,0 +1,21 @@
+@import "~@/styles/tokens/dimensions";
+
+@mixin page() {
+  box-sizing: border-box;
+  min-height: 100vh;
+
+  padding: calc(#{$dimen-bars} + #{$dimen-m}) $dimen-m $dimen-m;
+}
+
+@mixin page-with-footer() {
+  @include page();
+
+  position: relative;
+
+  padding-bottom: calc(#{$dimen-bars} + #{$dimen-m});
+
+  footer {
+    position: absolute;
+    bottom: $dimen-m;
+  }
+}

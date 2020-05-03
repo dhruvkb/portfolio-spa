@@ -1,0 +1,52 @@
+@import '~@/styles/tokens/dimensions';
+@import 'page';
+
+@mixin content() {
+  main {
+    .section {
+      display: flex;
+
+      flex-direction: column;
+      justify-content: center;
+
+      &#first {
+        @include page-with-footer();
+
+        align-items: center;
+
+        .imagery {
+          display: flex;
+
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          height: 100%;
+        }
+
+        .content {
+          max-width: 32em;
+        }
+      }
+
+      &:not(#first) {
+        @include page();
+      }
+
+      &.centered {
+        align-items: center;
+      }
+    }
+  }
+
+  .carousel-content {
+    display: inline-flex;
+
+    flex-direction: column;
+    align-items: center;
+
+    .image {
+      margin-bottom: $dimen-s;
+    }
+  }
+}
