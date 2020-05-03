@@ -3,7 +3,9 @@
     <transition appear name="flip-vertical" mode="out-in">
       <div :key="role">
         {{ $t(vowel) }}&nbsp;
-        <span :class="roleTextClasses">{{ $t(`roles.${role}`) }}</span>
+        <span
+          class="actual-role"
+          :class="roleTextClasses">{{ $t(`roles.${role}`) }}</span>
       </div>
     </transition>
     <div
