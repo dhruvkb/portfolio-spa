@@ -1,6 +1,6 @@
-@import '~@/styles/tokens/sizes';
+@import '~@/styles/tokens/durations';
 @import '~@/styles/mixins/colored';
-@import '~@/styles/motion';
+@import '~@/styles/motion/transitions';
 
 .role {
   @include colored('color');

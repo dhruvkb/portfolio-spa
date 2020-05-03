@@ -1,5 +1,5 @@
 @import '~@/styles/mixins/colored';
-@import '~@/styles/motion';
+@import '~@/styles/motion/transitions';
 
 .memoji {
   @include flip('horizontal', 0deg, 0deg, 0deg, 90deg, 0deg, -90deg);
