@@ -110,11 +110,17 @@
       }
     },
     methods: {
+      /**
+       * Start the loop that changes memoji and role periodically.
+       */
       startLooping () {
         this.updateLooper = setInterval(() => {
           this.index = ++this.index % this.roles.length
         }, this.interval * 1000)
       },
+      /**
+       * Stop the loop that changes memoji and role periodically.
+       */
       stopLooping () {
         clearInterval(this.updateLooper)
       }
