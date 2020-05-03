@@ -10,7 +10,8 @@
   flex-direction: row;
   align-items: center;
 
-  .arrow, .fullstop {
+  .arrow,
+  .fullstop {
     transition-property: opacity, transform;
     transition-duration: $duration-m;
   }
@@ -23,6 +24,11 @@
   .fullstop {
     opacity: 1;
     transform: translateX(0);
+  }
+
+  .flip-vertical-leave-active ~ .fullstop,
+  .flip-vertical-enter-active ~ .fullstop {
+    opacity: 0;
   }
 
   &:hover {

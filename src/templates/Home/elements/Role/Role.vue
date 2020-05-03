@@ -4,7 +4,6 @@
       <div :key="role">
         {{ $t(vowel) }}&nbsp;
         <span :class="roleTextClasses">{{ $t(`roles.${role}`) }}</span>
-        <span class="fullstop"></span>
       </div>
     </transition>
     <div

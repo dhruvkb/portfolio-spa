@@ -81,12 +81,11 @@
   import Grid from '@/components/Grid/Grid'
   import GridCell from '@/components/Grid/GridCell'
   import Heading from '@/components/Heading/Heading'
+  import Locale from '@/components/Locale/Locale'
 
   import Memoji from './elements/Memoji/Memoji'
   import Role from './elements/Role/Role'
-
   import Kaomoji from './elements/Kaomoji/Kaomoji'
-  import Locale from '@/components/Locale/Locale'
 
   /**
    * This page is the landing page for the portfolio.
