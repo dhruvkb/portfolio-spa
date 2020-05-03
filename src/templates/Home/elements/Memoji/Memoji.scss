@@ -2,12 +2,13 @@
 @import '~@/styles/motion';
 
 .memoji {
-  @include colored('--outline-color');
   @include flip('horizontal', 0deg, 0deg, 0deg, 90deg, 0deg, -90deg);
 
   transition-property: transform, filter;
 
   .image {
+    @include colored('--outline-color');
+
     height: 20em;
 
     filter: drop-shadow(
@@ -22,6 +23,6 @@
   }
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) rotate(5deg);
   }
 }

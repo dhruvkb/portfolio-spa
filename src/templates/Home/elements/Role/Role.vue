@@ -2,15 +2,32 @@
   <div class="role">
     <transition appear name="flip-vertical" mode="out-in">
       <div :key="role">
-        <span class="secondary-colored">{{ $t(vowel) }}</span>&nbsp;
-        <span :class="roleClasses">{{ $t(`roles.${role}`) }}{{ $t('fullstop') }}</span>
+        {{ $t(vowel) }}&nbsp;
+        <span :class="roleTextClasses">{{ $t(`roles.${role}`) }}</span>
+        <span class="fullstop"></span>
       </div>
     </transition>
+    <div
+      class="fullstop"
+      :class="roleTextClasses">
+      {{ $t('fullstop') }}
+    </div>
+    <div
+      class="arrow"
+      :class="roleTextClasses">
+      <FontAwesomeIcon :icon="['fas', 'arrow-right']" />
+    </div>
   </div>
 </template>
 
 <script>
+  import { library } from '@fortawesome/fontawesome-svg-core'
+  import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
   import Colored from '@/mixins/colored'
+
+  library.add(faArrowRight)
 
   /**
    * This component displays my role in various colours.
@@ -20,24 +37,39 @@
     mixins: [
       Colored
     ],
+    components: {
+      FontAwesomeIcon
+    },
     props: {
       /**
-       * _the role being depicted by the memoji_
+       * _the index of the role being listed down_
        */
-      role: {
-        type: String,
-        default: 'technical writer'
+      index: {
+        type: Number,
+        default: 0
       }
     },
     computed: {
       /**
-       * _the classes to use on the role_
+       * Get the classes to use on the role text.
+       * @returns {Array} an array of all the classes to apply on the element
        */
-      roleClasses () {
+      roleTextClasses () {
         return [
           ...this.coloredClasses
         ]
       },
+      /**
+       * Get the role at the index specified by the prop.
+       * @returns {string} the underscored role
+       */
+      role () {
+        return this.$getRole(this.index)
+      },
+      /**
+       * Get the vowel for the currently displayed role.
+       * @returns {string} 'an' if the role starts with a vowel, 'a' otherwise
+       */
       vowel () {
         return ['a', 'e', 'i', 'o', 'u'].includes(this.role.charAt(0))
           ? 'an'

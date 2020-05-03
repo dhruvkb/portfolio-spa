@@ -1,11 +1,10 @@
 <template>
-  <div
-    class="memoji"
-    :class="memojiClasses">
+  <div class="memoji">
     <transition appear name="flip-horizontal" mode="out-in">
       <img
         :key="role"
         class="image"
+        :class="memojiImageClasses"
         :src="source"
         alt="Dhruv Bhanushali"
         :title="title">
@@ -26,30 +25,40 @@
     ],
     props: {
       /**
-       * _the role being depicted by the memoji_
+       * _the index of the role being depicted by the memoji_
        */
-      role: {
-        type: String,
-        default: 'technical_writer'
+      index: {
+        type: Number,
+        default: 0
       }
     },
     computed: {
       /**
-       * _the classes to use on the memoji_
+       * Get the classes to use on the memoji image.
+       * @returns {Array} an array of all the classes to apply on the element
        */
-      memojiClasses () {
+      memojiImageClasses () {
         return [
           ...this.coloredClasses
         ]
       },
       /**
-       * _the imported PNG source of the memoji_
+       * Get the role at the index specified by the prop.
+       * @returns {string} the underscored role
+       */
+      role () {
+        return this.$getRole(this.index)
+      },
+      /**
+       * Get the imported PNG source of the memoji.
+       * @returns {string} the path to the relevant memoji image
        */
       source () {
         return require(`@/assets/memoji/${this.role}.png`)
       },
       /**
-       * _the appropriate title text for the memoji_
+       * Get the appropriate title text for the memoji.
+       * @returns {string} the text to use in the title attribute
        */
       title () {
         let title = 'Look\'s like I\'m missing a dimension.'
