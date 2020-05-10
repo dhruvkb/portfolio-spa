@@ -6,9 +6,16 @@
   Dhruv Bhanushali
 </h1>
 
+## Portfolio
+
 Hello! I am [Dhruv Bhanushali](https://dhruvkb.github.io/), an engineering
 graduate from the Indian Institute of Technology, Roorkee. I am a software
-developer and technical writer, based on the time of day and the phase of the
-moon.
+developer and technical writer among many other things, based on the time of day
+and the phase of the moon.
 
 This is my portfolio, my tiny personal slice of the Internet.
+
+### Related repos
+
+- [Serverless APIs](https://github.com/dhruvkb/portfolio-api/)
+- [Résumés](https://github.com/dhruvkb/resume/)
