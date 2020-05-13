@@ -27,7 +27,7 @@
             <Heading
               class="site-title"
               :level="1">
-              <span class="red-colored">{{ $t('dhruv') }} {{ $t('bhanushali') }}</span>,
+              <span class="red-colored">{{ $t('dhruv') }} {{ $t('bhanushali') }}</span>
             </Heading>
             {{ $t('hats') }}
 
