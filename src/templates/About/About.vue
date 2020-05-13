@@ -3,7 +3,7 @@
     <main>
       <section class="section" id="first">
         <Grid>
-          <GridCell :span-set="headSpanSet">
+          <GridCell :span-set="$headSpanSet">
             <div class="imagery">
               <transition appear name="shift-up">
                 <Heading
@@ -22,7 +22,7 @@
             </div>
           </GridCell>
 
-          <GridCell :span-set="headSpanSet">
+          <GridCell :span-set="$headSpanSet">
             <div class="content">
               <p>
                 I take it you're interested to know me.

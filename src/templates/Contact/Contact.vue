@@ -3,7 +3,7 @@
     <main>
       <section class="section" id="first">
         <Grid>
-          <GridCell :span-set="headSpanSet">
+          <GridCell :span-set="$headSpanSet">
             <div class="imagery">
               <Heading
                 :level="2"
@@ -31,7 +31,7 @@
             </div>
           </GridCell>
 
-          <GridCell :span-set="headSpanSet">
+          <GridCell :span-set="$headSpanSet">
             <div class="content">
               <p>
                 So, did you like my

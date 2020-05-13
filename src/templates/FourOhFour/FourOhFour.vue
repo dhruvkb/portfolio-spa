@@ -3,12 +3,12 @@
     <main>
       <section class="section" id="first">
         <Grid>
-          <GridCell :span-set="headSpanSet">
+          <GridCell :span-set="$headSpanSet">
             <div class="imagery">
               <Glitch>{{ $t('404') }}</Glitch>
             </div>
           </GridCell>
-          <GridCell :span-set="headSpanSet">
+          <GridCell :span-set="$headSpanSet">
             <div class="content">
               <p>
                 You're lost, aren't you?<br/>
@@ -37,17 +37,12 @@
 </template>
 
 <script>
-  import Content from '@/mixins/content'
-
   import Grid from '@/components/Grid/Grid'
   import GridCell from '@/components/Grid/GridCell'
   import Glitch from '@/templates/FourOhFour/elements/Glitch/Glitch'
 
   export default {
     name: 'FourOhFour',
-    mixins: [
-      Content
-    ],
     components: {
       Glitch,
       Grid,
