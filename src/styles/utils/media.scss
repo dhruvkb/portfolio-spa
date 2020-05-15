@@ -1,0 +1,59 @@
+@import '~@/styles/tokens/screens';
+
+@mixin phone-only() {
+  @media (max-width: $screen-phone-max) {
+    @content
+  }
+}
+
+@mixin tablet-portrait-only() {
+  @media (min-width: $screen-tablet-portrait-min) and (max-width: $screen-tablet-portrait-max) {
+    @content
+  }
+}
+
+@mixin tablet-landscape-only() {
+  @media (min-width: $screen-tablet-landscape-min) and (max-width: $screen-tablet-landscape-max) {
+    @content
+  }
+}
+
+@mixin desktop-standard-only() {
+  @media (min-width: $screen-desktop-standard-min) and (max-width: $screen-desktop-standard-max) {
+    @content
+  }
+}
+
+@mixin desktop-big-only() {
+  @media (min-width: $screen-desktop-big-min) {
+    @content
+  }
+}
+
+@mixin device-specific($devices) {
+  @if index($devices, 'phone') {
+    @include phone-only() {
+      @content
+    }
+  }
+  @if index($devices, 'tablet-portrait') {
+    @include tablet-portrait-only() {
+      @content
+    }
+  }
+  @if index($devices, 'tablet-landscape') {
+    @include tablet-landscape-only() {
+      @content
+    }
+  }
+  @if index($devices, 'desktop-standard') {
+    @include desktop-standard-only() {
+      @content
+    }
+  }
+  @if index($devices, 'desktop-big') {
+    @include desktop-big-only() {
+      @content
+    }
+  }
+}
