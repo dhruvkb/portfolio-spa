@@ -97,7 +97,7 @@
                 Shoutout to these awesome people<br/>
                 whose portfolios inspired parts of mine.
               </p>
-              <Carousel v-bind="carouselOptions">
+              <Carousel v-bind="textCarouselOptions">
                 <Slide
                   class="carousel-content"
                   v-for="(inspiration, index) in inspirations"
@@ -161,7 +161,7 @@
 
   import { Carousel, Slide } from 'vue-carousel'
 
-  import Content from '@/mixins/content'
+  import Carouselled from '@/mixins/carouselled'
 
   import Card from '@/components/Card/Card'
   import Grid from '@/components/Grid/Grid'
@@ -179,7 +179,7 @@
   export default {
     name: 'Credits',
     mixins: [
-      Content
+      Carouselled
     ],
     components: {
       FontAwesomeIcon,

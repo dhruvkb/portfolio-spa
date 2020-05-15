@@ -5,7 +5,15 @@
     :class="cardClasses">
     <div class="title">
       <!-- @slot Title goes here -->
-      <slot name="title"/>
+      <slot name="title">
+        <Heading
+          v-if="title"
+          class="top"
+          :color="color"
+          :level="6">
+          {{ title }}
+        </Heading>
+      </slot>
     </div>
     <div class="content">
       <!-- @slot Content goes here -->
@@ -15,11 +23,21 @@
 </template>
 
 <script>
+  import Colored from '@/mixins/colored'
+
+  import Heading from '@/components/Heading/Heading'
+
   /**
    * This component renders a minimalistic card.
    */
   export default {
     name: 'Card',
+    mixins: [
+      Colored
+    ],
+    components: {
+      Heading
+    },
     data () {
       return {
         observerOptions: {
@@ -32,7 +50,20 @@
         isVisible: false
       }
     },
+    props: {
+      /**
+       * _the title for the contents of the card_
+       */
+      title: {
+        type: String,
+        default: ''
+      }
+    },
     computed: {
+      /**
+       * Get the classes to use on the card.
+       * @return {Array} an array of all the classes to apply on the element
+       */
       cardClasses () {
         return [
           {
@@ -42,6 +73,10 @@
       }
     },
     methods: {
+      /**
+       * Set the card's visibility status as sent by the observer.
+       * @param isVisible {boolean} - the updated visibility status of the card
+       */
       visibilityChanged (isVisible) {
         if (isVisible) {
           this.isVisible = true
@@ -51,5 +86,5 @@
   }
 </script>
 
-<style scoped lang="stylus" src="./Card.styl">
+<style scoped lang="scss" src="./Card.scss">
 </style>

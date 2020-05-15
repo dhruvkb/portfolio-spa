@@ -1,0 +1,45 @@
+@import '~@/styles/tokens/dimensions';
+@import '~@/styles/tokens/durations';
+
+.card {
+  opacity: 0;
+
+  position: relative;
+
+  background-color: var(--background-highlights);
+
+  box-sizing: border-box;
+  height: 100%;
+  max-width: 100%;
+
+  padding: $dimen-l + 2 * $dimen-m $dimen-l $dimen-l;
+
+  border-radius: $dimen-s;
+
+  transform: scale(0.95);
+
+  transition-property: opacity, transform, background-color, color;
+  transition-duration: $duration-m;
+
+  .title {
+    position: absolute;
+
+    transform: translateY(-#{2 * $dimen-m});
+  }
+
+  .content {
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+  }
+
+  &.visible {
+    opacity: 1;
+
+    transform: scale(1);
+  }
+}
