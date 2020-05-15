@@ -1,0 +1,45 @@
+@import '~@/styles/tokens/sizes';
+@import '~@/styles/mixins/colored';
+
+.blockquote {
+  @include colored('--blockquote-color');
+
+  position: relative;
+
+  .content {
+    .quotation {
+      color: var(--blockquote-color);
+
+      font-size: $size-l;
+    }
+
+    .citation {
+      display: block;
+
+      font-style: normal;
+      text-align: right;
+    }
+  }
+
+  .icon {
+    opacity: 0.3;
+
+    position: absolute;
+    top: 0;
+
+    color: var(--blockquote-color);
+    font-size: $size-3xl;
+
+    z-index: -1;
+
+    &.left {
+      left: 0;
+      transform: translate(-50%, -50%);
+    }
+
+    &.right {
+      right: 0;
+      transform: translate(50%, -50%);
+    }
+  }
+}

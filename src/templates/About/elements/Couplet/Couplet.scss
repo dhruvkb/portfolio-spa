@@ -1,0 +1,17 @@
+@import '~@/styles/tokens/fonts';
+@import '~@/styles/tokens/sizes';
+@import '~@/styles/tokens/weights';
+
+.couplet {
+  .dom {
+    font-size: $size-2xl;
+  }
+
+  .sub {
+    font-size: $size-l;
+  }
+
+  &.is-centered {
+    text-align: center;
+  }
+}
