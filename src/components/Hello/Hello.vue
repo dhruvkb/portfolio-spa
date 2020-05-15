@@ -13,8 +13,6 @@
     props: {
       /**
        * _the message to display in this component_
-       *
-       * @default 'Hello World!'
        */
       message: {
         type: String,
@@ -24,5 +22,5 @@
   }
 </script>
 
-<style scoped lang="stylus" src="./Hello.styl">
+<style scoped lang="scss" src="Hello.scss">
 </style>
