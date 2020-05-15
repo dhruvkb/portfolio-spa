@@ -1,4 +1,4 @@
-import arg from 'arg' // Zeit arg
+import arg from 'arg'
 
 export default {
   computed: {

@@ -27,7 +27,7 @@
 
   import Link from '@/templates/Portfolio/elements/Link/Link'
 
-  import Command from '@/mixins/command'
+  import Argumented from '@/mixins/argumented'
 
   /**
    * This command lists the immediate contents of the current directory.
@@ -35,7 +35,7 @@
   export default {
     name: 'List',
     mixins: [
-      Command
+      Argumented
     ],
     components: {
       Link

@@ -30,7 +30,7 @@
 
   import Link from '@/templates/Portfolio/elements/Link/Link'
 
-  import Command from '@/mixins/command'
+  import Argumented from '@/mixins/argumented'
 
   /**
    * This command recursively lists all directories and their contents.
@@ -38,7 +38,7 @@
   export default {
     name: 'Tree',
     mixins: [
-      Command
+      Argumented
     ],
     components: {
       Link

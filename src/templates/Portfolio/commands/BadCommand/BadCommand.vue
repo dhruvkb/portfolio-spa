@@ -17,7 +17,7 @@
 
   import { mapping } from '@/templates/Portfolio/commands'
 
-  import Command from '@/mixins/command'
+  import Argumented from '@/mixins/argumented'
 
   /**
    * This command shows that a given command does not exist in the CLI.
@@ -25,7 +25,7 @@
   export default {
     name: 'BadCommand',
     mixins: [
-      Command
+      Argumented
     ],
     components: {
       Executable

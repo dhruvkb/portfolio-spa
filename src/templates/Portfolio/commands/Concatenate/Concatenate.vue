@@ -19,7 +19,7 @@
   import Spinner from '@/templates/Portfolio/elements/Spinner/Spinner'
   import Link from '@/templates/Portfolio/elements/Link/Link'
 
-  import Command from '@/mixins/command'
+  import Argumented from '@/mixins/argumented'
 
   import Prism from 'prismjs'
   import '@/styles/prism-override.styl'
@@ -30,7 +30,7 @@
   export default {
     name: 'Concatenate',
     mixins: [
-      Command
+      Argumented
     ],
     components: {
       Spinner,

@@ -15,7 +15,7 @@
 <script>
   import { mapGetters, mapMutations } from 'vuex'
 
-  import Command from '@/mixins/command'
+  import Argumented from '@/mixins/argumented'
 
   /**
    * This command switches to a given directory 'dirname'.
@@ -23,7 +23,7 @@
   export default {
     name: 'ChangeDirectory',
     mixins: [
-      Command
+      Argumented
     ],
     argSpec: {
       args: [

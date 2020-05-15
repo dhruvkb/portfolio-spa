@@ -59,7 +59,7 @@
 <script>
   import { mapping } from '@/templates/Portfolio/commands'
 
-  import Command from '@/mixins/command'
+  import Argumented from '@/mixins/argumented'
 
   import BadCommand from '@/templates/Portfolio/commands/BadCommand/BadCommand'
 
@@ -69,7 +69,7 @@
   export default {
     name: 'Help',
     mixins: [
-      Command
+      Argumented
     ],
     components: {
       BadCommand

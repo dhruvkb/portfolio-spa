@@ -15,7 +15,7 @@
 <script>
   import { mapMutations, mapGetters } from 'vuex'
 
-  import Command from '@/mixins/command'
+  import Argumented from '@/mixins/argumented'
 
   /**
    * This command opens the specified file 'filename' in a view of its own.
@@ -23,7 +23,7 @@
   export default {
     name: 'Vim',
     mixins: [
-      Command
+      Argumented
     ],
     argSpec: {
       args: [
