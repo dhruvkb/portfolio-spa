@@ -51,5 +51,5 @@
   }
 </script>
 
-<style scoped lang="stylus" src="./Heading.styl">
+<style scoped lang="scss" src="./Heading.scss">
 </style>
