@@ -71,12 +71,6 @@
       </section>
 
       <section class="section">
-        <Heading
-          :level="2"
-          color="green">
-          Let's talk
-        </Heading>
-
         <Grid>
           <GridCell :span-set="[12, 6]">
             <Card>

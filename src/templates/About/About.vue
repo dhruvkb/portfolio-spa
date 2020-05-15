@@ -47,12 +47,6 @@
       </section>
 
       <section class="section">
-        <Heading
-          :level="2"
-          color="green">
-          Byte-sized info
-        </Heading>
-
         <Grid>
           <GridCell :span-set="[12, 6, 5, 5, 5]">
             <Card>

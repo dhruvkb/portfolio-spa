@@ -47,12 +47,6 @@
         v-if="posts"
         key="loaded"
         class="section">
-        <Heading
-          :level="2"
-          color="green">
-          Latest musings
-        </Heading>
-
         <Grid>
           <GridCell
             v-for="(post, index) in posts"

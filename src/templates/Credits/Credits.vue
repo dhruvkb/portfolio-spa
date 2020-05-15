@@ -51,12 +51,6 @@
       </section>
 
       <section class="section">
-        <Heading
-          :level="2"
-          color="green">
-          Thanks
-        </Heading>
-
         <Grid>
           <GridCell :span-set="spanSet">
             <Card>
