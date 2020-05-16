@@ -38,14 +38,12 @@
                 <RouterLink
                   :to="{name: 'portfolio'}"
                   title="Enjoyed the terminal?">
-                  <template>portfolio</template>
-                </RouterLink>?
+                  <template>portfolio</template></RouterLink>?
                 And did you enjoy my
                 <RouterLink
                   :to="{name: 'blog'}"
                   title="Liked reading my thoughts?">
-                  <template>blog</template>
-                </RouterLink>?
+                  <template>blog</template></RouterLink>?
               </p>
               <p>
                 Whether you're looking for an developer experienced in building
@@ -168,11 +166,22 @@
 
 <script>
   import { library } from '@fortawesome/fontawesome-svg-core'
-  import { faCircle, faComment, faEnvelope, faPhoneAlt } from '@fortawesome/free-solid-svg-icons'
-  import { faApple, faFacebookF, faGithub, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
+  import {
+    faCircle,
+    faComment,
+    faEnvelope,
+    faPhoneAlt
+  } from '@fortawesome/free-solid-svg-icons'
+  import {
+    faApple,
+    faFacebookF,
+    faGithub,
+    faInstagram,
+    faLinkedin,
+    faSpotify,
+    faTwitter
+  } from '@fortawesome/free-brands-svg-icons'
   import { FontAwesomeIcon, FontAwesomeLayers } from '@fortawesome/vue-fontawesome'
-
-  import Content from '@/mixins/content'
 
   import Card from '@/components/Card/Card'
   import Grid from '@/components/Grid/Grid'
@@ -193,14 +202,12 @@
     faGithub,
     faInstagram,
     faLinkedin,
+    faSpotify,
     faTwitter
   )
 
   export default {
     name: 'Contact',
-    mixins: [
-      Content
-    ],
     components: {
       FontAwesomeIcon,
       FontAwesomeLayers,
@@ -256,6 +263,11 @@
                 icon: 'apple',
                 name: 'Apple Music',
                 link: 'https://itunes.apple.com/profile/dhruvkb'
+              },
+              {
+                icon: 'spotify',
+                name: 'Spotify',
+                link: 'https://open.spotify.com/user/dhruvkb'
               }
             ]
           }
