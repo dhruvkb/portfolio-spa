@@ -75,7 +75,7 @@
               <template #title>
                 <Heading
                   class="top"
-                  color="violet"
+                  :color="randomizedColors[0]"
                   :level="6">
                   Email address
                 </Heading>
@@ -87,7 +87,7 @@
                 You can hit me up
                 at my email address.
               </p>
-              <span class="violet-colored">
+              <span :class="`${randomizedColors[0]}-colored`">
                 <svg
                   class="email"
                   viewBox="0 0 135.468 16.933"
@@ -104,7 +104,7 @@
               <template #title>
                 <Heading
                   class="top"
-                  color="violet"
+                  :color="randomizedColors[0]"
                   :level="6">
                   Phone number
                 </Heading>
@@ -116,7 +116,7 @@
                 You can call me
                 on my phone number.
               </p>
-              <span class="violet-colored">
+              <span :class="`${randomizedColors[0]}-colored`">
                 <svg
                   class="phone"
                   viewBox="0 0 135.468 16.933"
@@ -136,7 +136,7 @@
               <template #title>
                 <Heading
                   class="top"
-                  color="blue"
+                  :color="randomizedColors[1]"
                   :level="6">
                   {{ category.name }}
                 </Heading>
@@ -174,7 +174,7 @@
   } from '@fortawesome/free-solid-svg-icons'
   import {
     faApple,
-    faFacebookF,
+    faFacebook,
     faGithub,
     faInstagram,
     faLinkedin,
@@ -198,7 +198,7 @@
 
   library.add(
     faApple,
-    faFacebookF,
+    faFacebook,
     faGithub,
     faInstagram,
     faLinkedin,
@@ -220,6 +220,7 @@
     },
     data () {
       return {
+        randomizedColors: this.$getShuffledSolarizedColors(),
         medias: [
           {
             name: 'Professional media',
@@ -240,7 +241,7 @@
             name: 'Social media',
             list: [
               {
-                icon: 'facebook-f',
+                icon: 'facebook',
                 name: 'Facebook',
                 link: 'https://facebook.com/dhruv.k.bhanushali'
               },
