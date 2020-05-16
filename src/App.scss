@@ -7,5 +7,5 @@
   color: var(--primary-content);
   background-color: var(--background);
 
-  @include fade($duration-m);
+  @include fade($duration-s);
 }
