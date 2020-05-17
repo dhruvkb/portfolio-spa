@@ -1,0 +1,58 @@
+@import '~@/styles/tokens/colors.scss';
+@import '~@/styles/tokens/dimensions.scss';
+
+@function random-range($min, $max) {
+  @return random($max - $min + 1) + $min
+}
+
+@mixin keyframes($steps: 10) {
+  @for $step from 1 through $steps {
+    #{percentage($step/$steps)} {
+      $top: random-range(0, 100);
+      $bottom: random-range(0, 101 - $top);
+      clip-path: inset(#{$top}% 0 #{$bottom}% 0);
+    }
+  }
+}
+
+@mixin clone($index, $accent) {
+  text-shadow: -1px 0 $accent;
+
+  @keyframes animation-#{$index} {
+    @include keyframes;
+  }
+  animation-name: animation-#{$index};
+}
+
+.glitch {
+  position: relative;
+
+  .content,
+  .clone {
+    padding: $dimen-m;
+  }
+
+  .clone {
+    position: absolute;
+    top: 0;
+
+    background: var(--background);
+
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+
+    &.one {
+      @include clone(1, $color-accent-red);
+
+      left: 2px;
+    }
+
+    &.two {
+      @include clone(2, $color-accent-blue);
+
+      left: -2px;
+    }
+  }
+}

@@ -13,10 +13,13 @@
 </template>
 
 <script>
+  /**
+   * This component renders its contents with a CRT glitch effect.
+   */
   export default {
     name: 'Glitch'
   }
 </script>
 
-<style scoped lang="stylus" src="./Glitch.styl">
+<style scoped lang="scss" src="./Glitch.scss">
 </style>

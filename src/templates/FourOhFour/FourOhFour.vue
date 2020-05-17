@@ -5,12 +5,19 @@
         <Grid>
           <GridCell :span-set="$headSpanSet">
             <div class="imagery">
-              <Glitch>{{ $t('404') }}</Glitch>
+              <Glitch>
+                <Heading
+                  :level="2"
+                  title="Not Found">
+                  {{ $t('404') }}
+                </Heading>
+              </Glitch>
             </div>
           </GridCell>
+
           <GridCell :span-set="$headSpanSet">
             <div class="content">
-              <p>
+              <p title="I made a funny!">
                 You're lost, aren't you?<br/>
                 Hi <em>lost</em>,
                 I'm <strong><span class="red-colored">Dhruv</span></strong>.
@@ -39,19 +46,25 @@
 <script>
   import Grid from '@/components/Grid/Grid'
   import GridCell from '@/components/Grid/GridCell'
+
+  import Heading from '@/components/Heading/Heading'
+
   import Glitch from '@/templates/FourOhFour/elements/Glitch/Glitch'
 
   export default {
     name: 'FourOhFour',
     components: {
-      Glitch,
       Grid,
-      GridCell
+      GridCell,
+
+      Heading,
+
+      Glitch
     }
   }
 </script>
 
-<style scoped lang="stylus" src="./FourOhFour.styl">
+<style scoped lang="scss" src="./FourOhFour.scss">
 </style>
 
 <i18n src="./lang.json">
