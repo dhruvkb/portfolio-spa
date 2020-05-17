@@ -49,114 +49,83 @@
       <section class="section">
         <Grid>
           <GridCell :span-set="[12, 6, 5, 5, 5]">
-            <Card>
-              <template #title>
-                <Heading
-                  class="top"
-                  color="violet"
-                  :level="6">
-                  Home
-                </Heading>
-              </template>
-
-              <Heading :level="3">
-                <span class="violet-colored">
-                  <svg class="mumbai" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+            <Card
+              :color="randomizedColors[0]"
+              title="Home">
+              <div
+                :class="['side-by-side', `${randomizedColors[0]}-colored`]"
+                title="आमची मुंबई!">
+                <span class="icon">
+                  <svg class="mumbai" viewBox="0 0 290.626 290.626" xmlns="http://www.w3.org/2000/svg">
                     <use href="@/assets/images/mumbai.svg#mumbai"></use>
                   </svg>
-                  Mumbai
                 </span>
-              </Heading>
-              <span class="violet-colored">
-                <strong>मुंबई</strong>
-              </span>
+                <Couplet
+                  dom="Mumbai"
+                  sub="मुंबई"/>
+              </div>
             </Card>
           </GridCell>
 
           <GridCell :span-set="[12, 6, 7, 7, 7]">
-            <Card>
-              <template #title>
-                <Heading
-                  class="top"
-                  color="violet"
-                  :level="6">
-                  Education
-                </Heading>
-              </template>
-
-              <Heading :level="3">
-                <span class="violet-colored">
-                  IIT Roorkee
+            <Card
+              :color="randomizedColors[0]"
+              title="Education">
+              <div
+                :class="['side-by-side', `${randomizedColors[0]}-colored`]"
+                title="Batch of 2019">
+                <span class="icon">
+                  <svg class="roorkee" viewBox="0 0 290.626 290.626" xmlns="http://www.w3.org/2000/svg">
+                    <use href="@/assets/images/roorkee.svg#roorkee"></use>
+                  </svg>
                 </span>
-              </Heading>
-              <span class="violet-colored">
-                <strong>B. Tech. (Engineering Physics)</strong>
-              </span>
+                <Couplet
+                  :class="`${randomizedColors[0]}-colored`"
+                  :dom="$t('iit_roorkee')"
+                  :sub="`${$t('b_tech')} (${$t('eph')})`"/>
+              </div>
             </Card>
           </GridCell>
 
           <GridCell
             :span-set="[12]">
-            <Card class="quote-card">
-              <template #title>
-                <Heading
-                  class="top"
-                  color="blue"
-                  :level="6">
-                  Favourite quote
-                </Heading>
-              </template>
-
-              <Blockquote color="blue" orientation="vertical">
-                &ldquo;Don't half-ass two things. Whole-ass one thing.&rdquo;
-                <template #citation>
-                  - Ron Swanson
-                </template>
-              </Blockquote>
+            <Card
+              :color="randomizedColors[1]"
+              title="A favourite quote">
+              <Blockquote :color="randomizedColors[1]"/>
             </Card>
           </GridCell>
 
-          <GridCell :span-set="[12, 6, 7, 7, 3]">
-            <Card>
-              <template #title>
-                <Heading
-                  class="top"
-                  color="cyan"
-                  :level="6">
-                  Current computer
-                </Heading>
-              </template>
-
-              <Heading
-                :level="3"
-                color="cyan">
-                ThinkPad X220
-              </Heading>
-              <span class="cyan-colored">
-                <strong>with the 7 row keyboard</strong>
-              </span>
+          <GridCell :span-set="[12, 4, 4, 4, 4]">
+            <Card
+              :color="randomizedColors[2]"
+              title="Current computer">
+              <Couplet
+                :class="`${randomizedColors[2]}-colored`"
+                dom="ThinkPad X220"
+                sub="+ 7 row keyboard"/>
             </Card>
           </GridCell>
 
-          <GridCell :span-set="[12, 6, 5, 5, 3]">
-            <Card>
-              <template #title>
-                <Heading
-                  class="top"
-                  color="cyan"
-                  :level="6">
-                  First computer
-                </Heading>
-              </template>
+          <GridCell :span-set="[12, 4, 4, 4, 4]">
+            <Card
+              :color="randomizedColors[2]"
+              title="Work computer">
+              <Couplet
+                :class="`${randomizedColors[2]}-colored`"
+                dom="MacBook Pro 2019"
+                sub="+ Touch Bar"/>
+            </Card>
+          </GridCell>
 
-              <Heading
-                :level="3"
-                color="cyan">
-                Pentium III
-              </Heading>
-              <span class="cyan-colored">
-                <strong>with a chonky CRT</strong>
-              </span>
+          <GridCell :span-set="[12, 4, 4, 4, 4]">
+            <Card
+              :color="randomizedColors[2]"
+              title="First computer">
+              <Couplet
+                :class="`${randomizedColors[2]}-colored`"
+                dom="Pentium III"
+                sub="+ chonky CRT"/>
             </Card>
           </GridCell>
 
@@ -164,22 +133,15 @@
             v-for="(category, index) in dataPoints"
             :key="`1${index}`"
             :span-set="[12, 12, 6, 6, 3]">
-            <Card>
-              <template #title>
-                <Heading
-                  class="top"
-                  color="yellow"
-                  :level="6">
-                  {{ category.heading }}
-                </Heading>
-              </template>
-
-              <Carousel v-bind="carouselOptions">
+            <Card
+              :color="randomizedColors[3]"
+              :title="category.heading">
+              <Carousel v-bind="textCarouselOptions">
                 <Slide
                   class="carousel-content"
                   v-for="(item, count) in category.list"
                   :key="count">
-                  <span class="yellow-colored">
+                  <span :class="`${randomizedColors[3]}-colored`">
                     <FontAwesomeIcon
                       class="image"
                       :icon="item.icon"
@@ -193,33 +155,7 @@
           </GridCell>
 
           <GridCell :span-set="[12]">
-            <Card>
-              <template #title>
-                <Heading
-                  class="top"
-                  color="orange"
-                  :level="6">
-                  Photos
-                </Heading>
-              </template>
-
-              <Carousel
-                class="gallery"
-                v-bind="carouselGalleryOptions">
-                <Slide
-                  v-for="(photo, index) in photos"
-                  :key="index">
-                  <div class="content">
-                    <div
-                      class="photo"
-                      :style="{'--image-url': `url(${photo.source})`}"
-                      :title="photo.description.replace(/<\/?[a-z]+>/g, '')">
-                    </div>
-                    <span class="caption" v-html="photo.description"></span>
-                  </div>
-                </Slide>
-              </Carousel>
-            </Card>
+            <Gallery/>
           </GridCell>
         </Grid>
       </section>
@@ -251,14 +187,17 @@
 
   import { Carousel, Slide } from 'vue-carousel'
 
-  import Content from '@/mixins/content'
+  import Carouselled from '@/mixins/carouselled'
 
-  import Blockquote from '@/components/Blockquote/Blockquote'
   import Card from '@/components/Card/Card'
   import Grid from '@/components/Grid/Grid'
   import GridCell from '@/components/Grid/GridCell'
   import Heading from '@/components/Heading/Heading'
   import Indicator from '@/components/Indicator/Indicator'
+
+  import Blockquote from './elements/Blockquote/Blockquote'
+  import Couplet from '@/templates/About/elements/Couplet/Couplet'
+  import Gallery from '@/templates/About/elements/Gallery/Gallery'
 
   library.add(
     faUniversity,
@@ -286,20 +225,23 @@
   export default {
     name: 'About',
     mixins: [
-      Content
+      Carouselled
     ],
     components: {
+      Gallery,
       FontAwesomeIcon,
 
       Carousel,
       Slide,
 
-      Blockquote,
       Card,
       Grid,
       GridCell,
       Heading,
-      Indicator
+      Indicator,
+
+      Blockquote,
+      Couplet
     },
     data () {
       return {
@@ -351,60 +293,14 @@
             ]
           }
         ],
-        photos: [
-          {
-            source: require('@/assets/photos/1.jpg'),
-            description: 'I love <strong>doggos</strong>…'
-          },
-          {
-            source: require('@/assets/photos/2.jpg'),
-            description: '…and <strong>flowers</strong>…'
-          },
-          {
-            source: require('@/assets/photos/3.jpg'),
-            description: '…and <strong>gardens</strong>…'
-          },
-          {
-            source: require('@/assets/photos/4.jpg'),
-            description: '…and, of course, <strong>coffee</strong>.'
-          },
-          {
-            source: require('@/assets/photos/5.jpg'),
-            description: '<strong>Ronak</strong> and <strong>Vipul</strong> are my friends…'
-          },
-          {
-            source: require('@/assets/photos/8.jpg'),
-            description: '…and so is <strong>Bhushan</strong>.'
-          },
-          {
-            source: require('@/assets/photos/6.jpg'),
-            description: 'Meet <strong>Surya</strong>…'
-          },
-          {
-            source: require('@/assets/photos/7.jpg'),
-            description: '… and <strong>Praduman</strong>. We love memes.'
-          },
-          {
-            source: require('@/assets/photos/9.jpg'),
-            description: '<strong>Vineet</strong> sir is a designer…'
-          },
-          {
-            source: require('@/assets/photos/10.jpg'),
-            description: '…and <strong>Debashish</strong> sir is a frontend developer.'
-          },
-          {
-            source: require('@/assets/photos/12.jpg'),
-            description: 'This is <strong>Aman</strong>…'
-          },
-          {
-            source: require('@/assets/photos/11.jpg'),
-            description: '…and my juniors from a <strong>trekking trip</strong>.'
-          }
-        ]
+        randomizedColors: this.$getShuffledSolarizedColors()
       }
     }
   }
 </script>
 
-<style scoped lang="stylus" src="./About.styl">
+<style scoped lang="scss" src="./About.scss">
 </style>
+
+<i18n src="./lang.json">
+</i18n>
