@@ -3,7 +3,7 @@
 @import '~@/styles/layouts/content';
 
 .home {
-  @include content();
+  @include content;
 
   .site-title {
     margin-left: -0.25rem;

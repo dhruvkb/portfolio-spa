@@ -1,7 +1,7 @@
 @import '~@/styles/tokens/dimensions';
 @import 'page';
 
-@mixin content() {
+@mixin content {
   main {
     .section {
       display: flex;
@@ -10,7 +10,7 @@
       justify-content: center;
 
       &#first {
-        @include page-with-footer();
+        @include page-with-footer;
 
         align-items: center;
 
@@ -30,7 +30,7 @@
       }
 
       &:not(#first) {
-        @include page();
+        @include page;
       }
 
       &.centered {

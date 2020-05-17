@@ -3,7 +3,7 @@
 @import '~@/styles/layouts/content';
 
 .about {
-  @include content();
+  @include content;
 
   .side-by-side {
     display: flex;
