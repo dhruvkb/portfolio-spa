@@ -1,22 +1,20 @@
 language: node_js
 
 os: linux
-dist: xenial
+dist: bionic
 
 node_js:
   - lts/*
 
 cache: npm
 
-install:
-  - npm install
+install: npm install
 
 script:
   - npm run lint
   - npm run test:unit
 
-after_success:
-  - npm run build
+after_success: npm run build
 
 deploy:
   token: $GITHUB_TOKEN
