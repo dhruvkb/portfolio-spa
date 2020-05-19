@@ -69,7 +69,7 @@
         </Grid>
 
         <footer>
-          <Kaomoji/>
+          <Kaomoji class="secondary-colored"/>
           <Locale v-show="false"/>
         </footer>
       </section>
