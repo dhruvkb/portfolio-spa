@@ -9,7 +9,7 @@
             <div class="imagery">
               <RouterLink
                 :to="{name: 'portfolio'}"
-                title="See my portfolio"
+                title="See my portfolio."
                 @mouseenter.native="stopLooping"
                 @mouseleave.native="startLooping">
                 <Memoji
@@ -35,7 +35,7 @@
               {{ $t('iam') }}
               <RouterLink
                 :to="{name: 'portfolio'}"
-                title="See my portfolio"
+                title="See my portfolio."
                 @mouseenter.native="stopLooping"
                 @mouseleave.native="startLooping">
                 <Role
