@@ -24,22 +24,3 @@ $color-accent-violet:  #6c71c4; // Analogous
 $color-accent-blue:    #268bd2; // Monotone
 $color-accent-cyan:    #2aa198; // Analogous
 $color-accent-green:   #859900; // Tetrad
-
-$colors: (
-  'yellow':  $color-accent-yellow,
-  'orange':  $color-accent-orange,
-  'red':     $color-accent-red,
-  'magenta': $color-accent-magenta,
-  'violet':  $color-accent-violet,
-  'blue':    $color-accent-blue,
-  'cyan':    $color-accent-cyan,
-  'green':   $color-accent-green
-);
-
-@mixin colors($property) {
-  @each $color-name, $color-hex in $colors {
-    .#{$color-name}-colored {
-      #{$property}: $color-hex;
-    }
-  }
-}

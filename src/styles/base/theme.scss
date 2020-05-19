@@ -1,6 +1,8 @@
 @import '~@/styles/tokens/colors';
 @import '~@/styles/tokens/durations';
 
+@import '~@/styles/mixins/colored';
+
 @mixin theme {
   &.dark-themed {
     #{--emphasised-content}:    $color-content-base1;
@@ -20,12 +22,6 @@
     #{--background-opposite}:   $color-background-base03;
     #{--background-highlights}: $color-background-base2;
     #{--background}:            $color-background-base3;
-  }
-}
-
-@each $color-name, $color-hex in $colors {
-  .has-#{$color-name}-text {
-    color: $color-hex;
   }
 }
 
@@ -51,7 +47,7 @@ a {
 }
 
 div, span {
-  @include colors('--primary-color');
+  @include colored('--primary-color');
 
   &[class*="-colored"] {
     &:not(.inverted) {
