@@ -1,0 +1,51 @@
+@import '~@/styles/tokens/sizes';
+@import '~@/styles/tokens/durations';
+@import '~@/styles/tokens/dimensions';
+
+.preview {
+  .top {
+    font-size: $size-s;
+
+    .created-at {
+      margin-right: $dimen-m;
+    }
+  }
+
+  .stuff {
+    align-self: flex-start;
+
+    .read-more {
+      display: inline-flex;
+      flex-direction: row;
+      align-items: center;
+
+      .question,
+      .arrow {
+        transition-property: opacity, transform;
+        transition-duration: $duration-m;
+      }
+
+      .question {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .arrow {
+        opacity: 0;
+        transform: translateX(-1em);
+      }
+
+      &:hover {
+        .question {
+          opacity: 0;
+          transform: translateX(1em);
+        }
+
+        .arrow {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+}
