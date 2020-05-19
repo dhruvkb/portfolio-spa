@@ -3,7 +3,7 @@
     class="kaomoji"
     title="Wonderful to meet you!">
       <span class="face">{{ face }}</span>
-      <span class="wave">ﾉ</span>
+      <span class="hand">ﾉ</span>
   </div>
 </template>
 
