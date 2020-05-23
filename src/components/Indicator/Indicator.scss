@@ -25,7 +25,7 @@
     animation-iteration-count: infinite;
 
     &.delayed {
-      animation-delay: $duration-l;
+      animation-delay: -#{$duration-l};
     }
   }
 }
