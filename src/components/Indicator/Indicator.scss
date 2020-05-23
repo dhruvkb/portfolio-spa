@@ -1,0 +1,12 @@
+@import '~@/styles/tokens/durations';
+@import '~@/styles/motion/animations';
+
+.indicator {
+  .direction {
+    @include swipe('pointers', $duration-xl, 0, 0, 0, -50%, 0, 50%);
+
+    &.delayed {
+      animation-delay: $duration-l;
+    }
+  }
+}

@@ -30,5 +30,5 @@
   }
 </script>
 
-<style scoped lang="stylus" src="./Indicator.styl">
+<style scoped lang="scss" src="./Indicator.scss">
 </style>

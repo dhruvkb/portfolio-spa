@@ -1,0 +1,23 @@
+@mixin swipe($name, $duration, $xfrom: 0, $xmid: 0, $xto: 0, $yfrom: 0, $ymid: 0, $yto: 0) {
+  @keyframes swipe-#{$name} {
+    0% {
+      transform: translate($xfrom, $yfrom);
+      opacity: 0;
+    }
+
+    50% {
+      transform: translate($xmid, $ymid);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translate($xto, $yto);
+      opacity: 0;
+    }
+  }
+
+  animation-name: swipe-#{$name};
+  animation-duration: $duration;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
