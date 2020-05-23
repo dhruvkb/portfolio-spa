@@ -22,13 +22,10 @@
           <GridCell
             class="right pane"
             :span-set="[12, 6]">
-
             {{ $t('hello') }}! {{ $t('iam') }}
-            <Heading
-              class="site-title"
-              :level="1">
-              <span class="red-colored">{{ $t('dhruv') }} {{ $t('bhanushali') }}</span>
-            </Heading>
+            <h1 class="red-colored">
+              {{ $t('dhruv') }} {{ $t('bhanushali') }}
+            </h1>
             {{ $t('hats') }}
 
             <p class="roles">
@@ -62,8 +59,8 @@
               <span
                 class="secondary-colored"
                 :title="`${$t('3m')}${$t('fullstop')}`">
-                  {{ $t('other') }}{{ $t('fullstop') }}
-                </span>
+                {{ $t('other') }}{{ $t('fullstop') }}
+              </span>
             </p>
           </GridCell>
         </Grid>
@@ -80,12 +77,11 @@
 <script>
   import Grid from '@/components/Grid/Grid'
   import GridCell from '@/components/Grid/GridCell'
-  import Heading from '@/components/Heading/Heading'
   import Locale from '@/components/Locale/Locale'
 
+  import Kaomoji from './elements/Kaomoji/Kaomoji'
   import Memoji from './elements/Memoji/Memoji'
   import Role from './elements/Role/Role'
-  import Kaomoji from './elements/Kaomoji/Kaomoji'
 
   /**
    * This page is the landing page for the portfolio.
@@ -95,8 +91,8 @@
     components: {
       Grid,
       GridCell,
-      Heading,
       Locale,
+
       Kaomoji,
       Memoji,
       Role
@@ -114,7 +110,7 @@
        */
       startLooping () {
         this.updateLooper = setInterval(() => {
-          this.index = ++this.index % this.roles.length
+          this.index = ++this.index % this.$roles.length
         }, this.interval * 1000)
       },
       /**

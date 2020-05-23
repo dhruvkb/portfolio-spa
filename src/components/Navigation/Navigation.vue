@@ -6,18 +6,12 @@
       :exact="homeLink.isExact"
       :title="homeLink.title"
       @shortkey.native="$navigateTo(homeLink.to)">
-      <Heading
-        class="full nav-title"
-        :level="4"
-        color="red">
+      <h4 class="red-colored full nav-title">
         {{ $t('dhruv') }} {{ $t('bhanushali') }}
-      </Heading>
-      <Heading
-        class="short nav-title"
-        :level="4"
-        color="red">
+      </h4>
+      <h4 class="red-colored short nav-title">
         {{ $t('initials') }}
-      </Heading>
+      </h4>
     </RouterLink>
 
     <nav class="links">
@@ -44,7 +38,6 @@
   import { library } from '@fortawesome/fontawesome-svg-core'
   import { faCubes, faHandshake, faHome, faPenAlt, faPrayingHands, faUser } from '@fortawesome/free-solid-svg-icons'
 
-  import Heading from '@/components/Heading/Heading'
   import NavigationLink from '@/components/Navigation/NavigationLink'
 
   library.add(
@@ -59,7 +52,6 @@
   export default {
     name: 'Navigation',
     components: {
-      Heading,
       NavigationLink
     },
     data () {

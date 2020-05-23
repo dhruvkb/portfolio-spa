@@ -5,9 +5,7 @@
         <Grid>
           <GridCell :span-set="$headSpanSet">
             <div class="imagery">
-              <Heading
-                :level="2"
-                color="green">
+              <h2 class="green-colored">
                 <transition appear name="spin">
                   <FontAwesomeLayers
                     class="pulse">
@@ -22,12 +20,10 @@
                       size="xs"/>
                   </FontAwesomeLayers>
                 </transition>
-              </Heading>
-              <Heading
-                :level="2"
-                color="green">
+              </h2>
+              <h2 class="green-colored">
                 Get in touch!
-              </Heading>
+              </h2>
             </div>
           </GridCell>
 
@@ -71,16 +67,9 @@
       <section class="section">
         <Grid>
           <GridCell :span-set="[12, 6]">
-            <Card>
-              <template #title>
-                <Heading
-                  class="top"
-                  :color="randomizedColors[0]"
-                  :level="6">
-                  Email address
-                </Heading>
-              </template>
-
+            <Card
+              :color="randomizedColors[0]"
+              title="Email address">
               <p>
                 <FontAwesomeIcon
                   :icon="['fas', 'envelope']"/>
@@ -100,16 +89,9 @@
           </GridCell>
 
           <GridCell :span-set="[12, 6]">
-            <Card>
-              <template #title>
-                <Heading
-                  class="top"
-                  :color="randomizedColors[0]"
-                  :level="6">
-                  Phone number
-                </Heading>
-              </template>
-
+            <Card
+              :color="randomizedColors[0]"
+              title="Phone number">
               <p>
                 <FontAwesomeIcon
                   :icon="['fas', 'phone-alt']"/>
@@ -132,16 +114,9 @@
             v-for="(category, index) in medias"
             :key="index"
             :span-set="[12, 6, 4, 4, 4]">
-            <Card>
-              <template #title>
-                <Heading
-                  class="top"
-                  :color="randomizedColors[1]"
-                  :level="6">
-                  {{ category.name }}
-                </Heading>
-              </template>
-
+            <Card
+              :color="randomizedColors[1]"
+              :title="category.name">
               <div class="lefted">
                 <p
                   v-for="(medium, index) in category.list"
@@ -186,7 +161,6 @@
   import Card from '@/components/Card/Card'
   import Grid from '@/components/Grid/Grid'
   import GridCell from '@/components/Grid/GridCell'
-  import Heading from '@/components/Heading/Heading'
   import Indicator from '@/components/Indicator/Indicator'
 
   library.add(
@@ -215,7 +189,6 @@
       Card,
       Grid,
       GridCell,
-      Heading,
       Indicator
     },
     data () {

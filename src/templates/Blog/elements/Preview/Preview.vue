@@ -25,11 +25,9 @@
       <RouterLink
         :to="{name: 'post', params: {slug: post.slug}}"
         :title="`Read '${post.title}'.`">
-        <Heading
-          :level="6"
-          :color="color">
+        <h6 :class="`${color}-colored`">
           {{ post.title }}
-        </Heading>
+        </h6>
       </RouterLink>
 
       <div v-html="post.excerpt">

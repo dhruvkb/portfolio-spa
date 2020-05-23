@@ -6,11 +6,7 @@
           <GridCell :span-set="$headSpanSet">
             <div class="imagery">
               <Glitch>
-                <Heading
-                  :level="2"
-                  title="Not Found">
-                  {{ $t('404') }}
-                </Heading>
+                <h2>{{ $t('404') }}</h2>
               </Glitch>
             </div>
           </GridCell>
@@ -47,8 +43,6 @@
   import Grid from '@/components/Grid/Grid'
   import GridCell from '@/components/Grid/GridCell'
 
-  import Heading from '@/components/Heading/Heading'
-
   import Glitch from '@/templates/FourOhFour/elements/Glitch/Glitch'
 
   export default {
@@ -56,8 +50,6 @@
     components: {
       Grid,
       GridCell,
-
-      Heading,
 
       Glitch
     }

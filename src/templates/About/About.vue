@@ -6,19 +6,15 @@
           <GridCell :span-set="$headSpanSet">
             <div class="imagery">
               <transition appear name="shift-up">
-                <Heading
-                  :level="2"
-                  color="green">
+                <h2 class="green-colored">
                   <FontAwesomeIcon
                     class="hand"
                     :icon="['fas', 'hand-peace']"/>
-                </Heading>
+                </h2>
               </transition>
-              <Heading
-                :level="2"
-                color="green">
+              <h2 class="green-colored">
                 It's-a me!
-              </Heading>
+              </h2>
             </div>
           </GridCell>
 
@@ -192,7 +188,6 @@
   import Card from '@/components/Card/Card'
   import Grid from '@/components/Grid/Grid'
   import GridCell from '@/components/Grid/GridCell'
-  import Heading from '@/components/Heading/Heading'
   import Indicator from '@/components/Indicator/Indicator'
 
   import Blockquote from './elements/Blockquote/Blockquote'
@@ -237,7 +232,6 @@
       Card,
       Grid,
       GridCell,
-      Heading,
       Indicator,
 
       Blockquote,

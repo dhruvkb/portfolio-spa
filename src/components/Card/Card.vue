@@ -6,13 +6,9 @@
     <div class="title">
       <!-- @slot Title goes here -->
       <slot name="title">
-        <Heading
-          v-if="title"
-          class="top"
-          :color="color"
-          :level="6">
+        <h6 :class="['top', `${color}-colored`]">
           {{ title }}
-        </Heading>
+        </h6>
       </slot>
     </div>
     <div class="content">
