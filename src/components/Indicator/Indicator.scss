@@ -1,9 +1,28 @@
 @import '~@/styles/tokens/durations';
-@import '~@/styles/motion/animations';
 
 .indicator {
   .direction {
-    @include swipe('pointers', $duration-xl, 0, 0, 0, -50%, 0, 50%);
+    @keyframes swipe {
+      0% {
+        transform: translateY(-50%);
+        opacity: 0;
+      }
+
+      50% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(50%);
+        opacity: 0;
+      }
+    }
+
+    animation-name: swipe;
+    animation-duration: $duration-xl;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 
     &.delayed {
       animation-delay: $duration-l;
