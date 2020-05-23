@@ -62,7 +62,6 @@
   import Colored from '@/mixins/colored'
 
   import Card from '@/components/Card/Card'
-  import Heading from '@/components/Heading/Heading'
 
   library.add(
     faCalendarDay,
@@ -78,8 +77,7 @@
     components: {
       FontAwesomeIcon,
 
-      Card,
-      Heading
+      Card
     },
     props: {
       /**
