@@ -21,8 +21,6 @@
 <script>
   import Colored from '@/mixins/colored'
 
-  import Heading from '@/components/Heading/Heading'
-
   /**
    * This component renders a minimalistic card.
    */
@@ -31,9 +29,6 @@
     mixins: [
       Colored
     ],
-    components: {
-      Heading
-    },
     data () {
       return {
         observerOptions: {
