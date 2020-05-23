@@ -82,11 +82,6 @@
             to: { name: 'about' },
             text: 'About',
             icon: 'user'
-          },
-          {
-            to: { name: 'credits' },
-            text: 'Credits',
-            icon: 'praying-hands'
           }
         ]
       }
