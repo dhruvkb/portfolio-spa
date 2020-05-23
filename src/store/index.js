@@ -7,7 +7,7 @@ import blog from '@/store/modules/blog'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   strict: process.env.NODE_ENV !== 'production',
 
   modules: {
@@ -15,3 +15,5 @@ export default new Vuex.Store({
     blog
   }
 })
+
+export default store
