@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils'
 
-import Hello from '@/components/Hello'
+import Hello from '@/components/hello/Hello'
 
 describe('Hello', () => {
   it('renders message when one is passed', () => {
