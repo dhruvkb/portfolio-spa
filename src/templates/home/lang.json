@@ -13,14 +13,11 @@
   },
   "pr": {
     "hello": "Ahoy, me hearties",
-    "iam": "Here be",
-    "hats": "and I be wearin' me cap'n cap.",
+    "hats": "and I am the captain now.",
     "composes": "With bountiful {meticulousness}, {love} and {passion}, I compose",
     "compositions": "code, docs, designs, containers and easter eggs",
-    "meticulousness": "attention to d'tail",
+    "meticulousness": "attention to detail",
     "love": "heart",
-    "passion": "passion",
-    "other": "amongst other things",
     "3m": "Such as hornpipe music"
   }
 }

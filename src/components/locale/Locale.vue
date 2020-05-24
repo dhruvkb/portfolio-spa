@@ -1,26 +1,13 @@
 <template>
   <div class="locale">
-    <div class="languages">
-      <button
-        v-for="(language, code) in languages"
-        :key="code"
-        :title="language.titleText"
-        @click="setLanguage(code)">
-        {{ language.name }}
-      </button>
-    </div>
-
-    <FontAwesomeIcon
-      @click="globeClicked"
-      :icon="['fas', 'globe']"
-      fixed-width/>
-
     <button
       v-shortkey="['l']"
-      class="translator"
       @click="cycleLanguage"
       @shortkey="cycleLanguage">
-      Next language
+      <FontAwesomeIcon
+        class="globe"
+        :icon="['fas', 'globe']"
+        title="[L] Change the language."/>
     </button>
   </div>
 </template>
@@ -42,76 +29,41 @@
     },
     data () {
       return {
-        visibleLanguages: {
+        languages: {
           en: {
             name: 'English',
             titleText: 'Cheerio!'
-          }
-        },
-        hiddenLanguages: {
+          },
           pr: {
             name: 'Pirate-speak',
             titleText: 'Arrr!'
           }
         },
-        language: null,
-        clickCount: 0
-      }
-    },
-    computed: {
-      showHiddenLanguages () {
-        return localStorage.getItem('hiddenLanguages') === 'visible'
-      },
-      languages () {
-        return {
-          ...this.visibleLanguages,
-          ...(this.showHiddenLanguages ? this.hiddenLanguages : {})
-        }
+        language: null
       }
     },
     watch: {
-      // Set up a two-way sync between language and $i18n.locale
+      /**
+       * Sync changes from the language data variable to i18n.locale and local storage.
+       */
       language (to, from) {
         if (to !== from) { // Breaks recursion
-          this.$i18n.locale = to
-
           // Persist locale to local storage
           localStorage.locale = to
-
           // Set document root language
+          this.$root.$i18n.locale = to
           document.documentElement.setAttribute('lang', this.language)
-        }
-      },
-      '$i18n.locale': function (to, from) {
-        if (to !== from) { // Breaks recursion
-          this.language = to
         }
       }
     },
     methods: {
       /**
-       * Go one step closer to revealing the secret languages
-       */
-      globeClicked () {
-        this.clickCount++
-        if (this.clickCount >= 5) {
-          localStorage.hiddenLanguages = 'visible'
-        }
-      },
-      /**
-       * Change the language of the app to the given one.
-       */
-      setLanguage (language) {
-        this.language = language
-      },
-      /**
        * Change the language of the app to the successor of the current one.
        */
       cycleLanguage () {
         let languageCodes = Object.keys(this.languages)
-        let currentIndex = languageCodes.indexOf(this.language)
-        let nextIndex = (currentIndex + 1) % languageCodes.length
-        this.language = languageCodes[nextIndex]
+        let index = languageCodes.indexOf(this.language)
+        this.language = languageCodes[++index % languageCodes.length]
       }
     },
     created () {
@@ -119,6 +71,7 @@
         // Switch to the last used locale
         this.language = localStorage.locale
       } else {
+        // Set language to English by default
         this.language = 'en'
       }
     }

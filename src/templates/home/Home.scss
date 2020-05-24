@@ -1,3 +1,4 @@
+@import '~@/styles/tokens/colors';
 @import '~@/styles/tokens/sizes';
 @import '~@/styles/tokens/dimensions';
 @import '~@/styles/layouts/content';
@@ -16,6 +17,8 @@
   footer {
     display: flex;
 
+    position: relative;
+
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -25,5 +28,9 @@
 
     padding-left: $dimen-m;
     padding-right: $dimen-m;
+
+    .globe {
+      position: absolute;
+    }
   }
 }

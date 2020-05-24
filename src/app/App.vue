@@ -12,10 +12,13 @@
       @after-leave="emitSignal">
       <RouterView/>
     </transition>
+    <Locale v-show="false"/>
   </div>
 </template>
 
 <script>
+  import Locale from '@/components/locale/Locale'
+
   import Navigation from './components/navigation/Navigation'
   import Themer from './components/themer/Themer'
 
@@ -25,6 +28,7 @@
   export default {
     name: 'App',
     components: {
+      Locale,
       Navigation,
       Themer
     },
