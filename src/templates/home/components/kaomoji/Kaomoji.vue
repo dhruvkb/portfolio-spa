@@ -1,9 +1,9 @@
 <template>
   <div
     class="kaomoji"
-    title="Wonderful to meet you!">
-      <span class="face">{{ face }}</span>
-      <span class="hand">ﾉ</span>
+    :title="$t('wonderful')">
+    <span class="face">{{ face }}</span>
+    <span class="hand">ﾉ</span>
   </div>
 </template>
 
@@ -53,3 +53,6 @@
 
 <style scoped lang="scss" src="./Kaomoji.scss">
 </style>
+
+<i18n src="./lang.json">
+</i18n>
