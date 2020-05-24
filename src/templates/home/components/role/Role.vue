@@ -16,7 +16,8 @@
     <div
       class="arrow"
       :class="roleTextClasses">
-      <FontAwesomeIcon :icon="['fas', 'arrow-right']" />
+      <FontAwesomeIcon
+        :icon="['fas', 'arrow-right']"/>
     </div>
   </div>
 </template>

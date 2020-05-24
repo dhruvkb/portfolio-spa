@@ -1,4 +1,5 @@
 @import '~@/styles/tokens/durations';
+@import '~@/styles/tokens/fonts';
 @import '~@/styles/tokens/weights';
 @import '~@/styles/mixins/colored';
 @import '~@/styles/motion/transitions';
@@ -12,7 +13,8 @@
   align-items: center;
 
   .actual-role {
-    font-weight: $weight-semibold;
+    font-family: $family-monospace;
+    font-weight: $weight-medium;
   }
 
   .arrow,
@@ -27,6 +29,8 @@
   }
 
   .fullstop {
+    @extend .actual-role;
+
     opacity: 1;
     transform: translateX(0);
   }
