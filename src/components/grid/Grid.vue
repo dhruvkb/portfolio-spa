@@ -17,8 +17,7 @@
     // Child components
     Cell
   }
-
 </script>
 
-<style scoped lang="stylus" src="./Grid.styl">
+<style scoped lang="scss" src="./Grid.scss">
 </style>

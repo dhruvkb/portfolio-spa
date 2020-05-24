@@ -112,13 +112,13 @@
           `phone-${this.spans.phone}-wide`,
           `tablet-portrait-${this.spans.tabletPortrait}-wide`,
           `tablet-landscape-${this.spans.tabletLandscape}-wide`,
-          `desktop-${this.spans.desktop}-wide`,
-          `big-desktop-${this.spans.bigDesktop}-wide`
+          `desktop-standard-${this.spans.desktop}-wide`,
+          `desktop-big-${this.spans.bigDesktop}-wide`
         ]
       }
     }
   }
 </script>
 
-<style scoped lang="stylus" src="./Cell.styl">
+<style scoped lang="scss" src="./Cell.scss">
 </style>
