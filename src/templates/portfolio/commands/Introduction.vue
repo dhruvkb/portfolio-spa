@@ -1,7 +1,7 @@
 <template>
   <div class="intro">
     <div class="red-colored" title="This terminal has easter-eggs!">
-      <pre class="ascii-art full-sized">
+      <pre class="ascii-art big">
   __   __                                __       __
  /\ \ /\ \                              /\ \     /\ \
  \_\ \\ \ \___    _ __   __  __   __  __\ \ \/'\ \ \ \____
@@ -9,7 +9,7 @@
 /\ \L\ \\ \ \ \ \\ \ \/ \ \ \_\ \\ \ \_/ |\ \ \\`\ \ \ \L\ \
 \ \___,_\\ \_\ \_\\ \_\  \ \____/ \ \___/  \ \_\ \_\\ \_,__/
  \/__,_ / \/_/\/_/ \/_/   \/___/   \/__/    \/_/\/_/ \/___/</pre>
-      <pre class="ascii-art miniaturised">
+      <pre class="ascii-art small">
      ____                 __    __
  ___/ / /  ______ ___  __/ /__ / /
 / _  / _ \/ __/ // / |/ /  '_// _ \
@@ -70,14 +70,14 @@
 
       margin: -#{$dimen-line} 0 0 0;
 
-      &.full-sized {
+      &.big {
         $devices: 'phone';
         @include device-specific($devices) {
           display: none;
         }
       }
 
-      &.miniaturised {
+      &.small {
         $devices: 'tablet', 'desktop';
         @include device-specific($devices) {
           display: none;
