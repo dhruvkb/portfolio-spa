@@ -1,30 +1,21 @@
 import Vue from 'vue'
 
-import VueShortkey from 'vue-shortkey'
-import VueObserveVisibility from 'vue-observe-visibility'
-
-import VueSolarized from '@/plugins/solarized'
-import VueNavigation from '@/plugins/navigation'
-import VueRole from '@/plugins/role'
-import VueContent from '@/plugins/content'
-
 import router from '@/router'
 import store from '@/store'
 import i18n from '@/i18n'
+import '@/plugins'
 
-import App from '@/App.vue'
+import VueShortkey from 'vue-shortkey'
+import VueObserveVisibility from 'vue-observe-visibility'
+
+import App from '@/app/App'
+
+Vue.config.productionTip = false
 
 Vue.use(VueShortkey, {
   prevent: ['input', 'textarea']
 })
 Vue.use(VueObserveVisibility)
-
-Vue.use(VueSolarized)
-Vue.use(VueNavigation)
-Vue.use(VueRole)
-Vue.use(VueContent)
-
-Vue.config.productionTip = false
 
 new Vue({
   router,

@@ -1,0 +1,11 @@
+@import '~@/styles/tokens/durations.scss';
+@import '~@/styles/motion/transitions.scss';
+
+@import '~@/styles/base/index.scss';
+
+#app {
+  color: var(--primary-content);
+  background-color: var(--background);
+
+  @include fade($duration-s);
+}

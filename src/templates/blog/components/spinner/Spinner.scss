@@ -1,0 +1,23 @@
+@import '~@/styles/tokens/durations';
+
+.spinner {
+  .cursor {
+    @keyframes blink {
+      0%, 100% {
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    animation-name: blink;
+    animation-duration: $duration-l;
+    animation-iteration-count: infinite;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--primary-content);
+  }
+}

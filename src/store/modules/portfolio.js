@@ -1,6 +1,5 @@
-import { generateTree } from '@/data/portfolio/tree'
-
-import { mapping } from '@/templates/Portfolio/commands'
+import { generateTree } from '@/templates/portfolio/data/tree'
+import { mapping } from '@/templates/portfolio/commands'
 
 const state = {
   isFirstRun: true,
