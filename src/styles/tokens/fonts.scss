@@ -1,27 +1,22 @@
-// Body font
+// OS font stack
 
 $mac: -apple-system, 'Helvetica Neue', 'Helvetica', 'Apple Color Emoji';
 $windows: 'Segoe UI', 'Segoe UI Emoji', 'Segoe UI Symbol';
 $android: 'Roboto';
 $linux: 'Cantarell', 'Ubuntu', 'Oxygen';
 $system: system-ui;
-$family-body: $mac, $windows, $android, $linux, $system, sans-serif;
 
-// Heading font
+$family-os: $mac, $windows, $android, $linux, $system, sans-serif;
 
-@import '~@ibm/plex/css/ibm-plex.css';
-
-$ibm-plex-sans: 'IBM Plex Sans', 'IBM Plex Sans Devanagari';
-$family-heading: $ibm-plex-sans, sans-serif;
-
-// Code font
+// JetBrains Mono
 
 $font-weights: (
-  normal: 'Regular',
-  bold: 'Bold'
+  Regular: 400,
+  Medium: 500,
+  Bold: 700
 );
 
-@each $font-weight, $font-name in $font-weights {
+@each $font-name, $font-weight in $font-weights {
   @font-face {
     font-family: 'JetBrains Mono';
     font-weight: $font-weight;
@@ -35,4 +30,9 @@ $font-weights: (
 }
 
 $jetbrains-mono: 'JetBrains Mono';
+
+// Usage
+
+$family-heading: $jetbrains-mono, monospace;
+$family-body: $family-os;
 $family-code: $jetbrains-mono, monospace;
