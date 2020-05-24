@@ -43,10 +43,6 @@
     data () {
       return {
         visibleLanguages: {
-          hi: {
-            name: 'हिन्दी',
-            titleText: 'सुस्वागतम।'
-          },
           en: {
             name: 'English',
             titleText: 'Cheerio!'
