@@ -6,7 +6,8 @@ $android: 'Roboto';
 $linux: 'Cantarell', 'Ubuntu', 'Oxygen';
 $system: system-ui;
 
-$family-os: $mac, $windows, $android, $linux, $system, sans-serif;
+$family-os: $mac, $windows, $android, $linux, $system;
+$family-sans-serif: $family-os, sans-serif;
 
 // JetBrains Mono
 
@@ -30,9 +31,10 @@ $font-weights: (
 }
 
 $jetbrains-mono: 'JetBrains Mono';
+$family-monospace: $jetbrains-mono, monospace;
 
 // Usage
 
-$family-heading: $jetbrains-mono, monospace;
-$family-body: $family-os;
-$family-code: $jetbrains-mono, monospace;
+$family-heading: $family-monospace;
+$family-body: $family-sans-serif;
+$family-code: $family-monospace;
