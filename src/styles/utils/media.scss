@@ -36,22 +36,22 @@
       @content
     }
   }
-  @if index($devices, 'tablet-portrait') {
+  @if index($devices, 'tablet-portrait') or index($devices, 'tablet') {
     @include tablet-portrait-only {
       @content
     }
   }
-  @if index($devices, 'tablet-landscape') {
+  @if index($devices, 'tablet-landscape') or index($devices, 'tablet') {
     @include tablet-landscape-only {
       @content
     }
   }
-  @if index($devices, 'desktop-standard') {
+  @if index($devices, 'desktop-standard') or index($devices, 'desktop') {
     @include desktop-standard-only {
       @content
     }
   }
-  @if index($devices, 'desktop-big') {
+  @if index($devices, 'desktop-big') or index($devices, 'desktop') {
     @include desktop-big-only {
       @content
     }
