@@ -24,7 +24,7 @@
             :span-set="[12, 6]">
             {{ $t('hello') }}! {{ $t('iam') }}
             <h1 class="red-colored">
-              {{ $t('dhruv') }} {{ $t('bhanushali') }}
+              {{ $t('dhruv') }}<br/>{{ $t('bhanushali') }}
             </h1>
             {{ $t('hats') }}
 
