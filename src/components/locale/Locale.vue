@@ -1,15 +1,14 @@
 <template>
-  <div class="locale">
-    <button
-      v-shortkey="['l']"
-      @click="cycleLanguage"
-      @shortkey="cycleLanguage">
-      <FontAwesomeIcon
-        class="globe"
-        :icon="['fas', 'globe']"
-        title="[L] Change the language."/>
-    </button>
-  </div>
+  <button
+    v-shortkey="['l']"
+    class="locale"
+    :title="helpText"
+    @click="cycleLanguage"
+    @shortkey="cycleLanguage">
+    <FontAwesomeIcon
+      :icon="['fas', 'globe']"
+      fixed-width/>
+  </button>
 </template>
 
 <script>
@@ -56,14 +55,25 @@
         }
       }
     },
+    computed: {
+      /**
+       */
+      nextLanguage () {
+        let languageCodes = Object.keys(this.languages)
+        let index = languageCodes.indexOf(this.language)
+        return languageCodes[++index % languageCodes.length]
+      },
+      helpText () {
+        let readableName = this.languages[this.nextLanguage].name
+        return `[L] Change language to ${readableName}.`
+      }
+    },
     methods: {
       /**
        * Change the language of the app to the successor of the current one.
        */
       cycleLanguage () {
-        let languageCodes = Object.keys(this.languages)
-        let index = languageCodes.indexOf(this.language)
-        this.language = languageCodes[++index % languageCodes.length]
+        this.language = this.nextLanguage
       }
     },
     created () {
@@ -78,5 +88,5 @@
   }
 </script>
 
-<style scoped lang="stylus" src="./Locale.styl">
+<style scoped lang="scss" src="./Locale.scss">
 </style>

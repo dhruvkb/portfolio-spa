@@ -1,0 +1,26 @@
+@import '~@/styles/layouts/bar_item';
+
+@import '~@/styles/utils/controls';
+
+.locale {
+  @include reset-control;
+
+  @include bar-item;
+
+  --active-color: var(--primary-content);
+  --inactive-color: var(--secondary-content);
+
+  --locale-color: var(--inactive-color);
+
+  color: var(--locale-color);
+
+  cursor: pointer;
+
+  &:hover { // Mouse focus
+    --locale-color: var(--active-color);
+  }
+
+  &:focus { // Keyboard focus
+    outline: 1px dotted var(--active-color);
+  }
+}
