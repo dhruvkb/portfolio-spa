@@ -1,4 +1,6 @@
 @mixin custom-scrollbars {
+  overflow-y: scroll;
+
   $thumb-color: var(--background-opposite);
   $track-color: var(--background-highlights);
 
