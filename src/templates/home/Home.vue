@@ -23,7 +23,7 @@
             class="right pane"
             :span-set="[12, 6]">
             {{ $t('hello') }}! {{ $t('iam') }}
-            <h1 class="red-colored">
+            <h1 class="site-title red-colored">
               {{ $t('dhruv') }}<br/>{{ $t('bhanushali') }}
             </h1>
             {{ $t('hats') }}
