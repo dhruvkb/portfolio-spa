@@ -15,22 +15,9 @@
   }
 
   footer {
-    display: flex;
-
-    position: relative;
-
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-
-    width: 100%;
-    box-sizing: border-box;
-
-    padding-left: $dimen-m;
-    padding-right: $dimen-m;
-
-    .globe {
+    .locale {
       position: absolute;
+      right: $dimen-s;
     }
   }
 }
