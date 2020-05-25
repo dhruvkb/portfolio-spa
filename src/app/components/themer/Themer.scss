@@ -2,14 +2,14 @@
 @import '~@/styles/tokens/dimensions';
 @import '~@/styles/tokens/durations';
 
-@import '~@/styles/layouts/nav_item';
+@import '~@/styles/layouts/bar_item';
 
 @import '~@/styles/utils/controls';
 
 .themer {
   @include reset-control;
 
-  @include nav-item;
+  @include bar-item;
 
   --active-color: var(--background-opposite);
   --inactive-color: var(--secondary-content);

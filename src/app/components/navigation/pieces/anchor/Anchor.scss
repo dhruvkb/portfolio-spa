@@ -4,14 +4,14 @@
 @import '~@/styles/tokens/fonts';
 @import '~@/styles/tokens/weights';
 
-@import '~@/styles/layouts/nav_item';
+@import '~@/styles/layouts/bar_item';
 
 @import '~@/styles/mixins/colored';
 
 @import '~@/styles/utils/media.scss';
 
 .navigation .anchor {
-  @include nav-item;
+  @include bar-item;
 
   @include colored('--active-color');
   --inactive-color: var(--secondary-content);
