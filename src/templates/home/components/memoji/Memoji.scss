@@ -12,15 +12,11 @@
 
     height: 20em;
 
-    filter: drop-shadow(
-      2px 2px 0 var(--outline-color)
-    ) drop-shadow(
-      -2px 2px 0 var(--outline-color)
-    ) drop-shadow(
-      2px -2px 0 var(--outline-color)
-    ) drop-shadow(
-      -2px -2px 0 var(--outline-color)
-    );
+    filter:
+      drop-shadow(2px 2px 0 var(--outline-color))
+      drop-shadow(-2px 2px 0 var(--outline-color))
+      drop-shadow(2px -2px 0 var(--outline-color))
+      drop-shadow(-2px -2px 0 var(--outline-color));
   }
 
   &:hover {
