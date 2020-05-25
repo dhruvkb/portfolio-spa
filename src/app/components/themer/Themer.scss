@@ -1,0 +1,40 @@
+@import '~@/styles/tokens/colors';
+@import '~@/styles/tokens/dimensions';
+@import '~@/styles/tokens/durations';
+
+@import '~@/styles/layouts/nav_item';
+
+@import '~@/styles/utils/controls';
+
+.themer {
+  @include nav-item;
+
+  @include reset-control;
+
+  --active-color: var(--background-opposite);
+  --inactive-color: var(--secondary-content);
+
+  --themer-color: var(--inactive-color);
+
+  color: var(--themer-color);
+
+  .icon {
+    transform: rotate(180deg);
+
+    transition-property: transform;
+    transition-duration: $duration-s;
+    transition-timing-function: ease;
+  }
+
+  &:hover { // Mouse focus
+    --themer-color: var(--active-color);
+  }
+
+  &:focus { // Keyboard focus
+    outline: 1px dotted var(--active-color);
+  }
+}
+
+:root.dark-themed .themer .icon {
+  transform: rotate(-180deg);
+}

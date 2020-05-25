@@ -1,25 +1,29 @@
 <template>
   <div class="navigation">
-    <RouterLink
+    <Anchor
       v-shortkey="['h']"
-      :to="homeLink.to"
-      :exact="homeLink.isExact"
+      class="nav-title"
+      tabindex="0"
+      color="red"
+      :link="homeLink"
       :title="homeLink.title"
+      exact
       @shortkey.native="$navigateTo(homeLink.to)">
-      <h4 class="red-colored full nav-title">
-        {{ $t('dhruv') }} {{ $t('bhanushali') }}
-      </h4>
-      <h4 class="red-colored short nav-title">
+      <h5 class="full">
+        {{ $t('handle') }}
+      </h5>
+      <h5 class="short">
         {{ $t('initials') }}
-      </h4>
-    </RouterLink>
+      </h5>
+    </Anchor>
 
     <nav class="links">
       <!-- @slot Content goes here -->
       <slot>
-        <Link
+        <Anchor
           v-shortkey="[index+1]"
           v-for="(link, index) in links"
+          color="green"
           :key="index"
           :link="link"
           :title="`[${index+1}] Go to ${link.text}.`"
@@ -36,12 +40,17 @@
 
 <script>
   import { library } from '@fortawesome/fontawesome-svg-core'
-  import { faCubes, faHandshake, faHome, faPenAlt, faPrayingHands, faUser } from '@fortawesome/free-solid-svg-icons'
+  import {
+    faCubes,
+    faHandshake,
+    faPenAlt,
+    faPrayingHands,
+    faUser
+  } from '@fortawesome/free-solid-svg-icons'
 
-  import Link from './pieces/link/Link'
+  import Anchor from './pieces/anchor/Anchor'
 
   library.add(
-    faHome,
     faCubes,
     faPenAlt,
     faUser,
@@ -52,13 +61,12 @@
   export default {
     name: 'Navigation',
     components: {
-      Link
+      Anchor
     },
     data () {
       return {
         homeLink: {
           to: '/',
-          icon: 'home',
           title: '[H] Go to the homepage.',
           isExact: true
         },
@@ -89,5 +97,5 @@
   }
 </script>
 
-<style scoped lang="stylus" src="./Navigation.styl">
+<style scoped lang="scss" src="./Navigation.scss">
 </style>

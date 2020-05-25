@@ -1,0 +1,42 @@
+@import '~@/styles/tokens/dimensions';
+
+@import '~@/styles/utils/media.scss';
+
+.navigation {
+  position: fixed;
+  z-index: 9;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  background: var(--background);
+
+  box-sizing: border-box;
+  width: 100%;
+
+  padding-left: $dimen-s;
+  padding-right: $dimen-s;
+
+  .nav-title {
+    margin-right: auto;
+
+    .full {
+      $devices: 'phone', 'tablet-portrait';
+      @include device-specific($devices) {
+        display: none;
+      }
+    }
+
+    .short {
+      $devices: 'tablet-landscape', 'desktop';
+      @include device-specific($devices) {
+        display: none;
+      }
+    }
+
+    &:hover {
+      color: var(--active-color);
+    }
+  }
+}

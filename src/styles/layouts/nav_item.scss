@@ -1,0 +1,18 @@
+@import '~@/styles/tokens/dimensions';
+@import '~@/styles/tokens/durations';
+
+@mixin nav-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+  height: $dimen-bars;
+
+  padding-left: $dimen-s;
+  padding-right: $dimen-s;
+
+  transition-property: color;
+  transition-duration: $duration-s;
+  transition-timing-function: linear;
+}

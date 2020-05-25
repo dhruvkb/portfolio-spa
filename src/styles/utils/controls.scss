@@ -1,0 +1,13 @@
+@mixin reset-control {
+  appearance: none;
+  color: inherit;
+  font: inherit;
+  background: none;
+  padding: 0;
+  border: none;
+
+  &::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+}

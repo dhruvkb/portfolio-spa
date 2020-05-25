@@ -1,0 +1,79 @@
+@import '~@/styles/tokens/colors';
+@import '~@/styles/tokens/dimensions';
+@import '~@/styles/tokens/durations';
+@import '~@/styles/tokens/fonts';
+@import '~@/styles/tokens/weights';
+
+@import '~@/styles/layouts/nav_item';
+
+@import '~@/styles/mixins/colored';
+
+@import '~@/styles/utils/media.scss';
+
+.navigation .anchor {
+  @include nav-item;
+
+  @include colored('--active-color');
+  --inactive-color: var(--secondary-content);
+
+  --anchor-color: var(--inactive-color);
+
+  position: relative;
+
+  color: var(--anchor-color);
+
+  .text {
+    $devices: 'phone', 'tablet-portrait';
+    @include device-specific($devices) {
+      display: none;
+    }
+
+    font-family: $family-monospace;
+    font-weight: $weight-medium;
+  }
+
+  .icon {
+    $devices: 'tablet-landscape', 'desktop';
+    @include device-specific($devices) {
+      display: none;
+    }
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    content: '';
+
+    background-color: var(--anchor-color);
+
+    width: 0;
+    height: $dimen-xs;
+
+    transition-property: left, width, background-color, outline-color;
+    transition-duration: $duration-s;
+    transition-timing-function: cubic-bezier(0.32, 0, 0.67, 0);
+  }
+
+  &:hover { // Mouse focus
+    --anchor-color: var(--primary-content);
+  }
+
+  &:focus { // Keyboard focus
+    outline: 1px dotted var(--active-color);
+  }
+
+  &.exact.router-link-exact-active,
+  &:not(.exact).router-link-active { // Currently open
+    --anchor-color: var(--active-color);
+
+    &::after {
+      left: 0;
+
+      width: 100%;
+
+      background-color: var(--active-color);
+    }
+  }
+}

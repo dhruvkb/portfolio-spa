@@ -1,5 +1,9 @@
 <template>
-  <RouterLink :to="link.to">
+  <RouterLink
+    class="anchor"
+    :class="linkClasses"
+    tabindex="0"
+    :to="link.to">
     <!-- Content goes here -->
     <slot>
       <span class="text">
@@ -17,11 +21,16 @@
 <script>
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+  import colored from '@/mixins/colored'
+
   /**
-   * This component is one link in a navbar.
+   * This component is one anchor link in a navbar.
    */
   export default {
-    name: 'NavigationLink',
+    name: 'Anchor',
+    mixins: [
+      colored
+    ],
     components: {
       FontAwesomeIcon
     },
@@ -34,13 +43,21 @@
       link: {
         type: Object,
         required: true,
-        validator: val => ['to', 'text', 'icon'].every(
-          key => val.hasOwnProperty(key)
-        )
+        validator: val => val.hasOwnProperty('to')
+      }
+    },
+    computed: {
+      linkClasses () {
+        return [
+          ...this.coloredClasses,
+          {
+            'exact': this.link.isExact
+          }
+        ]
       }
     }
   }
 </script>
 
-<style scoped lang="stylus" src="./Link.styl">
+<style scoped lang="scss" src="./Anchor.scss">
 </style>

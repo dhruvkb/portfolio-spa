@@ -5,12 +5,10 @@
     :title="helpText"
     @click="toggleTheme"
     @shortkey="toggleTheme">
-    <span class="content">
-      <FontAwesomeIcon
-        class="icon"
-        :icon="['fas', 'adjust']"
-        fixed-width/>
-    </span>
+    <FontAwesomeIcon
+      class="icon"
+      :icon="['fas', 'adjust']"
+      fixed-width/>
   </button>
 </template>
 
@@ -84,5 +82,5 @@
   }
 </script>
 
-<style scoped lang="stylus" src="./Themer.styl">
+<style scoped lang="scss" src="./Themer.scss">
 </style>
