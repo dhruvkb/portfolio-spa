@@ -7,9 +7,9 @@
 @import '~@/styles/utils/controls';
 
 .themer {
-  @include nav-item;
-
   @include reset-control;
+
+  @include nav-item;
 
   --active-color: var(--background-opposite);
   --inactive-color: var(--secondary-content);
