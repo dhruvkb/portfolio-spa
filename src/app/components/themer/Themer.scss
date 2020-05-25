@@ -11,12 +11,14 @@
 
   @include bar-item;
 
-  --active-color: var(--background-opposite);
+  --active-color: var(--primary-content);
   --inactive-color: var(--secondary-content);
 
   --themer-color: var(--inactive-color);
 
   color: var(--themer-color);
+
+  cursor: pointer;
 
   .icon {
     transform: rotate(180deg);
