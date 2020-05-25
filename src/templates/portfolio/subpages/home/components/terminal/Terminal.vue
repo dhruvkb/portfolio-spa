@@ -42,9 +42,9 @@
           command: 'intro'
         })
 
-        // Show directory structure
+        // Show help
         this.runCommand({
-          command: 'ls'
+          command: 'help'
         })
 
         // Indicate first run to be complete
