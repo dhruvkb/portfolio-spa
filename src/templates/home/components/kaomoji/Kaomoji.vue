@@ -1,6 +1,6 @@
 <template>
   <div
-    class="kaomoji"
+    class="kaomoji secondary-colored"
     :title="$t('wonderful')">
     <span class="face">{{ face }}</span>
     <span class="hand">ﾉ</span>
