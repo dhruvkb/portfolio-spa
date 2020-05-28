@@ -10,7 +10,7 @@
 
 @import '~@/styles/utils/media.scss';
 
-.navigation .anchor {
+.header .anchor {
   @include bar-item;
 
   @include colored('--active-color');

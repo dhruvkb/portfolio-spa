@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <Navigation>
+    <Header>
       <template #extras>
         <Themer/>
       </template>
-    </Navigation>
+    </Header>
     <transition
       name="fade"
       mode="out-in"
@@ -19,7 +19,7 @@
 <script>
   import Locale from '@/components/locale/Locale'
 
-  import Navigation from './components/navigation/Navigation'
+  import Header from './components/header/Header'
   import Themer from './components/themer/Themer'
 
   /**
@@ -29,7 +29,7 @@
     name: 'App',
     components: {
       Locale,
-      Navigation,
+      Header,
       Themer
     },
     data () {

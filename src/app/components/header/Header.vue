@@ -1,5 +1,5 @@
 <template>
-  <div class="navigation">
+  <header class="header">
     <Anchor
       v-shortkey="['h']"
       class="nav-title"
@@ -35,7 +35,7 @@
       <!-- @slot Extras go here -->
       <slot name="extras"/>
     </div>
-  </div>
+  </header>
 </template>
 
 <script>
@@ -59,7 +59,7 @@
   )
 
   export default {
-    name: 'Navigation',
+    name: 'Header',
     components: {
       Anchor
     },
@@ -97,5 +97,5 @@
   }
 </script>
 
-<style scoped lang="scss" src="./Navigation.scss">
+<style scoped lang="scss" src="./Header.scss">
 </style>
