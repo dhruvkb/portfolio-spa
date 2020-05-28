@@ -8,7 +8,7 @@
           :key="index">{{ rule ? '': '│'}}</span>{{ isLastChild ? '└' : '├'}}──&nbsp;</template>
 
       <template v-if="!(args.flatten && node.type === 'folder')">
-        <template v-if="args.flatten">─</template>
+        <template v-if="args.flatten">─&nbsp;</template>
         <Link :node="node"/>
       </template>
 
