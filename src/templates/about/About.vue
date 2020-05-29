@@ -83,15 +83,6 @@
             </Card>
           </GridCell>
 
-          <GridCell
-            :span-set="[12]">
-            <Card
-              :color="randomizedColors[1]"
-              title="A favourite quote">
-              <Blockquote :color="randomizedColors[1]"/>
-            </Card>
-          </GridCell>
-
           <GridCell :span-set="[12, 4, 4, 4, 4]">
             <Card
               :color="randomizedColors[2]"
@@ -122,6 +113,15 @@
                 :class="`${randomizedColors[2]}-colored`"
                 dom="Pentium III"
                 sub="+ chonky CRT"/>
+            </Card>
+          </GridCell>
+
+          <GridCell
+            :span-set="[12, 12, 12, 12, 6]">
+            <Card
+              :color="randomizedColors[1]"
+              title="A favourite quote">
+              <Blockquote :color="randomizedColors[1]"/>
             </Card>
           </GridCell>
 
