@@ -1,0 +1,29 @@
+@import '~@/styles/tokens/sizes';
+@import '~@/styles/tokens/dimensions';
+
+@import '~@/styles/layouts/content';
+
+.contact {
+  @include content;
+
+  .email,
+  .phone {
+    font-size: $size-3xl;
+
+    height: 1em;
+  }
+
+  .stuff {
+    align-self: flex-start;
+
+    .icon {
+      margin-right: $dimen-s;
+    }
+
+    .text {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
