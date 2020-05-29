@@ -13,14 +13,6 @@
   },
   "pr": {
     "a": "one",
-    "an": "one",
-    "roles": {
-      "open_sourcerer": "sourcerer of freedom",
-      "software_developer": "developer of software",
-      "technical_writer": "writer of technical booty",
-      "design_dabbler": "dabbler in design",
-      "infrastructure_architect": "architect of infrastructure",
-      "easter_eggsmith": "smith of easter eggs"
-    }
+    "an": "one"
   }
 }
