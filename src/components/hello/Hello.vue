@@ -22,5 +22,5 @@
   }
 </script>
 
-<style scoped lang="scss" src="Hello.scss">
+<style scoped lang="scss" src="./Hello.scss">
 </style>
