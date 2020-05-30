@@ -232,7 +232,7 @@
 
       Card,
       Grid,
-      'GridCell': Grid.Cell,
+      GridCell: Grid.Cell,
       Indicator,
 
       Blockquote,

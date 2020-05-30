@@ -29,13 +29,13 @@ export default {
     }
 
     Vue.prototype.$getShuffledSolarizedColors = function () {
-      let colors = [...this.$safeSolarizedColors]
+      const colors = [...this.$safeSolarizedColors]
       let remaining = colors.length
       while (remaining) {
-        let index = Math.floor(Math.random() * remaining)
+        const index = Math.floor(Math.random() * remaining)
         remaining -= 1
 
-        let temp = colors[index]
+        const temp = colors[index]
         colors[index] = colors[remaining]
         colors[remaining] = temp
       }

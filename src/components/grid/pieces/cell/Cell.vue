@@ -51,8 +51,8 @@
         let desktop = null
         let bigDesktop = null
 
-        let spanSet = this.spanSet
-        let count = spanSet.length
+        const spanSet = this.spanSet
+        const count = spanSet.length
 
         // Prop processing
         switch (count) {

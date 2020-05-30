@@ -44,7 +44,7 @@
       to: {
         type: Object,
         required: true,
-        validator: val => val.hasOwnProperty('name')
+        validator: val => Object.prototype.hasOwnProperty.call(val, 'name')
       },
       /**
        * _the text to display in the anchor link_
@@ -78,7 +78,7 @@
         return [
           ...this.coloredClasses,
           {
-            'exact': this.isExact
+            exact: this.isExact
           }
         ]
       }

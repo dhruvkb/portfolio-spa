@@ -41,7 +41,7 @@
       argumented
     ],
     components: {
-      'Link': Portfolio.Link
+      Link: Portfolio.Link
     },
     argSpec: {
       args: [
@@ -109,7 +109,7 @@
         if (this.level === 0) { // Root node
           return true
         } else {
-          let siblings = this.node.parent.children
+          const siblings = this.node.parent.children
           return siblings.indexOf(this.node) === siblings.length - 1
         }
       },

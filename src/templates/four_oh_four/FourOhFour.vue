@@ -48,7 +48,7 @@
     name: 'FourOhFour',
     components: {
       Grid,
-      'GridCell': Grid.Cell,
+      GridCell: Grid.Cell,
 
       Glitch
     }

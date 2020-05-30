@@ -38,7 +38,7 @@
       argumented
     ],
     components: {
-      'Link': Portfolio.Link
+      Link: Portfolio.Link
     },
     argSpec: {
       args: [

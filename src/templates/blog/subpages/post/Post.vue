@@ -95,7 +95,7 @@
     components: {
       FontAwesomeIcon,
 
-      'Spinner': Blog.Spinner
+      Spinner: Blog.Spinner
     },
     props: {
       /**

@@ -98,7 +98,7 @@
     name: 'Home',
     components: {
       Grid,
-      'GridCell': Grid.Cell,
+      GridCell: Grid.Cell,
       Locale,
 
       Kaomoji,

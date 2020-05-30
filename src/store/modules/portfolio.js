@@ -23,10 +23,10 @@ const getters = {
   },
   nodeLocatedAt: state => path => {
     let nodeInQuestion = state.currentNode
-    let pathEntities = path.split('/')
+    const pathEntities = path.split('/')
 
     for (let i = 0; i < pathEntities.length; i++) {
-      let entity = pathEntities[i]
+      const entity = pathEntities[i]
 
       if (entity === '~') {
         nodeInQuestion = state.tree.root
@@ -37,7 +37,7 @@ const getters = {
       } else {
         let nextNode
         for (let j = 0; j < nodeInQuestion.children.length; j++) {
-          let child = nodeInQuestion.children[j]
+          const child = nodeInQuestion.children[j]
           if (child.name === entity || child.alternativeName === entity) {
             nextNode = child
           }
@@ -102,19 +102,19 @@ const mutations = {
 
 const actions = {
   runCommand ({ commit }, payload) {
-    let command = payload.command
+    const command = payload.command
 
-    let [bin, ...argv] = command.split(' ')
+    const [bin, ...argv] = command.split(' ')
 
-    let directory = state.currentNode.name
+    const directory = state.currentNode.name
 
-    let input = {
+    const input = {
       command,
       directory
     }
-    let output = {}
+    const output = {}
 
-    let bins = Object.keys(mapping)
+    const bins = Object.keys(mapping)
     if (bins.includes(bin)) {
       if (mapping[bin].isLongTerm) {
         commit('setIsProcessing', {

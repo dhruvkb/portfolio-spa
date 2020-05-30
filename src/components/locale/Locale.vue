@@ -59,12 +59,12 @@
       /**
        */
       nextLanguage () {
-        let languageCodes = Object.keys(this.languages)
+        const languageCodes = Object.keys(this.languages)
         let index = languageCodes.indexOf(this.language)
         return languageCodes[++index % languageCodes.length]
       },
       helpText () {
-        let readableName = this.languages[this.nextLanguage].name
+        const readableName = this.languages[this.nextLanguage].name
         return `[L] Change language to ${readableName}.`
       }
     },

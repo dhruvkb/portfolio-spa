@@ -32,9 +32,9 @@
       argumented
     ],
     components: {
-      'Spinner': Portfolio.Spinner,
+      Spinner: Portfolio.Spinner,
       // eslint-disable-next-line vue/no-unused-components
-      'Link': Portfolio.Link
+      Link: Portfolio.Link
     },
     argSpec: {
       args: [
@@ -88,8 +88,8 @@
         } else if (this.args.filename === 'E') {
           filePath = 'e.content.html'
         } else {
-          let dirName = this.node.parent.name
-          let fileName = this.node.name
+          const dirName = this.node.parent.name
+          const fileName = this.node.name
           filePath = `${dirName}/${fileName}.content.html`
         }
         console.log(require(`@/assets/content/${filePath}`))
@@ -111,7 +111,7 @@
       },
       loadContent () {
         try {
-          let path = this.path
+          const path = this.path
           axios
             .get(path, {
               responseType: 'text'

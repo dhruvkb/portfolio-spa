@@ -4,8 +4,8 @@ export default {
   computed: {
     args () {
       // Generate 'arg' compliant argument specification
-      let argSpec = this.$options.argSpec
-      let spec = {}
+      const argSpec = this.$options.argSpec
+      const spec = {}
 
       argSpec.kwargs.forEach(arg => {
         spec[arg.name] = arg.type
@@ -18,7 +18,7 @@ export default {
       })
 
       // Run argument parsing
-      let processedArgs = arg(
+      const processedArgs = arg(
         spec,
         {
           argv: this.argv,
@@ -27,9 +27,9 @@ export default {
       )
 
       // Convert back to portfolio argument specification
-      let args = {}
+      const args = {}
       argSpec.kwargs.forEach(kwarg => {
-        let dedashedName = kwarg.name.replace(/--/g, '')
+        const dedashedName = kwarg.name.replace(/--/g, '')
         args[dedashedName] = processedArgs[kwarg.name]
       })
       argSpec.args.forEach(arg => {

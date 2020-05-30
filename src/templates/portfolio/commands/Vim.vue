@@ -60,9 +60,9 @@
        * _the imported HTML of the file_
        */
       path () {
-        let dirName = this.node.parent.name
-        let fileName = this.node.name
-        let filePath = `${dirName}/${fileName}.content.html`
+        const dirName = this.node.parent.name
+        const fileName = this.node.name
+        const filePath = `${dirName}/${fileName}.content.html`
 
         return require(`@/assets/content/${filePath}`)
       },

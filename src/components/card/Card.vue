@@ -58,7 +58,7 @@
       cardClasses () {
         return [
           {
-            'visible': this.isVisible
+            visible: this.isVisible
           }
         ]
       }

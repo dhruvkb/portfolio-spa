@@ -1,6 +1,6 @@
 export default {
   data () {
-    let carouselOptions = {
+    const carouselOptions = {
       autoplay: true,
       autoplayHoverPause: true,
       autoplayTimeout: 8000,

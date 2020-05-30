@@ -41,7 +41,7 @@
        * _the classes to apply to the link_
        */
       linkClasses () {
-        let classes = []
+        const classes = []
         if (this.node.type === 'folder') {
           classes.push('violet-colored')
         } else {

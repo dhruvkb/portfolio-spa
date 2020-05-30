@@ -41,9 +41,9 @@
        * @returns {string} the assembled face
        */
       face () {
-        let [edgeLeft, edgeRight] = this.edgesList[Math.floor(Math.random() * this.edgesList.length)]
-        let [eyeLeft, eyeRight] = this.eyesList[Math.floor(Math.random() * this.eyesList.length)]
-        let mouth = this.mouthList[Math.floor(Math.random() * this.mouthList.length)]
+        const [edgeLeft, edgeRight] = this.edgesList[Math.floor(Math.random() * this.edgesList.length)]
+        const [eyeLeft, eyeRight] = this.eyesList[Math.floor(Math.random() * this.eyesList.length)]
+        const mouth = this.mouthList[Math.floor(Math.random() * this.mouthList.length)]
 
         return `${edgeLeft} ${eyeLeft} ${mouth} ${eyeRight} ${edgeRight}`
       }

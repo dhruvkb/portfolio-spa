@@ -113,7 +113,7 @@
       commandSyntax (command) {
         let rep
 
-        let { name } = command
+        const { name } = command
         rep = `<span class="green-colored"><strong>${name}</strong></span>`
 
         if ('args' in command) {

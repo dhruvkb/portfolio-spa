@@ -92,7 +92,7 @@
           this.traversal.backup = this.command
         }
         this.traversal.index++
-        let index = this.interactionHistory.length - this.traversal.index
+        const index = this.interactionHistory.length - this.traversal.index
         this.command = this.interactionHistory[index].input.command
       },
       traverseHistoryDown () {
@@ -104,7 +104,7 @@
         if (this.traversal.index === 0) {
           this.command = this.traversal.backup
         } else {
-          let index = this.interactionHistory.length - this.traversal.index
+          const index = this.interactionHistory.length - this.traversal.index
           this.command = this.interactionHistory[index].input.command
         }
       },

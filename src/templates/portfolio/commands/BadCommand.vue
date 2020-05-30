@@ -28,7 +28,7 @@
       argumented
     ],
     components: {
-      'Executable': Portfolio.Executable
+      Executable: Portfolio.Executable
     },
     argSpec: {
       args: [
@@ -49,7 +49,7 @@
     },
     data () {
       return {
-        altCommand: mapping['help'],
+        altCommand: mapping.help,
         altArgv: []
       }
     }

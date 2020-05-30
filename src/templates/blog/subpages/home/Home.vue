@@ -88,10 +88,10 @@
       FontAwesomeIcon,
 
       Grid,
-      'GridCell': Grid.Cell,
+      GridCell: Grid.Cell,
       Indicator,
 
-      'Spinner': Blog.Spinner,
+      Spinner: Blog.Spinner,
       Preview
     },
     data () {

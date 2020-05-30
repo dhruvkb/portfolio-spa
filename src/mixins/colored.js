@@ -28,7 +28,7 @@ export default {
      * _the classes describing the accent color on a component_
      */
     coloredClasses () {
-      let classes = []
+      const classes = []
       if (this.color) {
         classes.push(`${this.color}-colored`)
       }
