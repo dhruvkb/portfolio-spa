@@ -30,6 +30,10 @@
 
   &:hover { // Mouse focus
     --themer-color: var(--active-color);
+
+    .icon {
+      transform: rotate(150deg);
+    }
   }
 
   &:focus { // Keyboard focus
@@ -37,6 +41,14 @@
   }
 }
 
-:root.dark-themed .themer .icon {
-  transform: rotate(-180deg);
+:root.dark-themed .themer {
+  .icon {
+    transform: rotate(-180deg);
+  }
+
+  &:hover { // Mouse focus
+    .icon {
+      transform: rotate(-150deg);
+    }
+  }
 }
