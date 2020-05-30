@@ -1,0 +1,46 @@
+@import '~@/styles/tokens/colors';
+@import '~@/styles/tokens/fonts';
+
+@import '~@/styles/utils/scrollbars';
+@import '~@/styles/utils/selections';
+
+:root.dark-themed {
+  code[class*="language-"],
+  pre[class*="language-"] {
+    color: $color-content-base0;
+
+    .token.comment,
+    .token.prolog,
+    .token.doctype,
+    .token.cdata {
+      color: $color-content-base01;
+    }
+
+    .token.punctuation {
+      color: $color-content-base1;
+    }
+
+    .token.entity {
+      color: $color-content-base0;
+      background: $color-background-base02;
+    }
+  }
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  @include custom-scrollbars;
+  @include custom-selections;
+
+  font-family: $family-code;
+  font-size: 14px;
+  line-height: 1.4;
+
+  background-color: unset;
+
+  overflow-y: hidden;
+
+  padding: 0;
+
+  margin: 0;
+}

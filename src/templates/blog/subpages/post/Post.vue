@@ -82,7 +82,7 @@
 
   import { Blog } from '@/templates/blog/Blog'
 
-  import '@/styles/prism-override.styl'
+  import '@/styles/utils/prism.scss'
 
   library.add(
     faArrowLeft,

@@ -12,16 +12,16 @@
 </template>
 
 <script>
-  import { mapGetters, mapMutations } from 'vuex'
-
   import axios from 'axios'
+  import prism from 'prismjs'
+
+  import { mapGetters, mapMutations } from 'vuex'
 
   import { Portfolio } from '@/templates/portfolio/Portfolio'
 
   import argumented from '@/mixins/argumented'
 
-  import Prism from 'prismjs'
-  import '@/styles/prism-override.styl'
+  import '@/styles/utils/prism.scss'
 
   /**
    * This command prints the contents of a file 'filename'.
@@ -131,7 +131,7 @@
         }
       },
       formatOutput () {
-        Prism.highlightAll()
+        prism.highlightAll()
         this.stopProcessing('PASS')
       },
 

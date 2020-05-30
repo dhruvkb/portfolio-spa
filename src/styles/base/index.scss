@@ -1,3 +1,10 @@
-@import 'scrollbars';
+@import '~@/styles/utils/selections';
+@import '~@/styles/utils/scrollbars';
+
 @import 'theme';
 @import 'typography';
+
+:root {
+  @include custom-scrollbars;
+  @include custom-selections;
+}

@@ -1,0 +1,8 @@
+@import '~@/styles/tokens/dimensions';
+@import '~@/styles/tokens/durations';
+
+@mixin custom-selections {
+  ::selection {
+    background: var(--background-highlights);
+  }
+}

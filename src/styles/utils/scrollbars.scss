@@ -1,3 +1,5 @@
+@import '~@/styles/tokens/dimensions';
+
 @mixin custom-scrollbars {
   overflow-y: scroll;
 
@@ -10,7 +12,8 @@
   transition-property: scrollbar-color;
 
   ::-webkit-scrollbar {
-    width: 6px;
+    width: $dimen-xs;
+    height: $dimen-xs;
   }
 
   ::-webkit-scrollbar-thumb {
@@ -20,8 +23,4 @@
   ::-webkit-scrollbar-track {
     background-color: $track-color;
   }
-}
-
-:root {
-  @include custom-scrollbars;
 }
