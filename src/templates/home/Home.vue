@@ -9,12 +9,10 @@
             <div class="imagery">
               <RouterLink
                 class="portfolio-link"
-                tabindex="0"
+                tabindex="-1"
                 :to="{name: 'portfolio'}"
                 @mouseenter.native="stopLooping"
-                @mouseleave.native="startLooping"
-                @focus.native="focusPortfolioLink"
-                @blur.native="blurPortfolioLink">
+                @mouseleave.native="startLooping">
                 <Memoji
                   :index="index"
                   :color="$getSolarizedColor(index)"
