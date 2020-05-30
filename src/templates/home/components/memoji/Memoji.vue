@@ -1,10 +1,9 @@
 <template>
-  <div class="memoji">
+  <div class="memoji" :class="memojiClasses">
     <transition appear name="flip-horizontal" mode="out-in">
       <img
         :key="role"
         class="image"
-        :class="memojiImageClasses"
         :src="source"
         alt="Dhruv Bhanushali"
         :title="title">
@@ -14,14 +13,16 @@
 
 <script>
   import colored from '@/mixins/colored'
+  import focusable from '@/mixins/focusable'
 
   /**
-   * This component displays my memoji in various colours.
+   * This component iterates over my memoji.
    */
   export default {
     name: 'Memoji',
     mixins: [
-      colored
+      colored,
+      focusable
     ],
     props: {
       /**
@@ -34,14 +35,16 @@
     },
     computed: {
       /**
-       * Get the classes to use on the memoji image.
+       * Get the classes to use on the memoji ticker.
        * @returns {Array} an array of all the classes to apply on the element
        */
-      memojiImageClasses () {
+      memojiClasses () {
         return [
-          ...this.coloredClasses
+          ...this.coloredClasses,
+          { ...this.focusableClasses }
         ]
       },
+
       /**
        * Get the role at the index specified by the prop.
        * @returns {string} the underscored role

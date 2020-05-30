@@ -1,11 +1,15 @@
 <template>
-  <div class="role">
+  <div
+    class="role"
+    :class="roleClasses">
     <transition appear name="flip-vertical" mode="out-in">
       <div :key="role">
         {{ $t(vowel) }}&nbsp;
         <span
           class="actual-role"
-          :class="roleTextClasses">{{ $t(`roles.${role}`) }}</span>
+          :class="roleTextClasses">
+          {{ $t(`roles.${role}`) }}
+        </span>
       </div>
     </transition>
     <div
@@ -28,16 +32,18 @@
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
   import colored from '@/mixins/colored'
+  import focusable from '@/mixins/focusable'
 
   library.add(faArrowRight)
 
   /**
-   * This component displays my role in various colours.
+   * This component iterates over my roles.
    */
   export default {
     name: 'Role',
     mixins: [
-      colored
+      colored,
+      focusable
     ],
     components: {
       FontAwesomeIcon
@@ -53,6 +59,15 @@
     },
     computed: {
       /**
+       * Get the classes to use on the role ticker.
+       * @returns {Array} an array of all the classes to apply on the element
+       */
+      roleClasses () {
+        return [
+          { ...this.focusableClasses }
+        ]
+      },
+      /**
        * Get the classes to use on the role text.
        * @returns {Array} an array of all the classes to apply on the element
        */
@@ -61,6 +76,7 @@
           ...this.coloredClasses
         ]
       },
+
       /**
        * Get the role at the index specified by the prop.
        * @returns {string} the underscored role

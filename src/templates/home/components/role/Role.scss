@@ -40,7 +40,8 @@
     opacity: 0;
   }
 
-  &:hover {
+  &:hover,
+  &.focused {
     .arrow {
       opacity: 1;
       transform: translateX(0);

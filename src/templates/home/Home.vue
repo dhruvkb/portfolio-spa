@@ -8,13 +8,17 @@
             :span-set="[12, 6]">
             <div class="imagery">
               <RouterLink
+                class="portfolio-link"
+                tabindex="0"
                 :to="{name: 'portfolio'}"
-                title="See my portfolio."
                 @mouseenter.native="stopLooping"
-                @mouseleave.native="startLooping">
+                @mouseleave.native="startLooping"
+                @focus.native="focusPortfolioLink"
+                @blur.native="blurPortfolioLink">
                 <Memoji
                   :index="index"
-                  :color="$getSolarizedColor(index)"/>
+                  :color="$getSolarizedColor(index)"
+                  :is-focused="isPortfolioLinkFocused"/>
               </RouterLink>
             </div>
           </GridCell>
@@ -31,13 +35,18 @@
             <p class="roles">
               {{ $t('iam') }}
               <RouterLink
+                class="portfolio-link"
+                tabindex="0"
                 :to="{name: 'portfolio'}"
                 title="See my portfolio."
                 @mouseenter.native="stopLooping"
-                @mouseleave.native="startLooping">
+                @mouseleave.native="startLooping"
+                @focus.native="focusPortfolioLink"
+                @blur.native="blurPortfolioLink">
                 <Role
                   :index="index"
-                  :color="$getSolarizedColor(index)"/>
+                  :color="$getSolarizedColor(index)"
+                  :is-focused="isPortfolioLinkFocused"/>
               </RouterLink>
             </p>
 
@@ -100,7 +109,8 @@
       return {
         index: 0,
         interval: 8,
-        updateLooper: null
+        updateLooper: null,
+        isPortfolioLinkFocused: false
       }
     },
     methods: {
@@ -117,6 +127,14 @@
        */
       stopLooping () {
         clearInterval(this.updateLooper)
+      },
+      focusPortfolioLink () {
+        this.stopLooping()
+        this.isPortfolioLinkFocused = true
+      },
+      blurPortfolioLink () {
+        this.startLooping()
+        this.isPortfolioLinkFocused = false
       }
     },
     created: function () {
