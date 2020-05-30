@@ -1,7 +1,7 @@
-@import '~@/styles/tokens/durations.scss';
-@import '~@/styles/motion/transitions.scss';
+@import '~@/styles/tokens/durations';
+@import '~@/styles/motion/transitions';
 
-@import '~@/styles/base/index.scss';
+@import '~@/styles/base';
 
 #app {
   color: var(--primary-content);
