@@ -2,12 +2,11 @@
   <header class="header">
     <Anchor
       v-shortkey="['h']"
+      v-bind="homeLink"
       class="nav-title"
       tabindex="0"
       color="red"
-      :link="homeLink"
-      :title="homeLink.title"
-      exact
+      :title="`[H] Go to ${homeLink.text}.`"
       @shortkey.native="$navigateTo(homeLink.to)">
       <h5 class="full">
         {{ $t('handle') }}
@@ -23,9 +22,9 @@
         <Anchor
           v-shortkey="[index+1]"
           v-for="(link, index) in links"
+          v-bind="link"
           color="green"
           :key="index"
-          :link="link"
           :title="`[${index+1}] Go to ${link.text}.`"
           @shortkey.native="$navigateTo(link.to)"/>
       </slot>
@@ -66,8 +65,8 @@
     data () {
       return {
         homeLink: {
-          to: '/',
-          title: '[H] Go to the homepage.',
+          to: { name: 'home' },
+          text: 'the homepage',
           isExact: true
         },
         links: [
