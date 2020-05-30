@@ -126,8 +126,8 @@
           </GridCell>
 
           <GridCell
-            v-for="(category, index) in dataPoints"
-            :key="`1${index}`"
+            v-for="(category, index) in bio"
+            :key="index"
             :span-set="[12, 12, 6, 6, 3]">
             <Card
               :color="randomizedColors[3]"
@@ -193,6 +193,8 @@
   import Couplet from './components/couplet/Couplet'
   import Gallery from './components/gallery/Gallery'
 
+  import bio from './data/bio.json'
+
   library.add(
     faUniversity,
     faAdjust,
@@ -238,54 +240,7 @@
     },
     data () {
       return {
-        dataPoints: [
-          {
-            heading: 'Opinions',
-            list: [
-              {
-                icon: ['fas', 'mug-hot'],
-                text: '<strong>Coffee</strong> > tea'
-              },
-              {
-                icon: ['fas', 'adjust'],
-                text: '<strong>Dark theme</strong> > light theme'
-              },
-              {
-                icon: ['fab', 'firefox'],
-                text: '<strong>Mozilla Firefox</strong> > Google Chrome'
-              },
-              {
-                icon: ['fab', 'redhat'],
-                text: '<strong>Fedora</strong> > any OS'
-              },
-              {
-                icon: ['fab', 'apple'],
-                text: '<strong>iOS</strong> > Android'
-              }
-            ]
-          },
-          {
-            heading: 'Hobbies',
-            list: [
-              {
-                icon: ['fas', 'tv'],
-                text: 'Binging on <strong>TV series</strong>'
-              },
-              {
-                icon: ['fas', 'film'],
-                text: 'Watching <strong>movies</strong>'
-              },
-              {
-                icon: ['fas', 'music'],
-                text: 'Organising and listening to <strong>music</strong>'
-              },
-              {
-                icon: ['fas', 'walking'],
-                text: 'Talking <strong>long strolls</strong> in the dark'
-              }
-            ]
-          }
-        ],
+        bio,
         randomizedColors: this.$getShuffledSolarizedColors()
       }
     }
