@@ -1,0 +1,16 @@
+@import '~@/styles/tokens/dimensions';
+
+.medium {
+  display: block;
+
+  margin-bottom: $dimen-s;
+
+  &:hover,
+  &:focus {
+    color: var(--medium-color);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

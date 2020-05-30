@@ -111,25 +111,17 @@
           </GridCell>
 
           <GridCell
-            v-for="(category, index) in medias"
+            v-for="(category, index) in media"
             :key="index"
             :span-set="[12, 6, 4, 4, 4]">
             <Card
               :color="randomizedColors[1]"
-              :title="category.name">
-              <div class="lefted">
-                <p
-                  v-for="(medium, index) in category.list"
-                  :key="index">
-                  <FontAwesomeIcon
-                    class="image"
-                    :icon="['fab', medium.icon]"
-                    fixed-width/>
-                  <template>&nbsp;</template>
-                  <a :href="medium.link">
-                    <strong>{{ medium.name }}</strong>
-                  </a>
-                </p>
+              :title="category.heading">
+              <div class="stuff">
+                <Medium
+                  v-for="(item, count) in category.list"
+                  v-bind="item"
+                  :key="count"/>
               </div>
             </Card>
           </GridCell>
@@ -162,6 +154,10 @@
   import Grid from '@/components/grid/Grid'
   import Indicator from '@/components/indicator/Indicator'
 
+  import Medium from './components/medium/Medium'
+
+  import media from './data/media.json'
+
   library.add(
     faComment,
     faCircle,
@@ -188,67 +184,18 @@
       Card,
       Grid,
       'GridCell': Grid.Cell,
-      Indicator
+      Indicator,
+
+      Medium
     },
     data () {
       return {
-        randomizedColors: this.$getShuffledSolarizedColors(),
-        medias: [
-          {
-            name: 'Professional media',
-            list: [
-              {
-                icon: 'github',
-                name: 'GitHub',
-                link: 'https://github.com/dhruvkb'
-              },
-              {
-                icon: 'linkedin',
-                name: 'LinkedIn',
-                link: 'https://linkedin.com/in/dhruvkb'
-              }
-            ]
-          },
-          {
-            name: 'Social media',
-            list: [
-              {
-                icon: 'facebook',
-                name: 'Facebook',
-                link: 'https://facebook.com/dhruv.k.bhanushali'
-              },
-              {
-                icon: 'twitter',
-                name: 'Twitter',
-                link: 'https://twitter.com/dhruvkb'
-              },
-              {
-                icon: 'instagram',
-                name: 'Instagram',
-                link: 'https://instagram.com/dhruvkb_'
-              }
-            ]
-          },
-          {
-            name: 'Music streaming',
-            list: [
-              {
-                icon: 'apple',
-                name: 'Apple Music',
-                link: 'https://itunes.apple.com/profile/dhruvkb'
-              },
-              {
-                icon: 'spotify',
-                name: 'Spotify',
-                link: 'https://open.spotify.com/user/dhruvkb'
-              }
-            ]
-          }
-        ]
+        media,
+        randomizedColors: this.$getShuffledSolarizedColors()
       }
     }
   }
 </script>
 
-<style scoped lang="stylus" src="./Contact.styl">
+<style scoped lang="scss" src="./Contact.scss">
 </style>
