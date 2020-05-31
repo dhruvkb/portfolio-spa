@@ -49,7 +49,7 @@
         this.logs.forEach(category => {
           this.logHeading(category.heading)
           category.lines.forEach(line => this.logContent(line))
-          console.log('')
+          console.log(' ')
         })
       },
       /**
