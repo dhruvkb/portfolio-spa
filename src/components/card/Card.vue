@@ -11,6 +11,7 @@
         </h6>
       </slot>
     </div>
+
     <div class="content">
       <!-- @slot Content goes here -->
       <slot/>
@@ -66,7 +67,7 @@
     methods: {
       /**
        * Set the card's visibility status as sent by the observer.
-       * @param isVisible {boolean} - the updated visibility status of the card
+       * @param {boolean} isVisible - the updated visibility status of the card
        */
       visibilityChanged (isVisible) {
         if (isVisible) {
