@@ -1,56 +1,102 @@
 <template>
   <div class="four-oh-four">
     <main>
-      <section class="section" id="first">
-        <Grid>
-          <GridCell :span-set="$headSpanSet">
-            <div class="imagery">
-              <Glitch>
-                <h2>{{ $t('404') }}</h2>
-              </Glitch>
-            </div>
-          </GridCell>
+      <section
+        class="section"
+        id="first"
+        @mousemove="drawErrorWithMouse"
+        @touchstart="drawErrorWithTouch"
+        @touchmove="drawErrorWithTouch">
+        <canvas
+          class="error-place"
+          ref="errorCanvas"/>
 
-          <GridCell :span-set="$headSpanSet">
-            <div class="content">
-              <p title="I made a funny!">
-                You're lost, aren't you?<br/>
-                Hi <em>lost</em>,
-                I'm <strong><span class="red-colored">Dhruv</span></strong>.
-              </p>
-              <p>
-                While I do not apologise for that joke, I do apologise for the
-                circumstances that brought you here. Did you mistype a URL?
-              </p>
-              <p>
-                Please make yourself at
-                <RouterLink
-                  :to="{name: 'home'}"
-                  title="[H] Go to the homepage.">
-                  <template>home</template>
-                </RouterLink>
-                and since you're here, do explore using the navigation above.
-              </p>
-            </div>
-          </GridCell>
-        </Grid>
+        <div class="imagery">
+          <img
+            :width="errorImage.width"
+            :height="errorImage.height"
+            :src="errorImage.source"
+            ref="errorImage"/>
+        </div>
+
+        <footer>
+          <p title="I made a funny!">
+            You seem lost.
+            Go
+            <RouterLink
+              tabindex="0"
+              :to="{name: 'home'}"
+              title="[H] Go to the homepage.">
+              home</RouterLink>?
+          </p>
+        </footer>
       </section>
     </main>
   </div>
 </template>
 
 <script>
-  import Grid from '@/components/grid/Grid'
-
-  import Glitch from './components/glitch/Glitch'
+  import errorSvg from '@/assets/svgs/error.svg'
 
   export default {
     name: 'FourOhFour',
-    components: {
-      Grid,
-      GridCell: Grid.Cell,
+    data () {
+      return {
+        canvas: null,
+        context: null,
+        errorImage: {
+          source: errorSvg,
+          width: 288,
+          height: 162
+        }
+      }
+    },
+    methods: {
+      setupCanvas () {
+        const dpr = window.devicePixelRatio || 1
 
-      Glitch
+        const actualWidth = window.innerWidth
+        const actualHeight = window.innerHeight
+
+        this.canvas.width = dpr * actualWidth
+        this.canvas.height = dpr * actualHeight
+
+        this.canvas.style.width = `${actualWidth}px`
+        this.canvas.style.height = `${actualHeight}px`
+
+        this.context = this.canvas.getContext('2d')
+        this.context.scale(dpr, dpr)
+      },
+      drawErrorWithMouse (event) {
+        this.drawError(
+          event.clientX - (this.errorImage.width / 2),
+          event.clientY - 16
+        )
+      },
+      drawErrorWithTouch (event) {
+        event.touches.forEach(touch => {
+          this.drawError(
+            touch.pageX - (this.errorImage.width / 2),
+            touch.pageY - 16
+          )
+        })
+      },
+      drawError (x, y) {
+        this.context.drawImage(
+          this.$refs.errorImage,
+          x,
+          y,
+          this.errorImage.width,
+          this.errorImage.height
+        )
+      }
+    },
+    mounted () {
+      this.canvas = this.$refs.errorCanvas
+
+      // Setup canvas now and on every resize
+      this.setupCanvas()
+      window.addEventListener('resize', this.setupCanvas)
     }
   }
 </script>
