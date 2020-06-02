@@ -52,11 +52,15 @@
       }
     },
     methods: {
+      /**
+       * Set the canvas and context objects, adjusting for device pixel ratio.
+       */
       setupCanvas () {
         const dpr = window.devicePixelRatio || 1
 
+        // Reduce actual dimensions to prevent
         const actualWidth = window.innerWidth
-        const actualHeight = window.innerHeight
+        const actualHeight = window.innerHeight - 16
 
         this.canvas.width = dpr * actualWidth
         this.canvas.height = dpr * actualHeight
@@ -67,25 +71,37 @@
         this.context = this.canvas.getContext('2d')
         this.context.scale(dpr, dpr)
       },
+      /**
+       * Draw an error window at the position of the mouse.
+       *
+       * @param {Event} event - the information about the mouse move event
+       */
       drawErrorWithMouse (event) {
-        this.drawError(
-          event.clientX - (this.errorImage.width / 2),
-          event.clientY - 16
-        )
+        this.drawError(event.clientX, event.clientY)
       },
+      /**
+       * Draw an error window at the position of each of the fingers.
+       *
+       * @param {Event} event - the information about the finger touch and move events
+       */
       drawErrorWithTouch (event) {
         event.touches.forEach(touch => {
-          this.drawError(
-            touch.pageX - (this.errorImage.width / 2),
-            touch.pageY - 16
-          )
+          this.drawError(touch.pageX, touch.pageY)
         })
       },
+      /**
+       * Draw an error window at the specified co-ordinates. The co-ordinates
+       * are adjusted so that the mouse or finger is always placed on the title
+       * bar, centered horizontally.
+       *
+       * @param {number} x - the horizontal position of the error window
+       * @param {number} y - the vertical position of the error window
+       */
       drawError (x, y) {
         this.context.drawImage(
           this.$refs.errorImage,
-          x,
-          y,
+          x - (this.errorImage.width / 2),
+          y - 16,
           this.errorImage.width,
           this.errorImage.height
         )
