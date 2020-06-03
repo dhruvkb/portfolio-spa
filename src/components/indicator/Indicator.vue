@@ -21,6 +21,10 @@
 
   library.add(faAngleDown)
 
+  /**
+   * This component indicates the presence of more content by animating a
+   * downward-pointing arrow.
+   */
   export default {
     name: 'Indicator',
     components: {

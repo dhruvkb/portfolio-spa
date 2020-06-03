@@ -6,7 +6,8 @@
 
 <script>
   /**
-   * This is a dummy component that is not meant to be used for any purpose.
+   * This component is a dummy that is not meant to be used for any purpose
+   * except as a stand-in for unit testing.
    */
   export default {
     name: 'Hello',
