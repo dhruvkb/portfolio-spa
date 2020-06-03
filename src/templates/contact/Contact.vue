@@ -175,6 +175,10 @@
     faTwitter
   )
 
+  /**
+   * This page contains several ways to reach out to me. I do not guarantee if
+   * I will reciprocate on any of them.
+   */
   export default {
     name: 'Contact',
     components: {

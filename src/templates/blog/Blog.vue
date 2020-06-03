@@ -9,6 +9,10 @@
 <script>
   import Spinner from './components/spinner/Spinner'
 
+  /**
+   * This page contains my writings. Why anyone would want to read the stuff I
+   * write is beyond my understanding.
+   */
   export default {
     name: 'Blog'
   }

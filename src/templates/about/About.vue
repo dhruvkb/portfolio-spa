@@ -216,7 +216,8 @@
   )
 
   /**
-   * This page describes me in deep, verging on excruciating, detail.
+   * This page describes me in deep, verging on excruciating, detail. If you
+   * want to know me, this is a good place to start.
    */
   export default {
     name: 'About',

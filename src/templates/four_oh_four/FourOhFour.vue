@@ -39,6 +39,10 @@
 <script>
   import errorSvg from '@/assets/svgs/error.svg'
 
+  /**
+   * You lose your way. I entertain you with a Windows 98 error message. Then
+   * you go and explore the parts of the portfolio that actually exist.
+   */
   export default {
     name: 'FourOhFour',
     data () {

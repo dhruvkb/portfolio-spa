@@ -14,7 +14,8 @@
   import fs from '@/templates/portfolio/data/fs.json'
 
   /**
-   * This page describes my portfolio using an interactive CLI.
+   * This page describes my portfolio using an interactive CLI. This took me a
+   * lot of effort to build and if you speak ill of it, I will hate you.
    */
   export default {
     name: 'Portfolio',

@@ -90,7 +90,8 @@
   import Role from './components/role/Role'
 
   /**
-   * This page is the landing page for the portfolio.
+   * This page is the landing page for the portfolio. All improvements start
+   * here, and it is possible that they might not propagate to the other pages.
    */
   export default {
     name: 'Home',
