@@ -17,9 +17,9 @@
   }
 
   &.light-themed {
-    #{--content}:                $color-content-base0;
-    #{--content-highlighted}:    $color-content-base1;
-    #{--content-secondary}:      $color-content-base01;
+    #{--content}:                $color-content-base00;
+    #{--content-highlighted}:    $color-content-base01;
+    #{--content-secondary}:      $color-content-base1;
 
     #{--background}:             $color-background-base3;
     #{--background-highlighted}: $color-background-base2;
