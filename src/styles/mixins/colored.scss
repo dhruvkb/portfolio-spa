@@ -10,7 +10,7 @@
     'blue': $color-accent-blue,
     'cyan': $color-accent-cyan,
     'green': $color-accent-green,
-    'secondary': var(--secondary-content)
+    'secondary': var(--content-secondary)
   );
 
   @each $color-name, $color-var in $colors {

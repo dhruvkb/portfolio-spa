@@ -4,7 +4,7 @@
   overflow-y: scroll;
 
   $thumb-color: var(--background-opposite);
-  $track-color: var(--background-highlights);
+  $track-color: var(--background-highlighted);
 
   scrollbar-color: $thumb-color $track-color;
   scrollbar-width: thin;

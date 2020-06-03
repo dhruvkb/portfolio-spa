@@ -11,8 +11,8 @@
 
   @include bar-item;
 
-  --active-color: var(--primary-content);
-  --inactive-color: var(--secondary-content);
+  --active-color: var(--content);
+  --inactive-color: var(--content-secondary);
 
   --themer-color: var(--inactive-color);
 

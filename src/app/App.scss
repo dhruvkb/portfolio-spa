@@ -4,7 +4,7 @@
 @import '~@/styles/base';
 
 #app {
-  color: var(--primary-content);
+  color: var(--content);
   background-color: var(--background);
 
   @include fade($duration-s);

@@ -3,6 +3,6 @@
 
 @mixin custom-selections {
   ::selection {
-    background: var(--background-highlights);
+    background: var(--background-selected);
   }
 }

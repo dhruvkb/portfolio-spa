@@ -6,8 +6,8 @@ export default {
       autoplayTimeout: 8000,
       loop: true,
       centerMode: true,
-      paginationColor: 'var(--secondary-content)',
-      paginationActiveColor: 'var(--primary-content)',
+      paginationColor: 'var(--content-secondary)',
+      paginationActiveColor: 'var(--content)',
       paginationPadding: 4,
       paginationSize: 8
     }
