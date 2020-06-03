@@ -1,3 +1,5 @@
+@import '~@/styles/tokens/colors';
+
 @import '~@/styles/layouts/bar_item';
 
 @import '~@/styles/utils/controls';
@@ -7,17 +9,51 @@
 
   @include bar-item;
 
-  --active-color: var(--content);
-  --inactive-color: var(--content-secondary);
-
   --locale-color: var(--inactive-color);
-
-  color: var(--locale-color);
 
   cursor: pointer;
 
+  .icon {
+    &.en,
+    &.pr {
+      color: var(--locale-color);
+    }
+
+    &.globe {
+      color: var(--content-secondary);
+    }
+
+    &.backdrop {
+      color: var(--background);
+    }
+
+    &.current,
+    &.other {
+      transition-property: color, transform;
+      transition-duration: $duration-m;
+    }
+
+    &.current {
+      transform: scale(1);
+    }
+
+    &.other {
+      transform: scale(0);
+    }
+  }
+
   &:hover { // Mouse focus
     --locale-color: var(--active-color);
+
+    .icon {
+      &.current {
+        transform: scale(0);
+      }
+
+      &.other {
+        transform: scale(1);
+      }
+    }
   }
 
   &:focus { // Keyboard focus

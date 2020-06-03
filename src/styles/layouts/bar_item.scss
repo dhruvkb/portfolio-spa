@@ -6,6 +6,9 @@
   align-items: center;
   justify-content: center;
 
+  --inactive-color: var(--content-secondary);
+  --active-color: var(--content);
+
   box-sizing: border-box;
   height: $dimen-bars;
   min-width: $dimen-bars;

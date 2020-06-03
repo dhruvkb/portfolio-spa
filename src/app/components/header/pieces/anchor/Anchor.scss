@@ -14,7 +14,6 @@
   @include bar-item;
 
   @include colored('--active-color');
-  --inactive-color: var(--content-secondary);
 
   --anchor-color: var(--inactive-color);
 
@@ -57,7 +56,7 @@
   }
 
   &:hover { // Mouse focus
-    --anchor-color: var(--content);
+    --anchor-color: var(--active-color);
   }
 
   &:focus { // Keyboard focus
