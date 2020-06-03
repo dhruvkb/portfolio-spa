@@ -3,13 +3,17 @@
 .four-oh-four {
   @include content;
 
-  .error-place {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
+  .section#first {
+    overflow: hidden;
 
-    image-rendering: pixelated;
+    .error-place {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+
+      image-rendering: pixelated;
+    }
   }
 
   footer {

@@ -16,6 +16,7 @@
             :width="errorImage.width"
             :height="errorImage.height"
             :src="errorImage.source"
+            alt="Windows 98 error message"
             ref="errorImage"/>
         </div>
 
@@ -60,7 +61,7 @@
 
         // Reduce actual dimensions to prevent
         const actualWidth = window.innerWidth
-        const actualHeight = window.innerHeight - 16
+        const actualHeight = window.innerHeight
 
         this.canvas.width = dpr * actualWidth
         this.canvas.height = dpr * actualHeight
