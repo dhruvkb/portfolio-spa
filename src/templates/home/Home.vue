@@ -73,6 +73,7 @@
         </Grid>
 
         <footer>
+          <Source/>
           <Kaomoji/>
           <Locale/>
         </footer>
@@ -88,6 +89,7 @@
   import Kaomoji from './components/kaomoji/Kaomoji'
   import Memoji from './components/memoji/Memoji'
   import Role from './components/role/Role'
+  import Source from './components/source/Source'
 
   /**
    * This page is the landing page for the portfolio. All improvements start
@@ -102,7 +104,8 @@
 
       Kaomoji,
       Memoji,
-      Role
+      Role,
+      Source
     },
     data () {
       return {

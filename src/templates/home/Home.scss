@@ -19,6 +19,11 @@
   }
 
   footer {
+    .source {
+      position: absolute;
+      left: $dimen-s;
+    }
+
     .locale {
       position: absolute;
       right: $dimen-s;
