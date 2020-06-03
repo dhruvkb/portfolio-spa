@@ -5,7 +5,7 @@
     :title="helpText"
     @click="cycleLanguage"
     @shortkey="cycleLanguage">
-    <FontAwesomeLayers>
+    <FontAwesomeLayers class="iconography">
       <FontAwesomeIcon
         class="icon"
         :class="localeIconClasses('en')"
