@@ -1,17 +1,33 @@
 @import '~@/styles/tokens/colors';
 @import '~@/styles/tokens/sizes';
 @import '~@/styles/tokens/dimensions';
+
 @import '~@/styles/layouts/content';
+
+@import '~@/styles/utils/media';
 
 .home {
   @include content;
 
-  .site-title {
-    margin-left: -0.25rem;
+  $devices: 'tablet-landscape', 'desktop-standard', 'desktop-big';
+  @include device-specific($devices) {
+
+    .home-grid {
+      width: 100%;
+
+      .memoji-link {
+        align-self: end;
+      }
+    }
   }
 
-  .portfolio-link {
+  .memoji-link,
+  .role-link {
     outline: none;
+  }
+
+  .site-title {
+    margin-left: -0.25rem;
   }
 
   .roles {

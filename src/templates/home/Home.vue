@@ -2,13 +2,13 @@
   <div class="home">
     <main>
       <section class="section" id="first">
-        <Grid>
+        <Grid class="home-grid">
           <GridCell
             class="left pane"
             :span-set="[12, 6]">
             <div class="imagery">
               <RouterLink
-                class="portfolio-link"
+                class="memoji-link"
                 tabindex="-1"
                 :to="{name: 'portfolio'}"
                 @mouseenter.native="stopLooping"
@@ -33,7 +33,7 @@
             <p class="roles">
               {{ $t('iam') }}
               <RouterLink
-                class="portfolio-link"
+                class="role-link"
                 tabindex="0"
                 :to="{name: 'portfolio'}"
                 title="See my portfolio."
