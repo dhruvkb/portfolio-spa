@@ -6,6 +6,7 @@
   @include colored('--outline-color');
   @include flip('horizontal', $duration-m, 0deg, 0deg, 0deg, 90deg, 0deg, -90deg);
 
+  transform: scale(0.95);
   transition-property: transform, filter;
 
   .image {
@@ -19,7 +20,7 @@
   }
 
   &:hover {
-    transform: scale(1.05) rotate(5deg);
+    transform: scale(1) rotate(5deg);
   }
 
   &.focused {
