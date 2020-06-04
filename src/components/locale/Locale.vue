@@ -3,8 +3,8 @@
     v-shortkey="['l']"
     class="locale"
     :title="helpText"
-    @click="cycleLanguage"
-    @shortkey="cycleLanguage">
+    @click="switchLanguage"
+    @shortkey="switchLanguage">
     <FontAwesomeLayers class="iconography">
       <FontAwesomeIcon
         class="icon"
@@ -48,7 +48,8 @@
   library.add(faFont, faSkull, faCircle, faGlobe)
 
   /**
-   * This component enables changing languages using Vue i18n.
+   * This component enables changing languages between English and Pirate-speak
+   * using [Vue i18n by Kazuya Kawaguchi](https://kazupon.github.io/vue-i18n/).
    */
   export default {
     name: 'Locale',
@@ -73,33 +74,37 @@
     },
     watch: {
       /**
-       * Sync changes from the language data variable to i18n.locale and local storage.
+       * Sync changes from the language data variable to root lang, Vue i18n and
+       * also updates local storage for persistence.
        */
       language (to, from) {
         if (to !== from) { // Breaks recursion
-          // Persist locale to local storage
-          localStorage.locale = to
+          document.documentElement.setAttribute('lang', this.language)
+
           // Set document root language
           this.$root.$i18n.locale = to
-          document.documentElement.setAttribute('lang', this.language)
+
+          // Persist locale to local storage
+          localStorage.locale = to
         }
       }
     },
     computed: {
       /**
-       * Get the language of the next language in cyclical order.
+       * Get the language other than the current one.
+       * @returns {string} the code of the other language
        */
-      nextLanguage () {
+      otherLanguage () {
         const languageCodes = Object.keys(this.languages)
         let index = languageCodes.indexOf(this.language)
         return languageCodes[++index % languageCodes.length]
       },
       /**
-       * Get the title text that describes the effect of this button.
+       * Get the title text that describes the action this button will perform.
        */
       helpText () {
-        const readableName = this.languages[this.nextLanguage].name
-        const exclamation = this.languages[this.nextLanguage].titleText
+        const readableName = this.languages[this.otherLanguage].name
+        const exclamation = this.languages[this.otherLanguage].titleText
         return `[L] Change language to ${readableName}. ${exclamation}`
       }
     },
@@ -111,15 +116,16 @@
        */
       localeIconClasses (language) {
         return [
-          this.language,
+          language,
           this.language === language ? 'current' : 'other'
         ]
       },
+
       /**
-       * Change the language of the app to the successor of the current one.
+       * Change the language of the app to the other one.
        */
-      cycleLanguage () {
-        this.language = this.nextLanguage
+      switchLanguage () {
+        this.language = this.otherLanguage
       }
     },
     created () {

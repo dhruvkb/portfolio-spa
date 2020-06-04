@@ -3,56 +3,74 @@
     v-shortkey="['t']"
     class="themer"
     :title="helpText"
-    @click="toggleTheme"
-    @shortkey="toggleTheme">
-    <FontAwesomeIcon
-      class="icon"
-      :icon="['fas', 'adjust']"
-      fixed-width/>
+    @click="switchTheme"
+    @shortkey="switchTheme">
+    <FontAwesomeLayers class="iconography">
+      <FontAwesomeIcon
+        class="icon"
+        :class="themerIconClasses('dark')"
+        :icon="['fas', 'moon']"
+        fixed-width/>
+      <FontAwesomeIcon
+        class="icon"
+        :class="themerIconClasses('light')"
+        :icon="['fas', 'sun']"
+        fixed-width/>
+
+      <!-- Adjust with solid background and stroke -->
+      <FontAwesomeIcon
+        class="icon backdrop"
+        :icon="['fas', 'circle']"
+        transform="shrink-2 down-8 right-8"
+        fixed-width/>
+      <FontAwesomeIcon
+        class="icon adjust"
+        :icon="['fas', 'adjust']"
+        transform="shrink-4 down-8 right-8"
+        fixed-width/>
+    </FontAwesomeLayers>
   </button>
 </template>
 
 <script>
   import { library } from '@fortawesome/fontawesome-svg-core'
-  import { faAdjust } from '@fortawesome/free-solid-svg-icons'
-  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+  import {
+    faSun,
+    faMoon,
+    faCircle,
+    faAdjust
+  } from '@fortawesome/free-solid-svg-icons'
+  import {
+    FontAwesomeLayers,
+    FontAwesomeIcon
+  } from '@fortawesome/vue-fontawesome'
 
-  library.add(faAdjust)
+  library.add(faSun, faMoon, faCircle, faAdjust)
 
   /**
-   * This component enables the app to switch between the light and dark
-   * variants of the [Solarized theme by Ethan
-   * Schoonover](https://ethanschoonover.com/solarized/).
+   * This component enables switching between the light and dark variants
+   * of [Solarized by Ethan Schoonover](https://ethanschoonover.com/solarized/).
    */
   export default {
     name: 'Themer',
     components: {
+      FontAwesomeLayers,
       FontAwesomeIcon
     },
     data () {
       return {
+        themes: [
+          'light',
+          'dark'
+        ],
         theme: null
       }
     },
-    computed: {
-      /**
-       * _the theme variant opposite to the current one_
-       */
-      otherTheme () {
-        if (this.theme === 'light') {
-          return 'dark'
-        } else {
-          return 'light'
-        }
-      },
-      /**
-       * _the message indicating the action the component will perform_
-       */
-      helpText () {
-        return `[T] Switch to the ${this.otherTheme} theme.`
-      }
-    },
     watch: {
+      /**
+       * Sync changes from the theme data variable to the root class and
+       * also updates local storage for persistence.
+       */
       theme (to, from) {
         if (to !== from) { // Breaks recursion
           document.documentElement.classList.remove(`${from}-themed`)
@@ -63,11 +81,39 @@
         }
       }
     },
+    computed: {
+      /**
+       * Get the theme variant opposite to the current one.
+       * @returns {string} the name of the opposite theme
+       */
+      otherTheme () {
+        let index = this.themes.indexOf(this.theme)
+        return this.themes[++index % this.themes.length]
+      },
+      /**
+       * Get the title text that describes the action this button will perform.
+       */
+      helpText () {
+        return `[T] Switch to the ${this.otherTheme} theme.`
+      }
+    },
     methods: {
       /**
-       * Change the theme of the app to the opposite of the current one.
+       * Get the classes to apply on the theme representation icon.
+       * @param {string} theme - the theme represented by the icon
+       * @returns {Array} an array of all the classes to apply on the element
        */
-      toggleTheme () {
+      themerIconClasses (theme) {
+        return [
+          theme,
+          this.theme === theme ? 'current' : 'other'
+        ]
+      },
+
+      /**
+       * Change the theme of the app to the other one.
+       */
+      switchTheme () {
         this.theme = this.otherTheme
       }
     },

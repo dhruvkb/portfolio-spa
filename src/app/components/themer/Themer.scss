@@ -13,39 +13,56 @@
 
   --themer-color: var(--inactive-color);
 
-  color: var(--themer-color);
-
   cursor: pointer;
 
-  .icon {
-    transform: rotate(180deg);
+  .iconography {
+    margin-left: -#{$dimen-s};
 
-    transition-property: transform;
-    transition-duration: $duration-s;
-    transition-timing-function: ease;
+    .icon {
+      &.dark,
+      &.light {
+        color: var(--themer-color);
+      }
+
+      &.adjust {
+        color: var(--content-secondary);
+      }
+
+      &.backdrop {
+        color: var(--background);
+      }
+
+      &.current,
+      &.other {
+        transition-property: color, transform;
+        transition-duration: $duration-m;
+      }
+
+      &.current {
+        transform: scale(1);
+      }
+
+      &.other {
+        transform: scale(0);
+      }
+    }
   }
 
   &:hover { // Mouse focus
     --themer-color: var(--active-color);
 
     .icon {
-      transform: rotate(150deg);
+      &.current {
+        transform: scale(0);
+      }
+
+      &.other {
+        transform: scale(1);
+      }
     }
   }
 
   &:focus { // Keyboard focus
     outline: 1px dotted var(--active-color);
-  }
-}
-
-:root.dark-themed .themer {
-  .icon {
-    transform: rotate(-180deg);
-  }
-
-  &:hover { // Mouse focus
-    .icon {
-      transform: rotate(-150deg);
-    }
   }
 }
