@@ -49,7 +49,7 @@
 
   /**
    * This component enables changing languages between English and Pirate-speak
-   * using [Vue i18n by Kazuya Kawaguchi](https://kazupon.github.io/vue-i18n/).
+   * using [Vue i18n by かずぽん](https://kazupon.github.io/vue-i18n/).
    */
   export default {
     name: 'Locale',
