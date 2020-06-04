@@ -91,16 +91,16 @@
     methods: {
       /**
        * Get a relative date from the timestamp.
-       * @param created - computer readable timestamp
-       * @return {string} the date relative to today
+       * @param {string} created - computer readable timestamp
+       * @returns {string} the date relative to today
        */
       relativeDate (created) {
         return moment(created).fromNow()
       },
       /**
        * Get a human-readable date from the timestamp.
-       * @param created - computer readable timestamp
-       * @return {string} the date in a human-readable format
+       * @param {string} created - computer readable timestamp
+       * @returns {string} the date in a human-readable format
        */
       absoluteDate (created) {
         return moment(created).format('Do MMMM, YYYY')

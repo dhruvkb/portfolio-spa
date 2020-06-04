@@ -59,7 +59,7 @@
 
       /**
        * Get the number of columns to span for each device category.
-       * @return {Object} a mapping of device category and column spans
+       * @returns {Object} a mapping of device category and column spans
        */
       spans: function () {
         const spanSet = this.spanSet

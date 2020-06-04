@@ -54,7 +54,7 @@
     computed: {
       /**
        * Get the classes to use on the card.
-       * @return {Array} an array of all the classes to apply on the element
+       * @returns {Array} an array of all the classes to apply on the element
        */
       cardClasses () {
         return [

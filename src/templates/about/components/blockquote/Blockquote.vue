@@ -81,7 +81,7 @@
       },
       /**
        * Get a randomly chosen quote.
-       * @return {{citation: string, quotation: string}} an object with a randomly chosen quote and its author
+       * @returns {Object} a randomly chosen quote and its author
        */
       quote () {
         return this.quotes[Math.floor(Math.random() * this.quotes.length)]
