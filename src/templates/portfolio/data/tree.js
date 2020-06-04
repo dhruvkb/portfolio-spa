@@ -1,5 +1,31 @@
 /**
- * A class that implements the queue data type.
+ * A class that implements one node in a file-system tree. Each node may either
+ * be a file or a folder and may have children if it is a folder.
+ */
+class Node {
+  /**
+   * Create a new object of class Node.
+   *
+   * @constructor
+   * @constructs {Node}
+   *
+   * @param {string} type - the type of Node this is in the filesystem
+   * @param {string} name - the name of the Node
+   * @param {string} alternativeName - an alias for the Node
+   */
+  constructor (type, name, alternativeName = undefined) {
+    this.type = type
+
+    this.name = name
+    this.alternativeName = alternativeName || name
+
+    this.parent = null
+    this.children = []
+  }
+}
+
+/**
+ * A class that implements the FIFO queue data type for Node objects.
  */
 class Queue {
   /**
@@ -11,90 +37,82 @@ class Queue {
   constructor () {
     this.oldestIndex = 1
     this.newestIndex = 1
+
     this.storage = {}
   }
 
+  /**
+   * Get the number of remaining items in the queue.
+   * @return {number} the number of items in the queue
+   */
   size () {
     return this.newestIndex - this.oldestIndex
   }
 
-  enqueue (data) {
-    this.storage[this.newestIndex] = data
+  /**
+   * Add the given Node to the end of the queue.
+   * @param {Node} node - the last-in Node to add to the queue
+   */
+  enqueue (node) {
+    this.storage[this.newestIndex] = node
     this.newestIndex++
   }
 
+  /**
+   * Get the Node from the start of the queue.
+   * @return {Node} the first-out Node to get from the queue
+   */
   dequeue () {
     const oldestIndex = this.oldestIndex
     const newestIndex = this.newestIndex
-    let deletedData
+    let node
 
     if (oldestIndex !== newestIndex) {
-      deletedData = this.storage[oldestIndex]
+      node = this.storage[oldestIndex]
+
       delete this.storage[oldestIndex]
       this.oldestIndex++
-      return deletedData
+
+      return node
     }
   }
 }
 
 /**
- * A class that implements one node in the tree data type.
- *
- * Here each node refers to an entity on a given file system which may be a file
- * or a folder.
- */
-class Node {
-  /**
-   * Create a new object of class Node.
-   *
-   * @constructor
-   * @param {string} name - the name of the node
-   * @param {string} alternativeName - an alias that refers to this node
-   * @param {string} type - the type of node this is in the filesystem
-   * @constructs {Node}
-   */
-  constructor (name, alternativeName, type) {
-    this.name = name
-    if (alternativeName === undefined) {
-      this.alternativeName = name
-    } else {
-      this.alternativeName = alternativeName
-    }
-    this.type = type
-
-    this.parent = null
-    this.children = []
-  }
-}
-
-/**
- * A class that implements the tree data type.
- *
- * Here the tree refers to the directory structure on a given file system.
+ * A class that implements the tree data type for Node objects.
  */
 class Tree {
   /**
    * Create a new object of class Tree.
    *
    * @constructor
-   * @param root {Node} - the root node of the tree
    * @constructs {Tree}
+   *
+   * @param {Node} root - the root Node of the tree
    */
   constructor (root) {
-    root.parent = root
+    root.parent = root // Allows `cd ..` any number of times
     this.root = root
   }
 
-  traverseDepthFirst (callback) {
+  /**
+   * Traverse the tree using the DFT algorithm.
+   * @param {function} callbackFn - the function to execute on each node
+   */
+  traverseDepthFirst (callbackFn) {
     (function recurse (currentNode) {
       currentNode.children.forEach(child => {
         recurse(child)
       })
-      callback(currentNode)
+      callbackFn(currentNode)
     })(this.root)
   }
 
-  traverseBreadthFirst (callback) {
+  /**
+   * Traverse the tree using the BFT algorithm.
+   * @param {function} callbackFn - the function to execute on each node
+   */
+  traverseBreadthFirst (callbackFn) {
     const queue = new Queue()
     queue.enqueue(this.root)
     let currentTree = queue.dequeue()
@@ -102,23 +120,36 @@ class Tree {
       currentTree.children.forEach(child => {
         queue.enqueue(child)
       })
-      callback(currentTree)
+      callbackFn(currentTree)
       currentTree = queue.dequeue()
     }
   }
 
-  contains (callback, traversal) {
-    traversal.call(this, callback)
+  /**
+   * Traverse the tree with the given function and perform the given action
+   * on all Nodes encountered during the traversal.
+   * @param {function} callbackFn - the action to perform on the traversed Nodes
+   * @param {function} traversalFn - the traversal function to employ
+   */
+  traverse (traversalFn, callbackFn) {
+    traversalFn.apply(this, [callbackFn]) // Call traversal, with this as context
   }
 
-  add (node, parentName, traversal) {
+  /**
+   * Add the given Node to the tree under the Node with the specified name.
+   * @param {Node} node - the Node to add to the tree
+   * @param {string} parentName - the name of the Node above this one
+   * @param {function} traversalFn - the traversal function to employ
+   */
+  add (node, parentName, traversalFn) {
     let parent = null
-    const callback = function (node) {
+
+    this.traverse(traversalFn, (node) => {
       if (node.name === parentName) {
         parent = node
       }
-    }
-    this.contains(callback, traversal)
+    })
+
     if (parent) {
       parent.children.push(node)
       node.parent = parent
@@ -130,15 +161,14 @@ class Tree {
 
 /**
  * Create an object of class Tree using the JSON tree object.
- *
  * @param {Object} basicTree - the JSON object to convert to a tree
- * @return {Tree} the Tree object generated by traversing basicTree
+ * @returns {Tree} the Tree object generated by traversing basicTree
  */
 function generateTree (basicTree) {
   const node = new Node(
+    basicTree.type,
     basicTree.name,
-    basicTree.alternativeName,
-    basicTree.type
+    basicTree.alternativeName
   )
   const tree = new Tree(node)
 
@@ -149,7 +179,6 @@ function generateTree (basicTree) {
 
 /**
  * Populate the object of class Tree by recursively traversing the JSON tree.
- *
  * @param {Tree} tree - the Tree object being populated
  * @param {Object} basicNode - the current JSON node to traverse
  */
@@ -159,9 +188,9 @@ function populateTree (tree, basicNode) {
   for (let i = 0; i < basicChildren.length; i++) {
     const basicChild = basicChildren[i]
     const childNode = new Node(
+      basicChild.type,
       basicChild.name,
-      basicChild.alternativeName,
-      basicChild.type
+      basicChild.alternativeName
     )
 
     tree.add(childNode, basicNode.name, tree.traverseBreadthFirst)
