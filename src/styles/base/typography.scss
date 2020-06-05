@@ -43,10 +43,6 @@ pre, code {
   font-family: $family-code;
 }
 
-a {
-  text-decoration: none;
-}
-
 div, span {
   &.boxed {
     border: 1px solid var(--primary-color);
