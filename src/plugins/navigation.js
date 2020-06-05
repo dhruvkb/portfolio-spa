@@ -15,5 +15,13 @@ export default {
           }
         })
     }
+
+    Vue.prototype.$navigateOutTo = function (to, useNewTab = true) {
+      if (useNewTab) {
+        return window.open(to, '_blank')
+      } else {
+        window.location.href = to
+      }
+    }
   }
 }

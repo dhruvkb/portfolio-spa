@@ -3,9 +3,10 @@
     v-shortkey="['s']"
     tabindex="0"
     class="source"
-    href="https://github.com/dhruvkb/portfolio/"
+    :href="url"
     target="_blank"
-    title="[S] See the source code.">
+    title="[S] See the source code."
+    @shortkey="$navigateOutTo(url)">
     <FontAwesomeIcon
       class="icon"
       :icon="['fab', 'github']"
@@ -24,6 +25,11 @@
     name: 'Source',
     components: {
       FontAwesomeIcon
+    },
+    data () {
+      return {
+        url: 'https://github.com/dhruvkb/portfolio/'
+      }
     }
   }
 </script>
