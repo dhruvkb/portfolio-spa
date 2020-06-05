@@ -92,7 +92,6 @@
           const fileName = this.node.name
           filePath = `${dirName}/${fileName}.content.html`
         }
-        console.log(require(`@/assets/content/${filePath}`))
         return require(`@/assets/content/${filePath}`)
       },
 
