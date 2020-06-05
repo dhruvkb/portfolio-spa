@@ -29,7 +29,7 @@
        * ```
        * [desktop]
        * [phone, desktop]
-       * [phone, desktop-standard, desktop-big]
+       * [phone, tablet, desktop]
        * [phone, tablet, desktop-standard, desktop-big]
        * [phone, tablet-portrait, tablet-landscape, desktop-standard, desktop-big]
        * ```
@@ -92,8 +92,8 @@
           case 3:
             [
               phone,
-              desktopStandard,
-              desktopBig
+              tablet,
+              desktop
             ] = spanSet
             break
           case 4:

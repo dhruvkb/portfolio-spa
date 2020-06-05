@@ -113,10 +113,15 @@
     },
     methods: {
       spanSet (index) {
-        if (index === 0) {
-          return [12]
-        } else {
-          return [12, 6, 4]
+        switch (index) {
+          case 0:
+            return [12, 12, 12, 12, 6]
+          case 1:
+            return [12, 12, 6, 6, 6]
+          case 2:
+          case 3:
+          case 4:
+            return [12, 12, 6, 6, 4]
         }
       },
 
