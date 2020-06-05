@@ -4,6 +4,7 @@
       <section
         class="section"
         id="first"
+        @click="toggleDrawing"
         @mousemove="drawErrorWithMouse"
         @touchstart="drawErrorWithTouch"
         @touchmove="drawErrorWithTouch">
@@ -47,6 +48,7 @@
     name: 'FourOhFour',
     data () {
       return {
+        isDrawing: true,
         canvas: null,
         context: null,
         errorImage: {
@@ -77,6 +79,12 @@
         this.context.scale(dpr, dpr)
       },
       /**
+       * Turn off the drawing of the error window. It can get annoying.
+       */
+      toggleDrawing () {
+        this.isDrawing = !this.isDrawing
+      },
+      /**
        * Draw an error window at the position of the mouse.
        *
        * @param {Event} event - the information about the mouse move event
@@ -103,13 +111,15 @@
        * @param {number} y - the vertical position of the error window
        */
       drawError (x, y) {
-        this.context.drawImage(
-          this.$refs.errorImage,
-          x - (this.errorImage.width / 2),
-          y - 16,
-          this.errorImage.width,
-          this.errorImage.height
-        )
+        if (this.isDrawing) {
+          this.context.drawImage(
+            this.$refs.errorImage,
+            x - (this.errorImage.width / 2),
+            y - 16,
+            this.errorImage.width,
+            this.errorImage.height
+          )
+        }
       }
     },
     mounted () {
