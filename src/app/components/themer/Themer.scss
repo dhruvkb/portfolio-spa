@@ -39,7 +39,7 @@
       }
 
       &.current {
-        transform: scale(1);
+        transform: scaleX(-1);
       }
 
       &.other {
@@ -57,7 +57,7 @@
       }
 
       &.other {
-        transform: scale(1);
+        transform: scaleX(-1);
       }
     }
   }
