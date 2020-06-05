@@ -23,9 +23,11 @@
 
     <div class="stuff">
       <RouterLink
+        class="title-link"
+        :class="`${color}-colored`"
         :to="{name: 'post', params: {slug: post.slug}}"
         :title="`Read '${post.title}'.`">
-        <h6 :class="`${color}-colored`">
+        <h6>
           {{ post.title }}
         </h6>
       </RouterLink>

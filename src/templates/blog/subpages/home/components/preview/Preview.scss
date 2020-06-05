@@ -11,6 +11,14 @@
     }
   }
 
+  .title-link {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   .stuff {
     align-self: flex-start;
 
