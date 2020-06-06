@@ -1,0 +1,10 @@
+@import '~@/styles/tokens/dimensions';
+@import '~@/styles/tokens/sizes';
+
+.metadata {
+  font-size: $size-s;
+
+  .created-at {
+    margin-right: $dimen-m;
+  }
+}

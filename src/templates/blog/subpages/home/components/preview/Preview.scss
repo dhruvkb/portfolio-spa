@@ -3,14 +3,6 @@
 @import '~@/styles/tokens/dimensions.scss';
 
 .preview {
-  .top {
-    font-size: $size-s;
-
-    .created-at {
-      margin-right: $dimen-m;
-    }
-  }
-
   .title-link {
     text-decoration: none;
 
