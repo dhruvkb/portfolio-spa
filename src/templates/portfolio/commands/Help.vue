@@ -143,6 +143,8 @@
 </script>
 
 <style scoped lang="scss">
+  @import '~@/styles/utils/media';
+
   .help {
     ul {
       list-style: none;
@@ -152,7 +154,10 @@
       margin: 0;
 
       &.command-list {
-        columns: 2;
+        $devices: 'tablet', 'desktop';
+        @include device-specific($devices) {
+          columns: 2;
+        }
       }
     }
   }
