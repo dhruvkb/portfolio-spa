@@ -15,5 +15,5 @@
   }
 </script>
 
-<style scoped lang="stylus" src="./Home.styl">
+<style scoped lang="scss" src="./Home.scss">
 </style>

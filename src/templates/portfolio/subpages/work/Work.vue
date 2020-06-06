@@ -48,5 +48,5 @@
   }
 </script>
 
-<style scoped lang="stylus" src="./Work.styl">
+<style scoped lang="scss" src="./Work.scss">
 </style>
