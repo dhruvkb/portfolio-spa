@@ -15,14 +15,14 @@
 / _  // _ \ / __// // /| |/ //  '_// _ \
 \_,_//_//_//_/   \_,_/ |___//_/\_\/_.__/</pre>
     </div>
-    <div>
+    <div class="resume">
       <strong>résumés: </strong>
-      <div>
+      <div class="links">
         <a
           v-for="(resume, index) in resumes"
           v-shortkey="[resume.shortkey]"
           :key="index"
-          class="resume-link yellow-colored inverted"
+          class="link yellow-colored inverted"
           :href="resume.url"
           target="_blank"
           :title="resumeLinkTitleText(resume.shortkey, resume.name)"
@@ -35,7 +35,7 @@
         <a
           v-shortkey="['s']"
           :key="index"
-          class="resume-link yellow-colored boxed"
+          class="link yellow-colored boxed"
           :href="resumeRepoUrl"
           target="_blank"
           title="[S] See the LaTeX source code."
@@ -93,16 +93,18 @@
 </script>
 
 <style scoped lang="scss">
-  @import '~@/styles/tokens/dimensions.scss';
-  @import '~@/styles/tokens/sizes.scss';
-  @import '~@/styles/tokens/weights.scss';
+  @import '~@/styles/tokens/dimensions';
+  @import '~@/styles/tokens/sizes';
+  @import '~@/styles/tokens/weights';
 
-  @import '~@/styles/utils/media.scss';
+  @import '~@/styles/utils/media';
 
   .intro {
     .ascii-art {
       font-size: $size-xs;
       font-weight: $weight-semibold;
+
+      background-color: transparent;
 
       margin: -#{$dimen-line} 0 0 0;
 
@@ -121,18 +123,32 @@
       }
     }
 
-    .resume-link {
-      display: inline-block;
+    .resume {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
 
-      text-decoration: none;
+      margin-top: $dimen-line;
 
-      margin-right: 1ch;
+      .links {
+        display: inline-block;
 
-      $devices: 'phone';
-      @include device-specific($devices) {
-        display: block;
+        margin-left: 1ch;
 
-        margin-bottom: $dimen-xs;
+        .link {
+          display: inline-block;
+
+          text-decoration: none;
+
+          margin-right: 1ch;
+
+          $devices: 'phone';
+          @include device-specific($devices) {
+            display: block;
+
+            margin-bottom: $dimen-xs;
+          }
+        }
       }
     }
   }
