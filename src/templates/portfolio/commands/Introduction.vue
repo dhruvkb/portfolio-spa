@@ -34,7 +34,6 @@
         </a>
         <a
           v-shortkey="['s']"
-          :key="index"
           class="link yellow-colored boxed"
           :href="resumeRepoUrl"
           target="_blank"
