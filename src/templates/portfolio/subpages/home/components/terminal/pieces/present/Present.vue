@@ -57,6 +57,14 @@
         }
       }
     },
+    watch: {
+      interactionHistory () {
+        this.scrollToCommandField()
+      },
+      isProcessing () {
+        this.scrollToCommandField()
+      }
+    },
     computed: {
       commandFieldStyles () {
         return {
@@ -156,14 +164,6 @@
       ...mapActions('portfolio', [
         'runCommand'
       ])
-    },
-    watch: {
-      interactionHistory () {
-        this.scrollToCommandField()
-      },
-      isProcessing () {
-        this.scrollToCommandField()
-      }
     },
     mounted () {
       this.$refs.commandField.focus()
