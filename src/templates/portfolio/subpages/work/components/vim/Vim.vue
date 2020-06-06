@@ -14,7 +14,9 @@
    */
   export default {
     name: 'Vim',
-    components: { Concatenate },
+    components: {
+      Concatenate
+    },
     props: {
       /**
        * _the name of the file to open in the terminal_
