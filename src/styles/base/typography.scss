@@ -42,9 +42,3 @@ $heading-sizes: (
 pre, code {
   font-family: $family-code;
 }
-
-div, span {
-  &.boxed {
-    border: 1px solid var(--primary-color);
-  }
-}
