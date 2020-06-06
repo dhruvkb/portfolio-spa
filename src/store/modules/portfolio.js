@@ -102,19 +102,21 @@ const mutations = {
 
 const actions = {
   runCommand ({ commit }, payload) {
+    const directory = state.currentNode.name
+    const context = {
+      directory
+    }
+
     const command = payload.command
 
+    const bins = Object.keys(mapping)
     const [bin, ...argv] = command.split(' ')
 
-    const directory = state.currentNode.name
-
     const input = {
-      command,
-      directory
+      command
     }
     const output = {}
 
-    const bins = Object.keys(mapping)
     if (bins.includes(bin)) {
       if (mapping[bin].isLongTerm) {
         commit('setIsProcessing', {
@@ -131,6 +133,7 @@ const actions = {
 
     commit('pushInteraction', {
       interaction: {
+        context,
         input,
         output,
         isVisible: true
