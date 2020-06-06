@@ -49,6 +49,9 @@
 
   import '@/styles/utils/prism.scss'
 
+  /**
+   * This is one blog post. It contains the complete content from the post,
+   */
   export default {
     name: 'Post',
     components: {
