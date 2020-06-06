@@ -1,7 +1,10 @@
 <template>
   <span class="prompt">
-    [guest@dhruvkb
-    <span class="directory">{{directory}}</span>]$</span>
+    <span class="big">
+      [guest@dhruvkb <span class="directory">{{directory}}</span>]$</span>
+    <span class="small">
+      <span class="directory">{{directory}}</span>$</span>
+  </span>
 </template>
 
 <script>
@@ -10,7 +13,7 @@
    * current directory (as of printing).
    */
   export default {
-    name: 'TerminalPrompt',
+    name: 'Prompt',
     props: {
       /**
        * _the directory to display in the prompt_
@@ -23,5 +26,5 @@
   }
 </script>
 
-<style scoped lang="stylus" src="./Prompt.styl">
+<style scoped lang="scss" src="./Prompt.scss">
 </style>

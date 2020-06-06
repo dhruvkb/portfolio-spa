@@ -1,0 +1,72 @@
+@import '~@/styles/tokens/colors';
+@import '~@/styles/tokens/dimensions';
+@import '~@/styles/tokens/durations';
+@import '~@/styles/tokens/weights';
+
+@import '~@/styles/utils/controls';
+@import '~@/styles/utils/media';
+
+.present {
+  cursor: url('~@/assets/svgs/keyboard.svg') 16 16, crosshair;
+
+  .prompt-label {
+    font-weight: $weight-semibold;
+
+    cursor: inherit;
+  }
+
+  .command-field {
+    @include reset-control;
+
+    position: relative;
+    z-index: 1;
+
+    color: var(--text-color);
+    text-align: right;
+    caret-color: transparent;
+
+    border-radius: 0;
+
+    &:focus {
+      outline: none;
+
+      & + .faux-caret {
+        background-color: adjust_color($color-accent-blue, $alpha: -0.7);
+        border-color: $color-accent-blue;
+      }
+    }
+
+    $devices: 'phone';
+    @include device-specific($devices) {
+      width: 100%;
+    }
+  }
+
+  .faux-caret {
+    display: inline-block;
+
+    position: relative;
+    top: 0.8ex; // Move below baseline
+    z-index: 0;
+
+    border: 1px solid var(--content-secondary);
+
+    height: 2.8ex;
+    width: calc(1ch - 2px); // 1px border on both sides
+
+    transition-property: border-color;
+    transition-duration: $duration-m;
+  }
+}
+
+:root.dark-themed {
+  .present {
+    --text-color: white;
+  }
+}
+
+:root.light-themed {
+  .present {
+    --text-color: black;
+  }
+}

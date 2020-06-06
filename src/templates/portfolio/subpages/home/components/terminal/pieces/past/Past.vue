@@ -4,7 +4,7 @@
       <div
         class="interaction"
         :key="index">
-        <Prompt :directory="interaction.input.directory"/>
+        <Prompt :directory="interaction.context.directory"/>
         <template>{{ interaction.input.command }}</template>
         <component
           class="output"
@@ -27,7 +27,7 @@
    * interactions the user has had with the terminal leading upto the present.
    */
   export default {
-    name: 'TerminalPast',
+    name: 'Past',
     components: {
       Prompt,
 
@@ -48,5 +48,5 @@
   }
 </script>
 
-<style scoped lang="stylus" src="./Past.styl">
+<style scoped lang="scss" src="./Past.scss">
 </style>
