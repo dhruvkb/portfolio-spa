@@ -8,7 +8,7 @@
 
 @import '~@/styles/mixins/colored';
 
-@import '~@/styles/utils/media.scss';
+@import '~@/styles/utils/media';
 
 .header .anchor {
   @include bar-item;

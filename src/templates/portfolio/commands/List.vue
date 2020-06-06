@@ -95,7 +95,7 @@
 </script>
 
 <style scoped lang="scss">
-  @import '~@/styles/utils/media.scss';
+  @import '~@/styles/utils/media';
 
   .ls {
     ul {
