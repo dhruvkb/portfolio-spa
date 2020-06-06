@@ -10,7 +10,7 @@
   import Vim from './components/vim/Vim'
 
   export default {
-    name: 'PortfolioWork',
+    name: 'Work',
     components: {
       Vim
     },

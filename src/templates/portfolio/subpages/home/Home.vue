@@ -8,7 +8,7 @@
   import Terminal from './components/terminal/Terminal'
 
   export default {
-    name: 'PortfolioHome',
+    name: 'Home',
     components: {
       Terminal
     }
