@@ -39,6 +39,14 @@ $heading-sizes: (
   }
 }
 
-pre, code {
+pre:not([class*="language-"]),
+code:not([class*="language-"]) {
   font-family: $family-code;
+  font-size: calc(14em / 16);
+
+  background-color: var(--background-highlighted);
+
+  padding: $dimen-xs;
+
+  border-radius: 0.3em; // copied from Prism
 }

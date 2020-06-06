@@ -1,0 +1,25 @@
+@import '~@/styles/tokens/colors';
+@import '~@/styles/tokens/dimensions';
+
+@import '~@/styles/base';
+
+@import '~@/styles/utils/prism';
+
+h2, h3, h4, h5, h6 {
+  color: var(--content-highlighted);
+  font-family: $family-body;
+
+  margin-top: $dimen-s;
+}
+
+pre[class*="language-"] {
+  background-color: var(--background-highlighted);
+
+  padding: $dimen-s;
+
+  margin-top: $dimen-m;
+  margin-bottom: $dimen-m;
+
+  transition-property: color, background-color;
+  transition-duration: $duration-m;
+}

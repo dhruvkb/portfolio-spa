@@ -1,0 +1,34 @@
+@import '~@/styles/tokens/dimensions';
+@import '~@/styles/tokens/fonts';
+@import '~@/styles/tokens/sizes';
+
+@import '~@/styles/layouts/content';
+
+.post {
+  @include content;
+
+  .body {
+    box-sizing: border-box;
+
+    width: calc(100vw - 2 * #{$dimen-m});
+    max-width: 50em;
+
+    margin: auto;
+
+    h1 {
+      font-family: $family-body;
+    }
+
+    ::v-deep { // To style v-html content
+      .content {
+        @import '~@/styles/scopes/post';
+      }
+    }
+
+    .footer {
+      border-top: 1px solid var(--content-secondary);
+
+      margin-top: $dimen-l;
+    }
+  }
+}
