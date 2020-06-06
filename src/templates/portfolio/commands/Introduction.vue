@@ -15,35 +15,48 @@
 / _  // _ \ / __// // /| |/ //  '_// _ \
 \_,_//_//_//_/   \_,_/ |___//_/\_\/_.__/</pre>
     </div>
-    <p>
-      <strong>résumé: </strong>
-      <span class="yellow-colored boxed">
-        <a href="https://dhruvkb.github.io/resume/developer.pdf" target="_blank">
-          <strong>software developer</strong>
+    <div>
+      <strong>résumés: </strong>
+      <div>
+        <a
+          v-for="(resume, index) in resumes"
+          v-shortkey="[resume.shortkey]"
+          :key="index"
+          class="resume-link yellow-colored inverted"
+          :href="resume.url"
+          target="_blank"
+          :title="resumeLinkTitleText(resume.shortkey, resume.name)"
+          @shortkey="$navigateOutTo(resume.url)">
           <FontAwesomeIcon
             :icon="['fas', 'download']"
             fixed-width/>
+          <span>{{ resume.name }}</span>
         </a>
-      </span>
-      and
-      <span class="yellow-colored boxed">
-        <a href="https://dhruvkb.github.io/resume/writer.pdf" target="_blank">
-          <strong>technical writer</strong>
+        <a
+          v-shortkey="['s']"
+          :key="index"
+          class="resume-link yellow-colored boxed"
+          :href="resumeRepoUrl"
+          target="_blank"
+          title="[S] See the LaTeX source code."
+          @shortkey="$navigateOutTo(resumeRepoUrl)">
           <FontAwesomeIcon
-            :icon="['fas', 'download']"
+            :icon="['fab', 'github']"
             fixed-width/>
+          <span>source code</span>
         </a>
-      </span>
-    </p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
   import { library } from '@fortawesome/fontawesome-svg-core'
   import { faDownload } from '@fortawesome/free-solid-svg-icons'
+  import { faGithub } from '@fortawesome/free-brands-svg-icons'
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-  library.add(faDownload)
+  library.add(faDownload, faGithub)
 
   /**
    * This command presents the introductory ASCII art.
@@ -52,6 +65,29 @@
     name: 'Introduction',
     components: {
       FontAwesomeIcon
+    },
+    data () {
+      const resumeBaseUrl = 'https://dhruvkb.github.io/resume'
+      return {
+        resumeRepoUrl: 'https://github.com/dhruvkb/resume/',
+        resumes: [
+          {
+            name: 'software developer',
+            url: `${resumeBaseUrl}/developer.pdf`,
+            shortkey: 'd' // 'd' for Developer
+          },
+          {
+            name: 'technical writer',
+            url: `${resumeBaseUrl}/writer.pdf`,
+            shortkey: 'w' // 'w' for Writer
+          }
+        ]
+      }
+    },
+    methods: {
+      resumeLinkTitleText (shortkey, name) {
+        return `[${shortkey.toLocaleUpperCase()}] See my résumé as a ${name}.`
+      }
     }
   }
 </script>
@@ -82,6 +118,21 @@
         @include device-specific($devices) {
           display: none;
         }
+      }
+    }
+
+    .resume-link {
+      display: inline-block;
+
+      text-decoration: none;
+
+      margin-right: 1ch;
+
+      $devices: 'phone';
+      @include device-specific($devices) {
+        display: block;
+
+        margin-bottom: $dimen-xs;
       }
     }
   }
