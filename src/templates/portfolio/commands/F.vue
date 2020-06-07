@@ -1,7 +1,7 @@
 <template>
   <div class="f">
     <template v-if="paid">
-      <span class="green-colored inverted">
+      <span class="green-colored">
         <FontAwesomeIcon
           :icon="['fas', 'check']"
           fixed-width/>
@@ -9,9 +9,9 @@
       </span>
     </template>
     <template v-else>
-      <span class="yellow-colored inverted">
+      <span class="yellow-colored">
         <FontAwesomeIcon
-          :icon="['fas', 'circle-notch']"
+          :icon="['fas', 'dharmachakra']"
           fixed-width
           spin/>
         Paying respects…
@@ -22,10 +22,10 @@
 
 <script>
   import { library } from '@fortawesome/fontawesome-svg-core'
-  import { faCheck, faCircleNotch } from '@fortawesome/free-solid-svg-icons'
+  import { faCheck, faDharmachakra } from '@fortawesome/free-solid-svg-icons'
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-  library.add(faCheck, faCircleNotch)
+  library.add(faCheck, faDharmachakra)
 
   export default {
     name: 'F',
