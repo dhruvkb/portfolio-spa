@@ -53,8 +53,8 @@
         context: null,
         errorImage: {
           source: errorSvg,
-          width: 288,
-          height: 162
+          width: 240,
+          height: 135
         }
       }
     },
