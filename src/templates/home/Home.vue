@@ -65,8 +65,8 @@
               <br/>
               <span
                 class="secondary-colored"
-                :title="`${$t('3m')}${$t('fullstop')}`">
-                {{ $t('other') }}{{ $t('fullstop') }}
+                :title="$t('3m')">
+                {{ $t('other') }}
               </span>
             </p>
           </GridCell>

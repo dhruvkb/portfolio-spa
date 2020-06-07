@@ -15,7 +15,7 @@
     <div
       class="fullstop"
       :class="roleTextClasses">
-      {{ $t('fullstop') }}
+      .
     </div>
     <div
       class="arrow"
