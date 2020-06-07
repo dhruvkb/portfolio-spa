@@ -46,13 +46,15 @@
     display: inline-block;
 
     position: relative;
-    top: 0.8ex; // Move below baseline
+    top: 0.8ex; // Move caret below the baseline
     z-index: 0;
 
     border: 1px solid var(--content-secondary);
 
-    height: 2.8ex;
-    width: calc(1ch - 2px); // 1px border on both sides
+    height: calc(1.4 * #{$dimen-line}); // Multiply with line height of 1.4
+    width: calc(1ch - 2px); // Account for 1px border on left and right sides
+
+    margin-top: -0.8ex; // Remove the space left on the top
 
     transition-property: border-color;
     transition-duration: $duration-m;
