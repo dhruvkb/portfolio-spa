@@ -56,5 +56,5 @@
   }
 </script>
 
-<style scoped lang="stylus" src="./Terminal.styl">
+<style scoped lang="scss" src="./Terminal.scss">
 </style>
