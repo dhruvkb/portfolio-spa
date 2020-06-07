@@ -33,6 +33,20 @@
       & + .faux-caret {
         background-color: adjust_color($color-accent-blue, $alpha: -0.7);
         border-color: $color-accent-blue;
+
+        @keyframes blink {
+          0%, 49%, 100% {
+            opacity: 1;
+          }
+
+          50%, 99% {
+            opacity: 0;
+          }
+        }
+
+        animation-name: blink;
+        animation-iteration-count: infinite;
+        animation-duration: $duration-l;
       }
     }
 
@@ -46,15 +60,18 @@
     display: inline-block;
 
     position: relative;
-    top: 0.8ex; // Move caret below the baseline
+    top: 0.6ex; // Align caret precisely
     z-index: 0;
 
     border: 1px solid var(--content-secondary);
 
-    height: calc(1.4 * #{$dimen-line}); // Multiply with line height of 1.4
+    height: $dimen-line;
     width: calc(1ch - 2px); // Account for 1px border on left and right sides
 
     margin-top: -0.8ex; // Remove the space left on the top
+
+    transform: scaleY(1.4); // Multiply with line height of 1.4
+    transform-origin: 50% calc(50% + 0.4ex); // Grow the caret about the center
 
     transition-property: border-color;
     transition-duration: $duration-m;
