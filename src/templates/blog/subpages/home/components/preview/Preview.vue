@@ -21,6 +21,7 @@
       </div>
 
       <RouterLink
+        class="read-more-link"
         :to="{name: 'post', params: {slug: post.slug}}"
         :title="`Read '${post.title}'.`">
         <div :class="['read-more', `${color}-colored`]">
