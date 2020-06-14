@@ -83,18 +83,7 @@
             </Card>
           </GridCell>
 
-          <GridCell :span-set="[12, 4, 4, 4, 4]">
-            <Card
-              :color="randomizedColors[2]"
-              title="Current computer">
-              <Couplet
-                :class="`${randomizedColors[2]}-colored`"
-                dom="ThinkPad X220"
-                sub="+ 7 row keyboard"/>
-            </Card>
-          </GridCell>
-
-          <GridCell :span-set="[12, 4, 4, 4, 4]">
+          <GridCell :span-set="[12, 6, 4, 4, 4]">
             <Card
               :color="randomizedColors[2]"
               title="Work computer">
@@ -105,7 +94,7 @@
             </Card>
           </GridCell>
 
-          <GridCell :span-set="[12, 4, 4, 4, 4]">
+          <GridCell :span-set="[12, 6, 4, 4, 4]">
             <Card
               :color="randomizedColors[2]"
               title="First computer">
@@ -113,6 +102,17 @@
                 :class="`${randomizedColors[2]}-colored`"
                 dom="Pentium III"
                 sub="+ chonky CRT"/>
+            </Card>
+          </GridCell>
+
+          <GridCell :span-set="[12, 12, 4, 4, 4]">
+            <Card
+              :color="randomizedColors[2]"
+              title="Current computer">
+              <Couplet
+                :class="`${randomizedColors[2]}-colored`"
+                dom="ThinkPad X220"
+                sub="+ 7 row keyboard"/>
             </Card>
           </GridCell>
 
