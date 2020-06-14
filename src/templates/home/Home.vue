@@ -11,8 +11,8 @@
                 class="memoji-link"
                 tabindex="-1"
                 :to="{name: 'portfolio'}"
-                @mouseenter.native="stopLooping"
-                @mouseleave.native="startLooping">
+                @mouseenter.native="focusPortfolioLink"
+                @mouseleave.native="blurPortfolioLink">
                 <Memoji
                   :index="index"
                   :color="$getSolarizedColor(index)"
@@ -37,8 +37,8 @@
                 tabindex="0"
                 :to="{name: 'portfolio'}"
                 title="See my portfolio."
-                @mouseenter.native="stopLooping"
-                @mouseleave.native="startLooping"
+                @mouseenter.native="focusPortfolioLink"
+                @mouseleave.native="blurPortfolioLink"
                 @focus.native="focusPortfolioLink"
                 @blur.native="blurPortfolioLink">
                 <Role
