@@ -50,7 +50,7 @@
   import '@/styles/utils/prism.scss'
 
   /**
-   * This is one blog post. It contains the complete content from the post,
+   * This is one blog post. It contains the complete content from the post.
    */
   export default {
     name: 'Post',
@@ -102,6 +102,8 @@
        * Markdown content of the post.
        */
       loadContent () {
+        document.title = 'Dhruv Bhanushali - Blog post'
+
         axios
           .get(this.url, {
             params: {
@@ -110,7 +112,7 @@
           })
           .then(response => {
             const { post } = response.data
-
+            document.title = document.title.replace('Blog post', post.title)
             setTimeout(() => {
               this.post = post
             }, 1000)
