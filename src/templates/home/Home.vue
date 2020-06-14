@@ -49,19 +49,12 @@
             </p>
 
             <p>
-              <i18n path="composes" tag="span">
-                <template #love>
-                  <strong>{{ $t('love') }}</strong>
-                </template>
-                <template #passion>
-                  <strong>{{ $t('passion') }}</strong>
-                </template>
-                <template #meticulousness>
-                  <strong>{{ $t('meticulousness') }}</strong>
-                </template>
-              </i18n>
+              {{ $t('with') }}
               <br/>
-              {{ $t('compositions') }}
+              {{ $t('i') }}
+              <Work
+                :index="index"
+                :is-focused="isPortfolioLinkFocused"/>
               <br/>
               <span
                 class="secondary-colored"
@@ -89,6 +82,7 @@
   import Kaomoji from './components/kaomoji/Kaomoji'
   import Memoji from './components/memoji/Memoji'
   import Role from './components/role/Role'
+  import Work from './components/work/Work'
   import Source from './components/source/Source'
 
   /**
@@ -105,6 +99,7 @@
       Kaomoji,
       Memoji,
       Role,
+      Work,
       Source
     },
     data () {

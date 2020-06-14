@@ -1,0 +1,48 @@
+{
+  "en": {
+    "works": {
+      "compose_code": {
+        "main": "compose {one} and {two} code",
+        "adjectives": {
+          "one": "clean",
+          "two": "maintainable"
+        }
+      },
+      "author_docs": {
+        "main": "author {one} and {two} documentation",
+        "adjectives": {
+          "one": "helpful",
+          "two": "informative"
+        }
+      },
+      "ship_containers": {
+        "main": "ship {one} and {two} containers",
+        "adjectives": {
+          "one": "scalable",
+          "two": "production-ready"
+        }
+      },
+      "craft_experiences": {
+        "main": "craft {one} and {two} experiences",
+        "adjectives": {
+          "one": "functional",
+          "two": "accessible"
+        }
+      },
+      "build_communities": {
+        "main": "build {one} and {two} communities",
+        "adjectives": {
+          "one": "vibrant",
+          "two": "thriving"
+        }
+      },
+      "evoke_emotions": {
+        "main": "evoke emotions of {one} and {two}",
+        "adjectives": {
+          "one": "delight",
+          "two": "joy"
+        }
+      }
+    }
+  }
+}

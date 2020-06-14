@@ -3,20 +3,15 @@
     "hello": "Hello there",
     "iam": "I am",
     "hats": "and I wear many hats.",
-    "composes": "With utmost {meticulousness}, {love} and {passion},",
-    "compositions": "I compose code, docs, designs, containers and easter eggs",
-    "meticulousness": "meticulousness",
-    "love": "love",
-    "passion": "passion",
-    "other": "amongst other things.",
+    "with": "With utmost meticulousness, love and passion,",
+    "i": "I",
+    "other": "and also enjoy other things.",
     "3m": "Such as movies, music and memes!"
   },
   "pr": {
     "hello": "Ahoy, me hearties",
     "hats": "and I am the captain now.",
-    "composes": "With bountiful {meticulousness}, {love} and {passion},",
-    "meticulousness": "attention to detail",
-    "love": "heart",
+    "with": "With bountiful attention to detail, heart and passion,",
     "3m": "Such as hornpipe music!"
   }
 }
