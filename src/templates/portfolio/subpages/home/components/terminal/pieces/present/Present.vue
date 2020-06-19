@@ -84,7 +84,7 @@
        */
       commandFieldStyles () {
         return {
-          width: `${this.command.length}ch`
+          '--characters-filled': `${this.command.length}ch`
         }
       },
       /**
@@ -93,7 +93,7 @@
        */
       fauxCaretStyles () {
         return {
-          left: `${this.caretPosition - this.command.length}ch`
+          '--characters-displaced': `${this.caretPosition - this.command.length}ch`
         }
       },
 

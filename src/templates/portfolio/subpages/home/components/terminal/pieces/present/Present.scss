@@ -25,6 +25,8 @@
     text-align: right;
     caret-color: transparent;
 
+    width: var(--characters-filled);
+
     border-radius: 0;
 
     &:focus {
@@ -61,6 +63,7 @@
 
     position: relative;
     top: 0.6ex; // Align caret precisely
+    left: var(--characters-displaced);
     z-index: 0;
 
     border: 1px solid var(--content-secondary);
