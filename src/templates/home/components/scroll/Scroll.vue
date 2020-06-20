@@ -3,6 +3,7 @@
     v-shortkey="[arrowKey]"
     class="scroll"
     :class="scrollClasses"
+    tabindex="-1"
     :title="`[${titleEmoji}] See the ${direction} role.`"
     @click="emitScroll"
     @shortkey="emitScroll">
