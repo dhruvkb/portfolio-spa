@@ -12,7 +12,7 @@
           <div class="content">
             <div
               class="photo"
-              :style="{'--image-url': `url(${photo.source})`}"
+              :style="photoStyles(photo)"
               :title="photo.description.replace(/<\/?[a-z]+>/g, '')">
             </div>
             <span class="caption" v-html="photo.description"></span>
@@ -93,6 +93,18 @@
             description: '…and my juniors from a <strong>trekking trip</strong>.'
           }
         ]
+      }
+    },
+    methods: {
+      /**
+       * Get the styles to apply on the photo.
+       * @param {Object} photo - the properties of the photo to display
+       * @return {Object} an mapping of CSS properties and values to apply on the element
+       */
+      photoStyles (photo) {
+        return {
+          '--image-url': `url(${photo.source})`
+        }
       }
     }
   }
