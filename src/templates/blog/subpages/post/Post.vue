@@ -7,8 +7,7 @@
         @enter="highlightCode">
         <section
           v-if="post"
-          key="loaded"
-          class="section">
+          key="loaded">
           <div class="body">
             <div class="heading">
               <h1 class="blue-colored">{{ post.title }}</h1>
@@ -33,7 +32,7 @@
         <section
           v-else
           key="loading"
-          class="centered section">
+          class="centered">
           <Spinner/>
         </section>
       </transition>

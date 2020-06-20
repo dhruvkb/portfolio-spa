@@ -1,38 +1,27 @@
 <template>
   <div class="home">
     <main>
-      <section class="section" id="first">
-        <Grid>
-          <GridCell :span-set="$headSpanSet">
-            <div class="imagery">
-              <h2 class="green-colored">
-                <FontAwesomeIcon
-                  :icon="['fas', 'pen-nib']"/>
-              </h2>
-              <h2 class="green-colored">
-                I ramble!
-              </h2>
-            </div>
-          </GridCell>
+      <section>
+        <h2 class="green-colored">
+          <Icon/>
+          I ramble!
+        </h2>
 
-          <GridCell :span-set="$headSpanSet">
-            <div class="content">
-              <p>
-                Have you wondered what goes on in a developer's head?
-              </p>
-              <p>
-                Regardless of whether you have or have not, you can find that
-                out by reading my blog. Here I write on a wide spectrum of
-                topics, from my latest bits of learning to how I built something
-                cool using them.
-              </p>
-              <p>
-                It's mostly random stuff that developers will likely relate to.
-                How about a read?
-              </p>
-            </div>
-          </GridCell>
-        </Grid>
+        <div class="intro-text">
+          <p>
+            Have you wondered what goes on in a developer's head?
+          </p>
+          <p>
+            Regardless of whether you have or have not, you can find that
+            out by reading my blog. Here I write on a wide spectrum of
+            topics, from my latest bits of learning to how I built something
+            cool using them.
+          </p>
+          <p>
+            It's mostly random stuff that developers will likely relate to.
+            How about a read?
+          </p>
+        </div>
 
         <footer>
           <Indicator/>
@@ -42,8 +31,7 @@
       <transition name="fade" mode="out-in">
         <section
           v-if="posts"
-          key="loaded"
-          class="section">
+          key="loaded">
           <Grid>
             <GridCell
               v-for="(post, index) in posts"
@@ -61,7 +49,7 @@
           v-else
           v-observe-visibility="observerOptions"
           key="loading"
-          class="centered section">
+          class="centered">
           <Spinner/>
         </section>
       </transition>
@@ -72,17 +60,11 @@
 <script>
   import { mapActions, mapState } from 'vuex'
 
-  import { library } from '@fortawesome/fontawesome-svg-core'
-  import { faPenNib } from '@fortawesome/free-solid-svg-icons'
-  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
   import Grid from '@/components/grid/Grid'
   import Indicator from '@/components/indicator/Indicator'
 
   import { Blog } from '@/templates/blog/Blog'
   import Preview from './components/preview/Preview'
-
-  library.add(faPenNib)
 
   /**
    * This is the landing for the Blogs page. It displays a list of the last
@@ -91,13 +73,12 @@
   export default {
     name: 'Home',
     components: {
-      FontAwesomeIcon,
-
       Grid,
       GridCell: Grid.Cell,
       Indicator,
 
       Spinner: Blog.Spinner,
+      Icon: Blog.Icon,
       Preview
     },
     data () {

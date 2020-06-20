@@ -1,70 +1,47 @@
 <template>
   <div class="contact">
     <main>
-      <section class="section" id="first">
-        <Grid>
-          <GridCell :span-set="$headSpanSet">
-            <div class="imagery">
-              <h2 class="green-colored">
-                <transition appear name="spin">
-                  <FontAwesomeLayers
-                    class="pulse">
-                    <FontAwesomeIcon
-                      :icon="['fas', 'comment']"/>
-                    <FontAwesomeIcon
-                      v-for="index in 3"
-                      :key="index"
-                      class="dot"
-                      :data-pos="index"
-                      :icon="['fas', 'circle']"
-                      size="xs"/>
-                  </FontAwesomeLayers>
-                </transition>
-              </h2>
-              <h2 class="green-colored">
-                Get in touch!
-              </h2>
-            </div>
-          </GridCell>
+      <section>
+        <h2 class="green-colored">
+          <Icon/>
+          Get in touch!
+        </h2>
 
-          <GridCell :span-set="$headSpanSet">
-            <div class="content">
-              <p>
-                So, did you like my
-                <RouterLink
-                  :to="{name: 'portfolio'}"
-                  title="Enjoyed the terminal?">
-                  <template>portfolio</template></RouterLink>?
-                And did you enjoy my
-                <RouterLink
-                  :to="{name: 'blog'}"
-                  title="Liked reading my thoughts?">
-                  <template>blog</template></RouterLink>?
-              </p>
-              <p>
-                Whether you're looking for an developer experienced in building
-                solutions, an infrastructure architect to scale your project or
-                a technical writer to document your codebase, I can help.
-              </p>
-              <p>
-                Or we could talk over coffee. I really like coffee. Want to
-                <RouterLink
-                  :to="{name: 'about'}"
-                  title="It's a little personal.">
-                  <template>learn more</template>
-                </RouterLink>
-                about me?
-              </p>
-            </div>
-          </GridCell>
-        </Grid>
+        <div class="intro-text">
+          <p>
+            So, did you like my
+            <RouterLink
+              :to="{name: 'portfolio'}"
+              title="Enjoyed the terminal?">
+              <template>portfolio</template></RouterLink>?
+            And did you enjoy my
+            <RouterLink
+              :to="{name: 'blog'}"
+              title="Liked reading my thoughts?">
+              <template>blog</template></RouterLink>?
+          </p>
+          <p>
+            Whether you're looking for an developer experienced in building
+            solutions, an infrastructure architect to scale your project or
+            a technical writer to document your codebase, I can help.
+          </p>
+          <p>
+            Or we could talk over coffee. I really like coffee. Want to
+            <RouterLink
+              :to="{name: 'about'}"
+              title="It's a little personal.">
+              <template>learn more</template>
+            </RouterLink>
+            about me?
+          </p>
+        </div>
 
         <footer>
           <Indicator/>
         </footer>
       </section>
 
-      <section class="section">
+      <section>
         <Grid>
           <GridCell :span-set="[12, 6]">
             <Card
@@ -134,8 +111,7 @@
 <script>
   import { library } from '@fortawesome/fontawesome-svg-core'
   import {
-    faCircle,
-    faComment,
+    faCommentDots,
     faEnvelope,
     faPhoneAlt
   } from '@fortawesome/free-solid-svg-icons'
@@ -148,19 +124,19 @@
     faSpotify,
     faTwitter
   } from '@fortawesome/free-brands-svg-icons'
-  import { FontAwesomeIcon, FontAwesomeLayers } from '@fortawesome/vue-fontawesome'
+  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
   import Card from '@/components/card/Card'
   import Grid from '@/components/grid/Grid'
   import Indicator from '@/components/indicator/Indicator'
 
   import Medium from './components/medium/Medium'
+  import Icon from './components/icon/Icon'
 
   import media from './data/media.json'
 
   library.add(
-    faComment,
-    faCircle,
+    faCommentDots,
     faEnvelope,
     faPhoneAlt
   )
@@ -183,14 +159,14 @@
     name: 'Contact',
     components: {
       FontAwesomeIcon,
-      FontAwesomeLayers,
 
       Card,
       Grid,
       GridCell: Grid.Cell,
       Indicator,
 
-      Medium
+      Medium,
+      Icon
     },
     data () {
       return {

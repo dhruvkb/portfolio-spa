@@ -1,48 +1,34 @@
 <template>
   <div class="about">
     <main>
-      <section class="section" id="first">
-        <Grid>
-          <GridCell :span-set="$headSpanSet">
-            <div class="imagery">
-              <transition appear name="shift-up">
-                <h2 class="green-colored">
-                  <FontAwesomeIcon
-                    class="hand"
-                    :icon="['fas', 'hand-peace']"/>
-                </h2>
-              </transition>
-              <h2 class="green-colored">
-                It's-a me!
-              </h2>
-            </div>
-          </GridCell>
+      <section>
+        <h2 class="green-colored">
+          <Icon/>
+          It's-a me!
+        </h2>
 
-          <GridCell :span-set="$headSpanSet">
-            <div class="content">
-              <p>
-                I take it you're interested to know me.
-              </p>
-              <p>
-                In that case, let's start with computers, Since two years into
-                this life, there has always been a computer no further than an
-                arm's distance from me. What can I say? I just love computers.
-              </p>
-              <p>
-                How about something personal? I was born in the clamour and the
-                bustle of Mumbai in India so quite understandably, I cherish
-                silence and solitude. And I'm an introvert.
-              </p>
-            </div>
-          </GridCell>
-        </Grid>
+        <div class="intro-text">
+          <p>
+            I take it you're interested to know me.
+          </p>
+          <p>
+            In that case, let's start with computers, Since two years into
+            this life, there has always been a computer no further than an
+            arm's distance from me. What can I say? I just love computers.
+          </p>
+          <p>
+            How about something personal? I was born in the clamour and the
+            bustle of Mumbai in India so quite understandably, I cherish
+            silence and solitude. And I'm an introvert.
+          </p>
+        </div>
 
         <footer>
           <Indicator/>
         </footer>
       </section>
 
-      <section class="section">
+      <section>
         <Grid>
           <GridCell :span-set="[12, 6, 5, 5, 5]">
             <Card
@@ -165,7 +151,6 @@
     faUniversity,
     faAdjust,
     faFilm,
-    faHandPeace,
     faLaptop,
     faMobile,
     faMugHot,
@@ -192,6 +177,7 @@
   import Blockquote from './components/blockquote/Blockquote'
   import Couplet from './components/couplet/Couplet'
   import Gallery from './components/gallery/Gallery'
+  import Icon from './components/icon/Icon'
 
   import bio from './data/bio.json'
 
@@ -199,7 +185,6 @@
     faUniversity,
     faAdjust,
     faFilm,
-    faHandPeace,
     faLaptop,
     faMobile,
     faMugHot,
@@ -221,11 +206,7 @@
    */
   export default {
     name: 'About',
-    mixins: [
-      carouselled
-    ],
     components: {
-      Gallery,
       FontAwesomeIcon,
 
       Carousel,
@@ -237,8 +218,13 @@
       Indicator,
 
       Blockquote,
-      Couplet
+      Couplet,
+      Gallery,
+      Icon
     },
+    mixins: [
+      carouselled
+    ],
     data () {
       return {
         bio,

@@ -2,8 +2,6 @@
   <div class="four-oh-four">
     <main>
       <section
-        class="section"
-        id="first"
         @click="toggleDrawing"
         @mousemove="drawErrorWithMouse"
         @touchstart="drawErrorWithTouch"
