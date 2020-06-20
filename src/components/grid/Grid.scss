@@ -5,7 +5,8 @@
   align-content: stretch;
   justify-content: left;
 
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(var(--column-count), 1fr);
+  grid-template-rows: repeat(var(--row-count), 1fr);
 
   gap: $dimen-m;
 }
