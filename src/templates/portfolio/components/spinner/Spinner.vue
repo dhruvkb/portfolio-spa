@@ -23,17 +23,26 @@
       }
     },
     methods: {
+      /**
+       * Start the loop that changes the spinner string periodically.
+       */
       startLooping () {
         this.updateLooper = setInterval(() => {
           this.index = ++this.index % this.spinnerStrings.length
         }, this.interval * 1000)
+      },
+      /**
+       * Stop the loop that changes the spinner string periodically.
+       */
+      stopLooping () {
+        clearInterval(this.updateLooper)
       }
     },
     created () {
       this.startLooping()
     },
     beforeDestroy () {
-      clearInterval(this.updateLooper)
+      this.stopLooping()
     }
   }
 </script>
