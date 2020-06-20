@@ -5,6 +5,7 @@
 .memoji {
   @include colored('--outline-color');
   @include flip('horizontal', $duration-m, 0deg, 0deg, 0deg, 90deg, 0deg, -90deg);
+  @include flip('horizontal-rev', $duration-m, 0deg, 0deg, 0deg, -90deg, 0deg, 90deg);
 
   transform: scale(0.95);
   transition-property: transform, filter;
