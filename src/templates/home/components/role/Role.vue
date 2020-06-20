@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="role"
-    :class="roleClasses">
+  <div class="role" :class="roleClasses">
     <transition appear name="flip-vertical" mode="out-in">
       <div :key="role">
         {{ $t(vowel) }}&nbsp;

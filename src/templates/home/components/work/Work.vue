@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="work"
-    :class="workClasses">
+  <div class="work" :class="workClasses">
     <transition appear name="flip-vertical" mode="out-in">
       <i18n
         :key="work"
