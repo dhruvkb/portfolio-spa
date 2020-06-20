@@ -22,11 +22,11 @@ export default {
     ]
 
     Vue.prototype.$getRole = function (index) {
-      return this.$roles[index % this.$roles.length]
+      return this.$roles[this.$modulo(index, this.$roles.length)]
     }
 
     Vue.prototype.$getWork = function (index) {
-      return this.$works[index % this.$works.length]
+      return this.$works[this.$modulo(index, this.$works.length)]
     }
   }
 }

@@ -25,7 +25,7 @@ export default {
     ]
 
     Vue.prototype.$getSolarizedColor = function (index) {
-      return this.$safeSolarizedColors[index % this.$safeSolarizedColors.length]
+      return this.$safeSolarizedColors[this.$modulo(index, this.$safeSolarizedColors.length)]
     }
 
     Vue.prototype.$getShuffledSolarizedColors = function () {
