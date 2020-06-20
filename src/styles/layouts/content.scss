@@ -23,11 +23,6 @@
           width: 100%;
           max-width: 32em;
         }
-
-        $devices: 'phone';
-        @include device-specific($devices) {
-          align-items: unset;
-        }
       }
 
       &:not(:first-of-type) {
