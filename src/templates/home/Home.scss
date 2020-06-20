@@ -1,6 +1,7 @@
 @import '~@/styles/tokens/colors';
 @import '~@/styles/tokens/sizes';
 @import '~@/styles/tokens/dimensions';
+@import '~@/styles/tokens/durations';
 
 @import '~@/styles/layouts/content';
 
@@ -9,14 +10,39 @@
 .home {
   @include content;
 
-  $devices: 'tablet-landscape', 'desktop-standard', 'desktop-big';
-  @include device-specific($devices) {
+  $small-devices: 'tablet-portrait', 'phone';
+  $large-devices: 'tablet-landscape', 'desktop-standard', 'desktop-big';
 
-    .home-grid {
+  .home-grid {
+    box-sizing: border-box;
+
+    @include device-specific($small-devices) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    @include device-specific($large-devices) {
       width: 100%;
+      grid-template-columns: repeat(2, 1fr);
+    }
 
-      .memoji-link {
-        align-self: flex-end;
+    .left,
+    .right {
+      grid-column: span 1;
+    }
+
+    .left {
+      .content {
+        width: fit-content;
+
+        margin-left: auto;
+
+        @include device-specific($small-devices) {
+          margin-right: auto; // Align center
+        }
+
+        @include device-specific($large-devices) {
+          margin-right: 0; // Align right
+        }
       }
     }
   }
@@ -29,11 +55,31 @@
   }
 
   .site-title {
-    margin-left: -0.25rem;
+    margin-left: -0.25rem; // Align left edge with the lines above and below
   }
 
   .roles {
     font-size: $size-l;
+  }
+
+  .scroll {
+    @include device-specific($small-devices) {
+      display: none;
+    }
+
+    @include device-specific($large-devices) {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+
+      &.previous {
+        left: $dimen-m;
+      }
+
+      &.next {
+        right: $dimen-m;
+      }
+    }
   }
 
   footer {

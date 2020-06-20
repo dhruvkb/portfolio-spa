@@ -1,12 +1,10 @@
 <template>
   <div class="home">
     <main>
-      <section class="section" id="first">
+      <section>
         <Grid class="home-grid">
-          <GridCell
-            class="left pane"
-            :span-set="[12, 6]">
-            <div class="imagery">
+          <div class="left">
+            <div class="content">
               <RouterLink
                 class="memoji-link"
                 tabindex="-1"
@@ -19,14 +17,12 @@
                   :is-focused="isPortfolioLinkFocused"/>
               </RouterLink>
             </div>
-          </GridCell>
+          </div>
 
-          <GridCell
-            class="right pane"
-            :span-set="[12, 6]">
+          <div class="right">
             {{ $t('hello') }}! {{ $t('iam') }}
             <h1 class="site-title red-colored">
-              {{ $t('dhruv') }}<br/>{{ $t('bhanushali') }}
+              {{ $t('dhruv') }}<br>{{ $t('bhanushali') }}
             </h1>
             {{ $t('hats') }}
 
@@ -62,7 +58,16 @@
                 {{ $t('other') }}
               </span>
             </p>
-          </GridCell>
+          </div>
+
+          <Scroll
+            v-for="direction in ['previous', 'next']"
+            :key="direction"
+            class="scroll"
+            :class="direction"
+            :direction="direction"
+            :color="$getSolarizedColor(index)"
+            @scroll="scrollTickers"/>
         </Grid>
 
         <footer>
@@ -84,6 +89,7 @@
   import Role from './components/role/Role'
   import Work from './components/work/Work'
   import Source from './components/source/Source'
+  import Scroll from './components/scroll/Scroll'
 
   /**
    * This page is the landing page for the portfolio. All improvements start
@@ -93,14 +99,14 @@
     name: 'Home',
     components: {
       Grid,
-      GridCell: Grid.Cell,
       Locale,
 
       Kaomoji,
       Memoji,
       Role,
       Work,
-      Source
+      Source,
+      Scroll
     },
     data () {
       return {
@@ -116,7 +122,7 @@
        */
       startLooping () {
         this.updateLooper = setInterval(() => {
-          this.index = ++this.index % this.$roles.length
+          this.index = ++this.index
         }, this.interval * 1000)
       },
       /**
@@ -125,13 +131,30 @@
       stopLooping () {
         clearInterval(this.updateLooper)
       },
+      /**
+       * Set the memoji, role and work tickers to their focused states and stop
+       * the ticking animation.
+       */
       focusPortfolioLink () {
         this.stopLooping()
         this.isPortfolioLinkFocused = true
       },
+      /**
+       * Set the memoji, role and work tickers to their blurred states and start
+       * the ticking animation.
+       */
       blurPortfolioLink () {
-        this.startLooping()
         this.isPortfolioLinkFocused = false
+        this.startLooping()
+      },
+      /**
+       * Change the index based on which scrolling button was clicked.
+       * @param {number} delta - the value by which to change the tickers
+       */
+      scrollTickers (delta) {
+        this.stopLooping()
+        this.index += delta
+        this.startLooping()
       }
     },
     created: function () {
