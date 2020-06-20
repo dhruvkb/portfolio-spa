@@ -76,7 +76,7 @@
     watch: {
       /**
        * Reload the page and the post content when the slug changes.
-       * @param {string} to - the new value of slug
+       * @param {string} to - the new value of the slug
        * @param {string} from - the old value of the slug
        */
       '$route.params.slug': function (to, from) {

@@ -76,6 +76,8 @@
       /**
        * Sync changes from the language data variable to root lang, Vue i18n and
        * also updates local storage for persistence.
+       * @param {string} to - the new value of the language
+       * @param {string} from - the old value of the language
        */
       language (to, from) {
         if (to !== from) { // Breaks recursion

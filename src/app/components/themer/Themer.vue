@@ -70,6 +70,8 @@
       /**
        * Sync changes from the theme data variable to the root class and
        * also updates local storage for persistence.
+       * @param {string} to - the new value of the theme
+       * @param {string} from - the old value of the theme
        */
       theme (to, from) {
         if (to !== from) { // Breaks recursion
