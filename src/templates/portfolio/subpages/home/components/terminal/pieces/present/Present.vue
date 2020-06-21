@@ -61,22 +61,6 @@
         }
       }
     },
-    watch: {
-      /**
-       * When interaction history is changed, which essentially means a new
-       * interaction has been added, scroll to the bottom.
-       */
-      interactionHistory () {
-        this.scrollToCommandField()
-      },
-      /**
-       * When the processing state of the terminal is changed, either when
-       * processing starts or ends, scroll to the bottom.
-       */
-      isProcessing () {
-        this.scrollToCommandField()
-      }
-    },
     computed: {
       /**
        * Get the styles to apply on the command field.
@@ -114,6 +98,22 @@
         'interactionHistory',
         'isProcessing'
       ])
+    },
+    watch: {
+      /**
+       * When interaction history is changed, which essentially means a new
+       * interaction has been added, scroll to the bottom.
+       */
+      interactionHistory () {
+        this.scrollToCommandField()
+      },
+      /**
+       * When the processing state of the terminal is changed, either when
+       * processing starts or ends, scroll to the bottom.
+       */
+      isProcessing () {
+        this.scrollToCommandField()
+      }
     },
     methods: {
       /**

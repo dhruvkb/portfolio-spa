@@ -66,6 +66,22 @@
         theme: null
       }
     },
+    computed: {
+      /**
+       * Get the theme variant opposite to the current one.
+       * @returns {string} the name of the opposite theme
+       */
+      otherTheme () {
+        let index = this.themes.indexOf(this.theme)
+        return this.themes[++index % this.themes.length]
+      },
+      /**
+       * Get the title text that describes the action this button will perform.
+       */
+      helpText () {
+        return `[T] Switch to the ${this.otherTheme} theme.`
+      }
+    },
     watch: {
       /**
        * Sync changes from the theme data variable to the root class and
@@ -81,22 +97,6 @@
           // Persist theme to local storage
           localStorage.theme = to
         }
-      }
-    },
-    computed: {
-      /**
-       * Get the theme variant opposite to the current one.
-       * @returns {string} the name of the opposite theme
-       */
-      otherTheme () {
-        let index = this.themes.indexOf(this.theme)
-        return this.themes[++index % this.themes.length]
-      },
-      /**
-       * Get the title text that describes the action this button will perform.
-       */
-      helpText () {
-        return `[T] Switch to the ${this.otherTheme} theme.`
       }
     },
     methods: {

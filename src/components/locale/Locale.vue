@@ -72,25 +72,6 @@
         language: null
       }
     },
-    watch: {
-      /**
-       * Sync changes from the language data variable to root lang, Vue i18n and
-       * also updates local storage for persistence.
-       * @param {string} to - the new value of the language
-       * @param {string} from - the old value of the language
-       */
-      language (to, from) {
-        if (to !== from) { // Breaks recursion
-          document.documentElement.setAttribute('lang', this.language)
-
-          // Set document root language
-          this.$root.$i18n.locale = to
-
-          // Persist locale to local storage
-          localStorage.locale = to
-        }
-      }
-    },
     computed: {
       /**
        * Get the language other than the current one.
@@ -108,6 +89,25 @@
         const readableName = this.languages[this.otherLanguage].name
         const exclamation = this.languages[this.otherLanguage].titleText
         return `[L] Change language to ${readableName}. ${exclamation}`
+      }
+    },
+    watch: {
+      /**
+       * Sync changes from the language data variable to root lang, Vue i18n and
+       * also updates local storage for persistence.
+       * @param {string} to - the new value of the language
+       * @param {string} from - the old value of the language
+       */
+      language (to, from) {
+        if (to !== from) { // Breaks recursion
+          document.documentElement.setAttribute('lang', this.language)
+
+          // Set document root language
+          this.$root.$i18n.locale = to
+
+          // Persist locale to local storage
+          localStorage.locale = to
+        }
       }
     },
     methods: {
