@@ -19,11 +19,15 @@
             <div class="content" v-html="post.body"></div>
 
             <p class="footer secondary-colored">
+              Permalink to
+              <a :href="post.portfolioUrl">
+                this post</a>.
+              <br/>
               [W] Read this blog post on
               <a
                 v-shortkey="['w']"
-                :href="`${domain}/${post.slug}`"
-                @shortkey="$navigateOutTo(`${domain}/${post.slug}`)">
+                :href="post.writeAsUrl"
+                @shortkey="$navigateOutTo(post.writeAsUrl)">
                 Write.as</a>.
             </p>
           </div>
@@ -68,8 +72,7 @@
     },
     data () {
       return {
-        url: 'https://api.dhruvkb.now.sh/api/post',
-        domain: 'https://dhruvkb.writeas.com',
+        url: 'https://api.dhruvkb.now.sh/api/blog/post',
         post: null
       }
     },

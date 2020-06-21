@@ -12,7 +12,7 @@ const mutations = {
 
 const actions = {
   getPosts ({ commit }) {
-    const url = 'https://api.dhruvkb.now.sh/api/blog'
+    const url = 'https://api.dhruvkb.now.sh/api/blog/list'
 
     axios
       .get(url)
