@@ -47,15 +47,30 @@
     }
   }
 
+  .site-title {
+    display: block;
+
+    box-sizing: border-box;
+    height: 2 * $size-6xl;
+
+    padding-top: $dimen-s;
+    padding-bottom: $dimen-s;
+
+    path {
+      fill: adjust_color($color-accent-red, $alpha: -1.0);
+
+      stroke: $color-accent-red;
+      stroke-width: 2px;
+      stroke-dasharray: 30em;
+      stroke-dashoffset: 30em;
+    }
+  }
+
   .memoji-link,
   .role-link {
     outline: none;
 
     text-decoration: none;
-  }
-
-  .site-title {
-    margin-left: -0.25rem; // Align left edge with the lines above and below
   }
 
   .roles {

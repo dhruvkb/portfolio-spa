@@ -21,9 +21,16 @@
 
           <div class="right">
             {{ $t('hello') }}! {{ $t('iam') }}
-            <h1 class="site-title red-colored">
-              {{ $t('dhruv') }}<br>{{ $t('bhanushali') }}
-            </h1>
+            <svg
+              class="red-colored site-title"
+              viewBox="0 0 852 233"
+              xmlns="http://www.w3.org/2000/svg"
+              ref="siteTitle">
+              <g id="dhruv">
+                <path :d="svg.paths.dhruv"/>
+                <path :d="svg.paths.bhanushali"/>
+              </g>
+            </svg>
             {{ $t('hats') }}
 
             <p class="roles">
@@ -81,6 +88,8 @@
 </template>
 
 <script>
+  import anime from 'animejs'
+
   import Grid from '@/components/grid/Grid'
   import Locale from '@/components/locale/Locale'
 
@@ -90,6 +99,8 @@
   import Work from './components/work/Work'
   import Source from './components/source/Source'
   import Scroll from './components/scroll/Scroll'
+
+  import svg from './data/svg.json'
 
   /**
    * This page is the landing page for the portfolio. All improvements start
@@ -110,6 +121,8 @@
     },
     data () {
       return {
+        svg,
+
         index: 0,
         interval: 8,
         updateLooper: null,
@@ -159,6 +172,22 @@
     },
     created () {
       this.startLooping()
+    },
+    mounted () {
+      const siteTitle = this.$refs.siteTitle
+      anime
+        .timeline({
+          targets: siteTitle.querySelectorAll('path'),
+          easing: 'linear',
+          duration: 1000
+        })
+        .add({
+          strokeDashoffset: 0
+        })
+        .add({
+          fill: '#dc322f',
+          strokeWidth: 0
+        })
     },
     beforeDestroy () {
       this.stopLooping()
