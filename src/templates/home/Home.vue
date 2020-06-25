@@ -157,7 +157,7 @@
         this.startLooping()
       }
     },
-    created: function () {
+    created () {
       this.startLooping()
     },
     beforeDestroy () {
