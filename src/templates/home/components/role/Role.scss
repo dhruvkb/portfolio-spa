@@ -7,7 +7,7 @@
 @import '~@/styles/motion/transitions';
 
 .role {
-  @include colored('color');
+  @include colored('--role-color');
   @include flip('vertical', $duration-m, -90deg, 0deg, 90deg, 0deg, 0deg, 0deg);
   @include flip('vertical-rev', $duration-m, 90deg, 0deg, -90deg, 0deg, 0deg, 0deg);
 
@@ -15,44 +15,14 @@
   flex-direction: row;
   align-items: center;
 
+  color: var(--role-color);
+
+  .vowel {
+    color: var(--content);
+  }
+
   .actual-role {
     font-family: $family-code;
     font-weight: $weight-medium;
-  }
-
-  .arrow,
-  .fullstop {
-    transition-property: opacity, transform;
-    transition-duration: $duration-m;
-  }
-
-  .arrow {
-    opacity: 0;
-    transform: translateX(-1em);
-  }
-
-  .fullstop {
-    @extend .actual-role;
-
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  .flip-vertical-leave-active ~ .fullstop,
-  .flip-vertical-enter-active ~ .fullstop {
-    opacity: 0;
-  }
-
-  &:hover,
-  &.focused {
-    .arrow {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .fullstop {
-      opacity: 0;
-      transform: translateX(1em);
-    }
   }
 }

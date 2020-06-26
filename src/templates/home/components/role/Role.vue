@@ -1,38 +1,30 @@
 <template>
   <div class="role" :class="roleClasses">
     <transition appear :name="transitionName" mode="out-in">
-      <div :key="role">
-        {{ $t(vowel) }}&nbsp;
-        <span
-          class="actual-role"
-          :class="roleTextClasses">
-          {{ $t(`roles.${role}`) }}
-        </span>
-      </div>
+      <ArrowControl
+        :key="role"
+        :is-focused="isFocused">
+        <template #default>
+          <div>
+            <span class="vowel">
+              {{ $t(vowel) }}
+            </span>
+            <span class="actual-role">
+              {{ $t(`roles.${role}`) }}
+            </span>
+          </div>
+        </template>
+        <template #punctuation><span :key="role">.</span></template>
+      </ArrowControl>
     </transition>
-    <div
-      class="fullstop"
-      :class="roleTextClasses">
-      .
-    </div>
-    <div
-      class="arrow"
-      :class="roleTextClasses">
-      <FontAwesomeIcon
-        :icon="['fas', 'arrow-right']"/>
-    </div>
   </div>
 </template>
 
 <script>
-  import { library } from '@fortawesome/fontawesome-svg-core'
-  import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
-  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+  import ArrowControl from '@/components/arrowcontrol/ArrowControl'
 
   import colored from '@/mixins/colored'
   import focusable from '@/mixins/focusable'
-
-  library.add(faArrowRight)
 
   /**
    * This component iterates over my roles.
@@ -44,7 +36,7 @@
       focusable
     ],
     components: {
-      FontAwesomeIcon
+      ArrowControl
     },
     data () {
       return {
@@ -67,16 +59,10 @@
        */
       roleClasses () {
         return [
-          { ...this.focusableClasses }
-        ]
-      },
-      /**
-       * Get the classes to use on the role text.
-       * @returns {Array} an array of all the classes to apply on the element
-       */
-      roleTextClasses () {
-        return [
-          ...this.coloredClasses
+          ...this.coloredClasses,
+          {
+            ...this.focusableClasses
+          }
         ]
       },
 

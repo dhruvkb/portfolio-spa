@@ -21,33 +21,25 @@
       </div>
 
       <RouterLink
-        class="read-more-link"
+        class="read-more"
         :to="{name: 'post', params: {slug: post.slug}}"
         :title="`Read '${post.title}'.`">
-        <div :class="['read-more', `${color}-colored`]">
-          Read more
-          <div class="question">?</div>
-          <div class="arrow">
-            <FontAwesomeIcon :icon="['fas', 'arrow-right']"/>
-          </div>
-        </div>
+        <ArrowControl :class="`${color}-colored`">
+          <template #default>Read more</template>
+          <template #punctuation>?</template>
+        </ArrowControl>
       </RouterLink>
     </div>
   </Card>
 </template>
 
 <script>
-  import { library } from '@fortawesome/fontawesome-svg-core'
-  import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
-  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
   import colored from '@/mixins/colored'
 
+  import ArrowControl from '@/components/arrowcontrol/ArrowControl'
   import Card from '@/components/card/Card'
 
   import { Blog } from '@/templates/blog/Blog'
-
-  library.add(faArrowRight)
 
   export default {
     name: 'Preview',
@@ -55,8 +47,7 @@
       colored
     ],
     components: {
-      FontAwesomeIcon,
-
+      ArrowControl,
       Card,
 
       Metadata: Blog.Metadata

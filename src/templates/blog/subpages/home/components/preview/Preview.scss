@@ -13,43 +13,9 @@
 
   .stuff {
     align-self: flex-start;
-
-    .read-more {
-      display: inline-flex;
-      flex-direction: row;
-      align-items: center;
-
-      .question,
-      .arrow {
-        transition-property: opacity, transform;
-        transition-duration: $duration-m;
-      }
-
-      .question {
-        opacity: 1;
-        transform: translateX(0);
-      }
-
-      .arrow {
-        opacity: 0;
-        transform: translateX(-1em);
-      }
-
-      &:hover {
-        .question {
-          opacity: 0;
-          transform: translateX(1em);
-        }
-
-        .arrow {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-    }
   }
 
-  .read-more-link {
+  .read-more {
     text-decoration: none;
   }
 }
