@@ -1,0 +1,11 @@
+@import '~@/styles/tokens/dimensions';
+
+@import '~@/styles/utils/controls';
+
+.more {
+  margin-top: $dimen-m;
+
+  .load-more {
+    @include reset-control;
+  }
+}
