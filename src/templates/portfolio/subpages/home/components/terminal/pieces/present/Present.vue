@@ -237,8 +237,9 @@
        */
       scrollToCommandField () {
         this.$nextTick(() => {
-          this.$refs.commandField.scrollIntoView({
-            behavior: 'smooth'
+          document.body.scrollIntoView({
+            behavior: 'smooth',
+            block: 'end'
           })
         })
       },
