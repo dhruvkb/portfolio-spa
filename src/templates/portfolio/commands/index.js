@@ -8,6 +8,8 @@ import Concatenate
   from '@/templates/portfolio/commands/Concatenate'
 import E
   from '@/templates/portfolio/commands/E'
+import Exit
+  from '@/templates/portfolio/commands/Exit'
 import F
   from '@/templates/portfolio/commands/F'
 import Help
@@ -31,6 +33,7 @@ export const components = {
   ChangeDirectory,
   Concatenate,
   E,
+  Exit,
   F,
   Help,
   Introduction,
@@ -71,6 +74,11 @@ export const mapping = {
     component: 'E',
     description: 'E!',
     isHidden: true
+  },
+  exit: {
+    name: 'exit',
+    component: 'Exit',
+    description: 'Exit the terminal.'
   },
   f: {
     name: 'f',
