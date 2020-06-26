@@ -30,19 +30,22 @@
 
       <transition name="fade" mode="out-in">
         <section
-          v-if="posts"
+          v-if="posts.length"
           key="loaded">
           <Grid>
             <GridCell
               v-for="(post, index) in posts"
               :key="post.id"
-              :span-set="spanSet(index)">
+              :span-set="postSpanSet(index)">
               <Preview
                 :color="randomizedColors[index]"
                 :index="index"
                 :post="post"/>
             </GridCell>
           </Grid>
+          <footer ref="footer">
+            <More/>
+          </footer>
         </section>
 
         <section
@@ -65,6 +68,7 @@
 
   import { Blog } from '@/templates/blog/Blog'
   import Preview from './components/preview/Preview'
+  import More from './components/more/More'
 
   /**
    * This is the landing for the Blogs page. It displays a list of the last
@@ -79,7 +83,8 @@
 
       Spinner: Blog.Spinner,
       Icon: Blog.Icon,
-      Preview
+      Preview,
+      More
     },
     data () {
       return {
@@ -95,17 +100,26 @@
     },
     computed: {
       ...mapState('blog', [
-        'posts'
+        'posts',
+        'isFetching'
       ])
+    },
+    watch: {
+      isFetching (to, from) {
+        if (from && !to) { // Fetching has just ended
+          this.scrollToOldestPost()
+        }
+      }
     },
     methods: {
       /**
        * Get the number of columns the card for the post should span. Only the
-       * first post spans the full width of the page.
-       * @param {number} index - the index of the post in the list of posts
+       * card for the first post spans the full width of the page.
+       * @param {number} index - the index of the post in the list
        * @returns {Array} the columns to span on different device categories
        */
-      spanSet (index) {
+      postSpanSet (index) {
+        index %= 5
         switch (index) {
           case 0:
             return [12, 12, 12, 12, 6]
@@ -125,6 +139,17 @@
         if (isVisible) {
           this.getPosts()
         }
+      },
+      /**
+       * Scroll to the bottom of the previews to show the oldest post.
+       */
+      scrollToOldestPost () {
+        this.$nextTick(() => {
+          document.body.scrollIntoView({
+            behavior: 'smooth',
+            block: 'end'
+          })
+        })
       },
 
       ...mapActions('blog', [

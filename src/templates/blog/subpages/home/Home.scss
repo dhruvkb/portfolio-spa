@@ -1,5 +1,11 @@
+@import '~@/styles/tokens/dimensions';
+
 @import '~@/styles/layouts/content';
 
 .home {
   @include content;
+
+  .more {
+    margin-left: $dimen-m;
+  }
 }

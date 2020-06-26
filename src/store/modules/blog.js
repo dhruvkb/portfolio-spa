@@ -1,32 +1,57 @@
 import axios from 'axios'
 
 const state = {
-  posts: null
+  totalCount: null,
+  posts: [],
+  isFetching: false
 }
 
 const mutations = {
+  setTotalCount (state, payload) {
+    state.totalCount = payload.totalCount
+  },
   setPosts (state, payload) {
-    state.posts = payload.posts
+    state.posts.push(...payload.posts)
+  },
+  setIsFetching (state, payload) {
+    state.isFetching = payload.isFetching
   }
 }
 
 const actions = {
-  getPosts ({ commit }) {
+  getPosts ({ commit, state }) {
     const url = 'https://api.dhruvkb.now.sh/api/blog/list'
 
+    commit('setIsFetching', {
+      isFetching: true
+    })
     axios
-      .get(url)
+      .get(url, {
+        params: {
+          offset: state.posts.length,
+          count: 2
+        }
+      })
       .then(response => {
-        const { posts } = response.data
+        const { totalCount, posts } = response.data
 
         setTimeout(() => {
           commit('setPosts', {
             posts
           })
+          commit('setTotalCount', {
+            totalCount
+          })
+          commit('setIsFetching', {
+            isFetching: false
+          })
         }, 1000)
       })
       .catch(() => {
         console.log('FAIL')
+        commit('setIsFetching', {
+          isFetching: false
+        })
       })
   }
 }
