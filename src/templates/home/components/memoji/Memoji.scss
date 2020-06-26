@@ -10,7 +10,9 @@
   @include flip('horizontal-rev', $duration-m, 0deg, 0deg, 0deg, -90deg, 0deg, 90deg);
 
   transform: scale(0.95);
+
   transition-property: transform, filter;
+  transition-duration: $duration-s;
 
   .image {
     height: 20em;
