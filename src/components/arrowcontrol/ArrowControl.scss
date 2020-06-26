@@ -1,0 +1,39 @@
+@import '~@/styles/tokens/durations';
+
+.arrow-control {
+  display: inline-flex;
+
+  flex-direction: row;
+  align-items: center;
+
+  .punctuation,
+  .arrow {
+    transition-property: opacity, transform;
+    transition-duration: $duration-s;
+  }
+
+  .punctuation {
+    opacity: 1;
+    transform: translateX(0);
+
+    width: 1em;
+  }
+
+  .arrow {
+    opacity: 0;
+    transform: translateX(-1.75em);
+  }
+
+  &:hover,
+  &.focused, {
+    .punctuation {
+      opacity: 0;
+      transform: translateX(1em);
+    }
+
+    .arrow {
+      opacity: 1;
+      transform: translateX(-0.75em);
+    }
+  }
+}
