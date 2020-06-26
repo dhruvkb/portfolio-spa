@@ -90,7 +90,7 @@
           <GridCell
             v-for="(category, index) in media"
             :key="index"
-            :span-set="[12, 6, 4, 4, 4]">
+            :span-set="mediaSpanSet(index)">
             <Card
               :color="randomizedColors[1]"
               :title="category.heading">
@@ -172,6 +172,21 @@
       return {
         media,
         randomizedColors: this.$getShuffledSolarizedColors()
+      }
+    },
+    methods: {
+      /**
+       * Get the number of columns the card for the media should span. Only the
+       * card for professional media spans the full width of the page.
+       * @param {number} index - the index of the media category in the list
+       * @returns {Array} the columns to span on different device categories
+       */
+      mediaSpanSet (index) {
+        if (index === 0) {
+          return [12, 12, 4, 4, 4]
+        } else {
+          return [12, 6, 4, 4, 4]
+        }
       }
     }
   }
