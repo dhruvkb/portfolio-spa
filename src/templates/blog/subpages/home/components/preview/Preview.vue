@@ -10,6 +10,7 @@
       <RouterLink
         class="title-link"
         :class="`${color}-colored`"
+        tabindex="0"
         :to="{name: 'post', params: {slug: post.slug}}"
         :title="`Read '${post.title}'.`">
         <h6>
@@ -22,6 +23,7 @@
 
       <RouterLink
         class="read-more"
+        tabindex="-1"
         :to="{name: 'post', params: {slug: post.slug}}"
         :title="`Read '${post.title}'.`">
         <ArrowControl :class="`${color}-colored`">
