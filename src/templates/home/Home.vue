@@ -124,7 +124,7 @@
         svg,
 
         index: 0,
-        interval: 8,
+        interval: 8, // seconds
         updateLooper: null,
         isPortfolioLinkFocused: false
       }
@@ -134,8 +134,9 @@
        * Start the loop that changes memoji and role periodically.
        */
       startLooping () {
+        this.stopLooping()
         this.updateLooper = setInterval(() => {
-          this.index = ++this.index
+          this.index++
         }, this.interval * 1000)
       },
       /**
