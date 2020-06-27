@@ -162,7 +162,7 @@
     faApple,
     faFirefox,
     faRedditAlien,
-    faRedhat
+    faFedora
   } from '@fortawesome/free-brands-svg-icons'
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -197,7 +197,7 @@
     faApple,
     faFirefox,
     faRedditAlien,
-    faRedhat
+    faFedora
   )
 
   /**

@@ -7,15 +7,11 @@
         "text": "<strong>Coffee</strong> > tea"
       },
       {
-        "icon": ["fas", "adjust"],
-        "text": "<strong>Dark theme</strong> > light theme"
-      },
-      {
         "icon": ["fab", "firefox"],
         "text": "<strong>Mozilla Firefox</strong> > Google Chrome"
       },
       {
-        "icon": ["fab", "redhat"],
+        "icon": ["fab", "fedora"],
         "text": "<strong>Fedora</strong> > any OS"
       },
       {
@@ -29,7 +25,7 @@
     "list": [
       {
         "icon": ["fas", "tv"],
-        "text": "Binging on <strong>TV series</strong>"
+        "text": "Binging on <strong>television series</strong>"
       },
       {
         "icon": ["fas", "film"],
