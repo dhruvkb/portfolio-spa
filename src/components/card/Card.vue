@@ -3,12 +3,10 @@
     v-observe-visibility="observerOptions"
     class="card"
     :class="cardClasses">
-    <div class="title">
+    <div class="title" :class="`${color}-colored`">
       <!-- @slot Title goes here -->
       <slot name="title">
-        <h6 :class="['top', `${color}-colored`]">
-          {{ title }}
-        </h6>
+        <h6 class="top">{{ title }}</h6>
       </slot>
     </div>
 
@@ -35,8 +33,9 @@
         observerOptions: {
           callback: this.visibilityChanged,
           once: true,
-          intersection: {
-            threshold: 0.6 // Only when more than half space is visible
+          intersection: { // Triggered when 3em of the content is visible
+            rootMargin: '0px 0px -48px 0px', // Only px or % values are allowed
+            threshold: 0.0
           }
         },
         isVisible: false
