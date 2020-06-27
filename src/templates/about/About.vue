@@ -148,21 +148,17 @@
 <script>
   import { library } from '@fortawesome/fontawesome-svg-core'
   import {
-    faUniversity,
-    faAdjust,
-    faFilm,
-    faLaptop,
-    faMobile,
     faMugHot,
-    faMusic,
+
     faTv,
+    faFilm,
+    faMusic,
     faWalking
   } from '@fortawesome/free-solid-svg-icons'
   import {
-    faApple,
     faFirefox,
-    faRedditAlien,
-    faFedora
+    faFedora,
+    faApple
   } from '@fortawesome/free-brands-svg-icons'
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -182,22 +178,17 @@
   import bio from './data/bio.json'
 
   library.add(
-    faUniversity,
-    faAdjust,
-    faFilm,
-    faLaptop,
-    faMobile,
     faMugHot,
-    faMusic,
     faTv,
+    faFilm,
+    faMusic,
     faWalking
   )
 
   library.add(
-    faApple,
     faFirefox,
-    faRedditAlien,
-    faFedora
+    faFedora,
+    faApple
   )
 
   /**
