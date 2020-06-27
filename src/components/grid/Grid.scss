@@ -9,4 +9,8 @@
   grid-template-rows: repeat(var(--row-count), 1fr);
 
   gap: $dimen-xs;
+
+  &:not(:first-child) {
+    margin-top: $dimen-l;
+  }
 }
