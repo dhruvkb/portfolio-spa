@@ -26,13 +26,20 @@
        * With these fallbacks in mind, depending on the length of the array,
        * the values are interpreted differently.
        *
-       * ```
-       * [desktop]
-       * [phone, desktop]
-       * [phone, tablet, desktop]
-       * [phone, tablet, desktop-standard, desktop-big]
-       * [phone, tablet-portrait, tablet-landscape, desktop-standard, desktop-big]
-       * ```
+       * [a=desktop]
+       * is interpreted as [12, 12, a, a, a]
+       *
+       * [a=phone, b=desktop]
+       * is interpreted as [a a, b, b, b]
+       *
+       * [a=phone, b=tablet, c=desktop]
+       * is interpreted as [a, b, b, c, c]
+       *
+       * [a=phone, b=tablet, c=desktop-standard, d=desktop-big]
+       * is interpreted as [a, b, b, c, d]
+       *
+       * [a=phone, b=tablet-portrait, c=tablet-landscape, d=desktop-standard, e=desktop-big]
+       * is interpreted as [a, b, c, d, e]
        */
       spanSet: {
         type: Array,
