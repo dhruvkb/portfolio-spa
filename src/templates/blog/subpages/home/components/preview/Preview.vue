@@ -38,7 +38,7 @@
 <script>
   import colored from '@/mixins/colored'
 
-  import ArrowControl from '@/components/arrowcontrol/ArrowControl'
+  import ArrowControl from '@/components/arrow_control/ArrowControl'
   import Card from '@/components/card/Card'
 
   import { Blog } from '@/templates/blog/Blog'

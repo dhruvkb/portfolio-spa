@@ -21,7 +21,7 @@
 </template>
 
 <script>
-  import ArrowControl from '@/components/arrowcontrol/ArrowControl'
+  import ArrowControl from '@/components/arrow_control/ArrowControl'
 
   import colored from '@/mixins/colored'
   import focusable from '@/mixins/focusable'

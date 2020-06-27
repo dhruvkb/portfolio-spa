@@ -18,7 +18,7 @@
 <script>
   import { mapActions, mapState } from 'vuex'
 
-  import ArrowControl from '@/components/arrowcontrol/ArrowControl'
+  import ArrowControl from '@/components/arrow_control/ArrowControl'
 
   import { Blog } from '@/templates/blog/Blog'
 
