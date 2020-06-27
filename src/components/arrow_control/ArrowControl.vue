@@ -21,6 +21,7 @@
   import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+  import colored from '@/mixins/colored'
   import focusable from '@/mixins/focusable'
 
   library.add(faArrowRight)
@@ -28,6 +29,7 @@
   export default {
     name: 'ArrowControl',
     mixins: [
+      colored,
       focusable
     ],
     components: {
@@ -40,6 +42,7 @@
        */
       arrowLinkClasses () {
         return [
+          ...this.coloredClasses,
           {
             ...this.focusableClasses
           }

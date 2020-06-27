@@ -26,7 +26,7 @@
         tabindex="-1"
         :to="{name: 'post', params: {slug: post.slug}}"
         :title="`Read '${post.title}'.`">
-        <ArrowControl :class="`${color}-colored`">
+        <ArrowControl :color="color">
           <template #default>Read more</template>
           <template #punctuation>?</template>
         </ArrowControl>
