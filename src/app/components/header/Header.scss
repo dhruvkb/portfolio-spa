@@ -1,4 +1,5 @@
 @import '~@/styles/tokens/dimensions';
+@import '~@/styles/tokens/weights';
 
 @import '~@/styles/utils/media';
 
@@ -18,20 +19,24 @@
   padding-left: $dimen-s;
   padding-right: $dimen-s;
 
-  .nav-title {
+  .nav-title-anchor {
     margin-right: auto;
 
-    .full {
-      $devices: 'phone', 'tablet-portrait';
-      @include device-specific($devices) {
-        display: none;
-      }
-    }
+    .nav-title {
+      font-weight: $weight-extrabold;
 
-    .short {
-      $devices: 'tablet-landscape', 'desktop';
-      @include device-specific($devices) {
-        display: none;
+      &.full {
+        $devices: 'phone', 'tablet-portrait';
+        @include device-specific($devices) {
+          display: none;
+        }
+      }
+
+      &.short {
+        $devices: 'tablet-landscape', 'desktop';
+        @include device-specific($devices) {
+          display: none;
+        }
       }
     }
 

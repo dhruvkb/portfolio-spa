@@ -3,15 +3,15 @@
     <Anchor
       v-shortkey="['h']"
       v-bind="homeLink"
-      class="nav-title"
+      class="nav-title-anchor"
       tabindex="0"
       color="red"
       :title="`[H] Go to ${homeLink.text}.`"
       @shortkey.native="$navigateTo(homeLink.to)">
-      <h5 class="full">
+      <h5 class="nav-title full">
         {{ $t('handle') }}
       </h5>
-      <h5 class="short">
+      <h5 class="nav-title short">
         {{ $t('initials') }}
       </h5>
     </Anchor>
