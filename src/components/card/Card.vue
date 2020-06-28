@@ -19,6 +19,7 @@
 
 <script>
   import colored from '@/mixins/colored'
+  import intersectable from '@/mixins/intersectable'
 
   /**
    * This component renders a minimalistic card.
@@ -26,21 +27,9 @@
   export default {
     name: 'Card',
     mixins: [
-      colored
+      colored,
+      intersectable
     ],
-    data () {
-      return {
-        observerOptions: {
-          callback: this.visibilityChanged,
-          once: true,
-          intersection: { // Triggered when 3em of the content is visible
-            rootMargin: '0px 0px -48px 0px', // Only px or % values are allowed
-            threshold: 0.0
-          }
-        },
-        isVisible: false
-      }
-    },
     props: {
       /**
        * _the title for the contents of the card_
@@ -58,20 +47,9 @@
       cardClasses () {
         return [
           {
-            visible: this.isVisible
+            ...this.intersectableClasses
           }
         ]
-      }
-    },
-    methods: {
-      /**
-       * Set the card's visibility status as sent by the observer.
-       * @param {boolean} isVisible - the updated visibility status of the card
-       */
-      visibilityChanged (isVisible) {
-        if (isVisible) {
-          this.isVisible = true
-        }
       }
     }
   }

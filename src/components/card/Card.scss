@@ -1,8 +1,10 @@
 @import '~@/styles/tokens/dimensions';
 @import '~@/styles/tokens/durations';
 
+@import '~@/styles/mixins/intersectable';
+
 .card {
-  opacity: 0;
+  @include intersectable;
 
   position: relative;
 
@@ -13,11 +15,6 @@
   max-width: 100%;
 
   padding: $dimen-l + 2 * $dimen-m $dimen-m $dimen-l;
-
-  transform: scale(0.95);
-
-  transition-property: opacity, transform, background-color, color;
-  transition-duration: $duration-m;
 
   .title {
     position: absolute;
@@ -32,11 +29,5 @@
     justify-content: center;
 
     height: 100%;
-  }
-
-  &.visible {
-    opacity: 1;
-
-    transform: scale(1);
   }
 }
