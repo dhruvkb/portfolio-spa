@@ -6,7 +6,7 @@
         class="image"
         :src="source"
         alt="Dhruv Bhanushali"
-        :title="title">
+        :title="title"/>
     </transition>
   </div>
 </template>
