@@ -3,7 +3,8 @@
     tabindex="0"
     class="medium"
     :style="mediumStyles"
-    :href="link">
+    :href="link"
+    target="_blank">
     <FontAwesomeIcon
       :icon="['fab', logo]"
       fixed-width/>
@@ -39,10 +40,12 @@
       },
       /**
        * _the signature brand color of the social media site_
+       *
+       * If not specified, the color is set to black for light themes and white
+       * for dark ones.
        */
       color: {
-        type: String,
-        default: 'ffffff'
+        type: String
       },
       /**
        * _the link to my profile on the social media site_
@@ -59,8 +62,12 @@
        * @returns {Object} an mapping of CSS properties and values to apply on the element
        */
       mediumStyles () {
-        return {
-          '--medium-color': `#${this.color}`
+        if (this.color) {
+          return {
+            '--medium-color': `#${this.color}`
+          }
+        } else {
+          return {}
         }
       }
     }

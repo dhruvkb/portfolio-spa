@@ -1,5 +1,14 @@
 @import '~@/styles/tokens/dimensions';
 
+
+:root.dark-themed .medium {
+  --medium-color: #ffffff;
+}
+
+:root.light-themed .medium {
+  --medium-color: #000000;
+}
+
 .medium {
   display: block;
 
