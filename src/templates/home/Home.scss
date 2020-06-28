@@ -28,6 +28,13 @@
     .left,
     .right {
       grid-column: span 1;
+
+      @include device-specific($large-devices) {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+      }
     }
 
     .left {
@@ -51,7 +58,8 @@
     display: block;
 
     box-sizing: border-box;
-    height: 2 * $size-6xl;
+    max-height: 2 * $size-6xl;
+    max-width: 100%;
 
     padding-top: $dimen-s;
     padding-bottom: $dimen-s;

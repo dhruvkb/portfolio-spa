@@ -20,51 +20,53 @@
           </div>
 
           <div class="right">
-            {{ $t('hello') }}! {{ $t('iam') }}
-            <svg
-              class="red-colored site-title"
-              viewBox="0 0 852 233"
-              xmlns="http://www.w3.org/2000/svg"
-              ref="siteTitle">
-              <g id="dhruv">
-                <path :d="svg.paths.dhruv"/>
-                <path :d="svg.paths.bhanushali"/>
-              </g>
-            </svg>
-            {{ $t('hats') }}
+            <div class="content">
+              {{ $t('hello') }}! {{ $t('iam') }}
+              <svg
+                class="red-colored site-title"
+                viewBox="0 0 852 233"
+                xmlns="http://www.w3.org/2000/svg"
+                ref="siteTitle">
+                <g id="dhruv">
+                  <path :d="svg.paths.dhruv"/>
+                  <path :d="svg.paths.bhanushali"/>
+                </g>
+              </svg>
+              {{ $t('hats') }}
 
-            <p class="roles">
-              {{ $t('iam') }}
-              <RouterLink
-                class="role-link"
-                tabindex="0"
-                :to="{name: 'portfolio'}"
-                title="See my portfolio."
-                @mouseenter.native="focusPortfolioLink"
-                @mouseleave.native="blurPortfolioLink"
-                @focus.native="focusPortfolioLink"
-                @blur.native="blurPortfolioLink">
-                <Role
+              <p class="roles">
+                {{ $t('iam') }}
+                <RouterLink
+                  class="role-link"
+                  tabindex="0"
+                  :to="{name: 'portfolio'}"
+                  title="See my portfolio."
+                  @mouseenter.native="focusPortfolioLink"
+                  @mouseleave.native="blurPortfolioLink"
+                  @focus.native="focusPortfolioLink"
+                  @blur.native="blurPortfolioLink">
+                  <Role
+                    :index="index"
+                    :color="$getSolarizedColor(index)"
+                    :is-focused="isPortfolioLinkFocused"/>
+                </RouterLink>
+              </p>
+
+              <p>
+                {{ $t('with') }}
+                <br/>
+                {{ $t('i') }}
+                <Work
                   :index="index"
-                  :color="$getSolarizedColor(index)"
                   :is-focused="isPortfolioLinkFocused"/>
-              </RouterLink>
-            </p>
-
-            <p>
-              {{ $t('with') }}
-              <br/>
-              {{ $t('i') }}
-              <Work
-                :index="index"
-                :is-focused="isPortfolioLinkFocused"/>
-              <br/>
-              <span
-                class="secondary-colored"
-                :title="$t('3m')">
-                {{ $t('other') }}
-              </span>
-            </p>
+                <br/>
+                <span
+                  class="secondary-colored"
+                  :title="$t('3m')">
+                  {{ $t('other') }}
+                </span>
+              </p>
+            </div>
           </div>
 
           <Scroll
