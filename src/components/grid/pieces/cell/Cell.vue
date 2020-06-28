@@ -35,10 +35,10 @@
        * [a=phone, b=tablet, c=desktop]
        * is interpreted as [a, b, b, c, c]
        *
-       * [a=phone, b=tablet, c=desktop-standard, d=desktop-big]
+       * [a=phone, b=tablet, c=desktop-standard, d=desktop-wide]
        * is interpreted as [a, b, b, c, d]
        *
-       * [a=phone, b=tablet-portrait, c=tablet-landscape, d=desktop-standard, e=desktop-big]
+       * [a=phone, b=tablet-portrait, c=tablet-landscape, d=desktop-standard, e=desktop-wide]
        * is interpreted as [a, b, c, d, e]
        */
       spanSet: {
@@ -57,10 +57,10 @@
       cellClasses: function () {
         return [
           `phone-${this.spans.phone}-wide`,
-          `tablet-portrait-${this.spans.tabletPortrait}-wide`,
-          `tablet-landscape-${this.spans.tabletLandscape}-wide`,
-          `desktop-standard-${this.spans.desktopStandard}-wide`,
-          `desktop-big-${this.spans.desktopBig}-wide`
+          `tablet-portrait-${this.spans.tabletPortrait}-column-span`,
+          `tablet-landscape-${this.spans.tabletLandscape}-column-span`,
+          `desktop-standard-${this.spans.desktopStandard}-column-span`,
+          `desktop-wide-${this.spans.desktopWide}-column-span`
         ]
       },
 
@@ -81,7 +81,7 @@
 
         let desktop = null
         let desktopStandard = null
-        let desktopBig = null
+        let desktopWide = null
 
         // Assign list items
         switch (count) {
@@ -108,7 +108,7 @@
               phone,
               tablet,
               desktopStandard,
-              desktopBig
+              desktopWide
             ] = spanSet
             break
           case 5:
@@ -117,7 +117,7 @@
               tabletPortrait,
               tabletLandscape,
               desktopStandard,
-              desktopBig
+              desktopWide
             ] = spanSet
             break
         }
@@ -129,14 +129,14 @@
         tabletLandscape = tabletLandscape || tablet || desktop
 
         desktopStandard = desktopStandard || desktop
-        desktopBig = desktopBig || desktop
+        desktopWide = desktopWide || desktop
 
         return {
           phone,
           tabletPortrait,
           tabletLandscape,
           desktopStandard,
-          desktopBig
+          desktopWide
         }
       }
     }

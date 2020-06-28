@@ -24,8 +24,8 @@
   }
 }
 
-@mixin desktop-big-only {
-  @media (min-width: $screen-desktop-big-min) {
+@mixin desktop-wide-only {
+  @media (min-width: $screen-desktop-wide-min) {
     @content
   }
 }
@@ -51,8 +51,8 @@
       @content
     }
   }
-  @if index($devices, 'desktop-big') or index($devices, 'desktop') {
-    @include desktop-big-only {
+  @if index($devices, 'desktop-wide') or index($devices, 'desktop') {
+    @include desktop-wide-only {
       @content
     }
   }

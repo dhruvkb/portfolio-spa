@@ -1,11 +1,11 @@
 @import '~@/styles/utils/media';
 
 .grid > .cell {
-  $devices: 'phone', 'tablet-portrait', 'tablet-landscape', 'desktop-standard', 'desktop-big';
+  $devices: 'phone', 'tablet-portrait', 'tablet-landscape', 'desktop-standard', 'desktop-wide';
   @for $width from 1 through 12 {
     @each $device in $devices {
       @include device-specific($device) {
-        &.#{$device}-#{$width}-wide {
+        &.#{$device}-#{$width}-column-span {
           grid-column: span $width;
         }
       }
