@@ -1,9 +1,10 @@
 // JetBrains Mono
 
 $font-weights: (
-  Regular: 400,
-  Medium:  500,
-  Bold:    700
+  Regular:   400,
+  Medium:    500,
+  Bold:      700,
+  ExtraBold: 800
 );
 
 @each $font-name, $font-weight in $font-weights {
@@ -12,9 +13,9 @@ $font-weights: (
     font-weight: $font-weight;
     font-style: normal;
 
-    src: url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/web/eot/JetBrainsMono-#{$font-name}.eot')     format('embedded-opentype'),
-         url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/web/woff2/JetBrainsMono-#{$font-name}.woff2') format('woff2'),
+    src: url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/web/woff2/JetBrainsMono-#{$font-name}.woff2') format('woff2'),
          url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/web/woff/JetBrainsMono-#{$font-name}.woff')   format('woff'),
+         url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/web/eot/JetBrainsMono-#{$font-name}.eot')     format('embedded-opentype'),
          url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/ttf/JetBrainsMono-#{$font-name}.ttf')         format('truetype');
   }
 }
