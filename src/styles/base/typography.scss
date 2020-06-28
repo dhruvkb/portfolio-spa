@@ -10,18 +10,11 @@
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $family-heading;
+  font-weight: $weight-bold;
   line-height: 1.0;
 
   margin-top: 0;
   margin-bottom: 0;
-}
-
-h1 {
-  font-weight: $weight-bold;
-}
-
-h2, h3, h4, h5, h6 {
-  font-weight: $weight-medium;
 }
 
 $heading-sizes: (
