@@ -1,0 +1,15 @@
+@import '~@/styles/mixins/intersectable';
+
+.photo {
+  @include intersectable;
+
+  background-image: var(--image-url);
+  background-size: cover;
+
+  box-sizing: border-box;
+  width: 100%;
+  height: 0;
+  min-height: 100%;
+
+  padding-top: var(--vertical-aspect);
+}
