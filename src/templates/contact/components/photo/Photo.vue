@@ -4,7 +4,11 @@
     class="photo"
     :class="photoClasses"
     :style="photoStyles"
-    :title="alt"/>
+    :title="alt">
+    <img
+      :src="src"
+      :alt="alt"/>
+  </div>
 </template>
 
 <script>
@@ -32,7 +36,7 @@
       /**
        * _the alternate text for the image_
        *
-       * This populates ARIA tags for the pseudo-image and also serves as title
+       * This populates alternative text for the image and also serves as title
        * text for the component.
        */
       alt: {
