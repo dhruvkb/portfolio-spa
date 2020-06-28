@@ -15,7 +15,8 @@
   transition-duration: $duration-s;
 
   .image {
-    height: 20em;
+    width: 24em;
+    max-width: 100%;
 
     filter:
       drop-shadow(2px 2px 0 var(--outline-color))
