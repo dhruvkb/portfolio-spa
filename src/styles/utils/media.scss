@@ -32,7 +32,7 @@
 
 $devices-small-side: 'phone', 'tablet-portrait';
 $devices-big-side: 'tablet-landscape', 'desktop-standard', 'desktop-wide';
-$devices-all: append($devices-small-side, $devices-big-side);
+$devices-all: join($devices-small-side, $devices-big-side);
 
 @mixin device-specific($devices) {
   @if index($devices, 'phone') {

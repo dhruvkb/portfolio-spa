@@ -56,7 +56,7 @@
        */
       cellClasses: function () {
         return [
-          `phone-${this.spans.phone}-wide`,
+          `phone-${this.spans.phone}-column-span`,
           `tablet-portrait-${this.spans.tabletPortrait}-column-span`,
           `tablet-landscape-${this.spans.tabletLandscape}-column-span`,
           `desktop-standard-${this.spans.desktopStandard}-column-span`,
