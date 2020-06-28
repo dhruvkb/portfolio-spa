@@ -28,6 +28,23 @@
       &:not(:first-of-type) {
         @include page;
       }
+
+      &.new {
+        @include page;
+
+        align-items: stretch;
+
+        .page-title {
+          position: relative;
+          top: $dimen-m;
+          left: $dimen-m / 1em * 1rem;
+          z-index: 1;
+        }
+
+        .intro-cell {
+          grid-row: span 2;
+        }
+      }
     }
   }
 

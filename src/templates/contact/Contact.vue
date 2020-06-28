@@ -1,49 +1,32 @@
 <template>
   <div class="contact">
     <main>
-      <section>
-        <h2 class="green-colored">
-          <Icon/>
+      <section class="new">
+        <h2 class="page-title green-colored">
           Get in touch!
         </h2>
 
-        <div class="intro-text">
-          <p>
-            So, did you like my
-            <RouterLink
-              :to="{name: 'portfolio'}"
-              title="Enjoyed the terminal?">
-              <template>portfolio</template></RouterLink>?
-            And did you enjoy my
-            <RouterLink
-              :to="{name: 'blog'}"
-              title="Liked reading my thoughts?">
-              <template>blog</template></RouterLink>?
-          </p>
-          <p>
-            Whether you're looking for an developer experienced in building
-            solutions, an infrastructure architect to scale your project or
-            a technical writer to document your codebase, I can help.
-          </p>
-          <p>
-            Or we could talk over coffee. I really like coffee. Want to
-            <RouterLink
-              :to="{name: 'about'}"
-              title="It's a little personal.">
-              <template>learn more</template>
-            </RouterLink>
-            about me?
-          </p>
-        </div>
+        <Grid :row-count="2">
+          <GridCell
+            class="intro-cell"
+            :span-set="[12, 6, 6, 6, 6]">
+            <Card :color="randomizedColors[0]">
+              <p>
+                Whether you're looking for an developer experienced in building
+                solutions, an infrastructure architect to scale your project or
+                a technical writer to document your codebase, I can help.
+              </p>
+              <p>
+                I could bring the frugal, refined, and very Indian, concept of
+                <a href="https://www.lexico.com/en/definition/jugaad">
+                  <em>"jugaad"</em>
+                </a>
+                to the table.
+              </p>
+            </Card>
+          </GridCell>
 
-        <footer>
-          <Indicator/>
-        </footer>
-      </section>
-
-      <section>
-        <Grid>
-          <GridCell :span-set="[12, 6]">
+          <GridCell :span-set="[12, 6, 6, 6, 6]">
             <Card
               :color="randomizedColors[0]"
               title="Email address">
@@ -56,7 +39,7 @@
               <span :class="`${randomizedColors[0]}-colored`">
                 <svg
                   class="email"
-                  viewBox="0 0 135.468 16.933"
+                  viewBox="0 0 450 61"
                   xmlns="http://www.w3.org/2000/svg">
                   <title>Would you tell me when OCR can read cursive?</title>
                   <use href="@/assets/svgs/email.svg#email"></use>
@@ -65,7 +48,7 @@
             </Card>
           </GridCell>
 
-          <GridCell :span-set="[12, 6]">
+          <GridCell :span-set="[12, 6, 6, 6, 6]">
             <Card
               :color="randomizedColors[0]"
               title="Phone number">
@@ -78,7 +61,7 @@
               <span :class="`${randomizedColors[0]}-colored`">
                 <svg
                   class="phone"
-                  viewBox="0 0 135.468 16.933"
+                  viewBox="0 0 361 61"
                   xmlns="http://www.w3.org/2000/svg">
                   <title>Would you tell me when OCR can read cursive?</title>
                   <use href="@/assets/svgs/phone.svg#phone"></use>
@@ -86,7 +69,9 @@
               </span>
             </Card>
           </GridCell>
+        </Grid>
 
+        <Grid>
           <GridCell
             v-for="(category, index) in media"
             :key="index"
@@ -103,6 +88,56 @@
             </Card>
           </GridCell>
         </Grid>
+
+        <Grid>
+          <GridCell
+            class="tall-image"
+            :span-set="[6, 6, 4, 4, 4]">
+            <Photo
+              :src="images.verticalImg"
+              alt="No plans to dive in"
+              :vertical-aspect="16/10"/>
+          </GridCell>
+
+          <GridCell
+            class="say-hi"
+            :span-set="[12, 6, 8, 8, 8]">
+            <Card
+              :color="randomizedColors[2]"
+              title="Say 'Hi!'">
+              <p>
+                I would absolutely love to connect with you. Being the introvert
+                I am, I shy away from initiating conversations but if you take
+                the initiative, I'll be more than happy to reciprocate!
+              </p>
+              <p>
+                We could talk over coffee. I love coffee.
+              </p>
+              <RouterLink
+                tabindex="0"
+                :to="{name: 'about'}">
+                <ArrowControl :color="randomizedColors[2]">
+                  <template #default>Know me better</template>
+                  <template #punctuation>!</template>
+                </ArrowControl>
+              </RouterLink>
+            </Card>
+          </GridCell>
+
+          <GridCell :span-set="[6, 6, 4, 4, 4]">
+            <Photo
+              :src="images.horizontalImgs[0]"
+              alt="A view of the mountains"
+              :vertical-aspect="10/16"/>
+          </GridCell>
+
+          <GridCell :span-set="[6, 12, 4, 4, 4]">
+            <Photo
+              :src="images.horizontalImgs[1]"
+              alt="Discovering an abandoned kennel"
+              :vertical-aspect="10/16"/>
+          </GridCell>
+        </Grid>
       </section>
     </main>
   </div>
@@ -116,24 +151,30 @@
     faPhoneAlt
   } from '@fortawesome/free-solid-svg-icons'
   import {
-    faApple,
-    faFacebook,
     faGithub,
-    faInstagram,
     faLinkedin,
-    faSpotify,
-    faTwitter
+
+    faFacebook,
+    faInstagram,
+    faTwitter,
+
+    faApple,
+    faSpotify
   } from '@fortawesome/free-brands-svg-icons'
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+  import ArrowControl from '@/components/arrow_control/ArrowControl'
   import Card from '@/components/card/Card'
   import Grid from '@/components/grid/Grid'
-  import Indicator from '@/components/indicator/Indicator'
 
   import Medium from './components/medium/Medium'
-  import Icon from './components/icon/Icon'
+  import Photo from './components/photo/Photo'
 
   import media from './data/media.json'
+
+  import verticalImg from '@/assets/photos/vertical.jpg'
+  import horizontalOneImg from '@/assets/photos/horizontal_one.jpg'
+  import horizontalTwoImg from '@/assets/photos/horizontal_two.jpg'
 
   library.add(
     faCommentDots,
@@ -160,18 +201,25 @@
     components: {
       FontAwesomeIcon,
 
+      ArrowControl,
       Card,
       Grid,
       GridCell: Grid.Cell,
-      Indicator,
 
       Medium,
-      Icon
+      Photo
     },
     data () {
       return {
         media,
-        randomizedColors: this.$getShuffledSolarizedColors()
+        randomizedColors: this.$getShuffledSolarizedColors(),
+        images: {
+          verticalImg,
+          horizontalImgs: [
+            horizontalOneImg,
+            horizontalTwoImg
+          ]
+        }
       }
     },
     methods: {

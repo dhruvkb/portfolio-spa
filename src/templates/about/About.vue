@@ -1,36 +1,29 @@
 <template>
   <div class="about">
     <main>
-      <section>
-        <h2 class="green-colored">
-          <Icon/>
+      <section class="new">
+        <h2 class="page-title green-colored">
           It's-a me!
         </h2>
 
-        <div class="intro-text">
-          <p>
-            I take it you're interested to know me.
-          </p>
-          <p>
-            In that case, let's start with computers, Since two years into
-            this life, there has always been a computer no further than an
-            arm's distance from me. What can I say? I just love computers.
-          </p>
-          <p>
-            How about something personal? I was born in the clamour and the
-            bustle of Mumbai in India so quite understandably, I cherish
-            silence and solitude. And I'm an introvert.
-          </p>
-        </div>
+        <Grid :row-count="2">
+          <GridCell
+            class="intro-cell"
+            :span-set="[12, 6, 6, 6, 6]">
+            <Card :color="randomizedColors[0]">
+              <p>
+                I take it you're interested to know me. So let's with something
+                personal.
+              </p>
+              <p>
+                As an introvert born in the clamour and the incessant bustle of
+                Mumbai, I cherished the silence and solitude I found in the
+                tranquil town of Roorkee.
+              </p>
+            </Card>
+          </GridCell>
 
-        <footer>
-          <Indicator/>
-        </footer>
-      </section>
-
-      <section>
-        <Grid>
-          <GridCell :span-set="[12, 6, 5, 5, 5]">
+          <GridCell :span-set="[12, 6, 6, 6, 6]">
             <Card
               :color="randomizedColors[0]"
               title="Home">
@@ -49,7 +42,7 @@
             </Card>
           </GridCell>
 
-          <GridCell :span-set="[12, 6, 7, 7, 7]">
+          <GridCell :span-set="[12, 6, 6, 6, 6]">
             <Card
               :color="randomizedColors[0]"
               title="Education">
@@ -65,6 +58,47 @@
                   :class="`${randomizedColors[0]}-colored`"
                   :dom="$t('iit_roorkee')"
                   :sub="`${$t('b_tech')} (${$t('eph')})`"/>
+              </div>
+            </Card>
+          </GridCell>
+        </Grid>
+
+        <Grid>
+          <GridCell :span-set="[12, 6, 12, 12, 12]">
+            <Card
+              :color="randomizedColors[2]"
+              title="You meant tech?">
+              <p>
+                In that case, let's talk about computers, Since I was two there
+                has always been a computer no further than an arm's distance
+                from me. What can I say? I just love computers for what they can
+                do and what I can do with them.
+              </p>
+              <RouterLink
+                tabindex="0"
+                :to="{name: 'portfolio'}">
+                <ArrowControl :color="randomizedColors[2]">
+                  <template #default>See my portfolio</template>
+                  <template #punctuation>!</template>
+                </ArrowControl>
+              </RouterLink>
+            </Card>
+          </GridCell>
+
+          <GridCell :span-set="[12, 6, 4, 4, 4]">
+            <Card
+              :color="randomizedColors[2]"
+              title="Current computer">
+              <div :class="['side-by-side', `${randomizedColors[2]}-colored`]">
+                <span class="icon">
+                  <svg class="thinkpad" viewBox="0 0 290.626 290.626" xmlns="http://www.w3.org/2000/svg">
+                    <use href="@/assets/svgs/thinkpad.svg#thinkpad"></use>
+                  </svg>
+                </span>
+                <Couplet
+                  :class="`${randomizedColors[2]}-colored`"
+                  dom="ThinkPad X220"
+                  sub="+ 7 row keyboard"/>
               </div>
             </Card>
           </GridCell>
@@ -90,20 +124,31 @@
                 sub="+ chonky CRT"/>
             </Card>
           </GridCell>
+        </Grid>
 
-          <GridCell :span-set="[12, 12, 4, 4, 4]">
+        <Grid>
+          <GridCell :span-set="[12, 12, 6, 6, 6]">
             <Card
-              :color="randomizedColors[2]"
-              title="Current computer">
-              <Couplet
-                :class="`${randomizedColors[2]}-colored`"
-                dom="ThinkPad X220"
-                sub="+ 7 row keyboard"/>
+              :color="randomizedColors[1]"
+              title="You meant as a person?">
+              <p>
+                <em>"Manners maketh man."</em> So do opinions and hobbies. Here
+                is a sneak peek of just that, so you can know me a little better
+                and we can be friends, which will never happen if you use Google
+                Chrome.
+              </p>
+              <RouterLink
+                tabindex="0"
+                :to="{name: 'contact'}">
+                <ArrowControl :color="randomizedColors[1]">
+                  <template #default>Drop a message</template>
+                  <template #punctuation>!</template>
+                </ArrowControl>
+              </RouterLink>
             </Card>
           </GridCell>
 
-          <GridCell
-            :span-set="[12, 12, 12, 12, 6]">
+          <GridCell :span-set="[12, 12, 6, 6, 6]">
             <Card
               :color="randomizedColors[1]"
               title="A favourite quote">
@@ -111,33 +156,57 @@
             </Card>
           </GridCell>
 
+          <template v-for="(category, index) in bio">
+            <GridCell
+              v-for="(item, count) in category.list"
+              class="personality singleton"
+              :key="`singleton-${index}-${count}`"
+              :span-set="[3]">
+              <Card
+                :color="randomizedColors[1]">
+                <template #title>
+                  <FontAwesomeIcon
+                    class="image"
+                    :icon="item.icon"
+                    size="lg"
+                    fixed-width/>
+                </template>
+                <template #default>
+                  <div>
+                    <span class="secondary-colored">
+                      {{ category.heading }}
+                    </span>
+                    <span v-html="item.text"/>.
+                  </div>
+                </template>
+              </Card>
+            </GridCell>
+          </template>
+
           <GridCell
             v-for="(category, index) in bio"
-            :key="index"
-            :span-set="[12, 12, 6, 6, 3]">
+            class="personality scroller"
+            :key="`scroller-${index}`"
+            :span-set="[12]">
             <Card
-              :color="randomizedColors[3]"
-              :title="category.heading">
+              :color="randomizedColors[1]"
+              :title="`${category.heading}...`">
               <Carousel v-bind="textCarouselOptions">
                 <Slide
                   class="carousel-content"
                   v-for="(item, count) in category.list"
-                  :key="count">
-                  <span :class="`${randomizedColors[3]}-colored`">
+                  :key="`content-${index}-${count}`">
+                  <span :class="`${randomizedColors[1]}-colored`">
                     <FontAwesomeIcon
                       class="image"
                       :icon="item.icon"
                       size="2x"
                       fixed-width/>
                   </span>
-                  <span v-html="item.text"></span>
+                  <span v-html="`...${item.text}.`"></span>
                 </Slide>
               </Carousel>
             </Card>
-          </GridCell>
-
-          <GridCell :span-set="[12]">
-            <Gallery/>
           </GridCell>
         </Grid>
       </section>
@@ -166,26 +235,23 @@
 
   import carouselled from '@/mixins/carouselled'
 
+  import ArrowControl from '@/components/arrow_control/ArrowControl'
   import Card from '@/components/card/Card'
   import Grid from '@/components/grid/Grid'
-  import Indicator from '@/components/indicator/Indicator'
 
   import Blockquote from './components/blockquote/Blockquote'
   import Couplet from './components/couplet/Couplet'
-  import Gallery from './components/gallery/Gallery'
-  import Icon from './components/icon/Icon'
 
   import bio from './data/bio.json'
 
   library.add(
     faMugHot,
+
     faTv,
     faFilm,
     faMusic,
-    faWalking
-  )
+    faWalking,
 
-  library.add(
     faFirefox,
     faFedora,
     faApple
@@ -203,15 +269,13 @@
       Carousel,
       Slide,
 
+      ArrowControl,
       Card,
       Grid,
       GridCell: Grid.Cell,
-      Indicator,
 
       Blockquote,
-      Couplet,
-      Gallery,
-      Icon
+      Couplet
     },
     mixins: [
       carouselled

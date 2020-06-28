@@ -3,6 +3,8 @@
 
 @import '~@/styles/layouts/content';
 
+@import '~@/styles/utils/media';
+
 .about {
   @include content;
 
@@ -16,6 +18,24 @@
 
       svg {
         height: $size-5xl;
+      }
+    }
+  }
+
+  .blockquote {
+    align-self: center;
+  }
+
+  .personality {
+    &.singleton {
+      @include device-specific($devices-small-side) {
+        display: none;
+      }
+    }
+
+    &.scroller {
+      @include device-specific($devices-big-side) {
+        display: none;
       }
     }
   }

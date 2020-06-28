@@ -3,6 +3,8 @@
 
 @import '~@/styles/layouts/content';
 
+@import '~@/styles/utils/media';
+
 .contact {
   @include content;
 
@@ -11,6 +13,21 @@
     font-size: $size-3xl;
 
     height: 1em;
+  }
+
+  .say-hi {
+    $devices: 'phone';
+    @include device-specific($devices) {
+      order: -1;
+    }
+  }
+
+  .tall-image {
+    grid-row: span 2;
+
+    img {
+      display: block;
+    }
   }
 
   .stuff {
