@@ -28,8 +28,10 @@
                 xmlns="http://www.w3.org/2000/svg"
                 ref="siteTitle">
                 <g id="dhruv">
-                  <path :d="svg.paths.dhruv"/>
-                  <path :d="svg.paths.bhanushali"/>
+                  <path
+                    v-for="(path, index) in svg.paths"
+                    :key="index"
+                    :d="path"/>
                 </g>
               </svg>
               {{ $t('hats') }}
@@ -181,15 +183,16 @@
       anime
         .timeline({
           targets: siteTitle.querySelectorAll('path'),
-          easing: 'linear',
-          duration: 1000
+          easing: 'linear'
         })
         .add({
-          strokeDashoffset: 0
+          strokeDashoffset: 0,
+          duration: 2000
         })
         .add({
           fill: '#dc322f',
-          strokeWidth: 0
+          strokeWidth: 0,
+          duration: 500
         })
     },
     beforeDestroy () {
