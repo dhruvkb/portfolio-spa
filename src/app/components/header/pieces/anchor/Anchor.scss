@@ -23,8 +23,7 @@
   text-decoration: none;
 
   .text {
-    $devices: 'phone', 'tablet-portrait';
-    @include device-specific($devices) {
+    @include device-specific($devices-small-side) {
       display: none;
     }
 
@@ -33,8 +32,7 @@
   }
 
   .icon {
-    $devices: 'tablet-landscape', 'desktop';
-    @include device-specific($devices) {
+    @include device-specific($devices-big-side) {
       display: none;
     }
   }
