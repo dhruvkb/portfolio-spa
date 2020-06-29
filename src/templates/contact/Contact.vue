@@ -72,10 +72,32 @@
         </Grid>
 
         <Grid>
+          <GridCell :span-set="[12, 6, 12, 12, 12]">
+            <Card
+              :color="randomizedColors[1]"
+              title="You meant socially?">
+              <p>
+                In that case, you can connect with me on any of my social media
+                presences. I'm way more active on GitHub (duh!) than I am on any
+                of these other sites. You can see photos of the cool stuff I've
+                come across on Instagram, all my favourite music is on Apple
+                Music and I irregularly write on my blog.
+              </p>
+              <RouterLink
+                tabindex="0"
+                :to="{name: 'blog'}">
+                <ArrowControl :color="randomizedColors[1]">
+                  <template #default>Read my blog</template>
+                  <template #punctuation>!</template>
+                </ArrowControl>
+              </RouterLink>
+            </Card>
+          </GridCell>
+
           <GridCell
             v-for="(category, index) in media"
             :key="index"
-            :span-set="mediaSpanSet(index)">
+            :span-set="[12, 6, 4, 4, 4]">
             <Card
               :color="randomizedColors[1]"
               :title="category.heading">
@@ -219,21 +241,6 @@
             horizontalOneImg,
             horizontalTwoImg
           ]
-        }
-      }
-    },
-    methods: {
-      /**
-       * Get the number of columns the card for the media should span. Only the
-       * card for professional media spans the full width of the page.
-       * @param {number} index - the index of the media category in the list
-       * @returns {Array} the columns to span on different device categories
-       */
-      mediaSpanSet (index) {
-        if (index === 0) {
-          return [12, 12, 4, 4, 4]
-        } else {
-          return [12, 6, 4, 4, 4]
         }
       }
     }

@@ -67,7 +67,7 @@
           <GridCell :span-set="[12, 6, 12, 12, 12]">
             <Card
               :color="randomizedColors[2]"
-              title="You meant tech?">
+              title="You meant professionally?">
               <p>
                 In that case, let's talk about computers, Since I was two there
                 has always been a computer no further than an arm's distance
@@ -130,7 +130,7 @@
           <GridCell :span-set="[12, 12, 6, 6, 6]">
             <Card
               :color="randomizedColors[1]"
-              title="You meant as a person?">
+              title="You meant personally?">
               <p>
                 <em>"Manners maketh man."</em> So do opinions and hobbies. Here
                 is a sneak peek of just that, so you can know me a little better
