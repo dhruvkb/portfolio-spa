@@ -28,8 +28,7 @@ const actions = {
     axios
       .get(url, {
         params: {
-          offset: state.posts.length,
-          count: 2
+          offset: state.posts.length
         }
       })
       .then(response => {
