@@ -14,11 +14,3 @@
     }
   }
 </script>
-
-<style scoped lang="scss">
-  @import '~@/styles/tokens/sizes';
-
-  .e {
-    font-size: $size-xs;
-  }
-</style>
