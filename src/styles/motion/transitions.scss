@@ -18,7 +18,7 @@
 }
 
 @mixin flip($name, $duration, $xfrom: 0deg, $xmid: 0deg, $xto: 0deg, $yfrom: 0deg, $ymid: 0deg, $yto: 0deg) {
-  perspective: 24em;
+  perspective: 30em;
 
   .flip-#{$name}-enter {
     transform: rotateX($xfrom) rotateY($yfrom);
