@@ -21,9 +21,7 @@ const router = new Router({
     fourOhFour
   ],
   scrollBehavior: (to, from) => new Promise(resolve => {
-    const scrollPreservingRoutes = [
-      'post'
-    ]
+    const scrollPreservingRoutes = []
 
     const position = {}
     if (
