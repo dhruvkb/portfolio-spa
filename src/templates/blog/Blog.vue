@@ -9,7 +9,6 @@
 <script>
   import Spinner from './components/spinner/Spinner'
   import Metadata from './components/metadata/Metadata'
-  import Icon from './components/icon/Icon'
 
   /**
    * This page contains my writings. Why anyone would want to read the stuff I
@@ -21,7 +20,6 @@
 
   export const Blog = {
     Spinner,
-    Metadata,
-    Icon
+    Metadata
   }
 </script>

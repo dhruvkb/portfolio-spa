@@ -3,7 +3,6 @@
     <main>
       <section>
         <h2 class="green-colored">
-          <Icon/>
           I ramble!
         </h2>
 
@@ -82,7 +81,6 @@
       Indicator,
 
       Spinner: Blog.Spinner,
-      Icon: Blog.Icon,
       Preview,
       More
     },
