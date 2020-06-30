@@ -79,7 +79,7 @@
                 :to="{name: 'portfolio'}">
                 <ArrowControl :color="randomizedColors[2]">
                   <template #default>See my portfolio</template>
-                  <template #punctuation>!</template>
+                  <template #punctuation>…</template>
                 </ArrowControl>
               </RouterLink>
             </Card>
@@ -142,7 +142,7 @@
                 :to="{name: 'contact'}">
                 <ArrowControl :color="randomizedColors[1]">
                   <template #default>Drop a message</template>
-                  <template #punctuation>!</template>
+                  <template #punctuation>…</template>
                 </ArrowControl>
               </RouterLink>
             </Card>
@@ -190,7 +190,7 @@
             :span-set="[12]">
             <Card
               :color="randomizedColors[1]"
-              :title="`${category.heading}...`">
+              :title="`${category.heading}…`">
               <Carousel v-bind="textCarouselOptions">
                 <Slide
                   class="carousel-content"
@@ -203,7 +203,7 @@
                       size="2x"
                       fixed-width/>
                   </span>
-                  <span v-html="`...${item.text}.`"></span>
+                  <span v-html="`…${item.text}.`"></span>
                 </Slide>
               </Carousel>
             </Card>

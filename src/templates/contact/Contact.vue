@@ -140,7 +140,7 @@
                 :to="{name: 'about'}">
                 <ArrowControl :color="randomizedColors[2]">
                   <template #default>Know me better</template>
-                  <template #punctuation>!</template>
+                  <template #punctuation>…</template>
                 </ArrowControl>
               </RouterLink>
             </Card>
