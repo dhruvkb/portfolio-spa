@@ -18,4 +18,5 @@ This is my portfolio, my tiny personal slice of the Internet.
 ### Related repos
 
 - [Serverless APIs](https://github.com/dhruvkb/portfolio-api/)
+- [Blog posts](https://github.com/dhruvkb/portfolio-blog/)
 - [Résumés](https://github.com/dhruvkb/resume/)
