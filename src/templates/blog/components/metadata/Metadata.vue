@@ -59,7 +59,14 @@
        * @returns {string} the date relative to today
        */
       relativeDate () {
-        return moment(this.timestamp).fromNow()
+        return moment(this.timestamp).calendar({
+          lastWeek: '[Last] dddd',
+          lastDay: '[Yesterday]',
+          sameDay: '[Today]',
+          nextDay: '[Tomorrow]',
+          nextWeek: '[Coming] dddd',
+          sameElse: function () { return `[${this.fromNow()}]` }
+        })
       },
       /**
        * Get a human-readable date from the timestamp.
