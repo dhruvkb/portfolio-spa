@@ -117,6 +117,7 @@ export const mapping = {
   },
   whoami: {
     name: 'whoami',
+    args: WhoAmI.argSpec,
     component: 'WhoAmI',
     description: 'Get your own username.'
   },
