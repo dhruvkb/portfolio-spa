@@ -21,6 +21,8 @@
 
   import argumented from '@/mixins/argumented'
 
+  import { nodeType } from '@/templates/portfolio/data/tree'
+
   import '@/styles/utils/prism.scss'
 
   /**
@@ -76,7 +78,7 @@
       isFound () {
         return this.args.filename === 'VANITY' ||
           this.args.filename === 'E' ||
-          (this.node && this.node.type === 'file')
+          (this.node && this.node.type === nodeType.FILE)
       },
       /**
        * _the imported HTML of the file_

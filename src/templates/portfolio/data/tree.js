@@ -1,3 +1,8 @@
+const nodeType = {
+  FOLDER: 'folder',
+  FILE: 'file'
+}
+
 /**
  * A class that implements one node in a file-system tree. Each node may either
  * be a file or a folder and may have children if it is a folder.
@@ -195,12 +200,13 @@ function populateTree (tree, basicNode) {
 
     tree.add(childNode, basicNode.name, tree.traverseBreadthFirst)
 
-    if (basicChild.type === 'folder') {
+    if (basicChild.type === nodeType.FOLDER) {
       populateTree(tree, basicChild)
     }
   }
 }
 
 export {
+  nodeType,
   generateTree
 }

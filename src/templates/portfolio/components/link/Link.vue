@@ -15,6 +15,8 @@
 <script>
   import { mapActions, mapGetters } from 'vuex'
 
+  import { nodeType } from '@/templates/portfolio/data/tree'
+
   /**
    * This block represents a link to a node in the file system, be it a folder
    * or a file, which can be clicked to either enter or open it respectively.
@@ -42,9 +44,9 @@
        */
       linkClasses () {
         const classes = []
-        if (this.node.type === 'folder') {
+        if (this.node.type === nodeType.FOLDER) {
           classes.push('violet-colored')
-        } else {
+        } else { // this.node.type === nodeType.FILE
           classes.push('magenta-colored')
         }
         return classes
@@ -53,9 +55,11 @@
        * _a helpful hint to show when the link is hovered_
        */
       description () {
-        return this.node.type === 'folder'
-          ? `Enter folder '${this.node.name}'.`
-          : `Open file '${this.node.name}'.`
+        if (this.node.type === nodeType.FOLDER) {
+          return `Enter folder '${this.node.name}'.`
+        } else { // this.node.type === nodeType.FILE
+          return `Open file '${this.node.name}'.`
+        }
       },
 
       ...mapGetters('portfolio', [
@@ -68,9 +72,9 @@
        */
       execute () {
         let command
-        if (this.node.type === 'folder') {
+        if (this.node.type === nodeType.FOLDER) {
           command = 'cd'
-        } else {
+        } else { // this.node.type === nodeType.FILE
           command = 'cat'
         }
         this.runCommand({

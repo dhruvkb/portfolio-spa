@@ -5,9 +5,10 @@
         <span
           :class="rule ? 'extra-space' : 'space'"
           v-for="(rule, index) in lineRules"
-          :key="index">{{ rule ? '': '│'}}</span>{{ isLastChild ? '└' : '├'}}──&nbsp;</template>
+          :key="index">{{ rule ? '': '│'}}</span>{{ isLastChild ? '└' : '├'}}──&nbsp;
+      </template>
 
-      <template v-if="!(args.flatten && node.type === 'folder')">
+      <template v-if="!(args.flatten && isFolder(node))">
         <template v-if="args.flatten">─&nbsp;</template>
         <Link :node="node"/>
       </template>
@@ -31,6 +32,8 @@
   import { Portfolio } from '@/templates/portfolio/Portfolio'
 
   import argumented from '@/mixins/argumented'
+
+  import { nodeType } from '@/templates/portfolio/data/tree'
 
   /**
    * This command recursively lists all directories and their contents.
@@ -120,6 +123,11 @@
       ...mapGetters('portfolio', [
         'nodeLocatedAt'
       ])
+    },
+    methods: {
+      isFolder (node) {
+        return node.type === nodeType.FOLDER
+      }
     },
     created () {
       this.node = this.dir

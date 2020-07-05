@@ -17,6 +17,8 @@
 
   import argumented from '@/mixins/argumented'
 
+  import { nodeType } from '@/templates/portfolio/data/tree'
+
   /**
    * This command switches to a given directory 'dirname'.
    */
@@ -54,7 +56,7 @@
        * _whether a folder matching the path was found_
        */
       isFound () {
-        return this.node && this.node.type === 'folder'
+        return this.node && this.node.type === nodeType.FOLDER
       },
 
       ...mapGetters('portfolio', [
