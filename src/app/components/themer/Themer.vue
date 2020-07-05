@@ -91,7 +91,9 @@
        */
       theme (to, from) {
         if (to !== from) { // Breaks recursion
-          document.documentElement.classList.remove(`${from}-themed`)
+          if (from) {
+            document.documentElement.classList.remove(`${from}-themed`)
+          }
           document.documentElement.classList.add(`${to}-themed`)
 
           // Persist theme to local storage
