@@ -4,6 +4,7 @@
 @import '~@/styles/mixins/colored';
 
 @mixin theme {
+  &:not(.light-themed),
   &.dark-themed {
     #{--content}:                $color-content-base0;
     #{--content-highlighted}:    $color-content-base1;
