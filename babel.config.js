@@ -13,6 +13,7 @@ module.exports = {
           'markdown',
           'python',
           'rest',
+          'scss',
           'yaml'
         ],
         plugins: ['autolinker'],
