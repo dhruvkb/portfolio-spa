@@ -15,8 +15,6 @@
     <!-- Site title -->
     <title>Dhruv Bhanushali</title>
 
-    <!-- Information for robots -->
-
     <!-- Google Tag Manager -->
     <script>
       (function (window, document, script, dataLayer, id) {
@@ -39,6 +37,14 @@
       })(window, document, 'script', 'dataLayer', 'GTM-KWBQS6V')
     </script>
 
+    <!-- Meta information -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+
+    <!-- SEO -->
+    <meta name="google-site-verification" content="rDaR4bofozdONdJoKYHh4JKPdCXaVt9QpLiZEcqbr7I">
+
+    <!-- Rich snippets -->
     <meta name="description" content="Hi! I am Dhruv Bhanushali, a software developer who writes well-documented code, builds accessible interfaces and ships delightful apps." data-vue-router="">
 
     <meta property="og:title" content="Dhruv Bhanushali">
@@ -51,19 +57,6 @@
     <meta name="twitter:site" content="@dhruvkb_">
     <meta name="twitter:creator" content="@dhruvkb_">
 
-    <meta name="google-site-verification" content="rDaR4bofozdONdJoKYHh4JKPdCXaVt9QpLiZEcqbr7I">
-
-    <!-- Meta information -->
-    <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:700&display=swap">
-
-    <!-- Preloaded resources -->
-    <link rel="preload" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:700&display=swap" as="style">
-
     <!-- Icons -->
     <link rel="icon" href="<%= BASE_URL %>favicon.png">
 
@@ -74,59 +67,57 @@
         margin: 0;
       }
 
-      .jsonly {
+      #app > .yesscript,
+      #app > noscript {
         display: flex;
         flex-direction: column;
         align-items: stretch;
         justify-content: center;
 
+        background-color: #002b36;
+
         height: 100vh;
       }
 
-      .jsonly > p {
+      #app > .yesscript > p,
+      #app > noscript > p {
         text-align: center;
 
-        color: black;
-        font-family: -apple-system, "Helvetica Neue", "Helvetica" , "Apple Color Emoji", "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol", "Roboto", "Cantarell", "Ubuntu", "Oxygen", system-ui, sans-serif;
+        color: #839496;
+        font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica" , "Apple Color Emoji", "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol", "Roboto", "Cantarell", "Ubuntu", "Oxygen", system-ui, sans-serif;
       }
     </style>
 
     <!-- Styling for when JS is disabled -->
     <noscript>
       <style>
+        @font-face {
+          font-family: "JetBrains Mono";
+          font-weight: 800;
+          font-style: normal;
+
+          src: url("https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/web/woff2/JetBrainsMono-ExtraBold.woff2") format("woff2"),
+               url("https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/web/woff/JetBrainsMono-ExtraBold.woff")   format("woff"),
+               url("https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/web/eot/JetBrainsMono-ExtraBold.eot")     format("embedded-opentype"),
+               url("https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/ttf/JetBrainsMono-ExtraBold.ttf")         format("truetype");
+        }
+
         h1 {
           text-align: center;
 
           color: #dc322f;
-          font-family: "IBM Plex Sans", sans-serif;
-          font-size: 3.750rem;
+          font-family: "JetBrains Mono", sans-serif;
+          font-weight: 800;
+          font-size: 3.500rem;
         }
 
-        #app > noscript {
-          display: flex;
-          flex-direction: column;
-          align-items: stretch;
-          justify-content: center;
-
-          background-color: #002b36;
-
-          height: 100vh;
-        }
-
-        p {
-          text-align: center;
-
-          color: #839496;
-          font-family: -apple-system, "Helvetica Neue", "Helvetica" , "Apple Color Emoji", "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol", "Roboto", "Cantarell", "Ubuntu", "Oxygen", system-ui, sans-serif;
-        }
-
-        p > a {
+        a {
           color: inherit;
 
-          text-decoration-style: dotted;
+          text-decoration-style: dashed;
         }
 
-        .jsonly {
+        .yesscript {
           display: none;
         }
       </style>
@@ -155,12 +146,13 @@
           Heartfelt apologies, but my portfolio needs JavaScript enabled.
           <br/>
           How about I show you my
-          <a href="https://dhruvkb.github.io/resume">résumés</a>?
+          <a href="https://dhruvkb.github.io/resume">résumés</a>
+          instead?
         </p>
       </noscript>
-      <div class="jsonly">
+      <div class="yesscript">
         <p>
-          ...
+          Please wait...
         </p>
       </div>
     </div>
