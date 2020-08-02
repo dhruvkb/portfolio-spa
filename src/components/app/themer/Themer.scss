@@ -1,0 +1,5 @@
+@use '~@/styles/layouts/bar_item';
+
+.themer {
+  @include bar_item.bar-item;
+}
