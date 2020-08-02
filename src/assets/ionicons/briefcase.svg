@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <g
+    id="briefcase"
+    fill="currentColor"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="var(--stroke-width, 32px)">
+    <rect
+      x="32"
+      y="128"
+      width="448"
+      height="320"
+      rx="48"
+      ry="48"
+      fill="none"/>
+    <path
+      d="M144,128V76a32,32,0,0,1,32-32H336a32,32,0,0,1,32,32v52"
+      fill="none"/>
+    <line
+      x1="480"
+      y1="280"
+      x2="32"
+      y2="280"/>
+    <path
+      fill="none"
+      d="M320,280v24a8,8,0,0,1-8,8H200a8,8,0,0,1-8-8V280"/>
+  </g>
+</svg>

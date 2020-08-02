@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <g
+    id="download"
+    fill="currentColor"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="var(--stroke-width, 32px)">
+    <path
+      fill="none"
+      d="M356,146h40a40,40,0,0,1,40,40V424a40,40,0,0,1-40,40H116a40,40,0,0,1-40-40V186a40,40,0,0,1,40-40h40"/>
+    <polyline
+      fill="none"
+      points="176 292 256 372 336 292"/>
+    <line
+      x1="256" y1="48" x2="256" y2="336"/>
+  </g>
+</svg>
