@@ -1,8 +1,13 @@
 <template>
   <div class="cat">
     <template v-if="isFound">
-      <div v-if="contents" v-html="contents"></div>
-      <Spinner v-else/>
+      <div v-if="contents" v-html="contents"/>
+      <span
+        v-else
+        class="magenta-colored">
+        <Spinner/>
+        Loading…
+      </span>
     </template>
 
     <template v-else>
@@ -17,11 +22,12 @@
 
   import { mapGetters, mapMutations } from 'vuex'
 
-  import { Portfolio } from '@/templates/portfolio/Portfolio'
+  import Spinner from '@/components/portfolio/spinner/Spinner'
+  import Link from '@/components/portfolio/link/Link'
 
   import argumented from '@/mixins/argumented'
 
-  import { nodeType } from '@/templates/portfolio/data/tree'
+  import { nodeType } from '@/data/portfolio/tree'
 
   import '@/styles/utils/prism.scss'
 
@@ -34,9 +40,9 @@
       argumented
     ],
     components: {
-      Spinner: Portfolio.Spinner,
+      Spinner,
       // eslint-disable-next-line vue/no-unused-components
-      Link: Portfolio.Link
+      Link
     },
     argSpec: {
       args: [
@@ -124,7 +130,9 @@
                 this.$nextTick(this.formatOutput)
               }, 1000)
             })
-            .catch(() => {
+            .catch(err => {
+              console.log('FAIL')
+              console.error(err)
               this.stopProcessing('FAIL')
             })
         } catch (error) {

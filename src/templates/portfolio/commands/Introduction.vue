@@ -1,6 +1,6 @@
 <template>
   <div class="intro">
-    <div class="red-colored" title="This terminal has easter-eggs!">
+    <div title="This terminal has easter-eggs!">
       <pre class="ascii-art big">
   __   __                                __       __
  /\ \ /\ \                              /\ \     /\ \
@@ -22,27 +22,31 @@
           v-for="(resume, index) in resumes"
           v-shortkey="[resume.shortkey]"
           :key="index"
-          class="link yellow-colored inverted"
+          class="link yellow-colored"
           :href="resume.url"
           target="_blank"
           :title="resumeLinkTitleText(resume.shortkey, resume.name)"
           @shortkey="$navigateOutTo(resume.url)">
-          <FontAwesomeIcon
-            :icon="['fas', 'download']"
-            fixed-width/>
-          <span>{{ resume.name }}</span>
+          <Icon
+            icon="download"
+            is-inline/>
+          <span>
+            {{ resume.name }}
+          </span>
         </a>
         <a
           v-shortkey="['s']"
-          class="link yellow-colored boxed"
+          class="link yellow-colored"
           :href="resumeRepoUrl"
           target="_blank"
           title="[S] See the LaTeX source code."
           @shortkey="$navigateOutTo(resumeRepoUrl)">
-          <FontAwesomeIcon
+          <Icon
             :icon="['fab', 'github']"
-            fixed-width/>
-          <span>source code</span>
+            is-inline/>
+          <span>
+            source code
+          </span>
         </a>
       </div>
     </div>
@@ -51,11 +55,11 @@
 
 <script>
   import { library } from '@fortawesome/fontawesome-svg-core'
-  import { faDownload } from '@fortawesome/free-solid-svg-icons'
   import { faGithub } from '@fortawesome/free-brands-svg-icons'
-  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-  library.add(faDownload, faGithub)
+  import Icon from '@/components/common/icon/Icon'
+
+  library.add(faGithub)
 
   /**
    * This command presents the introductory ASCII art.
@@ -63,7 +67,7 @@
   export default {
     name: 'Introduction',
     components: {
-      FontAwesomeIcon
+      Icon
     },
     data () {
       const resumeBaseUrl = 'https://dhruvkb.github.io/resume'
@@ -92,31 +96,32 @@
 </script>
 
 <style scoped lang="scss">
-  @import '~@/styles/tokens/dimensions';
-  @import '~@/styles/tokens/sizes';
-  @import '~@/styles/tokens/weights';
+  @use '~@/styles/tokens/colors';
+  @use '~@/styles/tokens/devices';
+  @use '~@/styles/tokens/dimensions';
+  @use '~@/styles/tokens/sizes';
+  @use '~@/styles/tokens/weights';
 
-  @import '~@/styles/utils/media';
+  @use '~@/styles/utils/media';
 
   .intro {
     .ascii-art {
-      font-size: $size-xs;
-      font-weight: $weight-semibold;
+      color: colors.$color-accent-red;
+      font-size: sizes.$size-xs;
+      font-weight: weights.$weight-semibold;
 
       background-color: transparent;
 
-      margin: -#{$dimen-line} 0 0 0;
+      margin: -#{dimensions.$dimen-line} 0 0 0;
 
       &.big {
-        $devices: 'phone';
-        @include device-specific($devices) {
+        @include media.device-specific(devices.$phone) {
           display: none;
         }
       }
 
       &.small {
-        $devices: 'tablet', 'desktop';
-        @include device-specific($devices) {
+        @include media.device-specific(devices.$group-non-phone) {
           display: none;
         }
       }
@@ -127,7 +132,7 @@
       flex-direction: row;
       align-items: center;
 
-      margin-top: $dimen-line;
+      margin-top: dimensions.$dimen-line;
 
       .links {
         display: inline-block;
@@ -141,11 +146,14 @@
 
           margin-right: 1ch;
 
-          $devices: 'phone';
-          @include device-specific($devices) {
+          @include media.device-specific(devices.$group-non-phone) {
             display: block;
 
-            margin-bottom: $dimen-xs;
+            margin-bottom: dimensions.$dimen-xs;
+          }
+
+          .icon {
+            --stroke-width: 48px; // 24 / 16 * 32px
           }
         }
       }

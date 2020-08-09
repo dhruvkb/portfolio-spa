@@ -8,16 +8,17 @@
       Command <strong>bad</strong> is not for public use.
     </template>
 
-    Try <Executable :command="altCommand" :argv="altArgv"/>.
+    Try
+    <Executable :command="altCommand" :argv="altArgv"/>.
   </div>
 </template>
 
 <script>
-  import { Portfolio } from '@/templates/portfolio/Portfolio'
-
-  import { mapping } from '@/templates/portfolio/commands'
+  import Executable from '@/components/portfolio/executable/Executable'
 
   import argumented from '@/mixins/argumented'
+
+  import { mapping } from './index'
 
   /**
    * This command shows that a given command does not exist in the CLI.
@@ -28,7 +29,7 @@
       argumented
     ],
     components: {
-      Executable: Portfolio.Executable
+      Executable
     },
     argSpec: {
       args: [

@@ -17,7 +17,7 @@
 
   import argumented from '@/mixins/argumented'
 
-  import { nodeType } from '@/templates/portfolio/data/tree'
+  import { nodeType } from '@/data/portfolio/tree'
 
   /**
    * This command switches to a given directory 'dirname'.

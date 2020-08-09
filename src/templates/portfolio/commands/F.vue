@@ -2,18 +2,15 @@
   <div class="f">
     <template v-if="paid">
       <span class="green-colored">
-        <FontAwesomeIcon
-          :icon="['fas', 'check']"
-          fixed-width/>
+        <Icon
+          icon="check"
+          is-inline/>
         Paid respects!
       </span>
     </template>
     <template v-else>
       <span class="yellow-colored">
-        <FontAwesomeIcon
-          :icon="['fas', 'dharmachakra']"
-          fixed-width
-          spin/>
+        <Spinner/>
         Paying respects…
       </span>
     </template>
@@ -21,16 +18,16 @@
 </template>
 
 <script>
-  import { library } from '@fortawesome/fontawesome-svg-core'
-  import { faCheck, faDharmachakra } from '@fortawesome/free-solid-svg-icons'
-  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+  import Icon from '@/components/common/icon/Icon'
 
-  library.add(faCheck, faDharmachakra)
+  import Spinner from '@/components/portfolio/spinner/Spinner'
 
   export default {
     name: 'F',
     components: {
-      FontAwesomeIcon
+      Icon,
+
+      Spinner
     },
     data () {
       return {
@@ -45,3 +42,11 @@
     }
   }
 </script>
+
+<style scoped lang="scss">
+  .f {
+    .icon {
+      --stroke-width: 48px; // 24 / 16 * 32px
+    }
+  }
+</style>

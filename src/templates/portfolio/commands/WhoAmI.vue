@@ -1,7 +1,9 @@
 <template>
-  <div class="whoami yellow-colored">
-    <template v-if="args.groot">Groot</template>
-    <template v-else>guest</template>
+  <div class="whoami">
+    <span class="yellow-colored">
+      <template v-if="args.groot">Groot</template>
+      <template v-else>guest</template>
+    </span>
   </div>
 </template>
 

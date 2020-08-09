@@ -1,6 +1,6 @@
 <template>
-  <div class="pwd violet-colored">
-    {{ pwd }}
+  <div class="pwd">
+    <span class="violet-colored">{{ pwd }}</span>
   </div>
 </template>
 

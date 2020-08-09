@@ -29,11 +29,11 @@
 <script>
   import { mapGetters, mapState } from 'vuex'
 
-  import { Portfolio } from '@/templates/portfolio/Portfolio'
+  import Link from '@/components/portfolio/link/Link'
 
   import argumented from '@/mixins/argumented'
 
-  import { nodeType } from '@/templates/portfolio/data/tree'
+  import { nodeType } from '@/data/portfolio/tree'
 
   /**
    * This command recursively lists all directories and their contents.
@@ -44,7 +44,7 @@
       argumented
     ],
     components: {
-      Link: Portfolio.Link
+      Link
     },
     argSpec: {
       args: [

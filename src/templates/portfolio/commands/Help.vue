@@ -143,7 +143,9 @@
 </script>
 
 <style scoped lang="scss">
-  @import '~@/styles/utils/media';
+  @use '~@/styles/tokens/devices';
+
+  @use '~@/styles/utils/media';
 
   .help {
     ul {
@@ -154,8 +156,7 @@
       margin: 0;
 
       &.command-list {
-        $devices: 'tablet', 'desktop';
-        @include device-specific($devices) {
+        @include media.device-specific(devices.$group-non-phone) {
           columns: 2;
         }
       }

@@ -17,7 +17,7 @@
 
   import argumented from '@/mixins/argumented'
 
-  import { nodeType } from '@/templates/portfolio/data/tree'
+  import { nodeType } from '@/data/portfolio/tree'
 
   /**
    * This command opens the specified file 'filename' in a view of its own.
@@ -101,7 +101,3 @@
     }
   }
 </script>
-
-<style scoped>
-
-</style>

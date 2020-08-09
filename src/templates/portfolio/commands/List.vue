@@ -25,11 +25,11 @@
 <script>
   import { mapGetters, mapState } from 'vuex'
 
-  import { Portfolio } from '@/templates/portfolio/Portfolio'
+  import Link from '@/components/portfolio/link/Link'
 
   import argumented from '@/mixins/argumented'
 
-  import { nodeType } from '@/templates/portfolio/data/tree'
+  import { nodeType } from '@/data/portfolio/tree'
 
   /**
    * This command lists the immediate contents of the current directory.
@@ -40,7 +40,7 @@
       argumented
     ],
     components: {
-      Link: Portfolio.Link
+      Link
     },
     argSpec: {
       args: [
@@ -97,7 +97,9 @@
 </script>
 
 <style scoped lang="scss">
-  @import '~@/styles/utils/media';
+  @use '~@/styles/tokens/devices';
+
+  @use '~@/styles/utils/media';
 
   .ls {
     ul {
@@ -107,8 +109,7 @@
 
       margin: 0;
 
-      $devices: 'tablet', 'desktop';
-      @include device-specific($devices) {
+      @include media.device-specific(devices.$group-non-phone) {
         columns: 2;
       }
     }
