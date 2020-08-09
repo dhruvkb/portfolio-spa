@@ -1,0 +1,25 @@
+@use '~@/styles/tokens/dimensions';
+@use '~@/styles/tokens/sizes';
+
+@use '~@/styles/utils/theming';
+
+.metadata {
+  font-size: sizes.$size-s;
+
+  .point {
+    display: inline-flex;
+
+    flex-direction: row;
+    align-items: center;
+
+    .icon {
+      margin-right: dimensions.$dimen-s;
+
+      --stroke-width: 36.5714px;
+    }
+  }
+
+  .created-at {
+    margin-right: dimensions.$dimen-m;
+  }
+}

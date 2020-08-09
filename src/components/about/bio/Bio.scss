@@ -1,0 +1,18 @@
+@use '~@/styles/tokens/dimensions';
+@use '~@/styles/tokens/sizes';
+
+.bio {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &:not(:first-child) {
+    margin-top: dimensions.$dimen-s;
+  }
+
+  .icon {
+    margin-right: dimensions.$dimen-m;
+
+    font-size: sizes.$size-l;
+  }
+}

@@ -1,0 +1,38 @@
+@use '~@/styles/tokens/colors';
+
+@use '~@/styles/utils/theming';
+
+.kaomoji {
+  @include theming.transition(2);
+
+  cursor: grab; // closest thing to a waving hand
+
+  margin-left: auto;
+  margin-right: auto;
+
+  color: var(--content-secondary);
+
+  .hand {
+    display: inline-block;
+    transform-origin: 0 100%;
+
+    @keyframes wave {
+      0%, 42.5%, 47.5%, 52.5%, 57.5%, 100% {
+        transform: rotate(0);
+      }
+
+      45%, 50%, 55% {
+        transform: rotate(15deg);
+      }
+    }
+
+    animation-name: wave;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 4s;
+  }
+
+  &:hover {
+    color: colors.$color-accent-cyan;
+  }
+}

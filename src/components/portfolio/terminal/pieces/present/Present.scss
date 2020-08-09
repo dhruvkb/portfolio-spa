@@ -1,0 +1,83 @@
+@use 'sass:color';
+
+@use '~@/styles/tokens/colors';
+@use '~@/styles/tokens/devices';
+@use '~@/styles/tokens/dimensions';
+@use '~@/styles/tokens/durations';
+@use '~@/styles/tokens/weights';
+
+@use '~@/styles/utils/controls';
+@use '~@/styles/utils/media';
+@use '~@/styles/utils/theming';
+
+.present {
+  --text-color: var(--content-max-visibility);
+
+  cursor: url('~@/assets/svgs/keyboard.svg') 12 6, crosshair;
+
+  .prompt-label {
+    cursor: inherit; // UA stylesheet sets this to 'default'
+  }
+
+  .command-field {
+    @include controls.reset-control;
+
+    position: relative;
+    z-index: 1;
+
+    color: var(--text-color);
+    caret-color: transparent;
+
+    width: calc(var(--characters-filled) + 1px);
+
+    border-radius: 0;
+
+    &:focus {
+      outline: none;
+
+      & + .faux-caret {
+        background-color: color.change(colors.$color-accent-blue, $alpha: 0.3);
+        border-color: colors.$color-accent-blue;
+
+        @keyframes blink {
+          0%, 49%, 100% {
+            opacity: 1;
+          }
+
+          50%, 99% {
+            opacity: 0;
+          }
+        }
+
+        animation-name: blink;
+        animation-iteration-count: infinite;
+        animation-duration: durations.$duration-l;
+      }
+    }
+
+    @include media.device-specific(devices.$phone) {
+      max-width: 100%;
+    }
+  }
+
+  .faux-caret {
+    @include theming.transition(0, (border-color));
+
+    display: inline-block;
+
+    position: relative;
+    top: 0.6ex; // Align caret precisely
+    left: var(--characters-displaced);
+    z-index: 0;
+
+    border: 1px solid var(--content-secondary);
+
+    height: dimensions.$dimen-line;
+    width: calc(1ch - 2px); // Account for 1px border on left and right sides
+
+    margin-top: -0.8ex; // Remove the space left on the top
+
+    transform: scaleY(1.4); // Multiply with line height of 1.4
+    transform-origin: 50% calc(50% + 0.4ex); // Grow the caret about the center
+  }
+}

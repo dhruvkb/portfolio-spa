@@ -1,0 +1,12 @@
+@use '~@/styles/tokens/sizes';
+
+@use '~@/styles/mixins/colored';
+
+.couplet {
+  @include colored.colored('--couplet-color');
+
+  .dom {
+    color: var(--couplet-color);
+    font-size: sizes.$size-2xl;
+  }
+}

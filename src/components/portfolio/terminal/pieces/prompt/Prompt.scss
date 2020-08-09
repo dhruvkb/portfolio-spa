@@ -1,0 +1,38 @@
+@use '~@/styles/tokens/devices';
+@use '~@/styles/tokens/weights';
+
+@use '~@/styles/utils/media';
+@use '~@/styles/utils/theming';
+
+.prompt {
+  @include theming.transition(2);
+
+  color: var(--content-secondary);
+
+  margin-right: 1ch;
+
+  .directory {
+    @include theming.transition(2);
+
+    font-weight: weights.$weight-bold;
+    color: var(--content-secondary);
+  }
+
+  .big {
+    @include media.device-specific(devices.$phone) {
+      display: none;
+    }
+  }
+
+  .small {
+    @include media.device-specific(devices.$group-non-phone) {
+      display: none;
+    }
+  }
+
+  &.active {
+    .directory {
+      color: var(--content);
+    }
+  }
+}

@@ -1,0 +1,7 @@
+@use '~@/styles/tokens/dimensions';
+
+.past {
+  .interaction {
+    margin-bottom: dimensions.$dimen-line;
+  }
+}

@@ -1,0 +1,43 @@
+@use '~@/styles/tokens/durations';
+
+@use '~@/styles/motion/transitions';
+
+@use '~@/styles/utils/theming';
+
+.work {
+  @include transitions.flip('vertical', durations.$duration-m, -90deg, 0, 90deg, 0, 0, 0);
+  @include transitions.flip('vertical-rev', durations.$duration-m, 90deg, 0, -90deg, 0, 0, 0);
+
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+
+  .actual-work {
+    // .flip
+
+    &::after {
+      @include theming.transition(1, (width), (durations.$duration-s));
+
+      content: '';
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+
+      box-sizing: border-box;
+      height: 100%;
+      width: 0;
+
+      background-color: var(--background-highlighted);
+    }
+  }
+
+  &.focused {
+    .actual-work {
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}

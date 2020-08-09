@@ -1,0 +1,50 @@
+@use '~@/styles/tokens/dimensions';
+@use '~@/styles/tokens/fonts';
+@use '~@/styles/tokens/sizes';
+
+@use '~@/styles/mixins/colored';
+
+.blockquote {
+  @include colored.colored('--blockquote-color');
+
+  position: relative;
+
+  width: fit-content;
+
+  .content {
+    .quotation {
+      color: var(--blockquote-color);
+      font-size: sizes.$size-l;
+      text-align: center;
+    }
+
+    .citation {
+      display: block;
+
+      font-style: normal;
+      text-align: right;
+    }
+  }
+
+  .icon {
+    opacity: 0.3;
+
+    position: absolute;
+    top: 0;
+
+    color: var(--blockquote-color);
+    font-size: sizes.$size-2xl;
+
+    z-index: -1;
+
+    &.left {
+      left: 0;
+      transform: translate(-50%, -50%);
+    }
+
+    &.right {
+      right: 0;
+      transform: translate(50%, -50%);
+    }
+  }
+}

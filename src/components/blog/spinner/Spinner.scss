@@ -1,0 +1,27 @@
+@use '~@/styles/tokens/durations';
+
+@use '~@/styles/utils/theming';
+
+.spinner {
+  .cursor {
+    @include theming.transition(0, (border-color));
+
+    @keyframes blink {
+      0%, 100% {
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    animation-name: blink;
+    animation-duration: durations.$duration-l;
+    animation-iteration-count: infinite;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--content-secondary);
+  }
+}

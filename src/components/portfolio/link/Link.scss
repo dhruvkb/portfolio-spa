@@ -1,0 +1,13 @@
+.link {
+  a {
+    text-decoration: none;
+
+    .icon {
+      --stroke-width: 48px; // 24 / 16 * 32px
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

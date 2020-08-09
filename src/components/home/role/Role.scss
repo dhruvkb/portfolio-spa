@@ -1,0 +1,37 @@
+@use '~@/styles/tokens/durations';
+@use '~@/styles/tokens/fonts';
+@use '~@/styles/tokens/weights';
+
+@use '~@/styles/mixins/colored';
+
+@use '~@/styles/motion/transitions';
+
+@use '~@/styles/utils/theming';
+
+.role {
+  @include colored.colored('--role-color');
+  @include transitions.flip('vertical', durations.$duration-m, -90deg, 0, 90deg, 0, 0, 0);
+  @include transitions.flip('vertical-rev', durations.$duration-m, 90deg, 0, -90deg, 0, 0, 0);
+
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+
+  color: var(--role-color);
+
+  .text {
+    // .flip
+    // Also applies to .fullstop
+
+    .vowel {
+      @include theming.transition(2);
+
+      color: var(--content);
+    }
+
+    .actual-role {
+      font-family: fonts.$family-code;
+      font-weight: weights.$weight-medium;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+@use '~@/styles/layouts/bar_item';
+
+@use '~@/styles/mixins/colored';
+
+@use '~@/styles/utils/controls';
+@use '~@/styles/utils/theming';
+
+.source {
+  @include controls.reset-control;
+  @include bar_item.bar-item;
+
+  --inactive-color: var(--content-secondary);
+  --active-color: var(--content);
+  @include colored.colored('--active-color');
+
+  --source-color: var(--inactive-color);
+
+  .icon {
+    @include theming.transition(2);
+
+    color: var(--source-color);
+  }
+
+  &:hover { // Mouse focus
+    --source-color: var(--active-color);
+  }
+
+  &:focus { // Keyboard focus
+    outline: 1px dashed var(--active-color);
+    outline-offset: -1px;
+  }
+}

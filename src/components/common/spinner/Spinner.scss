@@ -1,0 +1,20 @@
+@use '~@/styles/tokens/dimensions';
+
+@use '~@/styles/mixins/colored';
+
+@use '~@/styles/utils/theming';
+
+.spinner {
+  --spinner-color: var(--content);
+  @include colored.colored('--spinner-color');
+
+  stroke: var(--spinner-color);
+
+  margin: dimensions.$dimen-m;
+
+  .track {
+    @include theming.transition(0, (stroke));
+
+    stroke: var(--background-highlighted);
+  }
+}

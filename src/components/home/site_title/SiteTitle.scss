@@ -1,0 +1,16 @@
+@use '~@/styles/tokens/colors';
+@use '~@/styles/tokens/sizes';
+@use '~@/styles/tokens/dimensions';
+
+.site-title {
+  display: block;;
+
+  box-sizing: border-box;
+  height: 2 * sizes.$size-6xl;
+  max-width: 100%;
+
+  padding-top: dimensions.$dimen-s;
+  padding-bottom: dimensions.$dimen-s;
+
+  #{--stroke}: colors.$color-accent-red;
+}
