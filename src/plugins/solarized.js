@@ -4,7 +4,7 @@
  */
 export default {
   install (Vue, options) {
-    Vue.prototype.$solarizedColors = [
+    const colors = [
       'violet',
       'blue',
       'cyan',
@@ -14,33 +14,35 @@ export default {
       'red',
       'magenta'
     ]
-
-    Vue.prototype.$safeSolarizedColors = [
-      'violet',
-      'blue',
-      'cyan',
-      'yellow',
-      'orange',
-      'magenta'
+    const reserved = [
+      'green', // reserved for navigation
+      'red' // reserved for site title
     ]
+    const safe = colors.filter(color => !reserved.includes(color))
 
-    Vue.prototype.$getSolarizedColor = function (index) {
-      return this.$safeSolarizedColors[this.$modulo(index, this.$safeSolarizedColors.length)]
-    }
+    Vue.mixin({
+      computed: {
+        shuffledSolarizedColors () {
+          const colors = [...safe]
+          let remaining = colors.length
+          while (remaining) {
+            const index = Math.floor(Math.random() * remaining)
+            remaining -= 1
 
-    Vue.prototype.$getShuffledSolarizedColors = function () {
-      const colors = [...this.$safeSolarizedColors]
-      let remaining = colors.length
-      while (remaining) {
-        const index = Math.floor(Math.random() * remaining)
-        remaining -= 1
+            const temp = colors[index]
+            colors[index] = colors[remaining]
+            colors[remaining] = temp
+          }
 
-        const temp = colors[index]
-        colors[index] = colors[remaining]
-        colors[remaining] = temp
+          return colors
+        }
+      },
+      methods: {
+        solarizedColor (index) {
+          index = this.$modulo(index, safe.length)
+          return safe[index]
+        }
       }
-
-      return colors
-    }
+    })
   }
 }
