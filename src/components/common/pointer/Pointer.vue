@@ -1,46 +1,40 @@
 <template>
-  <div class="arrow-control" :class="arrowLinkClasses">
+  <div class="pointer" :class="pointerClasses">
     <div class="text">
       <!-- @slot Main text goes here -->
       <slot/>
     </div>
     <div class="punctuation">
       <!-- @slot Punctuation following the text goes here -->
-      <slot name="punctuation"/>
+      <slot name="punctuation">…</slot>
     </div>
     <div class="arrow">
-      <FontAwesomeIcon
-        :icon="['fas', 'arrow-right']"
-        fixed-width/>
+      <Icon icon="arrow-right"/>
     </div>
   </div>
 </template>
 
 <script>
-  import { library } from '@fortawesome/fontawesome-svg-core'
-  import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
-  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+  import Icon from '@/components/common/icon/Icon'
 
   import colored from '@/mixins/colored'
   import focusable from '@/mixins/focusable'
 
-  library.add(faArrowRight)
-
   export default {
-    name: 'ArrowControl',
+    name: 'Pointer',
     mixins: [
       colored,
       focusable
     ],
     components: {
-      FontAwesomeIcon
+      Icon
     },
     computed: {
       /**
-       * Get the classes to use on the arrow control.
+       * Get the classes to use on the pointer.
        * @returns {Array} an array of all the classes to apply on the element
        */
-      arrowLinkClasses () {
+      pointerClasses () {
         return [
           ...this.coloredClasses,
           {
@@ -52,5 +46,4 @@
   }
 </script>
 
-<style scoped lang="scss" src="./ArrowControl.scss">
-</style>
+<style scoped lang="scss" src="./Pointer.scss"/>

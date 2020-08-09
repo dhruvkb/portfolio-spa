@@ -1,0 +1,70 @@
+@use '~@/styles/tokens/dimensions';
+@use '~@/styles/tokens/durations';
+
+@use '~@/styles/mixins/colored';
+
+@use '~@/styles/utils/theming';
+
+.pointer {
+  $icon-width: 1.5em;
+
+  @include colored.colored('--pointer-color');
+
+  display: inline-flex;
+
+  flex-direction: row;
+  align-items: center;
+
+  color: var(--pointer-color);
+
+  transition-property: color;
+  transition-duration: durations.$duration-s;
+
+  .punctuation,
+  .arrow {
+    width: $icon-width;
+
+    transition-property: opacity, transform;
+    transition-duration: durations.$duration-s;
+  }
+
+  .punctuation {
+    opacity: 1;
+
+    transform: translateX(0);
+  }
+
+  .arrow {
+    position: relative;
+    right: $icon-width;
+    margin-right: -1 * $icon-width;
+
+    opacity: 0;
+
+    transform: translateX(-1 * $icon-width);
+
+    .icon {
+      display: block;
+    }
+  }
+
+  &:hover,
+  &.focused, {
+    .punctuation {
+      opacity: 0;
+      transform: translateX($icon-width);
+    }
+
+    .arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  &.focused {
+    text-decoration: underline;
+
+    outline: 1px dashed var(--pointer-color);
+    outline-offset: dimensions.$dimen-xxs;
+  }
+}
