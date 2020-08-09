@@ -20,6 +20,8 @@
   import Flip from '@/components/common/flip/Flip'
   import Icon from '@/components/common/icon/Icon'
 
+  import colors from '@/styles/tokens/colors.scss'
+
   /**
    * This component enables switching between the light and dark variants
    * of [Solarized by Ethan Schoonover](https://ethanschoonover.com/solarized/).
@@ -32,10 +34,14 @@
     },
     data () {
       return {
-        themes: [
-          'light',
-          'dark'
-        ],
+        themes: {
+          light: {
+            themeColor: colors.colorBackgroundBase2
+          },
+          dark: {
+            themeColor: colors.colorBackgroundBase02
+          }
+        },
         theme: null,
         default: 'dark'
       }
@@ -68,14 +74,25 @@
        * @returns {string} the name of the opposite theme
        */
       otherTheme () {
-        let index = this.themes.indexOf(this.theme)
-        return this.themes[++index % this.themes.length]
+        const themeNames = Object.keys(this.themes)
+        let index = themeNames.indexOf(this.theme)
+        return themeNames[++index % themeNames.length]
       },
       /**
        * Get the title text that describes the action this button will perform.
        */
       helpText () {
         return `[T] Switch to the ${this.otherTheme} theme.`
+      },
+
+      /**
+       * Find the DOM element corresponding to the 'theme-color' meta tag.
+       * @return {HTMLMetaElement} the 'theme-color' meta tag
+       */
+      themeColorElement () {
+        return Array.from(
+          document.getElementsByTagName('meta')
+        ).find(elem => elem.name === 'theme-color')
       }
     },
     watch: {
@@ -88,6 +105,9 @@
       theme (to, from) {
         if (to !== from) { // Breaks recursion
           document.documentElement.setAttribute('theme', this.theme)
+
+          // Set the new theme color
+          this.themeColorElement.content = this.themes[to].themeColor
 
           // Persist theme to local storage
           localStorage.theme = to
