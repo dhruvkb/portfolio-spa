@@ -1,0 +1,38 @@
+@use '~@/styles/tokens/dimensions';
+@use '~@/styles/tokens/durations';
+
+@use '~@/styles/mixins/colored';
+@use '~@/styles/mixins/intersectable';
+
+.card {
+  @include intersectable.intersectable;
+
+  --card-color: var(--background-opposite);
+  @include colored.colored('--card-color');
+
+  position: relative;
+
+  background-color: var(--background-highlighted);
+
+  box-sizing: border-box;
+  height: 100%;
+  max-width: 100%;
+
+  padding: (dimensions.$dimen-l + 2 * dimensions.$dimen-m) dimensions.$dimen-m dimensions.$dimen-l dimensions.$dimen-m;
+
+  .title {
+    position: absolute;
+
+    transform: translateY(-#{2 * dimensions.$dimen-m});
+  }
+
+  .content {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    height: 100%;
+  }
+}

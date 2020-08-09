@@ -49,5 +49,4 @@
   }
 </script>
 
-<style scoped lang="scss" src="./Grid.scss">
-</style>
+<style scoped lang="scss" src="./Grid.scss"/>

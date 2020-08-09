@@ -1,0 +1,15 @@
+@use '~@/styles/tokens/devices';
+
+@use '~@/styles/utils/media';
+
+.grid .cell {
+  @for $width from 1 through 12 {
+    @each $device in devices.$all {
+      @include media.device-specific($device) {
+        &.#{$device}-#{$width}-column-span {
+          grid-column: span $width;
+        }
+      }
+    }
+  }
+}

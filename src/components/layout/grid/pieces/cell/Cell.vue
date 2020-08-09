@@ -143,5 +143,4 @@
   }
 </script>
 
-<style scoped lang="scss" src="./Cell.scss">
-</style>
+<style scoped lang="scss" src="./Cell.scss"/>
