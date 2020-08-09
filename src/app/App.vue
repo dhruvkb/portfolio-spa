@@ -10,21 +10,23 @@
       name="fade"
       mode="out-in"
       appear
-      @after-leave="emitSignal">
+      @after-leave="handleAfterLeave">
       <RouterView/>
     </transition>
 
-    <Locale v-show="false"/>
+    <Localizer v-show="false"/>
   </div>
 </template>
 
 <script>
-  import Locale from '@/components/locale/Locale'
+  import Localizer from '@/components/common/localizer/Localizer'
 
-  import Header from './components/header/Header'
-  import Themer from './components/themer/Themer'
+  import Header from '@/components/app/header/Header'
+  import Themer from '@/components/app/themer/Themer'
 
-  import logs from './data/logs.json'
+  import colors from '@/styles/tokens/colors.scss'
+
+  import logs from '@/data/logs.json'
 
   /**
    * This is the root level App component.
@@ -32,7 +34,7 @@
   export default {
     name: 'App',
     components: {
-      Locale,
+      Localizer,
       Header,
       Themer
     },
@@ -57,7 +59,7 @@
        * @param {string} heading - the title of a particular category
        */
       logHeading (heading) {
-        const headingFormat = 'font-size: 2em; color: #268bd2;'
+        const headingFormat = `font-size: 2em; color: ${colors.colorAccentRed};`
         console.log(`%c# ${heading}`, headingFormat)
       },
       /**
@@ -67,21 +69,31 @@
       logContent (line) {
         console.log(`- ${line}`)
       },
+
       /**
-       * When the page switch is halfway through, that is when the leaving page
-       * has gone out and the entering page has not come in, emit a signal to
-       * reset the scroll position to zero.
+       * Emit a 'trigger-scroll' event to reset the scroll position to zero.
+       *
+       * This event is emitted when the page switch is halfway through, that is
+       * when the leaving page has exited the viewport but when the entering
+       * page has not come in yet.
        */
-      emitSignal () {
-        this.$root.$emit('triggerScroll')
+      emitTriggerScroll () {
+        this.$root.$emit('trigger-scroll')
+      },
+
+      handleAfterLeave () {
+        this.emitTriggerScroll()
       }
     },
     mounted () {
-      console.clear()
+      if (process.env.NODE_ENV === 'production') {
+        console.clear()
+      } else {
+        document.documentElement.classList.add('development')
+      }
       this.logAll()
     }
   }
 </script>
 
-<style lang="scss" src="./App.scss">
-</style>
+<style lang="scss" src="./App.scss"/>

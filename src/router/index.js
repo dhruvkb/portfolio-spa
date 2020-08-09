@@ -34,7 +34,7 @@ const router = new Router({
     }
 
     // Scroll is reset after leave, before enter transition
-    router.app.$root.$once('triggerScroll', () => {
+    router.app.$root.$once('trigger-scroll', () => {
       resolve(position)
     })
   })

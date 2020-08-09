@@ -1,11 +1,13 @@
-@import '~@/styles/tokens/durations';
-@import '~@/styles/motion/transitions';
+@use '~@/styles/tokens/durations';
+@use '~@/styles/motion/transitions';
 
-@import '~@/styles/base';
+@use '~@/styles/base';
+
+@use '~@/styles/utils/theming';
 
 #app {
-  color: var(--content);
-  background-color: var(--background);
+  @include transitions.fade(durations.$duration-m);
+  @include theming.transition(3);
 
-  @include fade($duration-s);
+  background-color: var(--background);
 }
