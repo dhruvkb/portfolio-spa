@@ -1,0 +1,59 @@
+@use '~@/styles/tokens/dimensions';
+@use '~@/styles/tokens/sizes';
+@use '~@/styles/tokens/devices';
+@use '~@/styles/tokens/weights';
+
+@use '~@/styles/utils/media';
+@use '~@/styles/utils/theming';
+
+.header {
+  @include theming.transition(1);
+
+  position: fixed;
+  z-index: 9;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  background-color: var(--background);
+
+  box-sizing: border-box;
+  width: 100%;
+
+  padding-left: dimensions.$dimen-s;
+  padding-right: dimensions.$dimen-s;
+
+  .nav-title-anchor {
+    margin-right: auto;
+
+    .nav-title {
+      font-weight: weights.$weight-extrabold;
+
+      &.full {
+        @include media.device-specific(devices.$group-small) {
+          display: none;
+        }
+      }
+
+      &.short {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .icon {
+          font-size: sizes.$size-m;
+          margin-right: dimensions.$dimen-s;
+
+          @include media.device-specific(devices.$phone) {
+            display: none;
+          }
+        }
+
+        @include media.device-specific(devices.$group-big) {
+          display: none;
+        }
+      }
+    }
+  }
+}

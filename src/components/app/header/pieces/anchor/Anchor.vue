@@ -1,9 +1,11 @@
 <template>
   <RouterLink
+    v-shortkey="keyCombination"
     class="anchor"
     :class="linkClasses"
     tabindex="0"
-    :to="to">
+    :to="to"
+    @shortkey.native="handleShortkey">
     <!-- Content goes here -->
     <slot>
       <span
@@ -12,19 +14,19 @@
         {{ text }}
       </span>
 
-      <FontAwesomeIcon
+      <Icon
         v-if="icon"
-        class="icon"
-        :icon="['fas', icon]"
+        :icon="icon"
         fixed-width/>
     </slot>
   </RouterLink>
 </template>
 
 <script>
-  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+  import Icon from '@/components/common/icon/Icon'
 
   import colored from '@/mixins/colored'
+  import shortkeyed from '@/mixins/shortkeyed'
 
   /**
    * This component is one anchor link in a navbar.
@@ -32,10 +34,11 @@
   export default {
     name: 'Anchor',
     mixins: [
-      colored
+      colored,
+      shortkeyed
     ],
     components: {
-      FontAwesomeIcon
+      Icon
     },
     props: {
       /**
@@ -86,5 +89,4 @@
   }
 </script>
 
-<style scoped lang="scss" src="./Anchor.scss">
-</style>
+<style scoped lang="scss" src="./Anchor.scss"/>

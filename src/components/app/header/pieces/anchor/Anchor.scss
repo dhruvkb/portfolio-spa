@@ -1,0 +1,84 @@
+@use '~@/styles/tokens/colors';
+@use '~@/styles/tokens/dimensions';
+@use '~@/styles/tokens/durations';
+@use '~@/styles/tokens/fonts';
+@use '~@/styles/tokens/weights';
+@use '~@/styles/tokens/devices';
+
+@use '~@/styles/layouts/bar_item';
+
+@use '~@/styles/mixins/colored';
+
+@use '~@/styles/utils/media';
+@use '~@/styles/utils/theming';
+
+.header .anchor {
+  @include bar_item.bar-item;
+  @include theming.transition(2);
+
+  --inactive-color: var(--content-secondary);
+  --active-color: var(--content);
+  @include colored.colored('--active-color');
+
+  --anchor-color: var(--inactive-color);
+
+  position: relative;
+
+  color: var(--anchor-color);
+  text-decoration: none;
+
+  .text {
+    @include media.device-specific(devices.$group-small) {
+      display: none;
+    }
+
+    font-family: fonts.$family-code;
+    font-weight: weights.$weight-medium;
+  }
+
+  .icon {
+    @include media.device-specific(devices.$group-big) {
+      display: none;
+    }
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    content: '';
+
+    background-color: var(--active-color);
+
+    width: 0;
+    height: dimensions.$dimen-xs;
+
+    transition-property: left, width;
+    transition-duration: durations.$duration-m; // Same duration as screen change
+    transition-timing-function: linear;
+    transition-delay: 0s;
+  }
+
+  &:hover { // Mouse focus
+    --anchor-color: var(--active-color);
+  }
+
+  &:focus { // Keyboard focus
+    outline: 1px dashed var(--active-color);
+    outline-offset: -1px;
+  }
+
+  &.exact.router-link-exact-active,
+  &:not(.exact).router-link-active { // Currently open
+    --anchor-color: var(--active-color);
+
+    &::after {
+      left: 0;
+
+      width: 100%;
+
+      transition-delay: durations.$duration-m;
+    }
+  }
+}

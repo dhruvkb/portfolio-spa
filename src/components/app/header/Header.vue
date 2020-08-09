@@ -1,17 +1,18 @@
 <template>
   <header class="header">
     <Anchor
-      v-shortkey="['h']"
       v-bind="homeLink"
       class="nav-title-anchor"
       tabindex="0"
       color="red"
+      :key-combination="['h']"
       :title="`[H] Go to ${homeLink.text}.`"
-      @shortkey.native="$navigateTo(homeLink.to)">
+      @shortkey="handleShortkey(homeLink.to)">
       <h5 class="nav-title full">
         {{ $t('handle') }}
       </h5>
       <h5 class="nav-title short">
+        <Icon icon="face"/>
         {{ $t('initials') }}
       </h5>
     </Anchor>
@@ -20,13 +21,13 @@
       <!-- @slot Content goes here -->
       <slot>
         <Anchor
-          v-shortkey="[index+1]"
           v-for="(link, index) in links"
           v-bind="link"
-          color="green"
           :key="index"
+          color="green"
+          :key-combination="[index+1]"
           :title="`[${index+1}] Go to ${link.text}.`"
-          @shortkey.native="$navigateTo(link.to)"/>
+          @shortkey="handleShortkey(link.to)"/>
       </slot>
     </nav>
 
@@ -38,28 +39,13 @@
 </template>
 
 <script>
-  import { library } from '@fortawesome/fontawesome-svg-core'
-  import {
-    faCubes,
-    faHandshake,
-    faPenAlt,
-    faPrayingHands,
-    faUser
-  } from '@fortawesome/free-solid-svg-icons'
-
   import Anchor from './pieces/anchor/Anchor'
-
-  library.add(
-    faCubes,
-    faPenAlt,
-    faUser,
-    faHandshake,
-    faPrayingHands
-  )
+  import Icon from '@/components/common/icon/Icon'
 
   export default {
     name: 'Header',
     components: {
+      Icon,
       Anchor
     },
     data () {
@@ -73,28 +59,32 @@
           {
             to: { name: 'portfolio' },
             text: 'Portfolio',
-            icon: 'cubes'
+            icon: 'folder'
           },
           {
             to: { name: 'blog' },
             text: 'Blog',
-            icon: 'pen-alt'
+            icon: 'megaphone'
           },
           {
             to: { name: 'contact' },
             text: 'Contact',
-            icon: 'handshake'
+            icon: 'chat'
           },
           {
             to: { name: 'about' },
             text: 'About',
-            icon: 'user'
+            icon: 'person'
           }
         ]
+      }
+    },
+    methods: {
+      handleShortkey (destination) {
+        this.$navigateTo(destination)
       }
     }
   }
 </script>
 
-<style scoped lang="scss" src="./Header.scss">
-</style>
+<style scoped lang="scss" src="./Header.scss"/>
