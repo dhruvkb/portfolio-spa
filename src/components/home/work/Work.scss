@@ -5,8 +5,8 @@
 @use '~@/styles/utils/theming';
 
 .work {
-  @include transitions.flip('vertical', durations.$duration-m, -90deg, 0, 90deg, 0, 0, 0);
-  @include transitions.flip('vertical-rev', durations.$duration-m, 90deg, 0, -90deg, 0, 0, 0);
+  @include transitions.flip('vertical', durations.$m, -90deg, 0, 90deg, 0, 0, 0);
+  @include transitions.flip('vertical-rev', durations.$m, 90deg, 0, -90deg, 0, 0, 0);
 
   display: inline-flex;
   flex-direction: row;
@@ -16,7 +16,7 @@
     // .flip
 
     &::after {
-      @include theming.transition(1, (width), (durations.$duration-s));
+      @include theming.transition(1, (width), (durations.$s));
 
       content: '';
 

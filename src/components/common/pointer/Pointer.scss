@@ -18,14 +18,14 @@
   color: var(--pointer-color);
 
   transition-property: color;
-  transition-duration: durations.$duration-s;
+  transition-duration: durations.$s;
 
   .punctuation,
   .arrow {
     width: $icon-width;
 
     transition-property: opacity, transform;
-    transition-duration: durations.$duration-s;
+    transition-duration: durations.$s;
   }
 
   .punctuation {
@@ -65,6 +65,6 @@
     text-decoration: underline;
 
     outline: 1px dashed var(--pointer-color);
-    outline-offset: dimensions.$dimen-xxs;
+    outline-offset: dimensions.$xxs;
   }
 }

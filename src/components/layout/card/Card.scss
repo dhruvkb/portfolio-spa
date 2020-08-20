@@ -1,5 +1,4 @@
 @use '~@/styles/tokens/dimensions';
-@use '~@/styles/tokens/durations';
 
 @use '~@/styles/mixins/colored';
 @use '~@/styles/mixins/intersectable';
@@ -18,12 +17,12 @@
   height: 100%;
   max-width: 100%;
 
-  padding: (dimensions.$dimen-l + 2 * dimensions.$dimen-m) dimensions.$dimen-m dimensions.$dimen-l dimensions.$dimen-m;
+  padding: (dimensions.$l + 2 * dimensions.$m) dimensions.$m dimensions.$l dimensions.$m;
 
   .title {
     position: absolute;
 
-    transform: translateY(-#{2 * dimensions.$dimen-m});
+    transform: translateY(-#{2 * dimensions.$m});
   }
 
   .content {

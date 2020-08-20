@@ -4,7 +4,7 @@
 @use '~@/styles/utils/theming';
 
 .metadata {
-  font-size: sizes.$size-s;
+  font-size: sizes.$s;
 
   .point {
     display: inline-flex;
@@ -13,13 +13,13 @@
     align-items: center;
 
     .icon {
-      margin-right: dimensions.$dimen-s;
+      margin-right: dimensions.$s;
 
       --stroke-width: 36.5714px;
     }
   }
 
   .created-at {
-    margin-right: dimensions.$dimen-m;
+    margin-right: dimensions.$m;
   }
 }

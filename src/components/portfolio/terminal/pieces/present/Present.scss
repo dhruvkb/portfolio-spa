@@ -36,8 +36,8 @@
       outline: none;
 
       & + .faux-caret {
-        background-color: color.change(colors.$color-accent-blue, $alpha: 0.3);
-        border-color: colors.$color-accent-blue;
+        background-color: color.change(colors.$accent-blue, $alpha: 0.3);
+        border-color: colors.$accent-blue;
 
         @keyframes blink {
           0%, 49%, 100% {
@@ -51,7 +51,7 @@
 
         animation-name: blink;
         animation-iteration-count: infinite;
-        animation-duration: durations.$duration-l;
+        animation-duration: durations.$l;
       }
     }
 
@@ -72,7 +72,7 @@
 
     border: 1px solid var(--content-secondary);
 
-    height: dimensions.$dimen-line;
+    height: dimensions.$line;
     width: calc(1ch - 2px); // Account for 1px border on left and right sides
 
     margin-top: -0.8ex; // Remove the space left on the top

@@ -6,11 +6,11 @@
   display: block;;
 
   box-sizing: border-box;
-  height: 2 * sizes.$size-6xl;
+  height: 2 * sizes.$xl6;
   max-width: 100%;
 
-  padding-top: dimensions.$dimen-s;
-  padding-bottom: dimensions.$dimen-s;
+  padding-top: dimensions.$s;
+  padding-bottom: dimensions.$s;
 
-  #{--stroke}: colors.$color-accent-red;
+  #{--stroke}: colors.$accent-red;
 }

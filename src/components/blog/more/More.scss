@@ -3,7 +3,7 @@
 @use '~@/styles/utils/controls';
 
 .more {
-  margin-top: dimensions.$dimen-m;
+  margin-top: dimensions.$m;
 
   .load-more {
     @include controls.reset-control;

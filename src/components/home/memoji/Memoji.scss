@@ -9,8 +9,8 @@
 .memoji {
   @include colored.colored('--outline-color');
 
-  @include transitions.flip('horizontal', durations.$duration-m, 0, 0, 0, 90deg, 0, -90deg);
-  @include transitions.flip('horizontal-rev', durations.$duration-m, 0, 0, 0, -90deg, 0, 90deg);
+  @include transitions.flip('horizontal', durations.$m, 0, 0, 0, 90deg, 0, -90deg);
+  @include transitions.flip('horizontal-rev', durations.$m, 0, 0, 0, -90deg, 0, 90deg);
 
   margin-top: -2em; // Most memoji have blank spaces at the top
 
@@ -18,7 +18,7 @@
   transform: scale(0.95);
 
   transition-property: transform;
-  transition-duration: durations.$duration-s;
+  transition-duration: durations.$s;
 
   perspective: 30em;
 

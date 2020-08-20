@@ -21,14 +21,14 @@
   box-sizing: border-box;
   width: 100%;
 
-  padding-left: dimensions.$dimen-s;
-  padding-right: dimensions.$dimen-s;
+  padding-left: dimensions.$s;
+  padding-right: dimensions.$s;
 
   .nav-title-anchor {
     margin-right: auto;
 
     .nav-title {
-      font-weight: weights.$weight-extrabold;
+      font-weight: weights.$extrabold;
 
       &.full {
         @include media.device-specific(devices.$group-small) {
@@ -42,8 +42,8 @@
         align-items: center;
 
         .icon {
-          font-size: sizes.$size-m;
-          margin-right: dimensions.$dimen-s;
+          font-size: sizes.$m;
+          margin-right: dimensions.$s;
 
           @include media.device-specific(devices.$phone) {
             display: none;

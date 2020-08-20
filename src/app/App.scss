@@ -6,7 +6,7 @@
 @use '~@/styles/utils/theming';
 
 #app {
-  @include transitions.fade(durations.$duration-m);
+  @include transitions.fade(durations.$m);
   @include theming.transition(3);
 
   background-color: var(--background);

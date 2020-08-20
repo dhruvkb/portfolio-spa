@@ -1,6 +1,5 @@
 @use 'sass:math';
 
-@use '~@/styles/tokens/colors';
 @use '~@/styles/tokens/dimensions';
 @use '~@/styles/tokens/durations';
 
@@ -10,8 +9,8 @@
 @use '~@/styles/utils/theming';
 
 .flip {
-  $outer-space: dimensions.$dimen-xxs;
-  $inner-space: dimensions.$dimen-xs;
+  $outer-space: dimensions.$xxs;
+  $inner-space: dimensions.$xs;
 
   $thumb-width: 1.5em;
   $thumb-height: 1.5em;
@@ -78,7 +77,7 @@
     }
 
     .thumb {
-      @include theming.transition(1, (transform), (durations.$duration-m)); // Same duration as theme change
+      @include theming.transition(1, (transform), (durations.$m)); // Same duration as theme change
 
       display: block;
 

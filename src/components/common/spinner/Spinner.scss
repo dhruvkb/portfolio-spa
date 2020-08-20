@@ -10,7 +10,7 @@
 
   stroke: var(--spinner-color);
 
-  margin: dimensions.$dimen-m;
+  margin: dimensions.$m;
 
   .track {
     @include theming.transition(0, (stroke));

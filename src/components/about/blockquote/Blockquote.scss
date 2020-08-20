@@ -1,5 +1,3 @@
-@use '~@/styles/tokens/dimensions';
-@use '~@/styles/tokens/fonts';
 @use '~@/styles/tokens/sizes';
 
 @use '~@/styles/mixins/colored';
@@ -14,7 +12,7 @@
   .content {
     .quotation {
       color: var(--blockquote-color);
-      font-size: sizes.$size-l;
+      font-size: sizes.$l;
       text-align: center;
     }
 
@@ -33,7 +31,7 @@
     top: 0;
 
     color: var(--blockquote-color);
-    font-size: sizes.$size-2xl;
+    font-size: sizes.$xl2;
 
     z-index: -1;
 

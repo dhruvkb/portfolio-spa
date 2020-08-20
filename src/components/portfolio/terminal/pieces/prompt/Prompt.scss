@@ -14,7 +14,7 @@
   .directory {
     @include theming.transition(2);
 
-    font-weight: weights.$weight-bold;
+    font-weight: weights.$bold;
     color: var(--content-secondary);
   }
 

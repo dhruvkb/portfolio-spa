@@ -10,8 +10,8 @@
 
 .role {
   @include colored.colored('--role-color');
-  @include transitions.flip('vertical', durations.$duration-m, -90deg, 0, 90deg, 0, 0, 0);
-  @include transitions.flip('vertical-rev', durations.$duration-m, 90deg, 0, -90deg, 0, 0, 0);
+  @include transitions.flip('vertical', durations.$m, -90deg, 0, 90deg, 0, 0, 0);
+  @include transitions.flip('vertical-rev', durations.$m, 90deg, 0, -90deg, 0, 0, 0);
 
   display: inline-flex;
   flex-direction: row;
@@ -30,8 +30,8 @@
     }
 
     .actual-role {
-      font-family: fonts.$family-code;
-      font-weight: weights.$weight-medium;
+      font-family: fonts.$code;
+      font-weight: weights.$medium;
     }
   }
 }
