@@ -15,71 +15,29 @@ class Node {
    * @constructs {Node}
    *
    * @param {string} type - the type of Node this is in the filesystem
+   * @param {string} icon - the icon associated with the Node
    * @param {string} name - the name of the Node
-   * @param {string} alternativeName - an alias for the Node
+   * @param {Array} aliases - the list of alternative names of the Node
    */
-  constructor (type, name, alternativeName = undefined) {
+  constructor (type, icon, name, aliases = []) {
     this.type = type
 
+    this.icon = icon
     this.name = name
-    this.alternativeName = alternativeName || name
+    this.aliases = aliases
 
     this.parent = null
     this.children = []
   }
-}
 
-/**
- * A class that implements the FIFO queue data type for Node objects.
- */
-class Queue {
   /**
-   * Create a new object of class Queue.
+   * Check if a current Node matches the given name.
    *
-   * @constructor
-   * @constructs {Queue}
+   * @param {string} name - the name which is to be checked for a match
+   * @returns {boolean} whether the given name is one of the Node's valid names
    */
-  constructor () {
-    this.oldestIndex = 1
-    this.newestIndex = 1
-
-    this.storage = {}
-  }
-
-  /**
-   * Get the number of remaining items in the queue.
-   * @return {number} the number of items in the queue
-   */
-  size () {
-    return this.newestIndex - this.oldestIndex
-  }
-
-  /**
-   * Add the given Node to the end of the queue.
-   * @param {Node} node - the last-in Node to add to the queue
-   */
-  enqueue (node) {
-    this.storage[this.newestIndex] = node
-    this.newestIndex++
-  }
-
-  /**
-   * Get the Node from the start of the queue.
-   * @return {Node} the first-out Node to get from the queue
-   */
-  dequeue () {
-    const oldestIndex = this.oldestIndex
-    const newestIndex = this.newestIndex
-    let node
-
-    if (oldestIndex !== newestIndex) {
-      node = this.storage[oldestIndex]
-
-      delete this.storage[oldestIndex]
-      this.oldestIndex++
-
-      return node
-    }
+  hasName (name) {
+    return this.name === name || this.aliases.includes(name.toLocaleLowerCase())
   }
 }
 
@@ -111,23 +69,6 @@ class Tree {
       })
       callbackFn(currentNode)
     })(this.root)
-  }
-
-  /**
-   * Traverse the tree using the BFT algorithm.
-   * @param {function} callbackFn - the function to execute on each node
-   */
-  traverseBreadthFirst (callbackFn) {
-    const queue = new Queue()
-    queue.enqueue(this.root)
-    let currentTree = queue.dequeue()
-    while (currentTree) {
-      currentTree.children.forEach(child => {
-        queue.enqueue(child)
-      })
-      callbackFn(currentTree)
-      currentTree = queue.dequeue()
-    }
   }
 
   /**
@@ -172,8 +113,9 @@ class Tree {
 function generateTree (basicTree) {
   const node = new Node(
     basicTree.type,
+    basicTree.icon,
     basicTree.name,
-    basicTree.alternativeName
+    basicTree.aliases
   )
   const tree = new Tree(node)
 
@@ -194,11 +136,12 @@ function populateTree (tree, basicNode) {
     const basicChild = basicChildren[i]
     const childNode = new Node(
       basicChild.type,
+      basicChild.icon,
       basicChild.name,
-      basicChild.alternativeName
+      basicChild.aliases
     )
 
-    tree.add(childNode, basicNode.name, tree.traverseBreadthFirst)
+    tree.add(childNode, basicNode.name, tree.traverseDepthFirst)
 
     if (basicChild.type === nodeType.FOLDER) {
       populateTree(tree, basicChild)
