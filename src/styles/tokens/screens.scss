@@ -1,14 +1,7 @@
 // Screen size breakpoints
 
-$screen-phone-max:             599px;
-
-$screen-tablet-portrait-min:   600px;
-$screen-tablet-portrait-max:   899px;
-
-$screen-tablet-landscape-min:  900px;
-$screen-tablet-landscape-max: 1199px;
-
-$screen-desktop-standard-min: 1200px;
-$screen-desktop-standard-max: 1799px;
-
-$screen-desktop-wide-min:     1800px;
+$phone:              null,  599px;
+$tablet-portrait:   600px,  899px;
+$tablet-landscape:  900px, 1199px;
+$desktop-standard: 1200px, 1799px;
+$desktop-wide:     1800px,   null;

@@ -7,7 +7,7 @@ $font-weights: (
   ExtraBold: 800
 );
 
-@each $font-name, $font-weight in $font-weights {
+@each $font-name, $font-weight  in $font-weights {
   @font-face {
     font-family: 'JetBrains Mono';
     font-weight: $font-weight;
@@ -20,22 +20,22 @@ $font-weights: (
   }
 }
 
-$jetbrains-mono:    'JetBrains Mono';
-$family-monospace:  $jetbrains-mono, monospace;
+$jetbrains-mono: 'JetBrains Mono';
+$monospace:      $jetbrains-mono, monospace;
 
 // OS font stack
 
-$mac:               -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Helvetica', 'Apple Color Emoji';
-$windows:           'Segoe UI', 'Segoe UI Emoji', 'Segoe UI Symbol';
-$android:           'Roboto';
-$linux:             'Cantarell', 'Ubuntu', 'Oxygen';
-$system:            system-ui;
+$mac:            -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Helvetica', 'Apple Color Emoji';
+$windows:        'Segoe UI', 'Segoe UI Emoji', 'Segoe UI Symbol';
+$android:        'Roboto';
+$linux:          'Cantarell', 'Ubuntu', 'Oxygen';
+$system:         system-ui;
 
-$family-os:         $mac, $windows, $android, $linux, $system;
-$family-sans-serif: $family-os, sans-serif;
+$os:             $mac, $windows, $android, $linux, $system;
+$sans-serif:     $os, sans-serif;
 
 // Usage
 
-$family-heading:    $family-monospace;
-$family-body:       $family-sans-serif;
-$family-code:       $family-monospace;
+$heading:        $monospace;
+$body:           $sans-serif;
+$code:           $monospace;

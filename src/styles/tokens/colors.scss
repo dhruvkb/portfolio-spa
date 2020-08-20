@@ -1,26 +1,49 @@
 // Background tones
 
-$color-background-base03: #002b36; // L* Lightness 15
-$color-background-base02: #073642; // L* Lightness 20
+$background-base03: #002b36; // L* Lightness 15
+$background-base02: #073642; // L* Lightness 20
 
-$color-background-base2:  #eee8d5; // L* Lightness 92
-$color-background-base3:  #fdf6e3; // L* Lightness 97
+$background-base2:  #eee8d5; // L* Lightness 92
+$background-base3:  #fdf6e3; // L* Lightness 97
 
 // Content tones
 
-$color-content-base01:    #586e75; // L* Lightness 45
-$color-content-base00:    #657b83; // L* Lightness 50
+$content-base01:    #586e75; // L* Lightness 45
+$content-base00:    #657b83; // L* Lightness 50
 
-$color-content-base0:     #839496; // L* Lightness 60
-$color-content-base1:     #93a1a1; // L* Lightness 65
+$content-base0:     #839496; // L* Lightness 60
+$content-base1:     #93a1a1; // L* Lightness 65
 
 // Accent colors
 
-$color-accent-yellow:     #b58900; // Split comp
-$color-accent-orange:     #cb4b16; // Complement
-$color-accent-red:        #dc322f; // Triad
-$color-accent-magenta:    #d33682; // Tetrad
-$color-accent-violet:     #6c71c4; // Analogous
-$color-accent-blue:       #268bd2; // Monotone
-$color-accent-cyan:       #2aa198; // Analogous
-$color-accent-green:      #859900; // Tetrad
+$accent-yellow:     #b58900; // Split comp
+$accent-orange:     #cb4b16; // Complement
+$accent-red:        #dc322f; // Triad
+$accent-magenta:    #d33682; // Tetrad
+$accent-violet:     #6c71c4; // Analogous
+$accent-blue:       #268bd2; // Monotone
+$accent-cyan:       #2aa198; // Analogous
+$accent-green:      #859900; // Tetrad
+
+:export {
+  colorBackgroundBase03: $background-base03;
+  colorBackgroundBase02: $background-base02;
+
+  colorBackgroundBase2:  $background-base2;
+  colorBackgroundBase3:  $background-base3;
+
+  colorContentBase01:    $content-base01;
+  colorContentBase00:    $content-base00;
+
+  colorContentBase0:     $content-base0;
+  colorContentBase1:     $content-base1;
+
+  colorAccentYellow:     $accent-yellow;
+  colorAccentOrange:     $accent-orange;
+  colorAccentRed:        $accent-red;
+  colorAccentMagenta:    $accent-magenta;
+  colorAccentViolet:     $accent-violet;
+  colorAccentBlue:       $accent-blue;
+  colorAccentCyan:       $accent-cyan;
+  colorAccentGreen:      $accent-green;
+}
