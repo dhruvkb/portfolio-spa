@@ -3,11 +3,11 @@
     "heading": "I prefer",
     "list": [
       {
-        "icon": ["fas", "mug-hot"],
+        "icon": "coffee",
         "text": "<strong>coffee</strong> to tea"
       },
       {
-        "icon": ["fab", "firefox"],
+        "icon": ["fab", "firefox-browser"],
         "text": "<strong>Mozilla Firefox</strong> to Google Chrome"
       },
       {
@@ -24,19 +24,19 @@
     "heading": "I love",
     "list": [
       {
-        "icon": ["fas", "tv"],
+        "icon": "tv",
         "text": "binging on <strong>television series</strong>"
       },
       {
-        "icon": ["fas", "film"],
+        "icon": "film",
         "text": "watching <strong>movies</strong>"
       },
       {
-        "icon": ["fas", "music"],
+        "icon": "music",
         "text": "organising and listening to <strong>music</strong>"
       },
       {
-        "icon": ["fas", "walking"],
+        "icon": "walk",
         "text": "taking <strong>long strolls</strong> in the dark"
       }
     ]

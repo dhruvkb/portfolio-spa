@@ -3,33 +3,43 @@
   "type": "folder",
   "children": [
     {
-      "name": "positions",
+      "name": "experience",
       "type": "folder",
+      "icon": "briefcase",
       "children": [
         {
           "name": "ctc_at_img.md",
+          "aliases": [
+            "ctc_at_img"
+          ],
           "type": "file"
-        }
-      ]
-    },
-    {
-      "name": "internships",
-      "type": "folder",
-      "children": [
+        },
         {
           "name": "software_at_fampay.md",
+          "aliases": [
+            "software_at_fampay"
+          ],
           "type": "file"
         },
         {
           "name": "software_at_cc.md",
+          "aliases": [
+            "software_at_cc"
+          ],
           "type": "file"
         },
         {
           "name": "infrastructure_at_he.md",
+          "aliases": [
+            "infrastructure_at_he"
+          ],
           "type": "file"
         },
         {
           "name": "software_at_he.md",
+          "aliases": [
+            "software_at_he"
+          ],
           "type": "file"
         }
       ]
@@ -37,21 +47,34 @@
     {
       "name": "open_source",
       "type": "folder",
+      "icon": "git",
       "children": [
         {
           "name": "vocabulary.js",
+          "aliases": [
+            "vocabulary"
+          ],
           "type": "file"
         },
         {
           "name": "omniport_backend.py",
+          "aliases": [
+            "omniport_backend"
+          ],
           "type": "file"
         },
         {
           "name": "omniport_infrastructure.yml",
+          "aliases": [
+            "omniport_infrastructure"
+          ],
           "type": "file"
         },
         {
           "name": "omniport_documentation.rst",
+          "aliases": [
+            "omniport_documentation"
+          ],
           "type": "file"
         }
       ]
@@ -59,22 +82,35 @@
     {
       "name": "projects",
       "type": "folder",
+      "icon": "cube",
       "children": [
         {
           "name": "portfolio.js",
+          "aliases": [
+            "portfolio"
+          ],
           "type": "file"
         },
         {
           "name": "rethink.py",
+          "aliases": [
+            "rethink"
+          ],
           "type": "file"
         },
         {
           "name": "placement_portal.py",
+          "aliases": [
+            "placement_portal"
+          ],
           "type": "file"
         },
         {
           "name": "LecTut.java",
-          "alternativeName": "lectut.java",
+          "aliases": [
+            "lectut.java",
+            "lectut"
+          ],
           "type": "file"
         }
       ]
@@ -82,13 +118,20 @@
     {
       "name": "writings",
       "type": "folder",
+      "icon": "writings",
       "children": [
         {
           "name": "blogs.tex",
+          "aliases": [
+            "blogs"
+          ],
           "type": "file"
         },
         {
           "name": "resume.tex",
+          "aliases": [
+            "resume"
+          ],
           "type": "file"
         }
       ]
@@ -96,17 +139,27 @@
     {
       "name": "skills",
       "type": "folder",
+      "icon": "flash",
       "children": [
         {
           "name": "human_languages.md",
+          "aliases": [
+            "human_languages"
+          ],
           "type": "file"
         },
         {
           "name": "computer_languages.md",
+          "aliases": [
+            "computer_languages"
+          ],
           "type": "file"
         },
         {
           "name": "computer_software.md",
+          "aliases": [
+            "computer_software"
+          ],
           "type": "file"
         }
       ]
