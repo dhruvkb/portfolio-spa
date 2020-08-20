@@ -45,21 +45,21 @@
       },
       /**
        * Get the Ionicons icon name for the icon representing this button.
-       * @return {string} the name of the Ionicons icon to use
+       * @returns {string} the name of the Ionicons icon to use
        */
       pointingIcon () {
         return this.direction === 'next' ? 'chevron-right' : 'chevron-left'
       },
       /**
        * Get the arrow emoji depicting the arrow key that triggers the button.
-       * @return {string} the arrow emoji for the arrow key trigger
+       * @returns {string} the arrow emoji for the arrow key trigger
        */
       titleEmoji () {
         return this.direction === 'next' ? '➡️' : '⬅️'
       },
       /**
        * Get the key code of the arrow key that should trigger the button.
-       * @return {string} the arrow key code which should trigger this button
+       * @returns {string} the arrow key code which should trigger this button
        */
       arrowKey () {
         return this.direction === 'next' ? 'arrowright' : 'arrowleft'
@@ -67,7 +67,7 @@
       /**
        * Get the delta by which to move the tickers. This ticker is emitted with
        * the event when the button is clicked or activated with the shortkey.
-       * @return {number} the delta for the tickers
+       * @returns {number} the delta for the tickers
        */
       delta () {
         return this.direction === 'next' ? 1 : -1

@@ -87,7 +87,7 @@
 
       /**
        * Find the DOM element corresponding to the 'theme-color' meta tag.
-       * @return {HTMLMetaElement} the 'theme-color' meta tag
+       * @returns {HTMLMetaElement} the 'theme-color' meta tag
        */
       themeColorElement () {
         return Array.from(

@@ -65,7 +65,7 @@
       /**
        * Determine the icon set based on whether the icon prop passed to the
        * component is an Array or a String.
-       * @return {string} the name of the icon set to use
+       * @returns {string} the name of the icon set to use
        */
       computedIconSet () {
         if (this.icon instanceof Array) {
@@ -81,7 +81,7 @@
       /**
        * Get the file path to the group containing the SVG paths and shapes.
        * @param {string} iconSet - the icon set to which the icon belongs
-       * @return {string} the path to the SVG emitted by Webpack
+       * @returns {string} the path to the SVG emitted by Webpack
        */
       gHref (iconSet) {
         const svg = require(`@/assets/${iconSet}/${this.icon}.svg`)

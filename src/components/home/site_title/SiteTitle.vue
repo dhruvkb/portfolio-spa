@@ -63,7 +63,7 @@
        *
        * @param {string} hex - the hex code representation of the color
        * @param {number} alpha - the value of the alpha channel to use
-       * @return {string} the RGBA representation of the color
+       * @returns {string} the RGBA representation of the color
        */
       hexToRgba (hex, alpha = 1) {
         if (hex.length === 4) {
