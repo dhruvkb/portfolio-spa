@@ -1,5 +1,7 @@
 import Vue from 'vue'
 
+import '@/worker'
+
 import router from '@/router'
 import store from '@/store'
 import i18n from '@/i18n'
