@@ -1,0 +1,40 @@
+@use '~@/styles/tokens/devices';
+@use '~@/styles/tokens/dimensions';
+@use '~@/styles/tokens/sizes';
+
+@use '~@/styles/utils/media';
+
+@use './fonts';
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: fonts.$family-post-heading;
+  margin-bottom: 0;
+}
+
+h1 {
+  margin-top: dimensions.$m;
+}
+
+h2, h3, h4, h5, h6 {
+  @include media.device-specific(devices.$group-small) {
+    margin-top: dimensions.$l; // Space to accommodate section indices
+  }
+  @include media.device-specific(devices.$group-big) {
+    margin-top: dimensions.$m;
+  }
+}
+
+$heading-sizes: (
+  1: sizes.$xl5,
+  2: sizes.$xl4,
+  3: sizes.$xl3,
+  4: sizes.$xl2,
+  5: sizes.$xl1,
+  6: sizes.$l
+);
+
+@each $heading-level, $heading-size in $heading-sizes {
+  h#{$heading-level} {
+    font-size: $heading-size;
+  }
+}

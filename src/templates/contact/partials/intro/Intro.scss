@@ -1,0 +1,23 @@
+@use '~@/styles/tokens/sizes';
+@use '~@/styles/tokens/dimensions';
+
+.intro {
+  .intro-cell {
+    grid-row: span 2;
+  }
+
+  .can {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .icon {
+      margin-right: dimensions.$s;
+    }
+  }
+
+  .medium {
+    height: sizes.$xl4;
+    max-width: 100%;
+  }
+}

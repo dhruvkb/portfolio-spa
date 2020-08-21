@@ -1,0 +1,42 @@
+@use 'sass:list';
+
+@use '~@/styles/tokens/devices';
+
+@use '~@/styles/mixins/actionable';
+
+@use '~@/styles/utils/media';
+
+.hi {
+  @include actionable.actionable;
+
+  .say-hi {
+    order: 2;
+
+    @include media.device-specific(devices.$phone) {
+      order: 0;
+    }
+  }
+
+  .photo-cell {
+    &.vertical {
+      order: 1;
+
+      grid-row: span 2;
+
+      @include media.device-specific(devices.$tablet-portrait) {
+        grid-row: span 3;
+      }
+    }
+
+    &.horizontal {
+      order: 3;
+
+      &:last-of-type {
+        $devices: list.append(devices.$family-tablet, devices.$phone);
+        @include media.device-specific($devices) {
+          display: none;
+        }
+      }
+    }
+  }
+}

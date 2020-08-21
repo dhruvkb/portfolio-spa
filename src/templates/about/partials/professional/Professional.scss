@@ -1,0 +1,5 @@
+@use '~@/styles/mixins/actionable';
+
+.professional {
+  @include actionable.actionable;
+}

@@ -1,5 +1,5 @@
-@import '~@/styles/layouts/page';
+@use '~@/styles/layouts/page';
 
 main {
-  @include page;
+  @include page.page;
 }

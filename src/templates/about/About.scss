@@ -1,42 +1,5 @@
-@import '~@/styles/tokens/sizes';
-@import '~@/styles/tokens/dimensions';
-
-@import '~@/styles/layouts/content';
-
-@import '~@/styles/utils/media';
+@use '~@/styles/layouts/content';
 
 .about {
-  @include content;
-
-  .side-by-side {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    .icon {
-      margin-right: $dimen-m;
-
-      svg {
-        height: $size-5xl;
-      }
-    }
-  }
-
-  .blockquote {
-    align-self: center;
-  }
-
-  .personality {
-    &.singleton {
-      @include device-specific($devices-small-side) {
-        display: none;
-      }
-    }
-
-    &.scroller {
-      @include device-specific($devices-big-side) {
-        display: none;
-      }
-    }
-  }
+  @include content.content;
 }

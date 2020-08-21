@@ -106,13 +106,13 @@
 
   .intro {
     .ascii-art {
-      color: colors.$color-accent-red;
-      font-size: sizes.$size-xs;
-      font-weight: weights.$weight-semibold;
+      color: colors.$accent-red;
+      font-size: sizes.$xs;
+      font-weight: weights.$semibold;
 
       background-color: transparent;
 
-      margin: -#{dimensions.$dimen-line} 0 0 0;
+      margin: -#{dimensions.$line} 0 0 0;
 
       &.big {
         @include media.device-specific(devices.$phone) {
@@ -132,7 +132,7 @@
       flex-direction: row;
       align-items: center;
 
-      margin-top: dimensions.$dimen-line;
+      margin-top: dimensions.$line;
 
       .links {
         display: inline-block;
@@ -149,7 +149,7 @@
           @include media.device-specific(devices.$group-non-phone) {
             display: block;
 
-            margin-bottom: dimensions.$dimen-xs;
+            margin-bottom: dimensions.$xs;
           }
 
           .icon {

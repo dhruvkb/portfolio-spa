@@ -1,73 +1,65 @@
 <template>
   <div class="home">
     <main>
-      <section>
-        <h2 class="green-colored">
+      <section class="new">
+        <h2 class="page-title green-colored">
           I ramble!
         </h2>
 
-        <div class="intro-text">
-          <p>
-            Have you wondered what goes on in a developer's head?
-          </p>
-          <p>
-            Regardless of whether you have or have not, you can find that
-            out by reading my blog. Here I write on a wide spectrum of
-            topics, from my latest bits of learning to how I built something
-            cool using them.
-          </p>
-          <p>
-            It's mostly random stuff that developers will likely relate to.
-            How about a read?
-          </p>
-        </div>
+        <Grid class="blog-home-grid">
+          <div class="left">
+            <Card
+              class="content"
+              :color="shuffledSolarizedColors[0]">
+              <p>
+                Have you wondered what goes on in a developer's head?
+              </p>
+              <p>
+                Regardless of whether you have or have not, you can find that
+                out by reading my blog. Here I write on a wide spectrum of
+                topics, from my latest bits of learning to how I built something
+                cool using them.
+              </p>
+              <p>
+                It's mostly random stuff that developers will likely relate to.
+                How about a read?
+              </p>
+            </Card>
+          </div>
 
-        <footer>
-          <Indicator/>
-        </footer>
+          <div class="right">
+            <div class="content">
+              <template v-if="isFetching && !posts.length">
+                <div class="centered">
+                  <Spinner/>
+                </div>
+              </template>
+              <template v-else>
+                <Preview
+                  v-for="(post, index) in posts"
+                  :key="post.id"
+                  :color="shuffledSolarizedColors[index]"
+                  :index="index"
+                  :post="post"/>
+                <More/>
+              </template>
+            </div>
+          </div>
+        </Grid>
       </section>
-
-      <transition name="fade" mode="out-in">
-        <section
-          v-if="posts.length"
-          key="loaded">
-          <Grid>
-            <GridCell
-              v-for="(post, index) in posts"
-              :key="post.id"
-              :span-set="postSpanSet(index)">
-              <Preview
-                :color="randomizedColors[index]"
-                :index="index"
-                :post="post"/>
-            </GridCell>
-          </Grid>
-          <footer ref="footer">
-            <More/>
-          </footer>
-        </section>
-
-        <section
-          v-else
-          v-observe-visibility="observerOptions"
-          key="loading"
-          class="centered">
-          <Spinner/>
-        </section>
-      </transition>
     </main>
   </div>
 </template>
 
 <script>
-  import { mapActions, mapState } from 'vuex'
+  import { mapActions, mapMutations, mapState } from 'vuex'
 
-  import Grid from '@/components/grid/Grid'
-  import Indicator from '@/components/indicator/Indicator'
+  import Card from '@/components/layout/card/Card'
+  import Grid from '@/components/layout/grid/Grid'
 
-  import { Blog } from '@/templates/blog/Blog'
-  import Preview from './components/preview/Preview'
-  import More from './components/more/More'
+  import Spinner from '@/components/blog/spinner/Spinner'
+  import Preview from '@/components/blog/preview/Preview'
+  import More from '@/components/blog/more/More'
 
   /**
    * This is the landing for the Blogs page. It displays a list of the last
@@ -76,30 +68,18 @@
   export default {
     name: 'Home',
     components: {
+      Card,
       Grid,
-      GridCell: Grid.Cell,
-      Indicator,
 
-      Spinner: Blog.Spinner,
+      Spinner,
       Preview,
       More
-    },
-    data () {
-      return {
-        randomizedColors: this.$getShuffledSolarizedColors(),
-        observerOptions: {
-          callback: this.visibilityChanged,
-          once: true,
-          intersection: {
-            threshold: 0.6 // Only when more than half space is visible
-          }
-        }
-      }
     },
     computed: {
       ...mapState('blog', [
         'posts',
-        'isFetching'
+        'isFetching',
+        'isFirstRun'
       ])
     },
     watch: {
@@ -110,34 +90,6 @@
       }
     },
     methods: {
-      /**
-       * Get the number of columns the card for the post should span. Only the
-       * card for the first post spans the full width of the page.
-       * @param {number} index - the index of the post in the list
-       * @returns {Array} the columns to span on different device categories
-       */
-      postSpanSet (index) {
-        index %= 5
-        switch (index) {
-          case 0:
-            return [12, 12, 12, 12, 6]
-          case 1:
-            return [12, 12, 6, 6, 6]
-          case 2:
-          case 3:
-          case 4:
-            return [12, 12, 6, 6, 4]
-        }
-      },
-      /**
-       * Load posts only when the person scrolls to the recent posts section.
-       * @param {boolean} isVisible - whether the section has become visible
-       */
-      visibilityChanged (isVisible) {
-        if (isVisible) {
-          this.getPosts()
-        }
-      },
       /**
        * Scroll to the bottom of the previews to show the oldest post.
        */
@@ -150,12 +102,25 @@
         })
       },
 
+      ...mapMutations('blog', [
+        'setIsFirstRun'
+      ]),
       ...mapActions('blog', [
-        'getPosts'
+        'fetchPosts'
       ])
+    },
+    created () {
+      if (this.isFirstRun) {
+        // Populate posts
+        this.fetchPosts()
+
+        // Indicate first run to be complete
+        this.setIsFirstRun({
+          isFirstRun: false
+        })
+      }
     }
   }
 </script>
 
-<style scoped lang="scss" src="./Home.scss">
-</style>
+<style scoped lang="scss" src="./Home.scss"/>

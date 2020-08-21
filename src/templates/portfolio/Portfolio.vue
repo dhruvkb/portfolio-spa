@@ -7,11 +7,7 @@
 <script>
   import { mapMutations } from 'vuex'
 
-  import Executable from './components/executable/Executable'
-  import Link from './components/link/Link'
-  import Spinner from './components/spinner/Spinner'
-
-  import fs from '@/templates/portfolio/data/fs.json'
+  import fs from '@/data/fs.json'
 
   /**
    * This page describes my portfolio using an interactive CLI. This took me a
@@ -34,11 +30,5 @@
         fs: fs
       })
     }
-  }
-
-  export const Portfolio = {
-    Executable,
-    Link,
-    Spinner
   }
 </script>

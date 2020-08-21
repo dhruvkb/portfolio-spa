@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import Terminal from './components/terminal/Terminal'
+  import Terminal from '@/components/portfolio/terminal/Terminal'
 
   export default {
     name: 'Home',
@@ -15,5 +15,4 @@
   }
 </script>
 
-<style scoped lang="scss" src="./Home.scss">
-</style>
+<style scoped lang="scss" src="./Home.scss"/>

@@ -1,0 +1,31 @@
+@use '~@/styles/tokens/sizes';
+@use '~@/styles/tokens/dimensions';
+
+.intro {
+  .intro-cell {
+    grid-row: span 2;
+  }
+
+  .was,
+  .side-by-side {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .was {
+    .icon {
+      margin-right: dimensions.$s;
+    }
+  }
+
+  .side-by-side {
+    .image {
+      margin-right: dimensions.$m;
+
+      svg {
+        height: sizes.$xl5;
+      }
+    }
+  }
+}

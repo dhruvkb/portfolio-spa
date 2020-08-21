@@ -1,0 +1,100 @@
+@use '~@/styles/tokens/devices';
+@use '~@/styles/tokens/dimensions';
+@use '~@/styles/tokens/sizes';
+
+@use '~@/styles/base';
+
+@use '~@/styles/utils/units';
+@use '~@/styles/utils/media';
+@use '~@/styles/utils/prism';
+@use '~@/styles/utils/theming';
+
+@use './typography';
+
+h1 {
+  display: none; // Hiding h1 because we add our own
+}
+
+h2, h3, h4, h5, h6 {
+  @include theming.transition(2);
+
+  position: relative;
+
+  color: var(--content-highlighted);
+
+  .index {
+    @include theming.transition(2);
+
+    position: absolute;
+
+    color: var(--content-secondary);
+
+    @include media.device-specific(devices.$group-small) {
+      top: 0;
+      font-size: sizes.$m;
+
+      $displacement: units.em-to-rem(dimensions.$xs);
+      transform: translateY(calc(-100% - #{$displacement}));
+    }
+
+    @include media.device-specific(devices.$group-big) {
+      bottom: 0;
+      font-size: smaller;
+
+      $displacement: units.em-to-rem(dimensions.$m);
+      transform: translateX(calc(-100% - #{$displacement}));
+    }
+  }
+}
+
+pre[class*="language-"] {
+  @include theming.transition(1);
+
+  background-color: var(--background-highlighted);
+
+  padding: dimensions.$s;
+
+  margin-top: dimensions.$m;
+  margin-bottom: dimensions.$m;
+}
+
+table, tr, td, th {
+  border-collapse: collapse;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+
+  thead {
+    @include theming.transition(1, (border-bottom-color));
+
+    background-color: var(--background-highlighted);
+
+    border-bottom: 1px solid var(--content-secondary);
+
+    th {
+      text-align: left;
+      padding: dimensions.$xs dimensions.$m;
+    }
+  }
+
+  td {
+    padding: dimensions.$xs dimensions.$m;
+  }
+}
+
+img {
+  @include theming.transition(0, (filter));
+
+  display: block;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  filter:
+    drop-shadow(1px 1px 0 var(--background-opposite))
+    drop-shadow(-1px 1px 0 var(--background-opposite))
+    drop-shadow(1px -1px 0 var(--background-opposite))
+    drop-shadow(-1px -1px 0 var(--background-opposite));
+}

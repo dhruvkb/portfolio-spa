@@ -1,7 +1,9 @@
-@import '~@/styles/layouts/content';
+@use '~@/styles/layouts/content';
+
+@use '~@/styles/utils/theming';
 
 .four-oh-four {
-  @include content;
+  @include content.content;
 
   .section#first {
     overflow: hidden;
@@ -17,6 +19,8 @@
   }
 
   footer {
+    @include theming.transition(1);
+
     background-color: var(--background);
   }
 }

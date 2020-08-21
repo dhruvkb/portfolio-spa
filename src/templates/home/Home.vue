@@ -1,110 +1,112 @@
 <template>
   <div class="home">
     <main>
-      <section>
-        <Grid class="home-grid">
-          <div class="left">
-            <div class="content">
-              <RouterLink
-                class="memoji-link"
-                tabindex="-1"
-                :to="{name: 'portfolio'}"
-                @mouseenter.native="focusPortfolioLink"
-                @mouseleave.native="blurPortfolioLink">
-                <Memoji
-                  :index="index"
-                  :color="$getSolarizedColor(index)"
-                  :is-focused="isPortfolioLinkFocused"/>
-              </RouterLink>
-            </div>
-          </div>
-
-          <div class="right">
-            <div class="content">
-              {{ $t('hello') }}! {{ $t('iam') }}
-              <svg
-                class="red-colored site-title"
-                viewBox="0 0 852 233"
-                xmlns="http://www.w3.org/2000/svg"
-                ref="siteTitle">
-                <g id="dhruv">
-                  <path
-                    v-for="(path, index) in svg.paths"
-                    :key="index"
-                    :d="path"/>
-                </g>
-              </svg>
-              {{ $t('hats') }}
-
-              <p class="roles">
-                {{ $t('iam') }}
+      <transition
+        name="fade"
+        mode="out-in"
+        appear
+        @after-enter="handleAfterEnter">
+        <section
+          key="loaded"
+          v-if="areImagesLoaded">
+          <Grid class="home-grid">
+            <div class="left">
+              <div class="content">
                 <RouterLink
-                  class="role-link"
-                  tabindex="0"
+                  class="memoji-link"
+                  tabindex="-1"
                   :to="{name: 'portfolio'}"
-                  title="See my portfolio."
                   @mouseenter.native="focusPortfolioLink"
-                  @mouseleave.native="blurPortfolioLink"
-                  @focus.native="focusPortfolioLink"
-                  @blur.native="blurPortfolioLink">
-                  <Role
+                  @mouseleave.native="blurPortfolioLink">
+                  <Memoji
                     :index="index"
-                    :color="$getSolarizedColor(index)"
+                    :color="solarizedColor(index)"
                     :is-focused="isPortfolioLinkFocused"/>
                 </RouterLink>
-              </p>
-
-              <p>
-                {{ $t('with') }}
-                <br/>
-                {{ $t('i') }}
-                <Work
-                  :index="index"
-                  :is-focused="isPortfolioLinkFocused"/>
-                <br/>
-                <span
-                  class="secondary-colored"
-                  :title="$t('3m')">
-                  {{ $t('other') }}
-                </span>
-              </p>
+              </div>
             </div>
-          </div>
 
-          <Scroll
-            v-for="direction in ['previous', 'next']"
-            :key="direction"
-            class="scroll"
-            :class="direction"
-            :direction="direction"
-            :color="$getSolarizedColor(index)"
-            @scroll="scrollTickers"/>
-        </Grid>
+            <div class="right">
+              <div class="content">
+                {{ $t('hello') }}! {{ $t('iam') }}
+                <SiteTitle/>
+                {{ $t('hats') }}
 
-        <footer>
-          <Source/>
-          <Kaomoji/>
-          <Locale/>
-        </footer>
-      </section>
+                <p class="roles">
+                  {{ $t('iam') }}
+                  <RouterLink
+                    class="role-link"
+                    tabindex="0"
+                    :to="{name: 'portfolio'}"
+                    title="See my portfolio."
+                    @mouseenter.native="focusPortfolioLink"
+                    @mouseleave.native="blurPortfolioLink"
+                    @focus.native="focusPortfolioLink"
+                    @blur.native="blurPortfolioLink">
+                    <Role
+                      :index="index"
+                      :color="solarizedColor(index)"
+                      :is-focused="isPortfolioLinkFocused"/>
+                  </RouterLink>
+                </p>
+
+                <p>
+                  {{ $t('with') }}
+                  <br/>
+                  {{ $t('i') }}
+                  <Work
+                    :index="index"
+                    :is-focused="isPortfolioLinkFocused"/>
+                  <br/>
+                  <span
+                    class="secondary-colored"
+                    :title="$t('3m')">
+                    {{ $t('other') }}
+                  </span>
+                </p>
+              </div>
+            </div>
+
+            <Scroll
+              v-for="direction in ['previous', 'next']"
+              :key="direction"
+              class="scroll"
+              :class="direction"
+              :direction="direction"
+              :color="solarizedColor(index)"
+              @scroll="scrollTickers"/>
+          </Grid>
+
+          <footer>
+            <Source color="cyan"/>
+            <Kaomoji/>
+            <Localizer/>
+          </footer>
+        </section>
+
+        <section
+          v-else
+          key="loading">
+          <Spinner color="red"/>
+        </section>
+      </transition>
     </main>
   </div>
 </template>
 
 <script>
-  import anime from 'animejs'
+  import Grid from '@/components/layout/grid/Grid'
 
-  import Grid from '@/components/grid/Grid'
-  import Locale from '@/components/locale/Locale'
+  import Spinner from '@/components/common/spinner/Spinner'
+  import Localizer from '@/components/common/localizer/Localizer'
 
-  import Kaomoji from './components/kaomoji/Kaomoji'
-  import Memoji from './components/memoji/Memoji'
-  import Role from './components/role/Role'
-  import Work from './components/work/Work'
-  import Source from './components/source/Source'
-  import Scroll from './components/scroll/Scroll'
-
-  import svg from './data/svg.json'
+  import Kaomoji from '@/components/home/kaomoji/Kaomoji'
+  import Memoji from '@/components/home/memoji/Memoji'
+  import Role from '@/components/home/role/Role'
+  import Scroll from '@/components/home/scroll/Scroll'
+  import SiteTitle from '@/components/home/site_title/SiteTitle'
+  import Source from '@/components/home/source/Source'
+  import Work from '@/components/home/work/Work'
 
   /**
    * This page is the landing page for the portfolio. All improvements start
@@ -114,23 +116,36 @@
     name: 'Home',
     components: {
       Grid,
-      Locale,
+
+      Spinner,
+      Localizer,
 
       Kaomoji,
       Memoji,
       Role,
-      Work,
+      Scroll,
+      SiteTitle,
       Source,
-      Scroll
+      Work
     },
     data () {
       return {
-        svg,
-
         index: 0,
         interval: 8, // seconds
         updateLooper: null,
-        isPortfolioLinkFocused: false
+        isPortfolioLinkFocused: false,
+
+        totalImageCount: this.$roles.length,
+        loadedImageCount: 0
+      }
+    },
+    computed: {
+
+      /**
+       *
+       */
+      areImagesLoaded () {
+        return this.loadedImageCount >= this.totalImageCount
       }
     },
     methods: {
@@ -140,7 +155,7 @@
       startLooping () {
         this.stopLooping()
         this.updateLooper = setInterval(() => {
-          this.index++
+          // this.index++
         }, this.interval * 1000)
       },
       /**
@@ -149,6 +164,16 @@
       stopLooping () {
         clearInterval(this.updateLooper)
       },
+      /**
+       * Change the index based on which scrolling button was clicked.
+       * @param {number} delta - the value by which to change the tickers
+       */
+      scrollTickers (delta) {
+        this.stopLooping()
+        this.index += delta
+        this.startLooping()
+      },
+
       /**
        * Set the memoji, role and work tickers to their focused states and stop
        * the ticking animation.
@@ -165,35 +190,30 @@
         this.isPortfolioLinkFocused = false
         this.startLooping()
       },
+
       /**
-       * Change the index based on which scrolling button was clicked.
-       * @param {number} delta - the value by which to change the tickers
+       * Load memoji for all roles by sourcing them into an invisible Image
+       * element.
        */
-      scrollTickers (delta) {
-        this.stopLooping()
-        this.index += delta
-        this.startLooping()
+      preloadImages () {
+        this.$roles.forEach((role) => {
+          const image = new Image()
+          image.src = require(`@/assets/memoji/${role}.png`)
+
+          image.onload = () => {
+            this.loadedImageCount++
+          }
+        })
+      },
+
+      handleAfterEnter () {
+        if (this.areImagesLoaded) {
+          this.startLooping()
+        }
       }
     },
-    created () {
-      this.startLooping()
-    },
     mounted () {
-      const siteTitle = this.$refs.siteTitle
-      anime
-        .timeline({
-          targets: siteTitle.querySelectorAll('path'),
-          easing: 'linear'
-        })
-        .add({
-          strokeDashoffset: 0,
-          duration: 2000
-        })
-        .add({
-          fill: '#dc322f',
-          strokeWidth: 0,
-          duration: 500
-        })
+      this.preloadImages()
     },
     beforeDestroy () {
       this.stopLooping()
@@ -201,8 +221,6 @@
   }
 </script>
 
-<style scoped lang="scss" src="./Home.scss">
-</style>
+<style scoped lang="scss" src="./Home.scss"/>
 
-<i18n src="./lang.json">
-</i18n>
+<i18n src="./lang.json"/>

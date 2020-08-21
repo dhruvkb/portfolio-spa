@@ -1,0 +1,33 @@
+@use '~@/styles/tokens/sizes';
+@use '~@/styles/tokens/devices';
+
+@use '~@/styles/mixins/actionable';
+
+@use '~@/styles/utils/media';
+@use '~@/styles/utils/theming';
+
+.personal {
+  @include actionable.actionable;
+
+  .blockquote {
+    align-self: center;
+  }
+
+  .personality {
+    &.singular {
+      @include media.device-specific(devices.$group-small) {
+        display: none;
+      }
+
+      .icon {
+        font-size: sizes.$l;
+      }
+    }
+
+    &.plural {
+      @include media.device-specific(devices.$group-big) {
+        display: none;
+      }
+    }
+  }
+}

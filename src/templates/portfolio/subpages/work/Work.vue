@@ -10,7 +10,7 @@
 <script>
   import { mapGetters } from 'vuex'
 
-  import Vim from './components/vim/Vim'
+  import Vim from '@/components/portfolio/vim/Vim'
 
   /**
    * This is one work experience.
@@ -84,5 +84,4 @@
   }
 </script>
 
-<style scoped lang="scss" src="./Work.scss">
-</style>
+<style scoped lang="scss" src="./Work.scss"/>

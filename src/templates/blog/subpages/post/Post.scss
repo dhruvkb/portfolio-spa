@@ -1,34 +1,35 @@
-@import '~@/styles/tokens/dimensions';
-@import '~@/styles/tokens/fonts';
-@import '~@/styles/tokens/sizes';
+@use '~@/styles/tokens/dimensions';
+@use '~@/styles/tokens/fonts';
 
-@import '~@/styles/layouts/content';
+@use '~@/styles/layouts/content';
+
+@use '~@/styles/utils/theming';
+
+@use './styles/typography';
 
 .post {
-  @include content;
+  @include content.content;
 
   .body {
     box-sizing: border-box;
 
-    width: calc(100vw - 2 * #{$dimen-m});
-    max-width: 50em;
+    width: calc(100vw - 2 * #{dimensions.$m});
+    max-width: 45em;
 
     margin: auto;
 
-    h1 {
-      font-family: $family-body;
-    }
-
     ::v-deep { // To style v-html content
       .content {
-        @import '~@/styles/scopes/post';
+        @import './styles/post';
       }
     }
 
     .footer {
+      @include theming.transition(2, (border-top-color));
+
       border-top: 1px solid var(--content-secondary);
 
-      margin-top: $dimen-l;
+      margin-top: dimensions.$l;
     }
   }
 }

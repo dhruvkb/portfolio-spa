@@ -127,8 +127,6 @@
   }
 </script>
 
-<style scoped lang="scss" src="./FourOhFour.scss">
-</style>
+<style scoped lang="scss" src="./FourOhFour.scss"/>
 
-<i18n src="./lang.json">
-</i18n>
+<i18n src="./lang.json"/>

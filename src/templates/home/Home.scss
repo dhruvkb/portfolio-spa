@@ -1,23 +1,28 @@
-@import '~@/styles/tokens/colors';
-@import '~@/styles/tokens/sizes';
-@import '~@/styles/tokens/dimensions';
-@import '~@/styles/tokens/durations';
+@use 'sass:color';
 
-@import '~@/styles/layouts/content';
+@use '~@/styles/tokens/sizes';
+@use '~@/styles/tokens/devices';
+@use '~@/styles/tokens/dimensions';
 
-@import '~@/styles/utils/media';
+@use '~@/styles/layouts/content';
+
+@use '~@/styles/utils/media';
 
 .home {
-  @include content;
+  @include content.content;
+
+  section {
+    justify-content: center;
+  }
 
   .home-grid {
     box-sizing: border-box;
 
-    @include device-specific($devices-small-side) {
+    @include media.device-specific(devices.$group-small) {
       grid-template-columns: repeat(1, 1fr);
     }
 
-    @include device-specific($devices-big-side) {
+    @include media.device-specific(devices.$group-big) {
       width: 100%;
       grid-template-columns: repeat(2, 1fr);
     }
@@ -26,7 +31,7 @@
     .right {
       grid-column: span 1;
 
-      @include device-specific($devices-big-side) {
+      @include media.device-specific(devices.$group-big) {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -40,34 +45,14 @@
 
         margin-left: auto;
 
-        @include device-specific($devices-small-side) {
+        @include media.device-specific(devices.$group-small) {
           margin-right: auto; // Align center
         }
 
-        @include device-specific($devices-big-side) {
+        @include media.device-specific(devices.$group-big) {
           margin-right: 0; // Align right
         }
       }
-    }
-  }
-
-  .site-title {
-    display: block;
-
-    box-sizing: border-box;
-    max-height: 2 * $size-6xl;
-    max-width: 100%;
-
-    padding-top: $dimen-s;
-    padding-bottom: $dimen-s;
-
-    path {
-      fill: adjust_color($color-accent-red, $alpha: -1.0);
-
-      stroke: $color-accent-red;
-      stroke-width: 2px;
-      stroke-dasharray: 30em;
-      stroke-dashoffset: 30em;
     }
   }
 
@@ -79,25 +64,25 @@
   }
 
   .roles {
-    font-size: $size-l;
+    font-size: sizes.$l;
   }
 
   .scroll {
-    @include device-specific($devices-small-side) {
+    @include media.device-specific(devices.$group-small) {
       display: none;
     }
 
-    @include device-specific($devices-big-side) {
+    @include media.device-specific(devices.$group-big) {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
 
       &.previous {
-        left: $dimen-m;
+        left: dimensions.$m;
       }
 
       &.next {
-        right: $dimen-m;
+        right: dimensions.$m;
       }
     }
   }
@@ -105,12 +90,12 @@
   footer {
     .source {
       position: absolute;
-      left: $dimen-s;
+      left: dimensions.$s;
     }
 
-    .locale {
+    .localizer {
       position: absolute;
-      right: $dimen-s;
+      right: dimensions.$s;
     }
   }
 }
