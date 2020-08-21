@@ -1,4 +1,4 @@
-import { generateTree } from '@/templates/portfolio/data/tree'
+import { generateTree } from '@/data/portfolio/tree'
 import { mapping } from '@/templates/portfolio/commands'
 
 const state = {
@@ -12,9 +12,8 @@ const state = {
 const getters = {
   nodeNamed: state => nodeName => {
     let nodeInQuestion = null
-
-    state.tree.traverseBreadthFirst(node => {
-      if (node.name === nodeName || node.alternativeName === nodeName) {
+    state.tree.traverseDepthFirst(node => {
+      if (node.hasName(nodeName)) {
         nodeInQuestion = node
       }
     })
@@ -38,7 +37,7 @@ const getters = {
         let nextNode
         for (let j = 0; j < nodeInQuestion.children.length; j++) {
           const child = nodeInQuestion.children[j]
-          if (child.name === entity || child.alternativeName === entity) {
+          if (child.hasName(entity)) {
             nextNode = child
           }
         }

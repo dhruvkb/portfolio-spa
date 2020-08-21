@@ -1,30 +1,57 @@
+import Vue from 'vue'
+
 import axios from 'axios'
 
+const apiOrigin = 'https://api.dhruvkb.now.sh/api/blog_posts'
+const apiUrl = (path) => `${apiOrigin}/${path}`
+
+const artificialDelay = 500
+
 const state = {
+  isFirstRun: true,
   totalCount: null,
   posts: [],
+  contents: {},
   isFetching: false
+}
+
+const getters = {
+  contentWithSlug: state => slug => {
+    let contentInQuestion = null
+    if (Object.prototype.hasOwnProperty.call(state.contents, slug)) {
+      contentInQuestion = state.contents[slug]
+    }
+
+    return contentInQuestion
+  }
 }
 
 const mutations = {
   setTotalCount (state, payload) {
     state.totalCount = payload.totalCount
   },
-  setPosts (state, payload) {
-    state.posts.push(...payload.posts)
-  },
   setIsFetching (state, payload) {
     state.isFetching = payload.isFetching
+  },
+  setIsFirstRun (state, payload) {
+    state.isFirstRun = payload.isFirstRun
+  },
+  pushPosts (state, payload) {
+    state.posts.push(...payload.posts)
+  },
+  pushContent (state, payload) {
+    Vue.set(state.contents, payload.slug, payload.content)
   }
 }
 
 const actions = {
-  getPosts ({ commit, state }) {
-    const url = 'https://api.dhruvkb.now.sh/api/blog/list'
+  fetchPosts ({ commit, state }) {
+    const url = apiUrl('list')
 
     commit('setIsFetching', {
       isFetching: true
     })
+
     axios
       .get(url, {
         params: {
@@ -32,22 +59,63 @@ const actions = {
         }
       })
       .then(response => {
+        return new Promise(resolve => setTimeout(() => resolve(response), artificialDelay))
+      })
+      .then(response => {
         const { totalCount, posts } = response.data
 
-        setTimeout(() => {
-          commit('setPosts', {
-            posts
-          })
-          commit('setTotalCount', {
-            totalCount
-          })
-          commit('setIsFetching', {
-            isFetching: false
-          })
-        }, 1000)
+        commit('pushPosts', {
+          posts
+        })
+        commit('setTotalCount', {
+          totalCount: totalCount
+        })
       })
-      .catch(() => {
+      .catch(err => {
         console.log('FAIL')
+        console.error(err)
+      })
+      .finally(() => {
+        commit('setIsFetching', {
+          isFetching: false
+        })
+      })
+  },
+  fetchContent ({ commit, state }, payload) {
+    const url = apiUrl('retrieve')
+
+    const slug = payload.slug
+
+    commit('setIsFetching', {
+      isFetching: true
+    })
+
+    axios
+      .get(url, {
+        params: {
+          slug
+        }
+      })
+      .then(response => {
+        return new Promise(resolve => setTimeout(() => resolve(response), artificialDelay))
+      })
+      .then(response => {
+        const { attributes, body } = response.data
+        const { slug, ...otherAttributes } = attributes
+
+        commit('pushContent', {
+          slug,
+          content: {
+            ...otherAttributes,
+            body
+          }
+        })
+      })
+      .catch(err => {
+        console.log('FAIL')
+        console.error(err)
+      })
+      .finally(() => {
         commit('setIsFetching', {
           isFetching: false
         })
@@ -58,6 +126,7 @@ const actions = {
 export default {
   namespaced: true,
   state,
+  getters,
   mutations,
   actions
 }
