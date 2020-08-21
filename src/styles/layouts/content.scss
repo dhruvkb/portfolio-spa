@@ -1,15 +1,14 @@
-@import '~@/styles/tokens/dimensions';
+@use '~@/styles/tokens/dimensions';
 
-@import '~@/styles/layouts/page';
+@use '~@/styles/layouts/page';
 
-@import '~@/styles/utils/media';
+@use '~@/styles/utils/units';
 
 @mixin content {
   main {
     section {
       display: flex;
       flex-direction: column;
-      justify-content: center;
 
       &:first-of-type,
       &.centered {
@@ -17,7 +16,7 @@
       }
 
       &:first-of-type {
-        @include page-with-footer;
+        @include page.page-with-footer;
 
         .intro-text {
           width: 100%;
@@ -26,23 +25,19 @@
       }
 
       &:not(:first-of-type) {
-        @include page;
+        @include page.page;
       }
 
       &.new {
-        @include page;
+        @include page.page;
 
         align-items: stretch;
 
         .page-title {
           position: relative;
-          top: $dimen-m;
-          left: $dimen-m / 1em * 1rem;
+          top: dimensions.$m;
+          left: units.em-to-rem(dimensions.$m);
           z-index: 1;
-        }
-
-        .intro-cell {
-          grid-row: span 2;
         }
       }
     }
@@ -54,7 +49,7 @@
     align-items: center;
 
     .image {
-      margin-bottom: $dimen-s;
+      margin-bottom: dimensions.$s;
     }
   }
 }

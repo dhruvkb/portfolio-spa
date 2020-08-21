@@ -1,16 +1,21 @@
-@import '~@/styles/tokens/fonts';
-@import '~@/styles/tokens/sizes';
-@import '~@/styles/tokens/weights';
+@use '~@/styles/tokens/dimensions';
+@use '~@/styles/tokens/fonts';
+@use '~@/styles/tokens/sizes';
+@use '~@/styles/tokens/weights';
+
+@use '~@/styles/utils/theming';
 
 :root {
-  font-family: $family-body;
-  font-size: $size-m;
+  font-family: fonts.$body;
+  font-size: sizes.$m;
   line-height: 1.5;
+
+  -webkit-text-size-adjust: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $family-heading;
-  font-weight: $weight-bold;
+  font-family: fonts.$heading;
+  font-weight: weights.$bold;
   line-height: 1.0;
 
   margin-top: 0;
@@ -18,12 +23,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 $heading-sizes: (
-  1: $size-6xl,
-  2: $size-5xl,
-  3: $size-4xl,
-  4: $size-3xl,
-  5: $size-2xl,
-  6: $size-1xl
+  1: sizes.$xl6,
+  2: sizes.$xl5,
+  3: sizes.$xl4,
+  4: sizes.$xl3,
+  5: sizes.$xl2,
+  6: sizes.$xl1
 );
 
 @each $heading-level, $heading-size in $heading-sizes {
@@ -34,12 +39,14 @@ $heading-sizes: (
 
 pre:not([class*="language-"]),
 code:not([class*="language-"]) {
-  font-family: $family-code;
+  @include theming.transition(1);
+
+  font-family: fonts.$code;
   font-size: calc(14em / 16);
 
   background-color: var(--background-highlighted);
 
-  padding: $dimen-xs;
+  padding: dimensions.$xs;
 
   border-radius: 0.3em; // copied from Prism
 }

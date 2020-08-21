@@ -1,38 +1,44 @@
-@import '~@/styles/tokens/colors';
-@import '~@/styles/tokens/fonts';
+@use '~@/styles/tokens/fonts';
 
-@import '~@/styles/utils/scrollbars';
-@import '~@/styles/utils/selections';
+@use '~@/styles/utils/scrollbars';
+@use '~@/styles/utils/selections';
+@use '~@/styles/utils/theming';
 
-:root.dark-themed {
-  code[class*="language-"],
-  pre[class*="language-"] {
-    color: $color-content-base0;
+code[class*="language-"],
+pre[class*="language-"] {
+  @include theming.transition(2);
 
-    .token.comment,
-    .token.prolog,
-    .token.doctype,
-    .token.cdata {
-      color: $color-content-base01;
-    }
+  color: var(--content);
 
-    .token.punctuation {
-      color: $color-content-base1;
-    }
+  .token.comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata {
+    @include theming.transition(2);
 
-    .token.entity {
-      color: $color-content-base0;
-      background-color: $color-background-base02;
-    }
+    color: var(--content-secondary);
+  }
+
+  .token.punctuation {
+    @include theming.transition(2);
+
+    color: var(--content-highlighted);
+  }
+
+  .token.entity {
+    @include theming.transition(3);
+
+    color: var(--content);
+    background-color: var(--background-selected);
   }
 }
 
 code[class*="language-"],
 pre[class*="language-"] {
-  @include custom-scrollbars;
-  @include custom-selections;
+  @include scrollbars.custom-scrollbars;
+  @include selections.custom-selections;
 
-  font-family: $family-code;
+  font-family: fonts.$code;
   font-size: 14px;
   line-height: 1.4;
 

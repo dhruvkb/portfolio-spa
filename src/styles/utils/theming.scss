@@ -1,0 +1,31 @@
+@use 'sass:list';
+
+@use '~@/styles/tokens/durations';
+
+@mixin transition($mode, $additional-properties: (), $additional-durations: ()) {
+  $properties: ();
+  $durations: ();
+  @if $mode >= 2 {
+    $properties: list.append($properties, color, $separator: comma);
+    $durations: list.append($durations, durations.$m, $separator: comma);
+    $mode: $mode - 2;
+  }
+  @if $mode >= 1 {
+    $properties: list.append($properties, background-color, $separator: comma);
+    $durations: list.append($durations, durations.$m, $separator: comma);
+    $mode: $mode - 1;
+  }
+
+  @if list.length($additional-properties) != 0 {
+    $properties: list.join($properties, $additional-properties);
+    $durations: list.join($durations, $additional-durations);
+  }
+
+  @if list.length($durations) == 0 {
+    $durations: durations.$m;
+  }
+
+  transition-property: $properties;
+  transition-duration: $durations;
+  transition-timing-function: linear;
+}

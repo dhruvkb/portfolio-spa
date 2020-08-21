@@ -1,15 +1,16 @@
-@import '~@/styles/tokens/colors';
+@use '~@/styles/tokens/colors';
+@use '~@/styles/utils/theming';
 
 @mixin colored($property) {
   $colors: (
-    'yellow': $color-accent-yellow,
-    'orange': $color-accent-orange,
-    'red': $color-accent-red,
-    'magenta': $color-accent-magenta,
-    'violet': $color-accent-violet,
-    'blue': $color-accent-blue,
-    'cyan': $color-accent-cyan,
-    'green': $color-accent-green,
+    'yellow': colors.$accent-yellow,
+    'orange': colors.$accent-orange,
+    'red': colors.$accent-red,
+    'magenta': colors.$accent-magenta,
+    'violet': colors.$accent-violet,
+    'blue': colors.$accent-blue,
+    'cyan': colors.$accent-cyan,
+    'green': colors.$accent-green,
     'secondary': var(--content-secondary)
   );
 
@@ -17,5 +18,9 @@
     &.#{$color-name}-colored {
       #{$property}: $color-var;
     }
+  }
+
+  &.secondary-colored {
+    @include theming.transition(2);
   }
 }

@@ -1,43 +1,47 @@
-@import '~@/styles/tokens/colors';
-@import '~@/styles/tokens/durations';
+@use '~@/styles/tokens/colors';
 
-@import '~@/styles/mixins/colored';
+@use '~@/styles/mixins/colored';
+
+@use '~@/styles/utils/theming';
 
 @mixin theme {
-  &:not(.light-themed),
-  &.dark-themed {
-    #{--content}:                $color-content-base0;
-    #{--content-highlighted}:    $color-content-base1;
-    #{--content-secondary}:      $color-content-base01;
+  &:not([theme="light"]),
+  &[theme="dark"] {
+    #{--content}:                colors.$content-base0;
+    #{--content-highlighted}:    colors.$content-base1;
+    #{--content-secondary}:      colors.$content-base01;
 
-    #{--background}:             $color-background-base03;
-    #{--background-highlighted}: $color-background-base02;
-    #{--background-opposite}:    $color-background-base3;
+    #{--content-max-visibility}: white;
+    #{--content-min-visibility}: black;
+
+    #{--background}:             colors.$background-base03;
+    #{--background-highlighted}: colors.$background-base02;
+    #{--background-opposite}:    colors.$background-base3;
 
     #{--background-selected}:    rgba(255, 255, 255, 0.1);
   }
 
-  &.light-themed {
-    #{--content}:                $color-content-base00;
-    #{--content-highlighted}:    $color-content-base01;
-    #{--content-secondary}:      $color-content-base1;
+  &[theme="light"] {
+    #{--content}:                colors.$content-base00;
+    #{--content-highlighted}:    colors.$content-base01;
+    #{--content-secondary}:      colors.$content-base1;
 
-    #{--background}:             $color-background-base3;
-    #{--background-highlighted}: $color-background-base2;
-    #{--background-opposite}:    $color-background-base03;
+    #{--content-max-visibility}: black;
+    #{--content-min-visibility}: white;
+
+    #{--background}:             colors.$background-base3;
+    #{--background-highlighted}: colors.$background-base2;
+    #{--background-opposite}:    colors.$background-base03;
 
     #{--background-selected}:    rgba(0, 0, 0, 0.1);
   }
 }
 
-* {
-  transition-property: color, background-color;
-  transition-duration: $duration-m;
-}
-
 :root {
   @include theme;
+}
 
+body {
   color: var(--content);
   background-color: var(--background);
 }
@@ -46,21 +50,10 @@ a {
   color: inherit;
 }
 
-div, span, h1, h2, h3, h4, h5, h6, p, a, svg {
-  @include colored('--primary-color');
+span, h1, h2, h3, h4, h5, h6, p, a, cite, svg {
+  @include colored.colored('--primary-color');
 
   &[class*="-colored"] {
-    &:not(.inverted) {
-      color: var(--primary-color);
-    }
-
-    &.inverted {
-      color: var(--background);
-      background-color: var(--primary-color);
-    }
-
-    &.boxed {
-      border: 1px solid var(--primary-color);
-    }
+    color: var(--primary-color);
   }
 }

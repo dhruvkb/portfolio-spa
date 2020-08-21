@@ -1,61 +1,83 @@
-@import '~@/styles/tokens/screens';
+@use 'sass:list';
+
+@use '~@/styles/tokens/screens';
+@use '~@/styles/tokens/devices';
+
+@mixin device-only($min-width: null, $max-width: null) {
+  @if $min-width and $max-width {
+    @media (min-width: $min-width) and (max-width: $max-width) {
+      @content
+    }
+  } @else if $min-width {
+    @media (min-width: $min-width) {
+      @content
+    }
+  } @else if $max-width {
+    @media (max-width: $max-width) {
+      @content
+    }
+  }
+}
+
+
 
 @mixin phone-only {
-  @media (max-width: $screen-phone-max) {
+  $phone: screens.$phone;
+  @include device-only($phone...) {
     @content
   }
 }
 
 @mixin tablet-portrait-only {
-  @media (min-width: $screen-tablet-portrait-min) and (max-width: $screen-tablet-portrait-max) {
+  $tablet-portrait: screens.$tablet-portrait;
+  @include device-only($tablet-portrait...) {
     @content
   }
 }
 
 @mixin tablet-landscape-only {
-  @media (min-width: $screen-tablet-landscape-min) and (max-width: $screen-tablet-landscape-max) {
+  $tablet-landscape: screens.$tablet-landscape;
+  @include device-only($tablet-landscape...) {
     @content
   }
 }
 
 @mixin desktop-standard-only {
-  @media (min-width: $screen-desktop-standard-min) and (max-width: $screen-desktop-standard-max) {
+  $desktop-standard: screens.$desktop-standard;
+  @include device-only($desktop-standard...) {
     @content
   }
 }
 
 @mixin desktop-wide-only {
-  @media (min-width: $screen-desktop-wide-min) {
+  $desktop-wide: screens.$desktop-wide;
+  @include device-only($desktop-wide...) {
     @content
   }
 }
 
-$devices-small-side: 'phone', 'tablet-portrait';
-$devices-big-side: 'tablet-landscape', 'desktop-standard', 'desktop-wide';
-$devices-all: join($devices-small-side, $devices-big-side);
-
 @mixin device-specific($devices) {
-  @if index($devices, 'phone') {
+  @if list.index($devices, devices.$phone) {
     @include phone-only {
       @content
     }
   }
-  @if index($devices, 'tablet-portrait') or index($devices, 'tablet') {
+  @if list.index($devices, devices.$tablet-portrait) or list.index($devices, devices.$tablet) {
     @include tablet-portrait-only {
       @content
     }
   }
-  @if index($devices, 'tablet-landscape') or index($devices, 'tablet') {
+  @if list.index($devices, devices.$tablet-landscape) or list.index($devices, devices.$tablet) {
     @include tablet-landscape-only {
       @content
     }
   }
-  @if index($devices, 'desktop-standard') or index($devices, 'desktop') {
+  @if list.index($devices, devices.$desktop-standard) or list.index($devices, devices.$desktop) {
     @include desktop-standard-only {
       @content
     }
   }
-  @if index($devices, 'desktop-wide') or index($devices, 'desktop') {
+  @if list.index($devices, devices.$desktop-wide) or list.index($devices, devices.$desktop) {
     @include desktop-wide-only {
       @content
     }

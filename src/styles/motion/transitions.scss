@@ -8,7 +8,7 @@
   .fade-leave-active {
     transition-property: opacity;
     transition-duration: $duration;
-    transition-timing-function: ease-in-out;
+    transition-timing-function: linear;
   }
 
   .fade-leave,
@@ -38,26 +38,15 @@
     transform-style: preserve-3d;
     transform-origin: 50% 100%;
 
-    transition-property: transform, opacity;
+    transition-property: transform;
     transition-duration: $duration;
-    transition-timing-function: linear;
-  }
-}
-
-@mixin shift($name, $duration, $xfrom: 0, $xto: 0, $yfrom: 0, $yto: 0) {
-  .shift-#{$name}-enter {
-    transform: translate($xfrom, $yfrom);
-    opacity: 0;
   }
 
-  .shift-#{$name}-enter-active {
-    transition-property: transform, opacity;
-    transition-duration: $duration;
-    transition-timing-function: linear;
+  .flip-#{$name}-leave-active {
+    transition-timing-function: cubic-bezier(0.33, 0, 0.67, 0); // easeInCubic
   }
 
-  .shift-#{$name}-enter-to {
-    transform: translate($xto, $yto);
-    opacity: 1;
+  .flip-#{$name}-enter-active {
+    transition-timing-function: cubic-bezier(0.33, 1, 0.67, 1); // easeOutCubic
   }
 }

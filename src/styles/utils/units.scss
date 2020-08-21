@@ -1,0 +1,16 @@
+/// Convert the quantity passed from one unit to another.
+@function any-to-any($quantity, $from, $to) {
+  @return $quantity / $from * $to;
+}
+
+/// Convert the quantity passed as a value with the unit `rem` to another
+/// quantity with the same value but the unit `em`.
+@function rem-to-em($quantity) {
+  @return any-to-any($quantity, 1rem, 1em);
+}
+
+/// Convert the quantity passed as a value with the unit `em` to another
+/// quantity with the same value but the unit `rem`.
+@function em-to-rem($quantity) {
+  @return any-to-any($quantity, 1em, 1rem);
+}

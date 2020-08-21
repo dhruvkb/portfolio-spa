@@ -1,22 +1,20 @@
-@import '~@/styles/tokens/dimensions';
-@import '~@/styles/tokens/durations';
+@use '~@/styles/tokens/dimensions';
+@use '~@/styles/tokens/durations';
+
+@use '~@/styles/utils/media';
 
 @mixin bar-item {
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  --inactive-color: var(--content-secondary);
-  --active-color: var(--content);
-
   box-sizing: border-box;
-  height: $dimen-bars;
-  min-width: $dimen-bars;
+  height: dimensions.$bars;
+  min-width: dimensions.$bars;
 
-  padding-left: $dimen-s;
-  padding-right: $dimen-s;
+  padding-left: dimensions.$s;
+  padding-right: dimensions.$s;
 
   transition-property: color;
-  transition-duration: $duration-s;
-  transition-timing-function: linear;
+  transition-duration: durations.$s;
 }

@@ -1,12 +1,13 @@
-@import '~@/styles/tokens/durations';
+@use '~@/styles/tokens/durations';
+
+@use '~@/styles/utils/theming';
 
 @mixin intersectable {
   opacity: 0;
 
   transform: scale(0.95) translateY(3em);
 
-  transition-property: opacity, transform, background-color, color;
-  transition-duration: $duration-m;
+  @include theming.transition(1, (opacity, transform), (durations.$m, durations.$m));
 
   &.intersected {
     opacity: 1;

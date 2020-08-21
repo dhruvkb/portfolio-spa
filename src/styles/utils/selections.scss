@@ -1,8 +1,9 @@
-@import '~@/styles/tokens/dimensions';
-@import '~@/styles/tokens/durations';
+@use '~@/styles/utils/theming';
 
 @mixin custom-selections {
   ::selection {
+    @include theming.transition(1);
+
     background-color: var(--background-selected);
   }
 }

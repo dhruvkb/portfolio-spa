@@ -1,0 +1,9 @@
+@mixin actionable {
+  .cta {
+    text-decoration: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
