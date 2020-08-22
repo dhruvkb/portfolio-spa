@@ -7,6 +7,8 @@
 </template>
 
 <script>
+  import blogModule from '@/store/modules/blog'
+
   import descriptions from '@/data/descriptions.json'
 
   /**
@@ -21,6 +23,12 @@
         name,
         content: descriptions.blog
       }))
+    },
+    created () {
+      this.$store.registerModule('blog', blogModule)
+    },
+    beforeDestroy () {
+      this.$store.unregisterModule('blog')
     }
   }
 </script>

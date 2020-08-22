@@ -7,6 +7,8 @@
 <script>
   import { mapMutations } from 'vuex'
 
+  import portfolioModule from '@/store/modules/portfolio'
+
   import descriptions from '@/data/descriptions.json'
   import fs from '@/data/fs.json'
 
@@ -30,6 +32,8 @@
       ])
     },
     created () {
+      this.$store.registerModule('portfolio', portfolioModule)
+
       // Reset terminal state
       this.resetState()
 
@@ -37,6 +41,9 @@
       this.setTree({
         fs: fs
       })
+    },
+    beforeDestroy () {
+      this.$store.unregisterModule('portfolio')
     }
   }
 </script>
