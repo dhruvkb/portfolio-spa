@@ -12,11 +12,23 @@
 
   import Vim from '@/components/portfolio/vim/Vim'
 
+  import descriptions from '@/data/descriptions.json'
+
   /**
    * This is one work experience.
    */
   export default {
     name: 'Work',
+    metaInfo () {
+      const node = this.node
+      return {
+        title: node ? node.name : 'Work',
+        meta: ['description', 'og:description'].map(name => ({
+          name,
+          content: descriptions.portfolio
+        }))
+      }
+    },
     components: {
       Vim
     },
@@ -61,11 +73,8 @@
        * the Webpack file-loader.
        */
       loadContent () {
-        document.title = 'Dhruv Bhanushali - Portfolio work'
-
         const node = this.nodeNamed(this.slug)
         if (node) {
-          document.title = document.title.replace('Portfolio work', node.name)
           this.node = node
         } else {
           this.$router.push({

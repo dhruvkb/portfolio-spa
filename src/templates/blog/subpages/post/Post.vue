@@ -47,6 +47,8 @@
   import Spinner from '@/components/blog/spinner/Spinner'
   import Metadata from '@/components/blog/metadata/Metadata'
 
+  import descriptions from '@/data/descriptions.json'
+
   import '@/styles/utils/prism.scss'
 
   /**
@@ -54,6 +56,16 @@
    */
   export default {
     name: 'Post',
+    metaInfo () {
+      const post = this.post
+      return {
+        title: post ? post.title : 'Blog post',
+        meta: ['description', 'og:description'].map(name => ({
+          name,
+          content: descriptions.blog
+        }))
+      }
+    },
     components: {
       Spinner,
       Metadata
@@ -133,7 +145,6 @@
        * Markdown content of the post.
        */
       loadContent () {
-        document.title = 'Dhruv Bhanushali - Blog post'
         if (!this.contentWithSlug(this.slug)) {
           this.fetchContent({
             slug: this.slug
