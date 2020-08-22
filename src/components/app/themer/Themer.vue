@@ -130,6 +130,9 @@
         // Set theme to the default value
         this.theme = this.default
       }
+
+      const preferDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+      console.log(`User prefers ${preferDark ? 'dark' : 'light'}.`)
     }
   }
 </script>
