@@ -27,15 +27,11 @@
     },
     methods: {
       ...mapMutations('portfolio', [
-        'resetState',
         'setTree'
       ])
     },
     created () {
       this.$store.registerModule('portfolio', portfolioModule)
-
-      // Reset terminal state
-      this.resetState()
 
       // Set up filesystem tree
       this.setTree({

@@ -27,7 +27,6 @@
     },
     methods: {
       ...mapMutations('portfolio', [
-        'resetState',
         'setTree',
         'setIsFirstRun'
       ]),
