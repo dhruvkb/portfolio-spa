@@ -5,7 +5,11 @@
 .four-oh-four {
   @include content.content;
 
-  .section#first {
+  section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     overflow: hidden;
 
     .error-place {
