@@ -155,7 +155,7 @@
       startLooping () {
         this.stopLooping()
         this.updateLooper = setInterval(() => {
-          // this.index++
+          this.index++
         }, this.interval * 1000)
       },
       /**
