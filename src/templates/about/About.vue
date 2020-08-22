@@ -26,6 +26,8 @@
   import Professional from '@/templates/about/partials/professional/Professional'
   import Personal from '@/templates/about/partials/personal/Personal'
 
+  import descriptions from '@/data/descriptions.json'
+
   library.add(
     faFirefoxBrowser,
     faFedora,
@@ -42,6 +44,13 @@
       Intro,
       Professional,
       Personal
+    },
+    metaInfo: {
+      title: 'About',
+      meta: ['description', 'og:description'].map(name => ({
+        name,
+        content: descriptions.about
+      }))
     }
   }
 </script>

@@ -32,6 +32,8 @@
   import Social from '@/templates/contact/partials/social/Social'
   import Hi from '@/templates/contact/partials/hi/Hi'
 
+  import descriptions from '@/data/descriptions.json'
+
   library.add(
     faApple,
     faFacebook,
@@ -48,6 +50,13 @@
    */
   export default {
     name: 'Contact',
+    metaInfo: {
+      title: 'Contact',
+      meta: ['description', 'og:description'].map(name => ({
+        name,
+        content: descriptions.contact
+      }))
+    },
     components: {
       Social,
       Intro,

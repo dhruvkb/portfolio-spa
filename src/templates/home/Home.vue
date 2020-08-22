@@ -107,6 +107,7 @@
   import SiteTitle from '@/components/home/site_title/SiteTitle'
   import Source from '@/components/home/source/Source'
   import Work from '@/components/home/work/Work'
+  import descriptions from '@/data/descriptions.json'
 
   /**
    * This page is the landing page for the portfolio. All improvements start
@@ -128,6 +129,13 @@
       Source,
       Work
     },
+    metaInfo: {
+      title: 'Software engineer & other things',
+      meta: ['description', 'og:description'].map(name => ({
+        name,
+        content: descriptions.home
+      }))
+    },
     data () {
       return {
         index: 0,
@@ -140,7 +148,6 @@
       }
     },
     computed: {
-
       /**
        *
        */

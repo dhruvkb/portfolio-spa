@@ -36,6 +36,8 @@
 </template>
 
 <script>
+  import descriptions from '@/data/descriptions.json'
+
   import errorSvg from '@/assets/svgs/error.svg'
 
   /**
@@ -44,6 +46,13 @@
    */
   export default {
     name: 'FourOhFour',
+    metaInfo: {
+      title: '404',
+      meta: ['description', 'og:description'].map(name => ({
+        name,
+        content: descriptions.fourOhFour
+      }))
+    },
     data () {
       return {
         isDrawing: true,

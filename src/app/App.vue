@@ -38,6 +38,10 @@
       Header,
       Themer
     },
+    metaInfo: {
+      title: 'Software engineer & other things', // fallback if page does not populate
+      titleTemplate: '%s | Dhruv Bhanushali'
+    },
     data () {
       return {
         logs

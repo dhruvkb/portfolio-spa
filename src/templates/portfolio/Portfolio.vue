@@ -7,6 +7,7 @@
 <script>
   import { mapMutations } from 'vuex'
 
+  import descriptions from '@/data/descriptions.json'
   import fs from '@/data/fs.json'
 
   /**
@@ -15,6 +16,13 @@
    */
   export default {
     name: 'Portfolio',
+    metaInfo: {
+      title: 'Portfolio',
+      meta: ['description', 'og:description'].map(name => ({
+        name,
+        content: descriptions.portfolio
+      }))
+    },
     methods: {
       ...mapMutations('portfolio', [
         'resetState',
