@@ -17,8 +17,6 @@
 </template>
 
 <script>
-  import moment from 'moment'
-
   import Icon from '@/components/common/icon/Icon'
 
   export default {
@@ -28,9 +26,16 @@
     },
     props: {
       /**
-       * _the timestamp of when the post was published_
+       * _the date when the post was published_
        */
-      timestamp: {
+      absoluteDate: {
+        type: String,
+        required: true
+      },
+      /**
+       * _the date when the post was published, relative to today_
+       */
+      relativeDate: {
         type: String,
         required: true
       },
@@ -40,29 +45,6 @@
       tags: {
         type: Array,
         default: () => []
-      }
-    },
-    computed: {
-      /**
-       * Get a relative date from the timestamp.
-       * @returns {string} the date relative to today
-       */
-      relativeDate () {
-        return moment(this.timestamp).calendar({
-          lastWeek: '[Last] dddd',
-          lastDay: '[Yesterday]',
-          sameDay: '[Today]',
-          nextDay: '[Tomorrow]',
-          nextWeek: '[Coming] dddd',
-          sameElse: function () { return `[${this.fromNow()}]` }
-        })
-      },
-      /**
-       * Get a human-readable date from the timestamp.
-       * @returns {string} the date in a human-readable format
-       */
-      absoluteDate () {
-        return moment(this.timestamp).format('Do MMMM, YYYY')
       }
     }
   }

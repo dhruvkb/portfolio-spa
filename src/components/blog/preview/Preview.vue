@@ -2,7 +2,8 @@
   <Card class="preview">
     <template #title>
       <Metadata
-        :timestamp="post.publicationDate"
+        :absolute-date="post.publicationDate.absolute"
+        :relative-date="post.publicationDate.relative"
         :tags="post.tags"/>
     </template>
 

@@ -16,7 +16,8 @@
               <h1 class="blue-colored">{{ post.title }}</h1>
               <!-- ...so this h1 looks like an h2 -->
               <Metadata
-                :timestamp="post.publicationDate"
+                :absolute-date="post.publicationDate.absolute"
+                :relative-date="post.publicationDate.relative"
                 :tags="post.tags"/>
             </div>
 
