@@ -1,4 +1,15 @@
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+
 module.exports = {
+  configureWebpack: {
+    plugins: [
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        openAnalyzer: false
+      })
+    ]
+  },
+
   chainWebpack: config => {
     config.module
       .rule('html')
