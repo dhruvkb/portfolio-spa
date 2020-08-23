@@ -8,7 +8,7 @@
           :key="index">{{ rule ? '': '│'}}</span>{{ isLastChild ? '└' : '├'}}──&nbsp;
       </template>
 
-      <template v-if="!(args.flatten && isFolder(node))">
+      <template v-if="!(args.flatten && node.isFolder())">
         <template v-if="args.flatten">─&nbsp;</template>
         <Link :node="node"/>
       </template>
@@ -32,8 +32,6 @@
   import Link from '@/components/portfolio/link/Link'
 
   import argumented from '@/mixins/argumented'
-
-  import { nodeType } from '@/data/portfolio/tree'
 
   /**
    * This command recursively lists all directories and their contents.
@@ -123,11 +121,6 @@
       ...mapGetters('portfolio', [
         'nodeLocatedAt'
       ])
-    },
-    methods: {
-      isFolder (node) {
-        return node.type === nodeType.FOLDER
-      }
     },
     created () {
       this.node = this.dir

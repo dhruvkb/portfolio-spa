@@ -17,8 +17,6 @@
 
   import argumented from '@/mixins/argumented'
 
-  import { nodeType } from '@/data/portfolio/tree'
-
   /**
    * This command opens the specified file 'filename' in a view of its own.
    */
@@ -56,7 +54,7 @@
        * _whether a file matching the path was found_
        */
       isFound () {
-        return this.node && this.node.type === nodeType.FILE
+        return this.node && this.node.isFile()
       },
       /**
        * _the imported HTML of the file_

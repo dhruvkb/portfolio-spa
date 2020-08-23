@@ -29,8 +29,6 @@
 
   import argumented from '@/mixins/argumented'
 
-  import { nodeType } from '@/data/portfolio/tree'
-
   /**
    * This command lists the immediate contents of the current directory.
    */
@@ -80,7 +78,7 @@
        * _whether a folder matching the path was found_
        */
       isFound () {
-        return this.node && this.node.type === nodeType.FOLDER
+        return this.node && this.node.isFolder()
       },
 
       ...mapState('portfolio', [

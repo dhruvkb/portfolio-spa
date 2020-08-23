@@ -24,8 +24,6 @@
 
   import Icon from '@/components/common/icon/Icon'
 
-  import { nodeType } from '@/data/portfolio/tree'
-
   import briefcase from '@/assets/icons/briefcase.svg'
   import cube from '@/assets/icons/cube.svg'
   import flash from '@/assets/icons/flash.svg'
@@ -73,7 +71,7 @@
        */
       linkClasses () {
         const classes = []
-        if (this.node.type === nodeType.FOLDER) {
+        if (this.node.isFolder()) {
           classes.push('violet-colored')
         } else { // this.node.type === nodeType.FILE
           classes.push('magenta-colored')
@@ -84,7 +82,7 @@
        * _a helpful hint to show when the link is hovered_
        */
       description () {
-        if (this.node.type === nodeType.FOLDER) {
+        if (this.node.isFolder()) {
           return `Enter folder '${this.node.name}'.`
         } else { // this.node.type === nodeType.FILE
           return `Open file '${this.node.name}'.`
@@ -101,7 +99,7 @@
        */
       execute () {
         let command
-        if (this.node.type === nodeType.FOLDER) {
+        if (this.node.isFolder()) {
           command = 'cd'
         } else { // this.node.type === nodeType.FILE
           command = 'cat'
