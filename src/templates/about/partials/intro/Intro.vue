@@ -23,7 +23,9 @@
         :color="color"
         title="Home">
         <p class="was">
-          <Icon icon="location"/>
+          <Icon
+            icon="location"
+            :path="icons.location"/>
           I'm a Mumbaikar at heart…
         </p>
         <div
@@ -52,7 +54,9 @@
         :color="color"
         title="Education">
         <p class="was">
-          <Icon icon="school"/>
+          <Icon
+            icon="school"
+            :path="icons.school"/>
           …but I've spent four wonderful years in Roorkee.
         </p>
         <div
@@ -88,6 +92,9 @@
 
   import colored from '@/mixins/colored'
 
+  import location from '@/assets/icons/location.svg'
+  import school from '@/assets/icons/school.svg'
+
   export default {
     name: 'Intro',
     mixins: [
@@ -101,6 +108,14 @@
       Icon,
 
       Couplet
+    },
+    data () {
+      return {
+        icons: {
+          location,
+          school
+        }
+      }
     }
   }
 </script>

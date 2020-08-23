@@ -3,9 +3,10 @@
     <span :class="bioIconClasses">
       <Icon
         v-if="icon"
-        :icon="icon"/>
+        :icon="icon"
+        :path="path"/>
       <Repr
-        v-if="path"
+        v-else
         :path="path"/>
     </span>
     <div class="text">
@@ -45,7 +46,8 @@
        * _the path to draw an icon for bio point_
        */
       path: {
-        type: String
+        type: String,
+        required: true
       }
     },
     computed: {

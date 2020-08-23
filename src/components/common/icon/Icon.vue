@@ -4,7 +4,7 @@
     :class="iconClasses"
     viewBox="0 0 512 512"
     v-bind="$attrs">
-    <use :href="gHref"/>
+    <use :href="`${path}#${icon}`"/>
   </svg>
 </template>
 
@@ -19,6 +19,13 @@
        * _the name, or unique identifier, of the icon_
        */
       icon: {
+        type: String,
+        required: true
+      },
+      /**
+       * _the path to the icon on the disk_
+       */
+      path: {
         type: String,
         required: true
       },
@@ -42,15 +49,6 @@
             inline: this.isInline
           }
         ]
-      },
-
-      /**
-       * Get the file path to the group containing the SVG paths and shapes.
-       * @returns {string} the path to the SVG emitted by Webpack
-       */
-      gHref () {
-        const svg = require(`@/assets/icons/${this.icon}.svg`)
-        return `${svg}#${this.icon}`
       }
     }
   }

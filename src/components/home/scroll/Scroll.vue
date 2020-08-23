@@ -7,7 +7,9 @@
     :title="`[${titleEmoji}] See the ${direction} role.`"
     @click="handleClick"
     @shortkey="handleShortkey">
-    <Icon :icon="pointingIcon"/>
+    <Icon
+      :icon="pointingIcon"
+      :path="pointingPath"/>
   </button>
 </template>
 
@@ -16,6 +18,9 @@
 
   import colored from '@/mixins/colored'
 
+  import chevronLeft from '@/assets/icons/chevron-left.svg'
+  import chevronRight from '@/assets/icons/chevron-right.svg'
+
   export default {
     name: 'Scroll',
     mixins: [
@@ -23,6 +28,14 @@
     ],
     components: {
       Icon
+    },
+    data () {
+      return {
+        icons: {
+          chevronLeft,
+          chevronRight
+        }
+      }
     },
     props: {
       /**
@@ -49,6 +62,15 @@
        */
       pointingIcon () {
         return this.direction === 'next' ? 'chevron-right' : 'chevron-left'
+      },
+      /**
+       * Get the Ionicons icon name for the icon representing this button.
+       * @returns {string} the name of the Ionicons icon to use
+       */
+      pointingPath () {
+        const chevronRight = this.icons.chevronRight
+        const chevronLeft = this.icons.chevronLeft
+        return this.direction === 'next' ? chevronRight : chevronLeft
       },
       /**
        * Get the arrow emoji depicting the arrow key that triggers the button.

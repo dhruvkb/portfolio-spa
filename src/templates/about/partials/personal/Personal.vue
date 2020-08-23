@@ -46,6 +46,7 @@
               <Icon
                 v-if="item.icon"
                 :icon="item.icon"
+                :path="icons[item.icon]"
                 fixed-width/>
               <Repr
                 v-if="item.brand"
@@ -77,7 +78,7 @@
           :key="`content-${index}-${count}`"
           :color="color"
           :icon="item.icon"
-          :path="paths[item.brand]">
+          :path="paths[item.brand] || icons[item.icon]">
           <span v-html="`…${item.text}.`"/>
         </Bio>
       </Card>
@@ -105,6 +106,12 @@
 
   import bio from '@/data/bio.json'
 
+  import coffee from '@/assets/icons/coffee.svg'
+  import tv from '@/assets/icons/tv.svg'
+  import film from '@/assets/icons/film.svg'
+  import music from '@/assets/icons/music.svg'
+  import walk from '@/assets/icons/walk.svg'
+
   export default {
     name: 'Personal',
     mixins: [
@@ -130,6 +137,13 @@
           fedora,
           firefoxBrowser,
           apple
+        },
+        icons: {
+          coffee,
+          tv,
+          film,
+          music,
+          walk
         }
       }
     }

@@ -3,6 +3,7 @@
     <template v-if="paid">
       <span class="green-colored">
         <Icon
+          :path="icons.check"
           icon="check"
           is-inline/>
         Paid respects!
@@ -22,6 +23,8 @@
 
   import Spinner from '@/components/portfolio/spinner/Spinner'
 
+  import check from '@/assets/icons/check.svg'
+
   export default {
     name: 'F',
     components: {
@@ -32,7 +35,10 @@
     data () {
       return {
         paid: false,
-        interval: 5
+        interval: 5,
+        icons: {
+          check
+        }
       }
     },
     mounted () {

@@ -29,6 +29,7 @@
           @shortkey="$navigateOutTo(resume.url)">
           <Icon
             icon="download"
+            :path="icons.download"
             is-inline/>
           <span>
             {{ resume.name }}
@@ -43,6 +44,7 @@
           @shortkey="$navigateOutTo(resumeRepoUrl)">
           <Icon
             icon="code"
+            :path="icons.code"
             is-inline/>
           <span>
             source LaTeX
@@ -55,6 +57,9 @@
 
 <script>
   import Icon from '@/components/common/icon/Icon'
+
+  import download from '@/assets/icons/download.svg'
+  import code from '@/assets/icons/code.svg'
 
   /**
    * This command presents the introductory ASCII art.
@@ -79,7 +84,11 @@
             url: `${resumeBaseUrl}/writer.pdf`,
             shortkey: 'w' // 'w' for Writer
           }
-        ]
+        ],
+        icons: {
+          download,
+          code
+        }
       }
     },
     methods: {

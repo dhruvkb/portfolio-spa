@@ -13,12 +13,20 @@
 
       <span class="left content">
         <!-- @slot Left side content goes here -->
-        <slot name="left"><Icon icon="chevron-left"/></slot>
+        <slot name="left">
+          <Icon
+            icon="chevron-left"
+            :path="icons.chevronLeft"/>
+        </slot>
       </span>
 
       <span class="right content">
         <!-- @slot Right side content goes here -->
-        <slot name="right"><Icon icon="chevron-right"/></slot>
+        <slot name="right">
+          <Icon
+            icon="chevron-right"
+            :path="icons.chevronRight"/>
+        </slot>
       </span>
     </span>
   </button>
@@ -28,6 +36,9 @@
   import Icon from '@/components/common/icon/Icon'
 
   import colored from '@/mixins/colored'
+
+  import chevronLeft from '@/assets/icons/chevron-left.svg'
+  import chevronRight from '@/assets/icons/chevron-right.svg'
 
   /**
    * This component renders a flip switch.
@@ -43,6 +54,14 @@
     model: {
       prop: 'isFlipped',
       event: 'flip'
+    },
+    data () {
+      return {
+        icons: {
+          chevronLeft,
+          chevronRight
+        }
+      }
     },
     props: {
       /**

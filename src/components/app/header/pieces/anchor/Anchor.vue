@@ -17,6 +17,7 @@
       <Icon
         v-if="icon"
         :icon="icon"
+        :path="path"
         fixed-width/>
     </slot>
   </RouterLink>
@@ -59,7 +60,15 @@
        * _an icon for the anchor link that appears on screens too small for text_
        */
       icon: {
-        type: String
+        type: String,
+        required: true
+      },
+      /**
+       * _the path to the icon for small screens_
+       */
+      path: {
+        type: String,
+        required: true
       },
       /**
        * _whether the Vue Router link must be treated as exact_

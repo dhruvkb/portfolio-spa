@@ -3,14 +3,18 @@
     <span
       class="point created-at secondary-colored"
       :title="absoluteDate">
-      <Icon icon="calendar"/>
+      <Icon
+        icon="calendar"
+        :path="icons.calendar"/>
       {{ relativeDate }}
     </span>
 
     <span
       v-if="tags.length"
       class="point tags secondary-colored">
-      <Icon icon="tags"/>
+      <Icon
+        icon="tags"
+        :path="icons.tags"/>
       {{ tags.join(', ') }}
     </span>
   </div>
@@ -19,10 +23,21 @@
 <script>
   import Icon from '@/components/common/icon/Icon'
 
+  import calendar from '@/assets/icons/calendar.svg'
+  import tags from '@/assets/icons/tags.svg'
+
   export default {
     name: 'Metadata',
     components: {
       Icon
+    },
+    data () {
+      return {
+        icons: {
+          calendar,
+          tags
+        }
+      }
     },
     props: {
       /**

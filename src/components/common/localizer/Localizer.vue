@@ -7,10 +7,14 @@
       :shortkey="['l']"
       v-model="isFlipped">
       <template #left>
-        <Icon icon="skull"/>
+        <Icon
+          icon="skull"
+          :path="icons.skull"/>
       </template>
       <template #right>
-        <Icon icon="text"/>
+        <Icon
+          icon="text"
+          :path="icons.text"/>
       </template>
     </Flip>
   </div>
@@ -19,6 +23,9 @@
 <script>
   import Flip from '@/components/common/flip/Flip'
   import Icon from '@/components/common/icon/Icon'
+
+  import skull from '@/assets/icons/skull.svg'
+  import text from '@/assets/icons/text.svg'
 
   /**
    * This component enables changing languages between English and Pirate-speak
@@ -43,7 +50,11 @@
           }
         },
         locale: null,
-        default: 'en'
+        default: 'en',
+        icons: {
+          skull,
+          text
+        }
       }
     },
     computed: {

@@ -12,7 +12,9 @@
         {{ $t('handle') }}
       </h5>
       <h5 class="nav-title short">
-        <Icon icon="face"/>
+        <Icon
+          :icon="homeLink.icon"
+          :path="homeLink.path"/>
         {{ $t('initials') }}
       </h5>
     </Anchor>
@@ -42,6 +44,12 @@
   import Anchor from './pieces/anchor/Anchor'
   import Icon from '@/components/common/icon/Icon'
 
+  import face from '@/assets/icons/face.svg'
+  import folder from '@/assets/icons/folder.svg'
+  import megaphone from '@/assets/icons/megaphone.svg'
+  import chat from '@/assets/icons/chat.svg'
+  import person from '@/assets/icons/person.svg'
+
   export default {
     name: 'Header',
     components: {
@@ -53,28 +61,34 @@
         homeLink: {
           to: { name: 'home' },
           text: 'the homepage',
-          isExact: true
+          isExact: true,
+          icon: 'face',
+          path: face
         },
         links: [
           {
             to: { name: 'portfolio' },
             text: 'Portfolio',
-            icon: 'folder'
+            icon: 'folder',
+            path: folder
           },
           {
             to: { name: 'blog' },
             text: 'Blog',
-            icon: 'megaphone'
+            icon: 'megaphone',
+            path: megaphone
           },
           {
             to: { name: 'contact' },
             text: 'Contact',
-            icon: 'chat'
+            icon: 'chat',
+            path: chat
           },
           {
             to: { name: 'about' },
             text: 'About',
-            icon: 'person'
+            icon: 'person',
+            path: person
           }
         ]
       }

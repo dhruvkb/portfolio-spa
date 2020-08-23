@@ -11,6 +11,7 @@
         <Icon
           v-if="node.icon"
           :icon="node.icon"
+          :path="icons[node.icon]"
           is-inline/>
         {{ node.name }}
       </template>
@@ -25,6 +26,12 @@
 
   import { nodeType } from '@/data/portfolio/tree'
 
+  import briefcase from '@/assets/icons/briefcase.svg'
+  import cube from '@/assets/icons/cube.svg'
+  import flash from '@/assets/icons/flash.svg'
+  import git from '@/assets/icons/git.svg'
+  import writings from '@/assets/icons/writings.svg'
+
   /**
    * This block represents a link to a node in the file system, be it a folder
    * or a file, which can be clicked to either enter or open it respectively.
@@ -33,6 +40,17 @@
     name: 'Link',
     components: {
       Icon
+    },
+    data () {
+      return {
+        icons: {
+          briefcase,
+          cube,
+          flash,
+          git,
+          writings
+        }
+      }
     },
     props: {
       /**

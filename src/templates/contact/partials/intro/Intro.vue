@@ -26,7 +26,9 @@
         :color="color"
         title="Email address">
         <p class="can">
-          <Icon icon="inbox"/>
+          <Icon
+            icon="inbox"
+            :path="icons.inbox"/>
           You can hit me up at my email address…
         </p>
         <span :class="`${color}-colored`">
@@ -46,7 +48,9 @@
         :color="color"
         title="Phone number">
         <p class="can">
-          <Icon icon="phone"/>
+          <Icon
+            icon="phone"
+            :path="icons.phone"/>
           …or you can call me on my phone.
         </p>
         <span :class="`${color}-colored`">
@@ -71,6 +75,9 @@
 
   import colored from '@/mixins/colored'
 
+  import inbox from '@/assets/icons/inbox.svg'
+  import phone from '@/assets/icons/phone.svg'
+
   export default {
     name: 'Intro',
     mixins: [
@@ -82,6 +89,14 @@
       GridCell: Grid.Cell,
 
       Icon
+    },
+    data () {
+      return {
+        icons: {
+          inbox,
+          phone
+        }
+      }
     }
   }
 </script>

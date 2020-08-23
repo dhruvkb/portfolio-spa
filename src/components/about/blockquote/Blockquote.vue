@@ -14,10 +14,12 @@
     <div>
       <Icon
         class="left"
-        icon="quotes"/>
+        icon="quotes"
+        :path="icons.quotes"/>
       <Icon
         class="right"
-        icon="quotes"/>
+        icon="quotes"
+        :path="icons.quotes"/>
     </div>
   </blockquote>
 </template>
@@ -28,6 +30,8 @@
   import colored from '@/mixins/colored'
 
   import quotes from '@/data/quotes.json'
+
+  import quotesIcon from '@/assets/icons/quotes.svg'
 
   /**
    * This component renders a quote and its source.
@@ -42,7 +46,10 @@
     ],
     data () {
       return {
-        quotes
+        quotes,
+        icons: {
+          quotes: quotesIcon
+        }
       }
     },
     computed: {

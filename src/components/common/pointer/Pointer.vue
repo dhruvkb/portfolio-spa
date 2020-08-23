@@ -9,7 +9,9 @@
       <slot name="punctuation">…</slot>
     </div>
     <div class="arrow">
-      <Icon icon="arrow-right"/>
+      <Icon
+        icon="arrow-right"
+        :path="icons.arrowRight"/>
     </div>
   </div>
 </template>
@@ -20,6 +22,8 @@
   import colored from '@/mixins/colored'
   import focusable from '@/mixins/focusable'
 
+  import arrowRight from '@/assets/icons/arrow-right.svg'
+
   export default {
     name: 'Pointer',
     mixins: [
@@ -28,6 +32,13 @@
     ],
     components: {
       Icon
+    },
+    data () {
+      return {
+        icons: {
+          arrowRight
+        }
+      }
     },
     computed: {
       /**

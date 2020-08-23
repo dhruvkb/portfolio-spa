@@ -7,10 +7,14 @@
       :shortkey="['t']"
       v-model="isFlipped">
       <template #left>
-        <Icon icon="sun"/>
+        <Icon
+          icon="sun"
+          :path="icons.sun"/>
       </template>
       <template #right>
-        <Icon icon="moon"/>
+        <Icon
+          icon="moon"
+          :path="icons.moon"/>
       </template>
     </Flip>
   </div>
@@ -21,6 +25,9 @@
   import Icon from '@/components/common/icon/Icon'
 
   import colors from '@/styles/tokens/colors.scss'
+
+  import sun from '@/assets/icons/sun.svg'
+  import moon from '@/assets/icons/moon.svg'
 
   /**
    * This component enables switching between the light and dark variants
@@ -43,7 +50,11 @@
           }
         },
         theme: null,
-        default: 'dark'
+        default: 'dark',
+        icons: {
+          sun,
+          moon
+        }
       }
     },
     computed: {
