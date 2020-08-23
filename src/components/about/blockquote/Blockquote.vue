@@ -14,10 +14,10 @@
     <div>
       <Icon
         class="left"
-        icon="quote-left"/>
+        icon="quotes"/>
       <Icon
         class="right"
-        icon="quote-right"/>
+        icon="quotes"/>
     </div>
   </blockquote>
 </template>

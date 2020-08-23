@@ -13,7 +13,6 @@
     .quotation {
       color: var(--blockquote-color);
       font-size: sizes.$l;
-      text-align: center;
     }
 
     .citation {
@@ -25,7 +24,7 @@
   }
 
   .icon {
-    opacity: 0.3;
+    opacity: 0.5;
 
     position: absolute;
     top: 0;
@@ -35,6 +34,8 @@
 
     z-index: -1;
 
+    --stroke-width: 21.3333px; // 24 / 36 * 32px
+
     &.left {
       left: 0;
       transform: translate(-50%, -50%);
@@ -42,7 +43,8 @@
 
     &.right {
       right: 0;
-      transform: translate(50%, -50%);
+      transform-origin: 100% 0;
+      transform: rotate(180deg) translate(50%, -50%);
     }
   }
 }

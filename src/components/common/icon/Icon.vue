@@ -6,7 +6,7 @@
     :icon="icon"
     v-bind="$attrs"/>
   <svg
-    v-else-if="computedIconSet === 'fas' || computedIconSet === 'ionicons'"
+    v-else-if="computedIconSet === 'icons'"
     class="icon"
     :class="iconClasses"
     viewBox="0 0 512 512"
@@ -70,10 +70,8 @@
       computedIconSet () {
         if (this.icon instanceof Array) {
           return 'fab'
-        } else if (this.icon.match(/^quote-/)) {
-          return 'fas'
         } else {
-          return 'ionicons'
+          return 'icons'
         }
       }
     },
