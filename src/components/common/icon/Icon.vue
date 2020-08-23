@@ -11,7 +11,7 @@
     :class="iconClasses"
     viewBox="0 0 512 512"
     v-bind="$attrs">
-    <use :href="gHref(computedIconSet)"/>
+    <use :href="gHref"/>
   </svg>
   <span v-else>
     Unsupported icon set
@@ -73,16 +73,13 @@
         } else {
           return 'icons'
         }
-      }
-    },
-    methods: {
+      },
       /**
        * Get the file path to the group containing the SVG paths and shapes.
-       * @param {string} iconSet - the icon set to which the icon belongs
        * @returns {string} the path to the SVG emitted by Webpack
        */
-      gHref (iconSet) {
-        const svg = require(`@/assets/${iconSet}/${this.icon}.svg`)
+      gHref () {
+        const svg = require(`@/assets/${this.computedIconSet}/${this.icon}.svg`)
         return `${svg}#${this.icon}`
       }
     }
