@@ -1,16 +1,31 @@
+@use 'sass:color';
+
 @use '~@/styles/tokens/colors';
-@use '~@/styles/tokens/sizes';
-@use '~@/styles/tokens/dimensions';
+@use '~@/styles/tokens/weights';
+@use '~@/styles/tokens/durations';
 
 .site-title {
-  display: block;;
+  .name {
+    color: colors.$accent-red;
+    font-weight: weights.$extrabold;
 
-  box-sizing: border-box;
-  height: 2 * sizes.$xl6;
-  max-width: 100%;
+    .character {
+      @keyframes condense {
+        0% {
+          opacity: 0;
+          padding-right: 0.1ch;
+        }
 
-  padding-top: dimensions.$s;
-  padding-bottom: dimensions.$s;
+        100% {
+          opacity: 1;
+          padding-right: 0;
+        }
+      }
 
-  #{--stroke}: colors.$accent-red;
+      animation: condense;
+      animation-fill-mode: forwards;
+      animation-iteration-count: 1;
+      animation-duration: durations.$l;
+    }
+  }
 }
