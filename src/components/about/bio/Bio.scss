@@ -10,9 +10,14 @@
     margin-top: dimensions.$s;
   }
 
-  .icon {
+  .icon,
+  .repr {
     margin-right: dimensions.$m;
 
     font-size: sizes.$l;
+  }
+
+  .icon {
+    display: block;
   }
 }

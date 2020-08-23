@@ -42,10 +42,10 @@
           title="[S] See the LaTeX source code."
           @shortkey="$navigateOutTo(resumeRepoUrl)">
           <Icon
-            :icon="['fab', 'github']"
+            icon="code"
             is-inline/>
           <span>
-            source code
+            source LaTeX
           </span>
         </a>
       </div>
@@ -54,12 +54,7 @@
 </template>
 
 <script>
-  import { library } from '@fortawesome/fontawesome-svg-core'
-  import { faGithub } from '@fortawesome/free-brands-svg-icons'
-
   import Icon from '@/components/common/icon/Icon'
-
-  library.add(faGithub)
 
   /**
    * This command presents the introductory ASCII art.

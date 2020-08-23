@@ -2,8 +2,11 @@
   <div class="bio">
     <span :class="bioIconClasses">
       <Icon
-        :icon="icon"
-        fixed-width/>
+        v-if="icon"
+        :icon="icon"/>
+      <Repr
+        v-if="path"
+        :path="path"/>
     </span>
     <div class="text">
       <!-- @slot Content goes here -->
@@ -14,6 +17,7 @@
 
 <script>
   import Icon from '@/components/common/icon/Icon'
+  import Repr from '@/components/common/repr/Repr'
 
   import colored from '@/mixins/colored'
 
@@ -27,15 +31,21 @@
       colored
     ],
     components: {
-      Icon
+      Icon,
+      Repr
     },
     props: {
       /**
        * _an icon for bio point_
        */
       icon: {
-        type: [String, Array],
-        required: true
+        type: String
+      },
+      /**
+       * _the path to draw an icon for bio point_
+       */
+      path: {
+        type: String
       }
     },
     computed: {

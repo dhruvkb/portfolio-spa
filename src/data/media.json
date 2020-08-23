@@ -3,14 +3,14 @@
     "heading": "Professional media",
     "list": [
       {
-        "logo": "github",
+        "brand": "gitHub",
         "name": "GitHub",
         "link": "https://github.com/dhruvkb"
       },
       {
-        "logo": "linkedin",
+        "brand": "linkedIn",
         "name": "LinkedIn",
-        "color": "00a0dc",
+        "color": "0077b5",
         "link": "https://linkedin.com/in/dhruvkb"
       }
     ]
@@ -19,21 +19,21 @@
     "heading": "Social media",
     "list": [
       {
-        "logo": "facebook",
+        "brand": "facebook",
         "name": "Facebook",
-        "color": "1878f2",
+        "color": "1877f2",
         "link": "https://facebook.com/dhruv.k.bhanushali"
       },
       {
-        "logo": "twitter",
+        "brand": "twitter",
         "name": "Twitter",
         "color": "1da1f2",
         "link": "https://twitter.com/dhruvkb"
       },
       {
-        "logo": "instagram",
+        "brand": "instagram",
         "name": "Instagram",
-        "color": "e1306c",
+        "color": "e4405f",
         "link": "https://instagram.com/dhruvkb_"
       }
     ]
@@ -42,14 +42,14 @@
     "heading": "Music streaming",
     "list": [
       {
-        "logo": "apple",
+        "brand": "appleMusic",
         "name": "Apple Music",
         "link": "https://itunes.apple.com/profile/dhruvkb"
       },
       {
-        "logo": "spotify",
+        "brand": "spotify",
         "name": "Spotify",
-        "color": "1db954",
+        "color": "1ed760",
         "link": "https://open.spotify.com/user/dhruvkb"
       }
     ]

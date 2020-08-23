@@ -15,24 +15,11 @@
 </template>
 
 <script>
-  import { library } from '@fortawesome/fontawesome-svg-core'
-  import {
-    faFirefoxBrowser,
-    faFedora,
-    faApple
-  } from '@fortawesome/free-brands-svg-icons'
-
   import Intro from '@/templates/about/partials/intro/Intro'
   import Professional from '@/templates/about/partials/professional/Professional'
   import Personal from '@/templates/about/partials/personal/Personal'
 
   import descriptions from '@/data/descriptions.json'
-
-  library.add(
-    faFirefoxBrowser,
-    faFedora,
-    faApple
-  )
 
   /**
    * This page describes me in deep, verging on excruciating, detail. If you

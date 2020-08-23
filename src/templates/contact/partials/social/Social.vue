@@ -38,6 +38,7 @@
           <Medium
             v-for="(item, count) in category.list"
             v-bind="item"
+            :path="paths[item.brand]"
             :key="count"/>
         </div>
       </Card>
@@ -46,6 +47,14 @@
 </template>
 
 <script>
+  import { path as gitHub } from 'simple-icons/icons/github'
+  import { path as linkedIn } from 'simple-icons/icons/linkedin'
+  import { path as facebook } from 'simple-icons/icons/facebook'
+  import { path as twitter } from 'simple-icons/icons/twitter'
+  import { path as instagram } from 'simple-icons/icons/instagram'
+  import { path as appleMusic } from 'simple-icons/icons/applemusic'
+  import { path as spotify } from 'simple-icons/icons/spotify'
+
   import Card from '@/components/layout/card/Card'
   import Grid from '@/components/layout/grid/Grid'
 
@@ -75,7 +84,16 @@
     },
     data () {
       return {
-        media
+        media,
+        paths: {
+          gitHub,
+          linkedIn,
+          facebook,
+          twitter,
+          instagram,
+          appleMusic,
+          spotify
+        }
       }
     }
   }

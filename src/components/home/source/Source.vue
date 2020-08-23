@@ -8,21 +8,16 @@
     target="_blank"
     title="[S] See the source code."
     @shortkey="$navigateOutTo(url)">
-    <Icon
-      :icon="['fab', 'github']"
-      fixed-width/>
+    <Repr :path="paths.gitHub"/>
   </a>
 </template>
 
 <script>
-  import { library } from '@fortawesome/fontawesome-svg-core'
-  import { faGithub } from '@fortawesome/free-brands-svg-icons'
+  import { path as gitHub } from 'simple-icons/icons/github'
 
-  import Icon from '@/components/common/icon/Icon'
+  import Repr from '@/components/common/repr/Repr'
 
   import colored from '@/mixins/colored'
-
-  library.add(faGithub)
 
   export default {
     name: 'Source',
@@ -30,11 +25,14 @@
       colored
     ],
     components: {
-      Icon
+      Repr
     },
     data () {
       return {
-        url: 'https://github.com/dhruvkb/portfolio/'
+        url: 'https://github.com/dhruvkb/portfolio/',
+        paths: {
+          gitHub
+        }
       }
     },
     computed: {

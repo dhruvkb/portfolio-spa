@@ -7,15 +7,15 @@
         "text": "<strong>coffee</strong> to tea"
       },
       {
-        "icon": ["fab", "firefox-browser"],
+        "brand": "firefoxBrowser",
         "text": "<strong>Mozilla Firefox</strong> to Google Chrome"
       },
       {
-        "icon": ["fab", "fedora"],
+        "brand": "fedora",
         "text": "<strong>Fedora</strong> to any OS"
       },
       {
-        "icon": ["fab", "apple"],
+        "brand": "apple",
         "text": "<strong>iOS</strong> to Android"
       }
     ]

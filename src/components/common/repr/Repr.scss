@@ -1,0 +1,16 @@
+.repr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 1.5em;
+  width: 1.5em;
+
+  svg {
+    height: 100%;
+    width: 100%;
+
+    max-height: 80%;
+    max-width: 80%;
+  }
+}

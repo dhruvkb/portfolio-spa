@@ -5,15 +5,15 @@
     :style="mediumStyles"
     :href="link"
     target="_blank">
-    <Icon
-      :icon="['fab', logo]"
+    <Repr
+      :path="path"
       fixed-width/>
     {{ name }}
   </a>
 </template>
 
 <script>
-  import Icon from '@/components/common/icon/Icon'
+  import Repr from '@/components/common/repr/Repr'
 
   /**
    * This component is a link to one of my social media presences.
@@ -21,7 +21,7 @@
   export default {
     name: 'Medium',
     components: {
-      Icon
+      Repr
     },
     props: {
       /**
@@ -32,9 +32,9 @@
         required: true
       },
       /**
-       * _the logo of the social media site_
+       * _the path to draw the logo of the social media site_
        */
-      logo: {
+      path: {
         type: String,
         required: true
       },

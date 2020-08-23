@@ -44,8 +44,12 @@
           <template #title>
             <span :class="`${color}-colored`">
               <Icon
+                v-if="item.icon"
                 :icon="item.icon"
                 fixed-width/>
+              <Repr
+                v-if="item.brand"
+                :path="paths[item.brand]"/>
             </span>
           </template>
           <template #default>
@@ -72,7 +76,8 @@
           v-for="(item, count) in category.list"
           :key="`content-${index}-${count}`"
           :color="color"
-          :icon="item.icon">
+          :icon="item.icon"
+          :path="paths[item.brand]">
           <span v-html="`…${item.text}.`"/>
         </Bio>
       </Card>
@@ -81,10 +86,15 @@
 </template>
 
 <script>
+  import { path as fedora } from 'simple-icons/icons/fedora'
+  import { path as firefoxBrowser } from 'simple-icons/icons/firefoxbrowser'
+  import { path as apple } from 'simple-icons/icons/apple'
+
   import Card from '@/components/layout/card/Card'
   import Grid from '@/components/layout/grid/Grid'
 
   import Icon from '@/components/common/icon/Icon'
+  import Repr from '@/components/common/repr/Repr'
   import Pointer from '@/components/common/pointer/Pointer'
 
   import Bio from '@/components/about/bio/Bio'
@@ -107,6 +117,7 @@
       GridCell: Grid.Cell,
 
       Icon,
+      Repr,
       Pointer,
 
       Bio,
@@ -114,7 +125,12 @@
     },
     data () {
       return {
-        bio
+        bio,
+        paths: {
+          fedora,
+          firefoxBrowser,
+          apple
+        }
       }
     }
   }

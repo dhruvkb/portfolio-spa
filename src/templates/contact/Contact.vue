@@ -15,34 +15,11 @@
 </template>
 
 <script>
-  import { library } from '@fortawesome/fontawesome-svg-core'
-  import {
-    faGithub,
-    faLinkedin,
-
-    faFacebook,
-    faInstagram,
-    faTwitter,
-
-    faApple,
-    faSpotify
-  } from '@fortawesome/free-brands-svg-icons'
-
   import Intro from '@/templates/contact/partials/intro/Intro'
   import Social from '@/templates/contact/partials/social/Social'
   import Hi from '@/templates/contact/partials/hi/Hi'
 
   import descriptions from '@/data/descriptions.json'
-
-  library.add(
-    faApple,
-    faFacebook,
-    faGithub,
-    faInstagram,
-    faLinkedin,
-    faSpotify,
-    faTwitter
-  )
 
   /**
    * This page contains several ways to reach out to me. I do not guarantee if

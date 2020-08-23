@@ -15,7 +15,7 @@
 
   --source-color: var(--inactive-color);
 
-  .icon {
+  .repr {
     @include theming.transition(2);
 
     color: var(--source-color);
