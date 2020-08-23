@@ -1,4 +1,4 @@
-import { generateTree } from '@/data/portfolio/tree'
+import { parse } from '@/store/support/tree'
 import { mapping } from '@/templates/portfolio/commands'
 
 const state = {
@@ -12,10 +12,12 @@ const state = {
 const getters = {
   nodeNamed: state => nodeName => {
     let nodeInQuestion = null
-    state.tree.traverseDepthFirst(node => {
+    state.tree.traverse(node => {
       if (node.hasName(nodeName)) {
         nodeInQuestion = node
+        return false // stops further traversal
       }
+      return true // continues further traversal
     })
 
     return nodeInQuestion
@@ -27,24 +29,17 @@ const getters = {
     for (let i = 0; i < pathEntities.length; i++) {
       const entity = pathEntities[i]
 
-      if (entity === '~') {
-        nodeInQuestion = state.tree.root
+      if (entity === '~' || entity === '') {
+        nodeInQuestion = state.tree
       } else if (entity === '.') {
         // Do nothing as . refers to current directory
       } else if (entity === '..') {
         nodeInQuestion = nodeInQuestion.parent
       } else {
-        let nextNode
-        for (let j = 0; j < nodeInQuestion.children.length; j++) {
-          const child = nodeInQuestion.children[j]
-          if (child.hasName(entity)) {
-            nextNode = child
-          }
-        }
-        if (nextNode === undefined) {
+        nodeInQuestion = nodeInQuestion.children
+          .find(child => child.hasName(entity))
+        if (!nodeInQuestion) {
           return null
-        } else {
-          nodeInQuestion = nextNode
         }
       }
     }
@@ -62,8 +57,11 @@ const getters = {
 
 const mutations = {
   setTree (state, payload) {
-    state.tree = generateTree(payload.fs)
-    state.currentNode = state.tree.root
+    const rootNode = parse(payload.fs, true)
+    rootNode.makeRoot()
+
+    state.tree = rootNode
+    state.currentNode = rootNode
   },
   setCurrentNode (state, payload) {
     state.currentNode = payload.currentNode
