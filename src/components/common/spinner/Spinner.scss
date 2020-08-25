@@ -1,4 +1,5 @@
 @use '~@/styles/tokens/dimensions';
+@use '~@/styles/tokens/durations';
 
 @use '~@/styles/mixins/colored';
 
@@ -8,13 +9,39 @@
   --spinner-color: var(--content);
   @include colored.colored('--spinner-color');
 
-  stroke: var(--spinner-color);
-
-  margin: dimensions.$m;
-
   .track {
     @include theming.transition(0, (stroke));
 
     stroke: var(--background-highlighted);
+    stroke-width: 2px;
+    fill: transparent;
+  }
+
+  .runner {
+    transform-origin: 18px 18px;
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    animation: rotate;
+    animation-duration: durations.$m;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+    &.head {
+      fill: var(--spinner-color);
+    }
+
+    &.tail {
+      stroke-width: 2px;
+      fill: transparent;
+    }
   }
 }
