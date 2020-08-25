@@ -98,7 +98,7 @@
   import Grid from '@/components/layout/grid/Grid'
 
   import Spinner from '@/components/common/spinner/Spinner'
-  import Localizer from '@/components/common/localizer/Localizer'
+  import Localizer from '@/components/app/localizer/Localizer'
 
   import Kaomoji from '@/components/home/kaomoji/Kaomoji'
   import Memoji from '@/components/home/memoji/Memoji'

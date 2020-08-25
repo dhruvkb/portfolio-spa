@@ -19,10 +19,9 @@
 </template>
 
 <script>
-  import Localizer from '@/components/common/localizer/Localizer'
-
   import Header from '@/components/app/header/Header'
   import Themer from '@/components/app/themer/Themer'
+  import Localizer from '@/components/app/localizer/Localizer'
 
   import colors from '@/styles/tokens/colors.scss'
 

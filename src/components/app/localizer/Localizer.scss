@@ -1,4 +1,4 @@
-@use '~@/styles/layouts/bar_item';
+@use '~@/styles/layouts/bar_item.scss';
 
 .localizer {
   @include bar_item.bar-item;
