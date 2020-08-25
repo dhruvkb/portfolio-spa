@@ -9,23 +9,21 @@
     color: colors.$accent-red;
     font-weight: weights.$extrabold;
 
-    .character {
-      @keyframes condense {
-        0% {
-          opacity: 0;
-          padding-right: 0.1ch;
-        }
-
-        100% {
-          opacity: 1;
-          padding-right: 0;
-        }
+    @keyframes condense {
+      0% {
+        opacity: 0;
+        letter-spacing: 0.1ch;
       }
 
-      animation: condense;
-      animation-fill-mode: forwards;
-      animation-iteration-count: 1;
-      animation-duration: durations.$l;
+      100% {
+        opacity: 1;
+        letter-spacing: 0;
+      }
     }
+
+    animation: condense;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-duration: durations.$l;
   }
 }
