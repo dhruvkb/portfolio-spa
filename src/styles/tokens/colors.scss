@@ -25,6 +25,17 @@ $accent-blue:       #268bd2; // Monotone
 $accent-cyan:       #2aa198; // Analogous
 $accent-green:      #859900; // Tetrad
 
+$accents: (
+  'yellow': $accent-yellow,
+  'orange': $accent-orange,
+  'red': $accent-red,
+  'magenta': $accent-magenta,
+  'violet': $accent-violet,
+  'blue': $accent-blue,
+  'cyan': $accent-cyan,
+  'green': $accent-green
+);
+
 :export {
   colorBackgroundBase03: $background-base03;
   colorBackgroundBase02: $background-base02;

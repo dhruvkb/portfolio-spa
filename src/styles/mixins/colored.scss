@@ -1,18 +1,10 @@
+@use 'sass:map';
+
 @use '~@/styles/tokens/colors';
 @use '~@/styles/utils/theming';
 
 @mixin colored($property) {
-  $colors: (
-    'yellow': colors.$accent-yellow,
-    'orange': colors.$accent-orange,
-    'red': colors.$accent-red,
-    'magenta': colors.$accent-magenta,
-    'violet': colors.$accent-violet,
-    'blue': colors.$accent-blue,
-    'cyan': colors.$accent-cyan,
-    'green': colors.$accent-green,
-    'secondary': var(--content-secondary)
-  );
+  $colors: map.merge(colors.$accents, ('secondary': var(--content-secondary)));
 
   @each $color-name, $color-var in $colors {
     &.#{$color-name}-colored {
