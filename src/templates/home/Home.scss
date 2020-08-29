@@ -9,7 +9,7 @@
 @use '~@/styles/utils/media';
 
 #home {
-  @include content.content;
+  @include content.content-main;
 
   section {
     justify-content: center;

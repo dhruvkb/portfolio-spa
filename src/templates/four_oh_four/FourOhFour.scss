@@ -3,7 +3,7 @@
 @use '~@/styles/utils/theming';
 
 #four-oh-four {
-  @include content.content;
+  @include content.content-main;
 
   section {
     display: flex;

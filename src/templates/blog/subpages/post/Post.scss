@@ -8,6 +8,8 @@
 @use './styles/typography';
 
 section {
+  @include content.content-section;
+
   .body {
     box-sizing: border-box;
 

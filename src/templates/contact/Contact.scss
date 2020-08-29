@@ -1,5 +1,5 @@
 @use '~@/styles/layouts/content';
 
 #contact {
-  @include content.content;
+  @include content.content-main;
 }
