@@ -6,8 +6,8 @@
       appear
       @after-enter="handleAfterEnter">
       <section
-        key="loaded"
-        v-if="areImagesLoaded">
+        v-if="areImagesLoaded"
+        key="loaded">
         <Grid class="home-grid">
           <div class="left">
             <div class="content">
