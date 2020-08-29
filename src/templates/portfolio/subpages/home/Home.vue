@@ -1,7 +1,7 @@
 <template>
-  <main>
+  <section>
     <Terminal/>
-  </main>
+  </section>
 </template>
 
 <script>
@@ -14,5 +14,3 @@
     }
   }
 </script>
-
-<style scoped lang="scss" src="./Home.scss"/>

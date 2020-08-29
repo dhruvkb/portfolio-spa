@@ -5,9 +5,7 @@
 
 @use '~@/styles/utils/media';
 
-.home {
-  @include content.content;
-
+section {
   .page-title,
   .left {
     position: sticky;

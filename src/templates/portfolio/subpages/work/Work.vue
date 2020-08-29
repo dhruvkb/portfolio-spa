@@ -1,10 +1,10 @@
 <template>
-  <main>
+  <section>
     <Vim
       v-if="node"
       :key="slug"
       :node="node"/>
-  </main>
+  </section>
 </template>
 
 <script>
@@ -92,5 +92,3 @@
     }
   }
 </script>
-
-<style scoped lang="scss" src="./Work.scss"/>

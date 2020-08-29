@@ -1,7 +1,7 @@
 <template>
-  <div class="portfolio">
+  <main id="portfolio">
     <RouterView/>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -43,3 +43,5 @@
     }
   }
 </script>
+
+<style scoped lang="scss" src="./Portfolio.scss"/>

@@ -1,54 +1,50 @@
 <template>
-  <div class="home">
-    <main>
-      <section class="new">
-        <h2 class="page-title green-colored">
-          I ramble!
-        </h2>
+  <section>
+    <h2 class="page-title green-colored">
+      I ramble!
+    </h2>
 
-        <Grid class="blog-home-grid">
-          <div class="left">
-            <Card
-              class="content"
-              :color="shuffledSolarizedColors[0]">
-              <p>
-                Have you wondered what goes on in a developer's head?
-              </p>
-              <p>
-                Regardless of whether you have or have not, you can find that
-                out by reading my blog. Here I write on a wide spectrum of
-                topics, from my latest bits of learning to how I built something
-                cool using them.
-              </p>
-              <p>
-                It's mostly random stuff that developers will likely relate to.
-                How about a read?
-              </p>
-            </Card>
-          </div>
+    <Grid class="blog-home-grid">
+      <div class="left">
+        <Card
+          class="content"
+          :color="shuffledSolarizedColors[0]">
+          <p>
+            Have you wondered what goes on in a developer's head?
+          </p>
+          <p>
+            Regardless of whether you have or have not, you can find that
+            out by reading my blog. Here I write on a wide spectrum of
+            topics, from my latest bits of learning to how I built something
+            cool using them.
+          </p>
+          <p>
+            It's mostly random stuff that developers will likely relate to.
+            How about a read?
+          </p>
+        </Card>
+      </div>
 
-          <div class="right">
-            <div class="content">
-              <template v-if="isFetching && !posts.length">
-                <div class="centered">
-                  <Spinner/>
-                </div>
-              </template>
-              <template v-else>
-                <Preview
-                  v-for="(post, index) in posts"
-                  :key="post.id"
-                  :color="shuffledSolarizedColors[index]"
-                  :index="index"
-                  :post="post"/>
-                <More/>
-              </template>
+      <div class="right">
+        <div class="content">
+          <template v-if="isFetching && !posts.length">
+            <div class="centered">
+              <Spinner/>
             </div>
-          </div>
-        </Grid>
-      </section>
-    </main>
-  </div>
+          </template>
+          <template v-else>
+            <Preview
+              v-for="(post, index) in posts"
+              :key="post.id"
+              :color="shuffledSolarizedColors[index]"
+              :index="index"
+              :post="post"/>
+            <More/>
+          </template>
+        </div>
+      </div>
+    </Grid>
+  </section>
 </template>
 
 <script>

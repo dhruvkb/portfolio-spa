@@ -1,9 +1,9 @@
 <template>
-  <div class="blog">
+  <main id="blog">
     <transition name="fade" mode="out-in">
       <RouterView/>
     </transition>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -32,3 +32,5 @@
     }
   }
 </script>
+
+<style scoped lang="scss" src="./Blog.scss"/>

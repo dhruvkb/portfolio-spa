@@ -1,17 +1,15 @@
 <template>
-  <div class="about">
-    <main>
-      <section class="new">
-        <h2 class="page-title green-colored">
-          It's-a me!
-        </h2>
+  <main id="about">
+    <section>
+      <h2 class="page-title green-colored">
+        It's-a me!
+      </h2>
 
-        <Intro :color="shuffledSolarizedColors[0]"/>
-        <Professional :color="shuffledSolarizedColors[1]"/>
-        <Personal :color="shuffledSolarizedColors[2]"/>
-      </section>
-    </main>
-  </div>
+      <Intro :color="shuffledSolarizedColors[0]"/>
+      <Professional :color="shuffledSolarizedColors[1]"/>
+      <Personal :color="shuffledSolarizedColors[2]"/>
+    </section>
+  </main>
 </template>
 
 <script>

@@ -8,7 +8,7 @@
 
 @use '~@/styles/utils/media';
 
-.home {
+#home {
   @include content.content;
 
   section {
@@ -88,6 +88,8 @@
   }
 
   footer {
+    position: relative;
+
     .source {
       position: absolute;
       left: dimensions.$s;

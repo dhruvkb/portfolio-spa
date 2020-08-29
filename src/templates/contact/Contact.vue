@@ -1,17 +1,15 @@
 <template>
-  <div class="contact">
-    <main>
-      <section class="new">
-        <h2 class="page-title green-colored">
-          Get in touch!
-        </h2>
+  <main id="contact">
+    <section>
+      <h2 class="page-title green-colored">
+        Get in touch!
+      </h2>
 
-        <Intro :color="shuffledSolarizedColors[0]"/>
-        <Social :color="shuffledSolarizedColors[1]"/>
-        <Hi :color="shuffledSolarizedColors[2]"/>
-      </section>
-    </main>
-  </div>
+      <Intro :color="shuffledSolarizedColors[0]"/>
+      <Social :color="shuffledSolarizedColors[1]"/>
+      <Hi :color="shuffledSolarizedColors[2]"/>
+    </section>
+  </main>
 </template>
 
 <script>

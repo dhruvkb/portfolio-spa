@@ -1,97 +1,96 @@
 <template>
-  <div class="home">
-    <main>
-      <transition
-        name="fade"
-        mode="out-in"
-        appear
-        @after-enter="handleAfterEnter">
-        <section
-          key="loaded"
-          v-if="areImagesLoaded">
-          <Grid class="home-grid">
-            <div class="left">
-              <div class="content">
+  <main id="home">
+    <transition
+      name="fade"
+      mode="out-in"
+      appear
+      @after-enter="handleAfterEnter">
+      <section
+        key="loaded"
+        v-if="areImagesLoaded">
+        <Grid class="home-grid">
+          <div class="left">
+            <div class="content">
+              <RouterLink
+                class="memoji-link"
+                tabindex="-1"
+                :to="{name: 'portfolio'}"
+                @mouseenter.native="focusPortfolioLink"
+                @mouseleave.native="blurPortfolioLink">
+                <Memoji
+                  :index="index"
+                  :color="solarizedColor(index)"
+                  :is-focused="isPortfolioLinkFocused"/>
+              </RouterLink>
+            </div>
+          </div>
+
+          <div class="right">
+            <div class="content">
+              {{ $t('hello') }}! {{ $t('iam') }}
+              <SiteTitle/>
+              {{ $t('hats') }}
+
+              <p class="roles">
+                {{ $t('iam') }}
                 <RouterLink
-                  class="memoji-link"
-                  tabindex="-1"
+                  class="role-link"
+                  tabindex="0"
                   :to="{name: 'portfolio'}"
+                  title="See my portfolio."
                   @mouseenter.native="focusPortfolioLink"
-                  @mouseleave.native="blurPortfolioLink">
-                  <Memoji
+                  @mouseleave.native="blurPortfolioLink"
+                  @focus.native="focusPortfolioLink"
+                  @blur.native="blurPortfolioLink">
+                  <Role
                     :index="index"
                     :color="solarizedColor(index)"
                     :is-focused="isPortfolioLinkFocused"/>
                 </RouterLink>
-              </div>
+              </p>
+
+              <p>
+                {{ $t('with') }}
+                <br/>
+                {{ $t('i') }}
+                <Work
+                  :index="index"
+                  :is-focused="isPortfolioLinkFocused"/>
+                <br/>
+                <span
+                  class="secondary-colored"
+                  :title="$t('3m')">
+                  {{ $t('other') }}
+                </span>
+              </p>
             </div>
+          </div>
 
-            <div class="right">
-              <div class="content">
-                {{ $t('hello') }}! {{ $t('iam') }}
-                <SiteTitle/>
-                {{ $t('hats') }}
+          <Scroll
+            v-for="direction in ['previous', 'next']"
+            :key="direction"
+            class="scroll"
+            :class="direction"
+            :direction="direction"
+            :color="solarizedColor(index)"
+            @scroll="scrollTickers"/>
+        </Grid>
+      </section>
 
-                <p class="roles">
-                  {{ $t('iam') }}
-                  <RouterLink
-                    class="role-link"
-                    tabindex="0"
-                    :to="{name: 'portfolio'}"
-                    title="See my portfolio."
-                    @mouseenter.native="focusPortfolioLink"
-                    @mouseleave.native="blurPortfolioLink"
-                    @focus.native="focusPortfolioLink"
-                    @blur.native="blurPortfolioLink">
-                    <Role
-                      :index="index"
-                      :color="solarizedColor(index)"
-                      :is-focused="isPortfolioLinkFocused"/>
-                  </RouterLink>
-                </p>
+      <section
+        v-else
+        key="loading"
+        class="centered">
+        <Spinner color="red"/>
+      </section>
+    </transition>
 
-                <p>
-                  {{ $t('with') }}
-                  <br/>
-                  {{ $t('i') }}
-                  <Work
-                    :index="index"
-                    :is-focused="isPortfolioLinkFocused"/>
-                  <br/>
-                  <span
-                    class="secondary-colored"
-                    :title="$t('3m')">
-                    {{ $t('other') }}
-                  </span>
-                </p>
-              </div>
-            </div>
-
-            <Scroll
-              v-for="direction in ['previous', 'next']"
-              :key="direction"
-              class="scroll"
-              :class="direction"
-              :direction="direction"
-              :color="solarizedColor(index)"
-              @scroll="scrollTickers"/>
-          </Grid>
-
-          <footer>
-            <Source color="cyan"/>
-            <Kaomoji/>
-            <Localizer/>
-          </footer>
-        </section>
-
-        <section
-          v-else
-          key="loading">
-          <Spinner color="red"/>
-        </section>
-      </transition>
-    </main>
-  </div>
+    <footer v-show="areImagesLoaded">
+      <Source color="cyan"/>
+      <Kaomoji/>
+      <Localizer/>
+    </footer>
+  </main>
 </template>
 
 <script>

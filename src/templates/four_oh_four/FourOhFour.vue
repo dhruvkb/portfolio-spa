@@ -1,38 +1,36 @@
 <template>
-  <div class="four-oh-four">
-    <main>
-      <section
-        @click="toggleDrawing"
-        @mousemove="drawErrorWithMouse"
-        @touchstart="drawErrorWithTouch"
-        @touchmove="drawErrorWithTouch">
-        <canvas
-          class="error-place"
-          ref="errorCanvas"/>
+  <main id="four-oh-four">
+    <section
+      @click="toggleDrawing"
+      @mousemove="drawErrorWithMouse"
+      @touchstart="drawErrorWithTouch"
+      @touchmove="drawErrorWithTouch">
+      <canvas
+        class="error-place"
+        ref="errorCanvas"/>
 
-        <div class="imagery">
-          <img
-            :width="errorImage.width"
-            :height="errorImage.height"
-            :src="errorImage.source"
-            alt="Windows 98 error message"
-            ref="errorImage"/>
-        </div>
+      <div class="imagery">
+        <img
+          :width="errorImage.width"
+          :height="errorImage.height"
+          :src="errorImage.source"
+          alt="Windows 98 error message"
+          ref="errorImage"/>
+      </div>
 
-        <footer>
-          <p title="I made a funny!">
-            You seem lost.
-            Go
-            <RouterLink
-              tabindex="0"
-              :to="{name: 'home'}"
-              title="[H] Go to the homepage.">
-              home</RouterLink>?
-          </p>
-        </footer>
-      </section>
-    </main>
-  </div>
+      <footer>
+        <p title="I made a funny!">
+          You seem lost.
+          Go
+          <RouterLink
+            tabindex="0"
+            :to="{name: 'home'}"
+            title="[H] Go to the homepage.">
+            home</RouterLink>?
+        </p>
+      </footer>
+    </section>
+  </main>
 </template>
 
 <script>
