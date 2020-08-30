@@ -12,6 +12,7 @@ $font-weights: (
     font-family: 'JetBrains Mono';
     font-weight: $font-weight;
     font-style: normal;
+    font-display: swap;
 
     src: url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/web/woff2/JetBrainsMono-#{$font-name}.woff2') format('woff2'),
          url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/web/woff/JetBrainsMono-#{$font-name}.woff')   format('woff'),
