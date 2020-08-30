@@ -1,55 +1,49 @@
 @use '~@/styles/tokens/dimensions';
 
-@use '~@/styles/layouts/page';
-
 @use '~@/styles/utils/units';
 
-@mixin content {
-  main {
-    section {
-      display: flex;
-      flex-direction: column;
+@mixin content-section {
+  flex-grow: 1;
 
-      &:first-of-type,
-      &.centered {
-        align-items: center;
-      }
+  display: flex;
+  flex-direction: column;
 
-      &:first-of-type {
-        @include page.page-with-footer;
+  box-sizing: border-box;
 
-        .intro-text {
-          width: 100%;
-          max-width: 32em;
-        }
-      }
+  padding-left: dimensions.$m;
+  padding-right: dimensions.$m;
 
-      &:not(:first-of-type) {
-        @include page.page;
-      }
-
-      &.new {
-        @include page.page;
-
-        align-items: stretch;
-
-        .page-title {
-          position: relative;
-          top: dimensions.$m;
-          left: units.em-to-rem(dimensions.$m);
-          z-index: 1;
-        }
-      }
-    }
+  &.centered {
+    align-items: center;
+    justify-content: center;
   }
 
-  .carousel-content {
-    display: inline-flex;
-    flex-direction: column;
+  .page-title {
+    margin-bottom: -1 * units.em-to-rem(dimensions.$xxl);
+    margin-left: units.em-to-rem(dimensions.$m);
+    z-index: 1;
+  }
+}
+
+@mixin content-main {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+
+  section {
+    @include content-section;
+  }
+
+  footer {
+    display: flex;
+    flex-direction: row;
     align-items: center;
 
-    .image {
-      margin-bottom: dimensions.$s;
-    }
+    box-sizing: border-box;
+    height: dimensions.$bars;
   }
 }
