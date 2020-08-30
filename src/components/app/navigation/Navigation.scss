@@ -1,0 +1,12 @@
+.navigation {
+  &.phone {
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+  }
+
+  .anchor {
+    flex-grow: 1;
+  }
+}

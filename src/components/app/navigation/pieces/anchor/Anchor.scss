@@ -1,4 +1,5 @@
 @use '~@/styles/tokens/dimensions';
+@use '~@/styles/tokens/sizes';
 @use '~@/styles/tokens/durations';
 @use '~@/styles/tokens/fonts';
 @use '~@/styles/tokens/weights';
@@ -11,6 +12,7 @@
 @use '~@/styles/utils/media';
 @use '~@/styles/utils/theming';
 
+.navigation .anchor,
 .header .anchor {
   @include bar_item.bar-item;
   @include theming.transition(2);
@@ -26,8 +28,20 @@
   color: var(--anchor-color);
   text-decoration: none;
 
+  &:hover { // Mouse focus
+    --anchor-color: var(--active-color);
+  }
+
+  &:focus { // Keyboard focus
+    outline: 1px dashed var(--active-color);
+    outline-offset: -1px;
+  }
+}
+
+.navigation:not(.phone) .anchor,
+.header .anchor {
   .text {
-    @include media.device-specific(devices.$group-small) {
+    @include media.device-specific(devices.$tablet-portrait) {
       display: none;
     }
 
@@ -59,15 +73,6 @@
     transition-delay: 0s;
   }
 
-  &:hover { // Mouse focus
-    --anchor-color: var(--active-color);
-  }
-
-  &:focus { // Keyboard focus
-    outline: 1px dashed var(--active-color);
-    outline-offset: -1px;
-  }
-
   &.exact.router-link-exact-active,
   &:not(.exact).router-link-active { // Currently open
     --anchor-color: var(--active-color);
@@ -79,5 +84,19 @@
 
       transition-delay: durations.$m;
     }
+  }
+}
+
+.navigation.phone .anchor {
+  display: inline-flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+
+  .text {
+    display: none;
+  }
+
+  &::after {
+    bottom: 0;
   }
 }

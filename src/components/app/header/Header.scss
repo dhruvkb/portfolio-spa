@@ -9,9 +9,6 @@
 .header {
   @include theming.transition(1);
 
-  position: fixed;
-  z-index: 9;
-
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -21,8 +18,8 @@
   box-sizing: border-box;
   width: 100%;
 
-  padding-left: dimensions.$s;
-  padding-right: dimensions.$s;
+  padding-left: calc(#{dimensions.$s} + env(safe-area-inset-left));
+  padding-right: calc(#{dimensions.$s} + env(safe-area-inset-right));
 
   .nav-title-anchor {
     margin-right: auto;
