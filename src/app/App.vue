@@ -14,12 +14,15 @@
       <RouterView/>
     </transition>
 
+    <Footer/>
+
     <Localizer v-show="false"/>
   </div>
 </template>
 
 <script>
   import Header from '@/components/app/header/Header'
+  import Footer from '@/components/app/footer/Footer'
   import Themer from '@/components/app/themer/Themer'
   import Localizer from '@/components/app/localizer/Localizer'
 
@@ -33,9 +36,10 @@
   export default {
     name: 'App',
     components: {
-      Localizer,
       Header,
-      Themer
+      Footer,
+      Themer,
+      Localizer
     },
     metaInfo: {
       title: 'Software engineer & other things', // fallback if page does not populate

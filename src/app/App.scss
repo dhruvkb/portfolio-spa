@@ -1,13 +1,56 @@
 @use '~@/styles/tokens/durations';
+@use '~@/styles/tokens/devices';
+@use '~@/styles/tokens/dimensions';
 @use '~@/styles/motion/transitions';
 
 @use '~@/styles/base';
 
 @use '~@/styles/utils/theming';
+@use '~@/styles/utils/media';
 
 #app {
   @include transitions.fade(durations.$m);
   @include theming.transition(3);
 
   background-color: var(--background);
+
+  header,
+  footer {
+    position: fixed;
+    z-index: 9;
+  }
+
+  main {
+    box-sizing: border-box;
+  }
+
+  @include media.phone-only {
+    header {
+      display: none;
+    }
+
+    footer {
+      bottom: 0;
+    }
+
+    main {
+      padding-top: dimensions.$m;
+      padding-bottom: calc(#{dimensions.$bars + dimensions.$m} + env(safe-area-inset-bottom));
+    }
+  }
+
+  @include media.device-specific(devices.$group-non-phone) {
+    header {
+      top: 0;
+    }
+
+    footer {
+      display: none;
+    }
+
+    main {
+      padding-top: dimensions.$bars + dimensions.$m;
+      padding-bottom: dimensions.$m;
+    }
+  }
 }
