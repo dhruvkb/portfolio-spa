@@ -34,7 +34,7 @@
     }
 
     main {
-      padding-top: dimensions.$m;
+      padding-top: calc(#{dimensions.$m} + env(safe-area-inset-top));
       padding-bottom: calc(#{dimensions.$bars + dimensions.$m} + env(safe-area-inset-bottom));
     }
   }

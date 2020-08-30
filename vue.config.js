@@ -25,6 +25,8 @@ module.exports = {
     name: '@dhruvkb',
     themeColor: '#073642',
     msTileColor: '#073642',
+    appleMobileWebAppCapable: 'yes',
+    appleMobileWebAppStatusBarStyle: 'black-translucent',
     iconPaths: {
       favicon32: 'favicon/favicon-32x32.png',
       favicon16: 'favicon/favicon-16x16.png',
@@ -36,6 +38,7 @@ module.exports = {
       short_name: '@dhruvkb',
       name: '@dhruvkb',
       description: 'Software engineer & other things',
+      display: 'standalone',
       themeColor: '#073642',
       background_color: '#073642',
       icons: [192, 512].map(size => [true, false].map(isMaskable => {
