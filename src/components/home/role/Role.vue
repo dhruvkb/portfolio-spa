@@ -8,10 +8,10 @@
             :key="role"
             class="text">
             <span class="vowel">
-              {{ $t(vowel) }}
+              {{ vowel }}
             </span>
             <span class="actual-role">
-              {{ $t(`roles.${role}`) }}
+              {{ role }}
             </span>
           </div>
         </transition>
@@ -31,6 +31,8 @@
   import colored from '@/mixins/colored'
   import focusable from '@/mixins/focusable'
 
+  import roles from '@/data/roles.json'
+
   /**
    * This component iterates over my roles.
    */
@@ -45,7 +47,8 @@
     },
     data () {
       return {
-        transitionName: 'flip-vertical'
+        transitionName: 'flip-vertical',
+        roles
       }
     },
     props: {
@@ -76,7 +79,8 @@
        * @returns {string} the underscored role
        */
       role () {
-        return this.$getRole(this.index)
+        const key = this.$getRole(this.index)
+        return this.roles[key]
       },
       /**
        * Get the vowel for the currently displayed role.
@@ -107,5 +111,3 @@
 </script>
 
 <style scoped lang="scss" src="./Role.scss"/>
-
-<i18n src="./lang.json"/>

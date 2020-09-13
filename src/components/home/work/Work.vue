@@ -1,24 +1,18 @@
 <template>
   <div class="work" :class="workClasses">
     <transition appear :name="transitionName" mode="out-in">
-      <i18n
+      <div
         :key="work"
-        :path="`works.${work}.main`"
-        tag="div"
-        class="actual-work">
-        <template #one>
-          <strong>{{ $t(`works.${work}.adjectives.one`) }}</strong>
-        </template>
-        <template #two>
-          <strong>{{ $t(`works.${work}.adjectives.two`) }}</strong>
-        </template>
-      </i18n>
+        class="actual-work"
+        v-html="work"/>
     </transition>
   </div>
 </template>
 
 <script>
   import focusable from '@/mixins/focusable'
+
+  import works from '@/data/works.json'
 
   export default {
     name: 'Work',
@@ -27,7 +21,8 @@
     ],
     data () {
       return {
-        transitionName: 'flip-vertical'
+        transitionName: 'flip-vertical',
+        works
       }
     },
     props: {
@@ -55,7 +50,18 @@
        * @returns {string} the underscored work description
        */
       work () {
-        return this.$getWork(this.index)
+        const key = this.$getWork(this.index)
+        const work = this.works[key]
+
+        let text = work.main
+        const array = ['one', 'two']
+        array.forEach(index => {
+          text = text.replace(
+            `{${index}}`,
+            `<strong>${work.adjectives[index]}</strong>`
+          )
+        })
+        return text
       }
     },
     watch: {
@@ -77,5 +83,3 @@
 </script>
 
 <style scoped lang="scss" src="./Work.scss"/>
-
-<i18n src="./lang.json"/>
