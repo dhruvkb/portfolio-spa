@@ -4,7 +4,6 @@ import '@/worker'
 
 import router from '@/router'
 import store from '@/store'
-import i18n from '@/i18n'
 import '@/plugins'
 
 import VueMeta from 'vue-meta'
@@ -24,6 +23,5 @@ Vue.use(VueObserveVisibility)
 new Vue({
   router,
   store,
-  i18n,
   render: h => h(App)
 }).$mount('div#app')

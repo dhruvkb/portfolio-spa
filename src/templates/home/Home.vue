@@ -88,7 +88,6 @@
     <footer v-show="areImagesLoaded">
       <Source color="cyan"/>
       <Kaomoji/>
-      <Localizer/>
     </footer>
   </main>
 </template>
@@ -97,7 +96,6 @@
   import Grid from '@/components/layout/grid/Grid'
 
   import Spinner from '@/components/common/spinner/Spinner'
-  import Localizer from '@/components/app/localizer/Localizer'
 
   import Kaomoji from '@/components/home/kaomoji/Kaomoji'
   import Memoji from '@/components/home/memoji/Memoji'
@@ -118,7 +116,6 @@
       Grid,
 
       Spinner,
-      Localizer,
 
       Kaomoji,
       Memoji,
