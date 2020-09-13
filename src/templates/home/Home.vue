@@ -27,12 +27,12 @@
 
           <div class="right">
             <div class="content">
-              {{ $t('hello') }}! {{ $t('iam') }}
+              Hello there! I am
               <SiteTitle/>
-              {{ $t('hats') }}
+              and I wear many hats.
 
               <p class="roles">
-                {{ $t('iam') }}
+                I am
                 <RouterLink
                   class="role-link"
                   tabindex="0"
@@ -50,17 +50,17 @@
               </p>
 
               <p>
-                {{ $t('with') }}
+                With utmost meticulousness and love for the craft,
                 <br/>
-                {{ $t('i') }}
+                I
                 <Work
                   :index="index"
                   :is-focused="isPortfolioLinkFocused"/>
                 <br/>
                 <span
                   class="secondary-colored"
-                  :title="$t('3m')">
-                  {{ $t('other') }}
+                  title="Such as movies, music and memes!">
+                  and also enjoy other things.
                 </span>
               </p>
             </div>
@@ -228,5 +228,3 @@
 </script>
 
 <style scoped lang="scss" src="./Home.scss"/>
-
-<i18n src="./lang.json"/>
