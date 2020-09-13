@@ -8,14 +8,12 @@
       :key-combination="['h']"
       :title="`[H] Go to ${homeLink.text}.`"
       @shortkey="handleShortkey(homeLink.to)">
-      <h5 class="nav-title full">
-        {{ $t('handle') }}
-      </h5>
+      <h5 class="nav-title full">@dhruvkb</h5>
       <h5 class="nav-title short">
         <Icon
           :icon="homeLink.icon"
           :path="homeLink.path"/>
-        {{ $t('initials') }}
+        DB
       </h5>
     </Anchor>
 
