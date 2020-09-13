@@ -135,5 +135,3 @@
 </script>
 
 <style scoped lang="scss" src="./FourOhFour.scss"/>
-
-<i18n src="./lang.json"/>
