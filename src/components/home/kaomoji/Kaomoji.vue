@@ -1,7 +1,7 @@
 <template>
   <div
     class="kaomoji"
-    :title="$t('wonderful')">
+    :title="greeting">
     <span class="face">{{ face }}</span>
     <span class="hand">ﾉ</span>
   </div>
@@ -31,7 +31,13 @@
           'ᴗ',
           'ᵕ',
           '▽',
-          'ヮ'
+          'ヮ',
+          '*'
+        ],
+        greetingList: [
+          'Wonderful to meet you!',
+          'Meeting you is a delight!',
+          'You\'re breathtaking!'
         ]
       }
     },
@@ -41,16 +47,25 @@
        * @returns {string} the assembled face
        */
       face () {
-        const [edgeLeft, edgeRight] = this.edgesList[Math.floor(Math.random() * this.edgesList.length)]
-        const [eyeLeft, eyeRight] = this.eyesList[Math.floor(Math.random() * this.eyesList.length)]
-        const mouth = this.mouthList[Math.floor(Math.random() * this.mouthList.length)]
+        const [edgeLeft, edgeRight] = this.edgesList[
+          Math.floor(Math.random() * this.edgesList.length)
+        ]
+        const [eyeLeft, eyeRight] = this.eyesList[
+          Math.floor(Math.random() * this.eyesList.length)
+        ]
+        const mouth = this.mouthList[
+          Math.floor(Math.random() * this.mouthList.length)
+        ]
 
         return `${edgeLeft} ${eyeLeft} ${mouth} ${eyeRight} ${edgeRight}`
+      },
+      greeting () {
+        return this.greetingList[
+          Math.floor(Math.random() * this.greetingList.length)
+        ]
       }
     }
   }
 </script>
 
 <style scoped lang="scss" src="./Kaomoji.scss"/>
-
-<i18n src="./lang.json"/>
