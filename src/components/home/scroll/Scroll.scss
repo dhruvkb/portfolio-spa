@@ -1,5 +1,7 @@
 @use 'sass:math';
 
+@use '~@/styles/tokens/dimensions';
+
 @use '~@/styles/mixins/colored';
 
 @use '~@/styles/utils/controls';
@@ -18,7 +20,7 @@
   height: 1.5em;
   width: 1.5em;
 
-  border-radius: 999em;
+  border-radius: dimensions.$xs;
 
   .icon {
     height: 1.5em / math.sqrt(2);
