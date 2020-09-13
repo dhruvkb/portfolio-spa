@@ -109,7 +109,7 @@ class Node {
  * Parse the file system tree, given as a plain old JavaScript object into a
  * tree of Node objects with richer functionality.
  *
- * @param {object} pojo - the file system tree parsed from JSON
+ * @param {Object} pojo - the file system tree parsed from JSON
  * @return {Node} the root node of the Node tree generated from the object
  */
 function parse (pojo) {
