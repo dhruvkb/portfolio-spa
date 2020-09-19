@@ -15,65 +15,68 @@
     <!-- Site title -->
     <title>Dhruv Bhanushali</title>
 
-    <!-- Information for robots -->
-
     <!-- Google Tag Manager -->
     <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || []
-        w[l].push({
+      (function (window, document, script, dataLayer, id) {
+        window[dataLayer] = window[dataLayer] || []
+        window[dataLayer].push({
           'gtm.start': new Date().getTime(),
           event: 'gtm.js'
         })
-        var f = d.getElementsByTagName(s)[0]
-        var j = d.createElement(s)
-        var dl = l !== 'dataLayer' ? '&l=' + l : ''
-        j.async = true
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
-        f.parentNode.insertBefore(j, f)
+
+        const dataLayerQuery = dataLayer !== 'dataLayer' ? 'l=' + dataLayer : ''
+        const idQuery = 'id=' + id
+        const gtmSrc = 'https://www.googletagmanager.com/gtm.js?' + idQuery + '&' + dataLayerQuery
+        const gtmScript = document.createElement(script)
+        gtmScript.async = true
+        gtmScript.src = gtmSrc
+
+        // Insert the GTM script as the first script
+        const firstScript = document.getElementsByTagName(script)[0]
+        firstScript.parentNode.insertBefore(gtmScript, firstScript)
       })(window, document, 'script', 'dataLayer', 'GTM-KWBQS6V')
     </script>
 
-    <meta name="description" content="Hi! I am Dhruv Bhanushali, a software engineer who writes well-documented code, builds accessible interfaces and ships delightful apps.">
+    <!-- Meta information -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no, viewport-fit=cover">
+
+    <!-- SEO -->
+    <meta name="google-site-verification" content="rDaR4bofozdONdJoKYHh4JKPdCXaVt9QpLiZEcqbr7I">
+
+    <!-- Rich snippets; also see @/data/descriptions.json -->
+    <meta name="description" content="Hi! I am Dhruv Bhanushali, a software engineer who writes well-documented code, builds accessible interfaces and ships delightful apps." data-vue-meta="1">
 
     <meta property="og:title" content="Dhruv Bhanushali">
     <meta property="og:image" content="https://dhruvkb.github.io/meta/cover.png">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Hi! I am Dhruv Bhanushali, a software engineer who writes well-documented code, builds accessible interfaces and ships delightful apps.">
+    <meta property="og:url" content="https://dhruvkb.github.io">
+    <meta property="og:description" content="Hi! I am Dhruv Bhanushali, a software engineer who writes well-documented code, builds accessible interfaces and ships delightful apps." data-vue-meta="1">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@dhruvkb_">
     <meta name="twitter:creator" content="@dhruvkb_">
 
-    <meta name="google-site-verification" content="rDaR4bofozdONdJoKYHh4JKPdCXaVt9QpLiZEcqbr7I">
-
-    <!-- Meta information -->
-    <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:700&display=swap">
-
-    <!-- Preloaded resources -->
-    <link rel="preload" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:700&display=swap" as="style">
-
     <!-- Icons -->
-    <link rel="icon" href="https://dhruvkb.github.io/favicon.png">
+    <link rel="icon" href="https://dhruvkb.github.io/favicon/favicon-32x32.png">
 
     <!-- Styling -->
     <style>
+      @font-face {
+        font-family: "JetBrains Mono";
+        font-weight: 800;
+        font-style: normal;
+        font-display: swap;
+
+        src: url("https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/web/woff2/JetBrainsMono-ExtraBold.woff2") format("woff2"),
+             url("https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/web/woff/JetBrainsMono-ExtraBold.woff")   format("woff"),
+             url("https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/web/eot/JetBrainsMono-ExtraBold.eot")     format("embedded-opentype"),
+             url("https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/ttf/JetBrainsMono-ExtraBold.ttf")         format("truetype");
+      }
+
       html,
       body {
         margin: 0;
-      }
-
-      h1 {
-        text-align: center;
-
-        color: #dc322f;
-        font-family: "Space Grotesk", sans-serif;
-        font-size: 3.1748rem;
       }
 
       #app > .whatever {
@@ -87,17 +90,26 @@
         height: 100vh;
       }
 
-      p {
+      h1 {
+        text-align: center;
+
+        color: #dc322f;
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 800;
+        font-size: 3.500rem;
+      }
+
+      #app > .whatever > p {
         text-align: center;
 
         color: #839496;
-        font-family: -apple-system, "Helvetica Neue", "Helvetica" , "Apple Color Emoji", "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol", "Roboto", "Cantarell", "Ubuntu", "Oxygen", system-ui, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Helvetica" , "Apple Color Emoji", "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol", "Roboto", "Cantarell", "Ubuntu", "Oxygen", system-ui, sans-serif;
       }
 
-      p > a {
+      #app > .whatever > p > a {
         color: inherit;
 
-        text-decoration-style: dotted;
+        text-decoration-style: dashed;
       }
     </style>
   </head>
@@ -120,7 +132,8 @@
         </h1>
         <p>
           You're lost. Or maybe you came here intentionally. I'm no seer.
-          <br/>
+        </p>
+        <p>
           If I were you, I'd go
           <a href="/">home</a>.
         </p>

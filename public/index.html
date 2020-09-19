@@ -95,6 +95,7 @@
           font-family: "JetBrains Mono";
           font-weight: 800;
           font-style: normal;
+          font-display: swap;
 
           src: url("https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/web/woff2/JetBrainsMono-ExtraBold.woff2") format("woff2"),
                url("https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/web/woff/JetBrainsMono-ExtraBold.woff")   format("woff"),
@@ -111,7 +112,8 @@
           font-size: 3.500rem;
         }
 
-        a {
+        #app > .yesscript > p > a,
+        #app > noscript > p > a {
           color: inherit;
 
           text-decoration-style: dashed;
@@ -144,7 +146,8 @@
         </h1>
         <p>
           Heartfelt apologies, but my portfolio needs JavaScript enabled.
-          <br/>
+        </p>
+        <p>
           How about I show you my
           <a href="https://dhruvkb.github.io/resume">résumés</a>
           instead?
