@@ -107,14 +107,16 @@
   @use '~@/styles/tokens/weights';
 
   @use '~@/styles/utils/media';
+  @use '~@/styles/utils/gradient-text';
 
   .intro {
     .ascii-art {
-      color: colors.$accent-red;
+      @include gradient-text.gradient-text;
+
       font-size: sizes.$xs;
       font-weight: weights.$semibold;
 
-      background-color: transparent;
+      width: fit-content;
 
       margin: -#{dimensions.$line} 0 0 0;
 
