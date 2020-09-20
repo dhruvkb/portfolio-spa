@@ -1,7 +1,13 @@
 .icon {
   height: 1.5em; // same as Repr
 
+  --fill: none;
+
   &.inline {
     height: 1em;
+  }
+
+  &.solid {
+    --fill: currentColor;
   }
 }

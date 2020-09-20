@@ -20,7 +20,7 @@
       x2="480"
       y2="284"/>
     <polygon
-      stroke="none"
+      fill="var(--fill)"
       points="296 364 216 364 188 448 324 448"/>
     <line
       x1="188"

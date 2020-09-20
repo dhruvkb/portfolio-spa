@@ -33,9 +33,15 @@
       /**
        * _whether the icon lies inside running text_
        *
-       * Setting this to `true` set the icon height to `1em` by default.
+       * Setting this to `true` sets the icon height to `1em` by default.
        */
       isInline: {
+        type: Boolean
+      },
+      /**
+       * _whether the icon is filled_
+       */
+      isSolid: {
         type: Boolean
       }
     },
@@ -47,7 +53,8 @@
       iconClasses () {
         return [
           {
-            inline: this.isInline
+            inline: this.isInline,
+            solid: this.isSolid
           }
         ]
       }

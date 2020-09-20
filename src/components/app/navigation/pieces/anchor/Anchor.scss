@@ -37,6 +37,13 @@
     outline: 1px dashed var(--active-color);
     outline-offset: -1px;
   }
+
+  &.exact.router-link-exact-active,
+  &:not(.exact).router-link-active { // Currently open
+    .icon {
+      --fill: currentColor;
+    }
+  }
 }
 
 .navigation:not(.phone) .anchor,
