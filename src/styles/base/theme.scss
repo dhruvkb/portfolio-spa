@@ -47,7 +47,7 @@
   }
 
   &[theme="light"] {
-    @include dark-theme;
+    @include light-theme;
   }
 }
 
