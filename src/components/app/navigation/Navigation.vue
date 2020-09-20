@@ -22,7 +22,6 @@
   import document from '@/assets/icons/document.svg'
   import chat from '@/assets/icons/chat.svg'
   import person from '@/assets/icons/person.svg'
-  import cog from '@/assets/icons/cog.svg'
 
   export default {
     name: 'Navigation',
@@ -37,8 +36,7 @@
           folder,
           document,
           chat,
-          person,
-          cog
+          person
         }
       }
     },

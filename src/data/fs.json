@@ -118,7 +118,7 @@
     {
       "name": "writings",
       "type": "folder",
-      "icon": "writings",
+      "icon": "document",
       "children": [
         {
           "name": "blogs.tex",

@@ -28,7 +28,7 @@
   import cube from '@/assets/icons/cube.svg'
   import flash from '@/assets/icons/flash.svg'
   import git from '@/assets/icons/git.svg'
-  import writings from '@/assets/icons/writings.svg'
+  import document from '@/assets/icons/document.svg'
 
   /**
    * This block represents a link to a node in the file system, be it a folder
@@ -46,7 +46,7 @@
           cube,
           flash,
           git,
-          writings
+          document
         }
       }
     },
