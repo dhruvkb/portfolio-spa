@@ -1,0 +1,88 @@
+@use 'sass:math';
+
+@use '~@/styles/tokens/dimensions';
+@use '~@/styles/tokens/durations';
+@use '~@/styles/tokens/sizes';
+
+@use '~@/styles/mixins/colored';
+
+@use '~@/styles/utils/controls';
+@use '~@/styles/utils/theming';
+
+.trip {
+  @include colored.colored('--trip-color');
+
+  $icon-dimension: 1.5em; // same as Icon / Repr
+  $button-dimension: math.sqrt(2) * $icon-dimension;
+
+  .track {
+    @include theming.transition(1);
+
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    background-color: var(--background-highlighted);
+
+    border-radius: dimensions.$s;
+
+    .option {
+      @include controls.reset-control;
+      @include theming.transition(2);
+
+      color: var(--content-secondary);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: $button-dimension;
+      height: $button-dimension;
+
+      .icon {
+        display: block;
+
+        height: $icon-dimension;
+
+        z-index: 1;
+      }
+
+      &.active {
+        color: var(--trip-color);
+      }
+
+      &:focus { // Keyboard focus
+        border: 1px dashed var(--trip-color);
+        border-radius: dimensions.$s;
+      }
+
+      &:hover { // Mouse focus
+        color: var(--trip-color);
+      }
+    }
+
+    &::after {
+      @include theming.transition(1, (transform));
+
+      content: '';
+
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      background-color: var(--background-selected);
+
+      width: $button-dimension;
+      height: $button-dimension;
+
+      border-radius: dimensions.$s;
+
+      pointer-events: none;
+
+      #{--translation}: $button-dimension;
+      transform: translateX(calc(var(--position) * var(--translation)));
+    }
+  }
+}

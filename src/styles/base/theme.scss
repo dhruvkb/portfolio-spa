@@ -4,36 +4,50 @@
 
 @use '~@/styles/utils/theming';
 
+@mixin light-theme {
+  #{--content}:                colors.$content-base00;
+  #{--content-highlighted}:    colors.$content-base01;
+  #{--content-secondary}:      colors.$content-base1;
+
+  #{--content-max-visibility}: black;
+  #{--content-min-visibility}: white;
+
+  #{--background}:             colors.$background-base3;
+  #{--background-highlighted}: colors.$background-base2;
+  #{--background-opposite}:    colors.$background-base03;
+
+  #{--background-selected}:    rgba(0, 0, 0, 0.1);
+}
+
+@mixin dark-theme {
+  #{--content}:                colors.$content-base0;
+  #{--content-highlighted}:    colors.$content-base1;
+  #{--content-secondary}:      colors.$content-base01;
+
+  #{--content-max-visibility}: white;
+  #{--content-min-visibility}: black;
+
+  #{--background}:             colors.$background-base03;
+  #{--background-highlighted}: colors.$background-base02;
+  #{--background-opposite}:    colors.$background-base3;
+
+  #{--background-selected}:    rgba(255, 255, 255, 0.1);
+}
+
 @mixin theme {
-  &:not([theme="light"]),
+  @media (prefers-color-scheme: dark) {
+    @include dark-theme;
+  }
+  @media not all and (prefers-color-scheme: dark) {
+    @include light-theme;
+  }
+
   &[theme="dark"] {
-    #{--content}:                colors.$content-base0;
-    #{--content-highlighted}:    colors.$content-base1;
-    #{--content-secondary}:      colors.$content-base01;
-
-    #{--content-max-visibility}: white;
-    #{--content-min-visibility}: black;
-
-    #{--background}:             colors.$background-base03;
-    #{--background-highlighted}: colors.$background-base02;
-    #{--background-opposite}:    colors.$background-base3;
-
-    #{--background-selected}:    rgba(255, 255, 255, 0.1);
+    @include dark-theme;
   }
 
   &[theme="light"] {
-    #{--content}:                colors.$content-base00;
-    #{--content-highlighted}:    colors.$content-base01;
-    #{--content-secondary}:      colors.$content-base1;
-
-    #{--content-max-visibility}: black;
-    #{--content-min-visibility}: white;
-
-    #{--background}:             colors.$background-base3;
-    #{--background-highlighted}: colors.$background-base2;
-    #{--background-opposite}:    colors.$background-base03;
-
-    #{--background-selected}:    rgba(0, 0, 0, 0.1);
+    @include dark-theme;
   }
 }
 

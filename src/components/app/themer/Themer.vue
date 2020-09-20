@@ -1,31 +1,37 @@
 <template>
   <div
-    class="themer"
-    :title="helpText">
-    <Flip
+    class="themer">
+    <Trip
       color="green"
       :shortkey="['t']"
-      v-model="isFlipped">
-      <template #left>
+      :options="options"
+      v-model="theme">
+      <template #system>
+        <Icon
+          icon="computer"
+          :path="icons.computer"/>
+      </template>
+      <template #light>
         <Icon
           icon="sun"
           :path="icons.sun"/>
       </template>
-      <template #right>
+      <template #dark>
         <Icon
           icon="moon"
           :path="icons.moon"/>
       </template>
-    </Flip>
+    </Trip>
   </div>
 </template>
 
 <script>
-  import Flip from '@/components/common/flip/Flip'
+  import Trip from '@/components/common/trip/Trip'
   import Icon from '@/components/common/icon/Icon'
 
   import colors from '@/styles/tokens/colors.scss'
 
+  import computer from '@/assets/icons/computer.svg'
   import sun from '@/assets/icons/sun.svg'
   import moon from '@/assets/icons/moon.svg'
 
@@ -37,11 +43,14 @@
     name: 'Themer',
     components: {
       Icon,
-      Flip
+      Trip
     },
     data () {
       return {
         themes: {
+          system: {
+            themeColor: null // automatically maps to light or dark
+          },
           light: {
             themeColor: colors.colorBackgroundBase2
           },
@@ -50,8 +59,9 @@
           }
         },
         theme: null,
-        default: 'dark',
+        default: 'system',
         icons: {
+          computer,
           sun,
           moon
         }
@@ -59,41 +69,31 @@
     },
     computed: {
       /**
-       * Create a model to use with the flip switch component.
+       * Get the array of options to pass to the Trip component.
+       * @returns {Array} the list of options consisting of a name and a title
        */
-      isFlipped: {
-        /**
-         * Get the current state of the flip. The switch is considered to be
-         * flipped when the component is not in the default state.
-         */
-        get () {
-          return this.theme !== this.default
-        },
-        /**
-         * Set the new value for the theme based on the new flip status.
-         * @param {boolean} val - the new status of the flip
-         */
-        set (val) {
-          if (this.isFlipped !== val) {
-            this.switchTheme()
+      options () {
+        const themes = Object.keys(this.themes)
+        return themes.map(theme => {
+          let title
+          if (theme === this.theme) {
+            title = `Stay on the ${theme} theme.`
+          } else {
+            title = `Switch to the ${theme} theme.`
           }
-        }
+          return {
+            name: theme,
+            title
+          }
+        })
       },
 
       /**
-       * Get the theme variant opposite to the current one.
-       * @returns {string} the name of the opposite theme
+       * Get whether the user prefers the dark theme.
+       * @returns {boolean} whether the user prefers a dark theme
        */
-      otherTheme () {
-        const themeNames = Object.keys(this.themes)
-        let index = themeNames.indexOf(this.theme)
-        return themeNames[++index % themeNames.length]
-      },
-      /**
-       * Get the title text that describes the action this button will perform.
-       */
-      helpText () {
-        return `[T] Switch to the ${this.otherTheme} theme.`
+      preferDark () {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches
       },
 
       /**
@@ -104,6 +104,21 @@
         return Array.from(
           document.getElementsByTagName('meta')
         ).find(elem => elem.name === 'theme-color')
+      },
+      /**
+       * Get the color that should be set as the value of the 'theme-color' meta
+       * tag. For the system theme, it maps to the dark or light value as set
+       * by the operating-system.
+       * @returns {string} the code for the color for the 'theme-color' meta tag
+       */
+      themeColor () {
+        if (this.theme === 'system') {
+          return this.preferDark
+            ? this.themes.dark.themeColor
+            : this.themes.light.themeColor
+        } else {
+          return this.themes[this.theme].themeColor
+        }
       }
     },
     watch: {
@@ -118,19 +133,11 @@
           document.documentElement.setAttribute('theme', this.theme)
 
           // Set the new theme color
-          this.themeColorElement.content = this.themes[to].themeColor
+          this.themeColorElement.content = this.themeColor
 
           // Persist theme to local storage
           localStorage.theme = to
         }
-      }
-    },
-    methods: {
-      /**
-       * Change the theme of the app to the other one.
-       */
-      switchTheme () {
-        this.theme = this.otherTheme
       }
     },
     created () {
@@ -141,9 +148,6 @@
         // Set theme to the default value
         this.theme = this.default
       }
-
-      const preferDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-      console.log(`User prefers ${preferDark ? 'dark' : 'light'}.`)
     }
   }
 </script>
