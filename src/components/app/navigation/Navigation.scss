@@ -1,12 +1,18 @@
 .navigation {
+  .anchor {
+    flex-grow: 1;
+  }
+
+  &:not(.phone) {
+    .anchor:first-of-type {
+      display: none;
+    }
+  }
+
   &.phone {
     display: flex;
     flex-direction: row;
 
     width: 100%;
-  }
-
-  .anchor {
-    flex-grow: 1;
   }
 }

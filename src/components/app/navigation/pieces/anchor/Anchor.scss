@@ -40,6 +40,8 @@
 
   &.exact.router-link-exact-active,
   &:not(.exact).router-link-active { // Currently open
+    --anchor-color: var(--active-color);
+
     .icon {
       --fill: currentColor;
     }
@@ -83,8 +85,6 @@
 
   &.exact.router-link-exact-active,
   &:not(.exact).router-link-active { // Currently open
-    --anchor-color: var(--active-color);
-
     &::after {
       left: 0;
 

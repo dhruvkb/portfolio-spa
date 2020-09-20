@@ -1,13 +1,13 @@
 <template>
   <nav class="navigation" :class="navigationClasses">
     <Anchor
-      v-for="(link, index) in links"
+      v-for="(link, index) in navigation"
       v-bind="link"
       :path="paths[link.icon]"
       :key="index"
       :color="link.to.name === 'home' ? 'red' : 'green'"
-      :key-combination="[index+1]"
-      :title="`[${index+1}] Go to ${link.text}.`"
+      :key-combination="[index]"
+      :title="`[${index}] Go to ${link.text}.`"
       @shortkey="handleShortkey(link.to)"/>
   </nav>
 </template>
@@ -41,25 +41,24 @@
       }
     },
     props: {
+      /**
+       * _whether the component is being rendered on a mobile device_
+       */
       isPhone: {
         type: Boolean
       }
     },
     computed: {
+      /**
+       * Get the classes to use on the navigation list.
+       * @returns {Array} an array of all the classes to apply on the element
+       */
       navigationClasses () {
         return [
           {
             phone: this.isPhone
           }
         ]
-      },
-
-      links () {
-        let links = navigation
-        if (!this.isPhone) {
-          links = links.filter(link => link.to.name !== 'home')
-        }
-        return links
       }
     },
     methods: {
