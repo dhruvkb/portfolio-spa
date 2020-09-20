@@ -10,7 +10,8 @@
 
 <script>
   /**
-   * This component renders an SVG asset as an icon.
+   * This component renders an SVG asset as an icon. It is primarily used to
+   * render icons with SVGs from Ionicons.
    */
   export default {
     name: 'Icon',

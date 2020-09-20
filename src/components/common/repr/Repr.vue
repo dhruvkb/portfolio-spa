@@ -10,7 +10,8 @@
 
 <script>
   /**
-   * This component renders a path as an SVG icon.
+   * This component renders a path as an SVG icon. It is primarily used to
+   * render brand logos with paths from Simple Icons.
    */
   export default {
     name: 'Repr',
