@@ -19,7 +19,7 @@
 
   import face from '@/assets/icons/face.svg'
   import folder from '@/assets/icons/folder.svg'
-  import megaphone from '@/assets/icons/megaphone.svg'
+  import document from '@/assets/icons/document.svg'
   import chat from '@/assets/icons/chat.svg'
   import person from '@/assets/icons/person.svg'
   import cog from '@/assets/icons/cog.svg'
@@ -35,7 +35,7 @@
         paths: {
           face,
           folder,
-          megaphone,
+          document,
           chat,
           person,
           cog
