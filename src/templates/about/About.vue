@@ -1,7 +1,7 @@
 <template>
   <main id="about">
     <section>
-      <h2 class="page-title green-colored">
+      <h2 class="page-title">
         It's-a me!
       </h2>
 

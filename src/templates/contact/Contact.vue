@@ -1,7 +1,7 @@
 <template>
   <main id="contact">
     <section>
-      <h2 class="page-title green-colored">
+      <h2 class="page-title">
         Get in touch!
       </h2>
 

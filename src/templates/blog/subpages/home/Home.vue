@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h2 class="page-title green-colored">
+    <h2 class="page-title">
       I ramble!
     </h2>
 
