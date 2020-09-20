@@ -67,8 +67,7 @@
        * @returns {Object} a randomly chosen quote and its author
        */
       quote () {
-        const set = quotes[this.$i18n.locale]
-        return set[Math.floor(Math.random() * set.length)]
+        return quotes[Math.floor(Math.random() * quotes.length)]
       }
     }
   }

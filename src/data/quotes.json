@@ -1,54 +1,34 @@
-{
-  "en": [
-    {
-      "quotation": "Don’t half-ass two things. Whole-ass one thing.",
-      "citation": "Ron Swanson"
-    },
-    {
-      "quotation": "Flux libraries are like glasses: you’ll know when you need them.",
-      "citation": "Dan Abramov"
-    },
-    {
-      "quotation": "Given enough time, hydrogen starts to wonder where it came from, and where its going.",
-      "citation": "Edward R. Harrison"
-    },
-    {
-      "quotation": "This quote is very memorable.",
-      "citation": "https://xkcd.com/1942/"
-    },
-    {
-      "quotation": "A common mistake that people make when trying to design something completely foolproof is to underestimate the ingenuity of complete fools.",
-      "citation": "Douglas Adams"
-    },
-    {
-      "quotation": "A common mistake that people make when trying to design something completely foolproof is to underestimate the ingenuity of complete fools.",
-      "citation": "Douglas Adams"
-    },
-    {
-      "quotation": "In the beginning the Universe was created. This has made a lot of people very angry and been widely regarded as a bad move.",
-      "citation": "Douglas Adams"
-    },
-    {
-      "quotation": "Isn't it enough to see that a garden is beautiful without having to believe that there are fairies at the bottom of it too?",
-      "citation": "Douglas Adams"
-    }
-  ],
-  "pr": [
-    {
-      "quotation": "Not all treasure is silver and gold, mate.",
-      "citation": "Cap'n Jack Sparrow"
-    },
-    {
-      "quotation": "It is when pirates count their booty that they become mere thieves.",
-      "citation": "William Bolitho"
-    },
-    {
-      "quotation": "When a pirate grows rich enough, they make him a prince.",
-      "citation": "George R. R. Martin"
-    },
-    {
-      "quotation": "May your blade always be wet, and powder dry.",
-      "citation": "Me dunno"
-    }
-  ]
-}
+[
+  {
+    "quotation": "Don’t half-ass two things. Whole-ass one thing.",
+    "citation": "Ron Swanson"
+  },
+  {
+    "quotation": "Flux libraries are like glasses: you’ll know when you need them.",
+    "citation": "Dan Abramov"
+  },
+  {
+    "quotation": "Given enough time, hydrogen starts to wonder where it came from, and where its going.",
+    "citation": "Edward R. Harrison"
+  },
+  {
+    "quotation": "This quote is very memorable.",
+    "citation": "https://xkcd.com/1942/"
+  },
+  {
+    "quotation": "A common mistake that people make when trying to design something completely foolproof is to underestimate the ingenuity of complete fools.",
+    "citation": "Douglas Adams"
+  },
+  {
+    "quotation": "A common mistake that people make when trying to design something completely foolproof is to underestimate the ingenuity of complete fools.",
+    "citation": "Douglas Adams"
+  },
+  {
+    "quotation": "In the beginning the Universe was created. This has made a lot of people very angry and been widely regarded as a bad move.",
+    "citation": "Douglas Adams"
+  },
+  {
+    "quotation": "Isn't it enough to see that a garden is beautiful without having to believe that there are fairies at the bottom of it too?",
+    "citation": "Douglas Adams"
+  }
+]
