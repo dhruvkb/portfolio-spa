@@ -1,0 +1,8 @@
+@use '~@/styles/tokens/colors';
+
+@mixin gradient-text($from: colors.$accent-red, $to: colors.$accent-magenta) {
+  color: transparent;
+
+  background-image: linear-gradient(90deg, $from, $to);
+  background-clip: text;
+}

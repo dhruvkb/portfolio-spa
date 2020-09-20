@@ -5,6 +5,7 @@
 
 @use '~@/styles/utils/media';
 @use '~@/styles/utils/theming';
+@use '~@/styles/utils/gradient-text';
 
 .header {
   @include theming.transition(1);
@@ -21,10 +22,12 @@
   padding-left: calc(#{dimensions.$s} + env(safe-area-inset-left));
   padding-right: calc(#{dimensions.$s} + env(safe-area-inset-right));
 
-  .nav-title-anchor {
+  .site-title-anchor {
     margin-right: auto;
 
-    .nav-title {
+    .site-title {
+      @include gradient-text.gradient-text;
+
       font-weight: weights.$extrabold;
 
       &.full {

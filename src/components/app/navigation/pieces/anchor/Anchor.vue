@@ -79,6 +79,13 @@
       isExact: {
         type: Boolean,
         default: false
+      },
+      /**
+       * _whether the link contains the site title and points to the home page_
+       */
+      isSiteTitle: {
+        type: Boolean,
+        default: false
       }
     },
     computed: {
@@ -90,7 +97,8 @@
         return [
           ...this.coloredClasses,
           {
-            exact: this.isExact
+            exact: this.isExact,
+            'site-title': this.isSiteTitle
           }
         ]
       }

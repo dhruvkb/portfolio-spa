@@ -1,12 +1,12 @@
 @use 'sass:color';
 
-@use '~@/styles/tokens/colors';
 @use '~@/styles/tokens/weights';
 @use '~@/styles/tokens/durations';
 
+@use '~@/styles/utils/gradient-text';
+
 .site-title {
   .name {
-    color: colors.$accent-red;
     font-weight: weights.$extrabold;
 
     @keyframes condense {
@@ -25,5 +25,9 @@
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
     animation-duration: durations.$l;
+
+    .actual-name {
+      @include gradient-text.gradient-text;
+    }
   }
 }
