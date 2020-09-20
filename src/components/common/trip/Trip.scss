@@ -51,6 +51,10 @@
 
       &.active {
         color: var(--trip-color);
+
+        .icon {
+          --fill: currentColor;
+        }
       }
 
       &:focus { // Keyboard focus
