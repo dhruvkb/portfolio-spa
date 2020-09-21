@@ -2,12 +2,12 @@
   <g
     id="person"
     fill="currentColor"
+    fill-opacity="inherit"
     stroke="currentColor"
     stroke-linecap="round"
     stroke-linejoin="round"
     stroke-width="var(--stroke-width, 32px)">
     <path
-      fill="var(--fill)"
       d="M344,154c-3.92,52.87-44,96-88,96s-84.15-43.12-88-96c-4-55,35-96,88-96S348,100,344,154Z"/>
     <path
       fill="none"

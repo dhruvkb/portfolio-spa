@@ -14,53 +14,59 @@
       height="384"
       rx="48"
       ry="48"/>
-    <path
-      stroke="none"
-      d="M397.82,80H114.18C77.69,80,48,110.15,48,147.2V208H64c0-16,16-32,32-32H416c16,0,32,16,32,32h16V147.2C464,110.15,434.31,80,397.82,80Z"/>
     <circle
       stroke="none"
+      fill-opacity="1"
       cx="296"
-      cy="232"
+      cy="212"
       r="24"/>
     <circle
       stroke="none"
+      fill-opacity="1"
       cx="376"
-      cy="232"
+      cy="212"
       r="24"/>
     <circle
       stroke="none"
+      fill-opacity="1"
       cx="296"
-      cy="312"
+      cy="292"
       r="24"/>
     <circle
       stroke="none"
+      fill-opacity="1"
       cx="376"
-      cy="312"
+      cy="292"
       r="24"/>
     <circle
       stroke="none"
+      fill-opacity="1"
       cx="136"
-      cy="312"
+      cy="292"
       r="24"/>
     <circle
       stroke="none"
+      fill-opacity="1"
       cx="216"
-      cy="312"
+      cy="292"
       r="24"/>
     <circle
       stroke="none"
+      fill-opacity="1"
       cx="136"
-      cy="392"
+      cy="372"
       r="24"/>
     <circle
       stroke="none"
+      fill-opacity="1"
       cx="216"
-      cy="392"
+      cy="372"
       r="24"/>
     <circle
       stroke="none"
+      fill-opacity="1"
       cx="296"
-      cy="392"
+      cy="372"
       r="24"/>
     <line
       x1="128"

@@ -2,6 +2,7 @@
   <g
     id="computer"
     fill="currentColor"
+    fill-opacity="inherit"
     stroke="currentColor"
     stroke-linecap="round"
     stroke-linejoin="round"
@@ -20,7 +21,6 @@
       x2="480"
       y2="284"/>
     <polygon
-      fill="var(--fill)"
       points="296 364 216 364 188 448 324 448"/>
     <line
       x1="188"

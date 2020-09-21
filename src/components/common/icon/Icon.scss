@@ -1,13 +1,18 @@
+@use '~@/styles/tokens/durations';
+
 .icon {
   height: 1.5em; // same as Repr
 
-  --fill: none;
+  fill-opacity: 0;
+
+  transition-property: fill-opacity;
+  transition-duration: durations.$m;
 
   &.inline {
     height: 1em;
   }
 
   &.solid {
-    --fill: currentColor;
+    fill-opacity: 1;
   }
 }
