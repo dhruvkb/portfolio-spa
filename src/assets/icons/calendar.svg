@@ -72,7 +72,7 @@
       x1="128"
       y1="48"
       x2="128"
-      y2="80"
+      y2="112"
       stroke="currentColor"
       stroke-linecap="round"
       stroke-linejoin="round"/>
@@ -80,7 +80,7 @@
       x1="384"
       y1="48"
       x2="384"
-      y2="80"
+      y2="112"
       stroke="currentColor"
       stroke-linecap="round"
       stroke-linejoin="round"/>
