@@ -51,6 +51,7 @@
        * Log all the content in the logs file.
        */
       logAll () {
+        this.logTitle('@dhruvkb')
         this.logs.forEach(category => {
           this.logHeading(category.heading)
           category.lines.forEach(line => this.logContent(line))
@@ -58,11 +59,26 @@
         })
       },
       /**
+       * Log the given string, formatted as a title.
+       * @param {string} title - the title of the site
+       */
+      logTitle (title) {
+        const titleFormat = (
+          'color: white; ' +
+          'font-size: 2em; ' +
+          'font-weight: 800; ' +
+          `background: linear-gradient(90deg, ${colors.colorAccentRed}, ${colors.colorAccentMagenta}); ` +
+          'padding: 0.25em; ' +
+          'border-radius: 0.25em;'
+        )
+        console.log(`%c${title}`, titleFormat)
+      },
+      /**
        * Log the given string, formatted as a heading.
        * @param {string} heading - the title of a particular category
        */
       logHeading (heading) {
-        const headingFormat = `font-size: 2em; color: ${colors.colorAccentRed};`
+        const headingFormat = `font-size: 1.5em; color: ${colors.colorAccentRed};`
         console.log(`%c# ${heading}`, headingFormat)
       },
       /**
