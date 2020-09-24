@@ -27,4 +27,4 @@
   }
 </script>
 
-<style lang="scss" src="./Repr.scss"/>
+<style scoped lang="scss" src="./Repr.scss"/>
