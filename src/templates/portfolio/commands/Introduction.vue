@@ -114,7 +114,7 @@
       @include gradient-text.gradient-text;
 
       font-size: sizes.$xs;
-      font-weight: weights.$semibold;
+      font-weight: weights.$bold;
 
       width: fit-content;
 
