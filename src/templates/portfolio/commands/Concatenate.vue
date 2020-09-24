@@ -158,3 +158,11 @@
     }
   }
 </script>
+
+<style scoped lang="scss">
+  .cat {
+    ::v-deep {
+      @import '~@/styles/utils/prism';
+    }
+  }
+</style>
