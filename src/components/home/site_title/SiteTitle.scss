@@ -1,14 +1,17 @@
-@use 'sass:color';
-
+@use '~@/styles/tokens/sizes';
 @use '~@/styles/tokens/weights';
 @use '~@/styles/tokens/durations';
 
 @use '~@/styles/utils/gradient-text';
 
 .site-title {
-  .name {
+  .text {
     font-weight: weights.$extrabold;
 
+    @include gradient-text.gradient-text;
+  }
+
+  .name {
     @keyframes condense {
       0% {
         opacity: 0;
@@ -25,9 +28,11 @@
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
     animation-duration: durations.$l;
+  }
 
-    .actual-name {
-      @include gradient-text.gradient-text;
+  &.small {
+    .handle {
+      font-size: sizes.$xl2; // Matches h5
     }
   }
 }

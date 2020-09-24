@@ -2,14 +2,14 @@
   <header class="header">
     <Anchor
       v-bind="homeLink"
-      class="site-title-anchor"
+      class="home-anchor"
       tabindex="0"
       :key-combination="['h']"
+      color="red"
       :title="`[H] Go to ${homeLink.text}.`"
       is-site-title
       @shortkey="handleShortkey(homeLink.to)">
-      <h5 class="site-title full">@dhruvkb</h5>
-      <h5 class="site-title short">DB</h5>
+      <SiteTitle is-small/>
     </Anchor>
 
     <Navigation/>
@@ -22,16 +22,18 @@
 </template>
 
 <script>
-  import Navigation from '@/components/app/navigation/Navigation'
   import Anchor from '@/components/app/navigation/pieces/anchor/Anchor'
+  import Navigation from '@/components/app/navigation/Navigation'
+  import SiteTitle from '@/components/home/site_title/SiteTitle'
 
   import face from '@/assets/icons/face.svg'
 
   export default {
     name: 'Header',
     components: {
+      Anchor,
       Navigation,
-      Anchor
+      SiteTitle
     },
     data () {
       return {
