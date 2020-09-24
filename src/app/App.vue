@@ -23,7 +23,7 @@
   import Footer from '@/components/app/footer/Footer'
   import Themer from '@/components/app/themer/Themer'
 
-  import colors from '@/styles/tokens/colors.scss'
+  import colors from '@/styles/exports/colors.scss'
 
   import logs from '@/data/logs.json'
 

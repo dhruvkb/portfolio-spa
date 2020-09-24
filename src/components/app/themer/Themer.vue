@@ -29,7 +29,7 @@
   import Trip from '@/components/common/trip/Trip'
   import Icon from '@/components/common/icon/Icon'
 
-  import colors from '@/styles/tokens/colors.scss'
+  import colors from '@/styles/exports/colors.scss'
 
   import computer from '@/assets/icons/computer.svg'
   import sun from '@/assets/icons/sun.svg'
