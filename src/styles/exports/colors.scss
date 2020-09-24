@@ -1,24 +1,24 @@
-@import '~@/styles/tokens/colors';
+@use '~@/styles/tokens/colors';
 
 :export {
-  colorBackgroundBase03: $background-base03;
-  colorBackgroundBase02: $background-base02;
+  colorBackgroundBase03: colors.$background-base03;
+  colorBackgroundBase02: colors.$background-base02;
 
-  colorBackgroundBase2:  $background-base2;
-  colorBackgroundBase3:  $background-base3;
+  colorBackgroundBase2:  colors.$background-base2;
+  colorBackgroundBase3:  colors.$background-base3;
 
-  colorContentBase01:    $content-base01;
-  colorContentBase00:    $content-base00;
+  colorContentBase01:    colors.$content-base01;
+  colorContentBase00:    colors.$content-base00;
 
-  colorContentBase0:     $content-base0;
-  colorContentBase1:     $content-base1;
+  colorContentBase0:     colors.$content-base0;
+  colorContentBase1:     colors.$content-base1;
 
-  colorAccentYellow:     $accent-yellow;
-  colorAccentOrange:     $accent-orange;
-  colorAccentRed:        $accent-red;
-  colorAccentMagenta:    $accent-magenta;
-  colorAccentViolet:     $accent-violet;
-  colorAccentBlue:       $accent-blue;
-  colorAccentCyan:       $accent-cyan;
-  colorAccentGreen:      $accent-green;
+  colorAccentYellow:     colors.$accent-yellow;
+  colorAccentOrange:     colors.$accent-orange;
+  colorAccentRed:        colors.$accent-red;
+  colorAccentMagenta:    colors.$accent-magenta;
+  colorAccentViolet:     colors.$accent-violet;
+  colorAccentBlue:       colors.$accent-blue;
+  colorAccentCyan:       colors.$accent-cyan;
+  colorAccentGreen:      colors.$accent-green;
 }
