@@ -1,5 +1,11 @@
+@use '~@/styles/tokens/durations';
+
 @use '~@/styles/layouts/content';
+
+@use '~@/styles/motion/transitions';
 
 #blog {
   @include content.content-main;
+
+  @include transitions.fade(durations.$m);
 }

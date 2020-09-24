@@ -1,6 +1,9 @@
 <template>
   <main id="blog">
-    <transition name="fade" mode="out-in">
+    <transition
+      name="fade"
+      mode="out-in"
+      appear>
       <RouterView/>
     </transition>
   </main>
