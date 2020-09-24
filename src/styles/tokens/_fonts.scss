@@ -1,15 +1,19 @@
+@use 'weights';
+
 // JetBrains Mono
 
+$jetbrains-mono: 'JetBrains Mono';
+$monospace:      $jetbrains-mono, monospace;
+
 $font-weights: (
-  Regular:   400,
-  Medium:    500,
-  Bold:      700,
-  ExtraBold: 800
+  Medium:    weights.$medium,
+  Bold:      weights.$bold,
+  ExtraBold: weights.$extrabold
 );
 
 @each $font-name, $font-weight  in $font-weights {
   @font-face {
-    font-family: 'JetBrains Mono';
+    font-family: $jetbrains-mono;
     font-weight: $font-weight;
     font-style: normal;
     font-display: swap;
@@ -20,9 +24,6 @@ $font-weights: (
          url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/fonts/ttf/JetBrainsMono-#{$font-name}.ttf')   format('truetype');
   }
 }
-
-$jetbrains-mono: 'JetBrains Mono';
-$monospace:      $jetbrains-mono, monospace;
 
 // OS font stack
 
