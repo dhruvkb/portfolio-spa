@@ -1,9 +1,8 @@
 @use '~@/styles/tokens/durations';
 @use '~@/styles/tokens/devices';
 @use '~@/styles/tokens/dimensions';
-@use '~@/styles/motion/transitions';
 
-@use '~@/styles/base';
+@use '~@/styles/motion/transitions';
 
 @use '~@/styles/utils/theming';
 @use '~@/styles/utils/media';

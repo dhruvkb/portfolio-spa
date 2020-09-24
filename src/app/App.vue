@@ -115,4 +115,7 @@
   }
 </script>
 
-<style lang="scss" src="./App.scss"/>
+<style scoped lang="scss" src="./App.scss"/>
+
+<!-- This is styling for the entire site. -->
+<style lang="scss" src="@/styles/base/index.scss"/>
