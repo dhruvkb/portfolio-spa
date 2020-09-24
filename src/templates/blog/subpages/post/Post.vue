@@ -1,39 +1,41 @@
 <template>
-  <transition
-    name="fade"
-    mode="out-in"
-    appear
-    @before-enter="performPreProcessing"
-    @after-enter="performPostProcessing">
-    <section
-      v-if="post"
-      key="loaded">
-      <div class="body">
-        <div class="heading">
-          <!-- Typography sizes in blog posts are off by one... -->
-          <h1 class="blue-colored">{{ post.title }}</h1>
-          <!-- ...so this h1 looks like an h2 -->
-          <Metadata
-            :absolute-date="post.publicationDate.absolute"
-            :relative-date="post.publicationDate.relative"
-            :tags="post.tags"/>
+  <div id="blog--post">
+    <transition
+      name="fade"
+      mode="out-in"
+      appear
+      @before-enter="performPreProcessing"
+      @after-enter="performPostProcessing">
+      <section
+        v-if="post"
+        key="loaded">
+        <div class="body">
+          <div class="heading">
+            <!-- Typography sizes in blog posts are off by one... -->
+            <h1 class="blue-colored">{{ post.title }}</h1>
+            <!-- ...so this h1 looks like an h2 -->
+            <Metadata
+              :absolute-date="post.publicationDate.absolute"
+              :relative-date="post.publicationDate.relative"
+              :tags="post.tags"/>
+          </div>
+
+          <div class="content" v-html="post.body" ref="content"></div>
+
+          <p class="footer secondary-colored">
+            Permalink to <a :href="post.portfolioUrl">this post</a>.
+          </p>
         </div>
+      </section>
 
-        <div class="content" v-html="post.body" ref="content"></div>
-
-        <p class="footer secondary-colored">
-          Permalink to <a :href="post.portfolioUrl">this post</a>.
-        </p>
-      </div>
-    </section>
-
-    <section
-      v-else
-      key="loading"
-      class="centered">
-      <Spinner/>
-    </section>
-  </transition>
+      <section
+        v-else
+        key="loading"
+        class="centered">
+        <Spinner/>
+      </section>
+    </transition>
+  </div>
 </template>
 
 <script>

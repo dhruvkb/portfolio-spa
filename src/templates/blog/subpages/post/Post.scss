@@ -1,35 +1,42 @@
 @use '~@/styles/tokens/dimensions';
+@use '~@/styles/tokens/durations';
 @use '~@/styles/tokens/fonts';
 
 @use '~@/styles/layouts/content';
+
+@use '~@/styles/motion/transitions';
 
 @use '~@/styles/utils/theming';
 
 @use './styles/typography';
 
-section {
-  @include content.content-section;
+#blog--post {
+  @include transitions.fade(durations.$m);
 
-  .body {
-    box-sizing: border-box;
+  section {
+    @include content.content-section;
 
-    width: calc(100vw - 2 * #{dimensions.$m});
-    max-width: 45em;
+    .body {
+      box-sizing: border-box;
 
-    margin: auto;
+      width: calc(100vw - 2 * #{dimensions.$m});
+      max-width: 45em;
 
-    ::v-deep { // To style v-html content
-      .content {
-        @import './styles/post';
+      margin: auto;
+
+      ::v-deep { // To style v-html content
+        .content {
+          @import './styles/post';
+        }
       }
-    }
 
-    .footer {
-      @include theming.transition(2, (border-top-color));
+      .footer {
+        @include theming.transition(2, (border-top-color));
 
-      border-top: 1px solid var(--content-secondary);
+        border-top: 1px solid var(--content-secondary);
 
-      margin-top: dimensions.$l;
+        margin-top: dimensions.$l;
+      }
     }
   }
 }
