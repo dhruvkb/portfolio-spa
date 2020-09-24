@@ -19,8 +19,6 @@
   }
 }
 
-
-
 @mixin phone-only {
   $phone: screens.$phone;
   @include device-only($phone...) {
