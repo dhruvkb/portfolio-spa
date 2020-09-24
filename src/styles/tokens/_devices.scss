@@ -1,0 +1,29 @@
+@use 'sass:list';
+
+// Individual devices
+
+$phone:            'phone';
+$tablet-portrait:  'tablet-portrait';
+$tablet-landscape: 'tablet-landscape';
+$desktop-standard: 'desktop-standard';
+$desktop-wide:     'desktop-wide';
+
+// Device sets
+
+$tablet:           'tablet';
+$desktop:          'desktop';
+
+// Device families
+
+$family-tablet:    $tablet-portrait, $tablet-landscape;
+$family-desktop:   $desktop-standard, $desktop-wide;
+
+// Device groups
+
+$group-small:      $phone, $tablet-portrait;
+$group-big:        list.join($tablet-landscape, $family-desktop);
+$group-non-phone:  list.join($family-tablet, $family-desktop);
+
+// All
+
+$all:              list.join($group-small, $group-big);
