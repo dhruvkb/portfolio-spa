@@ -1,6 +1,5 @@
 <template>
-  <div class="intro">
-    <div title="This terminal has easter-eggs!">
+  <div class="intro" title="This terminal has easter-eggs!">
       <pre class="ascii-art big">
   __   __                                __       __
  /\ \ /\ \                              /\ \     /\ \
@@ -14,43 +13,39 @@
  ___/ // /   ____ __ __ _  __ / /__ / /
 / _  // _ \ / __// // /| |/ //  '_// _ \
 \_,_//_//_//_/   \_,_/ |___//_/\_\/_.__/</pre>
-    </div>
-    <div class="resume">
-      <strong>résumés: </strong>
       <div class="links">
-        <a
-          v-for="(resume, index) in resumes"
-          v-shortkey="[resume.shortkey]"
-          :key="index"
-          class="link yellow-colored"
-          :href="resume.url"
-          target="_blank"
-          :title="resumeLinkTitleText(resume.shortkey, resume.name)"
-          @shortkey="$navigateOutTo(resume.url)">
-          <Icon
-            icon="download"
-            :path="icons.download"
-            is-inline/>
-          <span>
-            {{ resume.name }}
+      <a
+        v-for="(link, index) in resumeLinks"
+        v-shortkey="[link.shortkey]"
+        :key="index"
+        class="link yellow-colored"
+        :href="link.url"
+        target="_blank"
+        :title="resumeLinkTitleText(link.shortkey, link.name)"
+        @shortkey="$navigateOutTo(link.url)">
+        <Icon
+          icon="download"
+          :path="icons.download"
+          is-inline/>
+        <span>
+            {{ link.name }}
           </span>
-        </a>
-        <a
-          v-shortkey="['s']"
-          class="link yellow-colored"
-          :href="resumeRepoUrl"
-          target="_blank"
-          title="[S] See the LaTeX source code."
-          @shortkey="$navigateOutTo(resumeRepoUrl)">
-          <Icon
-            icon="code"
-            :path="icons.code"
-            is-inline/>
-          <span>
+      </a>
+      <a
+        v-shortkey="['s']"
+        class="link yellow-colored"
+        :href="resumeRepoUrl"
+        target="_blank"
+        title="[S] See the LaTeX source code."
+        @shortkey="$navigateOutTo(resumeRepoUrl)">
+        <Icon
+          icon="code"
+          :path="icons.code"
+          is-inline/>
+        <span>
             source LaTeX
           </span>
-        </a>
-      </div>
+      </a>
     </div>
   </div>
 </template>
@@ -73,7 +68,7 @@
       const resumeBaseUrl = 'https://dhruvkb.github.io/resume'
       return {
         resumeRepoUrl: 'https://github.com/dhruvkb/resume/',
-        resumes: [
+        resumeLinks: [
           {
             name: 'résumé',
             url: `${resumeBaseUrl}/resume.pdf`,
@@ -113,6 +108,8 @@
     .ascii-art {
       @include gradient-text.gradient-text;
 
+      display: inline-block;
+
       font-size: sizes.$xs;
       font-weight: weights.$bold;
 
@@ -124,6 +121,8 @@
         @include media.device-specific(devices.$phone) {
           display: none;
         }
+
+        margin-right: 2ch;
       }
 
       &.small {
@@ -133,34 +132,26 @@
       }
     }
 
-    .resume {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
+    .links {
+      display: inline-block;
 
       margin-top: dimensions.$line;
 
-      .links {
+      .link {
         display: inline-block;
 
-        margin-left: 1ch;
+        text-decoration: none;
 
-        .link {
-          display: inline-block;
+        margin-right: 1ch;
 
-          text-decoration: none;
+        @include media.device-specific(devices.$group-non-phone) {
+          display: block;
 
-          margin-right: 1ch;
+          margin-bottom: dimensions.$xs;
+        }
 
-          @include media.device-specific(devices.$group-non-phone) {
-            display: block;
-
-            margin-bottom: dimensions.$xs;
-          }
-
-          .icon {
-            --stroke-width: 48px; // 24 / 16 * 32px
-          }
+        .icon {
+          --stroke-width: 48px; // 24 / 16 * 32px
         }
       }
     }
