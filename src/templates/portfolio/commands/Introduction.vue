@@ -75,14 +75,14 @@
         resumeRepoUrl: 'https://github.com/dhruvkb/resume/',
         resumes: [
           {
-            name: 'software developer',
-            url: `${resumeBaseUrl}/developer.pdf`,
-            shortkey: 'd' // 'd' for Developer
+            name: 'résumé',
+            url: `${resumeBaseUrl}/resume.pdf`,
+            shortkey: 'r' // 'r' for Résumé
           },
           {
-            name: 'technical writer',
-            url: `${resumeBaseUrl}/writer.pdf`,
-            shortkey: 'w' // 'w' for Writer
+            name: 'cover letter',
+            url: `${resumeBaseUrl}/cover.pdf`,
+            shortkey: 'c' // 'c' for Cover letter
           }
         ],
         icons: {
@@ -93,7 +93,7 @@
     },
     methods: {
       resumeLinkTitleText (shortkey, name) {
-        return `[${shortkey.toLocaleUpperCase()}] See my résumé as a ${name}.`
+        return `[${shortkey.toLocaleUpperCase()}] See my ${name} as a PDF file.`
       }
     }
   }
