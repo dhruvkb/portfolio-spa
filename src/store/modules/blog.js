@@ -2,8 +2,8 @@ import Vue from 'vue'
 
 import axios from 'axios'
 
-const apiOrigin = 'https://api.dhruvkb.now.sh/api/blog_posts'
-const apiUrl = (path) => `${apiOrigin}/${path}`
+const apiBase = 'https://api.dhruvkb.now.sh/api/blog_posts'
+const apiUrl = (path = '') => `${apiBase}/${path}`
 
 const artificialDelay = 500
 
@@ -46,7 +46,7 @@ const mutations = {
 
 const actions = {
   fetchPosts ({ commit, state }) {
-    const url = apiUrl('list')
+    const url = apiUrl()
 
     commit('setIsFetching', {
       isFetching: true
@@ -82,20 +82,16 @@ const actions = {
       })
   },
   fetchContent ({ commit, state }, payload) {
-    const url = apiUrl('retrieve')
-
     const slug = payload.slug
+
+    const url = apiUrl(slug)
 
     commit('setIsFetching', {
       isFetching: true
     })
 
     axios
-      .get(url, {
-        params: {
-          slug
-        }
-      })
+      .get(url)
       .then(response => {
         return new Promise(resolve => setTimeout(() => resolve(response), artificialDelay))
       })
