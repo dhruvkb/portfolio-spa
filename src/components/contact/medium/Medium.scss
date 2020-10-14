@@ -5,7 +5,7 @@
 .medium {
   @include theming.transition(2);
 
-  --medium-color: var(--content-max-visibility);
+  --medium-color: var(--content-xhighlighted);
 
   display: flex;
 

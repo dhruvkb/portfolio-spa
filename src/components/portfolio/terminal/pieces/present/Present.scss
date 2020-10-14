@@ -11,7 +11,7 @@
 @use '~@/styles/utils/theming';
 
 .present {
-  --text-color: var(--content-max-visibility);
+  --text-color: var(--content-xhighlighted);
 
   cursor: url('~@/assets/svgs/keyboard.svg') 12 6, crosshair;
 
