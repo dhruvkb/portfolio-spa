@@ -6,9 +6,6 @@
 .card {
   @include intersectable.intersectable;
 
-  --card-color: var(--background-opposite);
-  @include colored.colored('--card-color');
-
   position: relative;
 
   background-color: var(--background-highlighted);
