@@ -52,10 +52,10 @@
             themeColor: null // automatically maps to light or dark
           },
           light: {
-            themeColor: colors.colorBackgroundBase2
+            themeColor: colors.colorBase2
           },
           dark: {
-            themeColor: colors.colorBackgroundBase02
+            themeColor: colors.colorBase02
           }
         },
         theme: null,
