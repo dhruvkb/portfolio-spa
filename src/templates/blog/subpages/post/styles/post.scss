@@ -90,9 +90,11 @@ img {
   margin-left: auto;
   margin-right: auto;
 
+  --outline-color: var(--content-prominent);
+
   filter:
-    drop-shadow(1px 1px 0 var(--background-opposite))
-    drop-shadow(-1px 1px 0 var(--background-opposite))
-    drop-shadow(1px -1px 0 var(--background-opposite))
-    drop-shadow(-1px -1px 0 var(--background-opposite));
+    drop-shadow(2px 2px 0 var(--outline-color))
+    drop-shadow(-2px 2px 0 var(--outline-color))
+    drop-shadow(2px -2px 0 var(--outline-color))
+    drop-shadow(-2px -2px 0 var(--outline-color));
 }

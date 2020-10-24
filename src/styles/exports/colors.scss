@@ -1,17 +1,17 @@
 @use '~@/styles/tokens/colors';
 
 :export {
-  colorBackgroundBase03: colors.$background-base03;
-  colorBackgroundBase02: colors.$background-base02;
+  colorBase03:           colors.$base-03;
+  colorBase02:           colors.$base-02;
 
-  colorBackgroundBase2:  colors.$background-base2;
-  colorBackgroundBase3:  colors.$background-base3;
+  colorBase2:            colors.$base-2;
+  colorBase3:            colors.$base-3;
 
-  colorContentBase01:    colors.$content-base01;
-  colorContentBase00:    colors.$content-base00;
+  colorBase01:           colors.$base-01;
+  colorBase00:           colors.$base-00;
 
-  colorContentBase0:     colors.$content-base0;
-  colorContentBase1:     colors.$content-base1;
+  colorBase0:            colors.$base-0;
+  colorBase1:            colors.$base-1;
 
   colorAccentYellow:     colors.$accent-yellow;
   colorAccentOrange:     colors.$accent-orange;

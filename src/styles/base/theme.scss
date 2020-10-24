@@ -1,33 +1,31 @@
+@use 'sass:color';
+
 @use '~@/styles/tokens/colors';
 
 @use '~@/styles/mixins/colored';
 
 @use '~@/styles/utils/theming';
 
-@mixin light-theme {
-  #{--content}:                colors.$content-base00;
-  #{--content-highlighted}:    colors.$content-base01;
-  #{--content-secondary}:      colors.$content-base1;
-  #{--content-xhighlighted}:   black;
+@mixin dark-theme {
+  #{--content-secondary}:      colors.$base-01;
+  #{--content}:                colors.$base-0;
+  #{--content-highlighted}:    colors.$base-1;
+  #{--content-prominent}:      colors.$base-2;
 
-  #{--background}:             colors.$background-base3;
-  #{--background-highlighted}: colors.$background-base2;
-  #{--background-opposite}:    colors.$background-base03;
-
-  #{--background-selected}:    rgba(0, 0, 0, 0.1);
+  #{--background}:             colors.$base-03;
+  #{--background-highlighted}: colors.$base-02;
+  #{--background-selected}:    color.adjust(colors.$base-2, $alpha: -0.9);
 }
 
-@mixin dark-theme {
-  #{--content}:                colors.$content-base0;
-  #{--content-highlighted}:    colors.$content-base1;
-  #{--content-secondary}:      colors.$content-base01;
-  #{--content-xhighlighted}:   white;
+@mixin light-theme {
+  #{--content-secondary}:      colors.$base-1;
+  #{--content}:                colors.$base-00;
+  #{--content-highlighted}:    colors.$base-01;
+  #{--content-prominent}:      colors.$base-02;
 
-  #{--background}:             colors.$background-base03;
-  #{--background-highlighted}: colors.$background-base02;
-  #{--background-opposite}:    colors.$background-base3;
-
-  #{--background-selected}:    rgba(255, 255, 255, 0.1);
+  #{--background}:             colors.$base-3;
+  #{--background-highlighted}: colors.$base-2;
+  #{--background-selected}:    color.adjust(colors.$base-02, $alpha: -0.9);
 }
 
 @mixin theme {

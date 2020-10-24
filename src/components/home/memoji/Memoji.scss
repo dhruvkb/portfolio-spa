@@ -37,7 +37,7 @@
 
   &:hover,
   &.focused {
-    --outline-color: var(--background-opposite);
+    --outline-color: var(--content-prominent);
 
     transform: scale(1) rotate(5deg);
   }
