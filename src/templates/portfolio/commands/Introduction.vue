@@ -110,7 +110,6 @@
 
       display: inline-block;
 
-      font-size: sizes.$xs;
       font-weight: weights.$bold;
 
       width: fit-content;
