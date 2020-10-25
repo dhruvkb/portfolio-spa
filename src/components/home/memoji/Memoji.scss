@@ -2,21 +2,14 @@
 
 @use '~@/styles/mixins/colored';
 
-@use '~@/styles/motion/transitions';
-
 @use '~@/styles/utils/theming';
 
 .memoji {
   @include colored.colored('--outline-color');
 
-  @include transitions.flip('horizontal', durations.$m, 0, 0, 0, 90deg, 0, -90deg);
-  @include transitions.flip('horizontal-rev', durations.$m, 0, 0, 0, -90deg, 0, 90deg);
-
   margin-top: -2em; // Most memoji have blank spaces at the top
 
   .image {
-    // .flip
-
     width: 28em;
     max-width: 100%;
 

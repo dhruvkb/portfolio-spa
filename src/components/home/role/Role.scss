@@ -10,8 +10,6 @@
 
 .role {
   @include colored.colored('--role-color');
-  @include transitions.flip('vertical', durations.$m, -90deg, 0, 90deg, 0, 0, 0);
-  @include transitions.flip('vertical-rev', durations.$m, 90deg, 0, -90deg, 0, 0, 0);
 
   display: inline-flex;
   flex-direction: row;
@@ -20,9 +18,6 @@
   color: var(--role-color);
 
   .text {
-    // .flip
-    // Also applies to .fullstop
-
     .vowel {
       @include theming.transition(2);
 
