@@ -1,11 +1,9 @@
 <template>
   <div class="work" :class="workClasses">
-    <transition appear :name="transitionName" mode="out-in">
-      <div
-        :key="work"
-        class="actual-work"
-        v-html="work"/>
-    </transition>
+    <div
+      :key="work"
+      class="actual-work"
+      v-html="work"/>
   </div>
 </template>
 

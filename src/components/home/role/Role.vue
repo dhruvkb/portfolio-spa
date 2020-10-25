@@ -3,18 +3,16 @@
     <Pointer
       :is-focused="isFocused">
       <template #default>
-        <transition appear :name="transitionName" mode="out-in">
-          <div
-            :key="role"
-            class="text">
-            <span class="vowel">
-              {{ vowel }}
-            </span>
-            <span class="actual-role">
-              {{ role }}
-            </span>
-          </div>
-        </transition>
+        <div
+          :key="role"
+          class="text">
+          <span class="vowel">
+            {{ vowel }}
+          </span>
+          <span class="actual-role">
+            {{ role }}
+          </span>
+        </div>
       </template>
       <template #punctuation>
         <transition appear :name="transitionName" mode="out-in">

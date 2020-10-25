@@ -1,13 +1,11 @@
 <template>
   <div class="memoji" :class="memojiClasses">
-    <transition appear :name="transitionName" mode="out-in">
-      <img
-        :key="role"
-        class="image"
-        :src="source"
-        alt="Dhruv Bhanushali"
-        :title="title"/>
-    </transition>
+    <img
+      :key="role"
+      class="image"
+      :src="source"
+      alt="Dhruv Bhanushali"
+      :title="title"/>
   </div>
 </template>
 
