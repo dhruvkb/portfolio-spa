@@ -21,7 +21,6 @@
     ],
     data () {
       return {
-        transitionName: 'flip-vertical',
         works
       }
     },
@@ -62,21 +61,6 @@
           )
         })
         return text
-      }
-    },
-    watch: {
-      /**
-       * Determine the transition name based on whether the animation is going
-       * in the forward or backward direction.
-       * @param {string} to - the new value of the index
-       * @param {string} from - the old value of the index
-       */
-      index (to, from) {
-        if (to > from) { // Animation is moving forward
-          this.transitionName = 'flip-vertical'
-        } else { // Animation is moving backward
-          this.transitionName = 'flip-vertical-rev'
-        }
       }
     }
   }

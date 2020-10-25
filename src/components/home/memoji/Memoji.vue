@@ -24,11 +24,6 @@
       colored,
       focusable
     ],
-    data () {
-      return {
-        transitionName: 'flip-horizontal'
-      }
-    },
     props: {
       /**
        * _the index of the role being depicted by the memoji_
@@ -91,21 +86,6 @@
             break
         }
         return title
-      }
-    },
-    watch: {
-      /**
-       * Determine the transition name based on whether the animation is going
-       * in the forward or backward direction.
-       * @param {string} to - the new value of the index
-       * @param {string} from - the old value of the index
-       */
-      index (to, from) {
-        if (to > from) { // Animation is moving forward
-          this.transitionName = 'flip-horizontal'
-        } else { // Animation is moving backward
-          this.transitionName = 'flip-horizontal-rev'
-        }
       }
     }
   }
