@@ -3,13 +3,21 @@
 @use '~@/styles/tokens/sizes';
 @use '~@/styles/tokens/devices';
 @use '~@/styles/tokens/dimensions';
+@use '~@/styles/tokens/durations';
 
 @use '~@/styles/layouts/content';
+
+@use '~@/styles/motion/transitions';
 
 @use '~@/styles/utils/media';
 
 #home {
   @include content.content-main;
+
+  @include transitions.flip('horizontal', durations.$m, 0, 0, 0, 90deg, 0, -90deg);
+  @include transitions.flip('horizontal-rev', durations.$m, 0, 0, 0, -90deg, 0, 90deg);
+  @include transitions.flip('vertical', durations.$m, -90deg, 0, 90deg, 0, 0, 0);
+  @include transitions.flip('vertical-rev', durations.$m, 90deg, 0, -90deg, 0, 0, 0);
 
   section {
     justify-content: center;

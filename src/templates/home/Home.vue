@@ -17,10 +17,16 @@
                 :to="{name: 'portfolio'}"
                 @mouseenter.native="focusPortfolioLink"
                 @mouseleave.native="blurPortfolioLink">
-                <Memoji
-                  :index="index"
-                  :color="solarizedColor(index)"
-                  :is-focused="isPortfolioLinkFocused"/>
+                <transition
+                  :name="horizontalTransitionName"
+                  mode="out-in"
+                  appear>
+                  <Memoji
+                    :key="index"
+                    :index="index"
+                    :color="solarizedColor(index)"
+                    :is-focused="isPortfolioLinkFocused"/>
+                </transition>
               </RouterLink>
             </div>
           </div>
@@ -42,10 +48,16 @@
                   @mouseleave.native="blurPortfolioLink"
                   @focus.native="focusPortfolioLink"
                   @blur.native="blurPortfolioLink">
-                  <Role
-                    :index="index"
-                    :color="solarizedColor(index)"
-                    :is-focused="isPortfolioLinkFocused"/>
+                  <transition
+                    :name="verticalTransitionName"
+                    mode="out-in"
+                    appear>
+                    <Role
+                      :key="index"
+                      :index="index"
+                      :color="solarizedColor(index)"
+                      :is-focused="isPortfolioLinkFocused"/>
+                  </transition>
                 </RouterLink>
               </p>
 
@@ -53,9 +65,15 @@
                 With utmost meticulousness and love for the craft,
                 <br/>
                 I
-                <Work
-                  :index="index"
-                  :is-focused="isPortfolioLinkFocused"/>
+                <transition
+                  :name="verticalTransitionName"
+                  mode="out-in"
+                  appear>
+                  <Work
+                    :key="index"
+                    :index="index"
+                    :is-focused="isPortfolioLinkFocused"/>
+                </transition>
                 <br/>
                 <span
                   class="secondary-colored"
@@ -140,15 +158,50 @@
         isPortfolioLinkFocused: false,
 
         totalImageCount: this.$roles.length,
-        loadedImageCount: 0
+        loadedImageCount: 0,
+
+        transitionSuffix: ''
       }
     },
     computed: {
       /**
+       * Get whether all images required by the memoji ticker have been
+       * fetched and cached for faster rendering.
        *
+       * @returns {boolean} whether all images have been loaded
        */
       areImagesLoaded () {
         return this.loadedImageCount >= this.totalImageCount
+      },
+
+      /**
+       * Get the name of the transition to apply on the horizontal tickers.
+       * @return {string} the name of the horizontal ticker transition
+       */
+      horizontalTransitionName () {
+        return `flip-horizontal${this.transitionSuffix}`
+      },
+      /**
+       * Get the name of the transition to apply on the vertical tickers.
+       * @return {string} the name of the vertical ticker transition
+       */
+      verticalTransitionName () {
+        return `flip-vertical${this.transitionSuffix}`
+      }
+    },
+    watch: {
+      /**
+       * Determine the transition name based on whether the animation is going
+       * in the forward or backward direction.
+       * @param {string} to - the new value of the index
+       * @param {string} from - the old value of the index
+       */
+      index (to, from) {
+        if (to > from) { // Animation is moving forward
+          this.transitionSuffix = ''
+        } else { // Animation is moving backward
+          this.transitionSuffix = '-rev'
+        }
       }
     },
     methods: {
