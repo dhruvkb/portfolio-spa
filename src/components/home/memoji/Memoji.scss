@@ -14,19 +14,17 @@
 
   margin-top: -2em; // Most memoji have blank spaces at the top
 
-  transform-origin: 50% 100%;
-  transform: scale(0.95);
-
-  transition-property: transform;
-  transition-duration: durations.$s;
-
-  perspective: 30em;
-
   .image {
     // .flip
 
     width: 28em;
     max-width: 100%;
+
+    transform: scale(0.95);
+    transform-origin: 50% 100%;
+
+    transition-property: transform;
+    transition-duration: durations.$s;
 
     filter:
       drop-shadow(2px 2px 0 var(--outline-color))
@@ -39,6 +37,8 @@
   &.focused {
     --outline-color: var(--content-prominent);
 
-    transform: scale(1) rotate(5deg);
+    .image {
+      transform: scale(1) rotate(5deg);
+    }
   }
 }
