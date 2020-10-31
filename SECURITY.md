@@ -1,5 +1,5 @@
-# Security Policy
+# Security policy
 
-## Reporting a Vulnerability
+## Reporting a vulnerability
 
 If you find a security vulnerability, please open an issue. Thanks for reporting!
