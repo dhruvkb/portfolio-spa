@@ -22,7 +22,7 @@ module.exports = {
   },
 
   pwa: {
-    name: '@dhruvkb',
+    name: '@fewwwww',
     themeColor: '#073642',
     msTileColor: '#073642',
     appleMobileWebAppCapable: 'yes',

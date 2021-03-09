@@ -2,7 +2,7 @@
   <main id="about">
     <section>
       <h2 class="page-title">
-        It's-a me!
+        All about me!
       </h2>
 
       <Intro :color="shuffledSolarizedColors[0]"/>

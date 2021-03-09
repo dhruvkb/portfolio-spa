@@ -5,14 +5,14 @@
     <h1
       v-if="isSmall"
       class="handle">
-      <span class="text">@dhruvkb</span>
+      <span class="text">@fewwwww</span>
     </h1>
     <template v-else>
       <h1 class="first name">
-        <span class="text">Dhruv</span>
+        <span class="text">Suning</span>
       </h1>
       <h1 class="last name">
-        <span class="text">Bhanushali</span>
+        <span class="text">Yao</span>
       </h1>
     </template>
   </div>

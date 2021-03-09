@@ -116,27 +116,6 @@
       ]
     },
     {
-      "name": "writings",
-      "type": "folder",
-      "icon": "document",
-      "children": [
-        {
-          "name": "blogs.tex",
-          "aliases": [
-            "blogs"
-          ],
-          "type": "file"
-        },
-        {
-          "name": "resume.tex",
-          "aliases": [
-            "resume"
-          ],
-          "type": "file"
-        }
-      ]
-    },
-    {
       "name": "skills",
       "type": "folder",
       "icon": "flash",

@@ -7,8 +7,7 @@
         <p>
           <em>"Manners maketh man."</em> So do opinions and hobbies. Here
           is a sneak peek of just that, so you can know me a little better
-          and we can be friends, which will never happen if you use Google
-          Chrome.
+          and we can be friends, which will never happen if you love Chrome/Vue/Java.
         </p>
         <RouterLink
           class="cta"
@@ -88,7 +87,7 @@
 
 <script>
   import { path as fedora } from 'simple-icons/icons/fedora'
-  import { path as firefoxBrowser } from 'simple-icons/icons/firefoxbrowser'
+  import { path as safari } from 'simple-icons/icons/safari'
   import { path as apple } from 'simple-icons/icons/apple'
 
   import Card from '@/components/layout/card/Card'
@@ -135,7 +134,7 @@
         bio,
         paths: {
           fedora,
-          firefoxBrowser,
+          safari,
           apple
         },
         icons: {

@@ -5,13 +5,13 @@
       {
         "brand": "gitHub",
         "name": "GitHub",
-        "link": "https://github.com/dhruvkb"
+        "link": "https://github.com/fewwwww"
       },
       {
         "brand": "linkedIn",
         "name": "LinkedIn",
         "color": "0077b5",
-        "link": "https://linkedin.com/in/dhruvkb"
+        "link": "https://linkedin.com/in/suning-yao"
       }
     ]
   },
@@ -19,38 +19,33 @@
     "heading": "Social media",
     "list": [
       {
-        "brand": "facebook",
-        "name": "Facebook",
-        "color": "1877f2",
-        "link": "https://facebook.com/dhruv.k.bhanushali"
+        "brand": "wechat",
+        "name": "WeChat",
+        "color": "1ed760",
+        "link": "https://fewwwww.github.io/WeChat-AddMe/"
       },
       {
-        "brand": "twitter",
-        "name": "Twitter",
-        "color": "1da1f2",
-        "link": "https://twitter.com/dhruvkb"
-      },
-      {
-        "brand": "instagram",
-        "name": "Instagram",
-        "color": "e4405f",
-        "link": "https://instagram.com/dhruvkb_"
+        "brand": "weibo",
+        "name": "Weibo",
+        "color": "0077b5",
+        "link": "https://weibo.com/u/5446861707"
       }
     ]
   },
   {
-    "heading": "Music streaming",
+    "heading": "Media streaming",
     "list": [
       {
         "brand": "appleMusic",
-        "name": "Apple Music",
-        "link": "https://itunes.apple.com/profile/dhruvkb"
+        "name": "Netease Cloud Music",
+        "color": "e4405f",
+        "link": "https://music.163.com/#/artist?id=12452032"
       },
       {
         "brand": "spotify",
-        "name": "Spotify",
-        "color": "1ed760",
-        "link": "https://open.spotify.com/user/dhruvkb"
+        "name": "Bilibili",
+        "color": "f9c6cf",
+        "link": "https://space.bilibili.com/1877853"
       }
     ]
   }

@@ -35,7 +35,7 @@
             <div class="content">
               Hello there! I am
               <SiteTitle/>
-              and I wear many hats.
+              and so nice to meet u.
 
               <p class="roles">
                 I am

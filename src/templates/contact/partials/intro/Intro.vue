@@ -7,14 +7,14 @@
       :span-set="[12, 6, 6, 6, 6]">
       <Card :color="color">
         <p>
-          Whether you're looking for an developer experienced in building
-          solutions, an infrastructure architect to scale your project or
-          a technical writer to document your codebase, I can help.
+          Whether you're looking for a developer experienced in building
+          solutions, an cloud architect to scale your project or
+          a technical writer to document your codebase...I can help.
         </p>
         <p>
-          I could bring the frugal, refined, and very Indian, concept of
-          <a href="https://www.lexico.com/en/definition/jugaad">
-            <em>"jugaad"</em>
+          I could bring the refined concept of
+          <a href="https://www.lexico.com/en/definition/excellence">
+            <em>"excellence"</em>
           </a>
           to the table.
         </p>

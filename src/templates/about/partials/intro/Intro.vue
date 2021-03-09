@@ -7,13 +7,18 @@
       :span-set="[12, 6, 6, 6, 6]">
       <Card :color="color">
         <p>
-          I take it you're interested to know me. So let's start with
-          an introduction.
+          As a person born in the clamour and the incessant bustle of
+          Shanghai, I cherished the silence and solitude I found in the
+          tranquil town of Huinan.
         </p>
         <p>
-          As an introvert born in the clamour and the incessant bustle of
-          Mumbai, I cherished the silence and solitude I found in the
-          tranquil town of Roorkee.
+          For High school, I studied at Jianping ECIC which is an AP shool.
+          Then I went to New York University, Tandon School of Engineering.
+          I have no clue where the next destination is, but I’m always ready to pack my bags.
+        </p>
+        <p>
+          In childhood, I have been training in the school tracking team and playing the piano and guitar.
+          After, I earned certificate as fitness trainer and piano/guitar playing. I broke my high school record of shot put in 12th grade.
         </p>
       </Card>
     </GridCell>
@@ -26,11 +31,11 @@
           <Icon
             icon="location"
             :path="icons.location"/>
-          I'm a Mumbaikar at heart…
+          I'm a Shanghainese at heart…
         </p>
         <div
           class="side-by-side"
-          title="आमची मुंबई!">
+          title="阿拉上海!">
             <span class="image" :class="`${color}-colored`">
               <svg class="mumbai" viewBox="0 0 290.626 290.626" xmlns="http://www.w3.org/2000/svg">
                 <use href="@/assets/svgs/mumbai.svg#mumbai"></use>
@@ -38,10 +43,10 @@
             </span>
           <Couplet
             :color="color"
-            dom="Mumbai">
+            dom="Shanghai">
             <template #sub>
               <span :class="`${color}-colored`">
-                मुंबई
+                上海
               </span>
             </template>
           </Couplet>
@@ -57,11 +62,11 @@
           <Icon
             icon="school"
             :path="icons.school"/>
-          …but I've spent four wonderful years in Roorkee.
+          …but I've spent four wonderful years in Brooklyn (well 1st year remote at NYUSH).
         </p>
         <div
           class="side-by-side"
-          title="Batch of 2019">
+          title="Class of 2024">
             <span class="image" :class="`${color}-colored`">
               <svg class="roorkee" viewBox="0 0 290.626 290.626" xmlns="http://www.w3.org/2000/svg">
                 <use href="@/assets/svgs/roorkee.svg#roorkee"></use>
@@ -69,10 +74,10 @@
             </span>
           <Couplet
             :color="color"
-            dom="IIT Roorkee">
+            dom="NYU Tandon">
             <template #sub>
               <span :class="`${color}-colored`">
-                B. Tech. (Engineering Physics)
+                BS. in Applied Mathematics
               </span>
             </template>
           </Couplet>

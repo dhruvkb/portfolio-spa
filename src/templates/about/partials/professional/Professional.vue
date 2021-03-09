@@ -5,10 +5,9 @@
         :color="color"
         title="You meant professionally?">
         <p>
-          In that case, let's talk about computers, Since I was two there
+          Let's talk about the tech equipment. Since I was only a child, there
           has always been a computer no further than an arm's distance
-          from me. What can I say? I just love computers for what they can
-          do and what I can do with them.
+          from me. I just love computers for what they can do and what I can do with them.
         </p>
         <RouterLink
           class="cta"
@@ -28,33 +27,33 @@
     <GridCell :span-set="[12, 6, 4, 4, 4]">
       <Card
         :color="color"
-        title="Current computer">
+        title="Everyday PC">
         <Couplet
           :color="color"
-          dom="ThinkPad X220"
-          sub="+ 7 row keyboard"/>
+          dom="MacBook Pro M1"
+          sub="+ Touchbar"/>
       </Card>
     </GridCell>
 
     <GridCell :span-set="[12, 6, 4, 4, 4]">
       <Card
         :color="color"
-        title="Work computer">
+        title="Home PC">
         <Couplet
           :color="color"
-          dom="MacBook Pro 2019"
-          sub="+ Touch Bar"/>
+          dom="MacBook Pro M1"
+          sub="+ GK64S Keyboard"/>
       </Card>
     </GridCell>
 
     <GridCell :span-set="[12, 6, 4, 4, 4]">
       <Card
         :color="color"
-        title="First computer">
+        title="First PC">
         <Couplet
           :color="color"
-          dom="Pentium III"
-          sub="+ chonky CRT"/>
+          dom="Sony Vaio 2008"
+          sub="+ unknown keyboard"/>
       </Card>
     </GridCell>
   </Grid>

@@ -4,11 +4,11 @@
     "list": [
       {
         "icon": "coffee",
-        "text": "<strong>coffee</strong> to tea"
+        "text": "<strong>flat white</strong> to other drinks"
       },
       {
-        "brand": "firefoxBrowser",
-        "text": "<strong>Mozilla Firefox</strong> to Google Chrome"
+        "brand": "safari",
+        "text": "<strong>Safari</strong> to Google Chrome"
       },
       {
         "brand": "fedora",
@@ -25,7 +25,7 @@
     "list": [
       {
         "icon": "tv",
-        "text": "binging on <strong>television series</strong>"
+        "text": "lifting weights with <strong>television on</strong>"
       },
       {
         "icon": "film",
@@ -33,7 +33,7 @@
       },
       {
         "icon": "music",
-        "text": "organising and listening to <strong>music</strong>"
+        "text": "producing <strong>rap music</strong>"
       },
       {
         "icon": "walk",

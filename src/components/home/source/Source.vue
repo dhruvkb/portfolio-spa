@@ -29,7 +29,7 @@
     },
     data () {
       return {
-        url: 'https://github.com/dhruvkb/portfolio/',
+        url: 'https://github.com/fewwwww',
         paths: {
           gitHub
         }

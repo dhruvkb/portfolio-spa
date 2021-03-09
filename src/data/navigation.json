@@ -16,13 +16,6 @@
   },
   {
     "to": {
-      "name": "blog"
-    },
-    "text": "Blog",
-    "icon": "document"
-  },
-  {
-    "to": {
       "name": "contact"
     },
     "text": "Contact",

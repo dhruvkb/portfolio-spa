@@ -1,18 +1,17 @@
 <template>
   <div class="intro" title="This terminal has easter-eggs!">
       <pre class="ascii-art big">
-  __   __                                __       __
- /\ \ /\ \                              /\ \     /\ \
- \_\ \\ \ \___    _ __   __  __   __  __\ \ \/'\ \ \ \____
- /'_` \\ \  _ `\ /\`'__\/\ \/\ \ /\ \/\ \\ \ , /_ \ \ '__`\
-/\ \L\ \\ \ \ \ \\ \ \/ \ \ \_\ \\ \ \_/ |\ \ \\`\ \ \ \L\ \
-\ \___,_\\ \_\ \_\\ \_\  \ \____/ \ \___/  \ \_\ \_\\ \_,__/
- \/__,_ / \/_/\/_/ \/_/   \/___/   \/__/    \/_/\/_/ \/___/</pre>
+   ____          _             __  __
+  / __/_ _____  (_)__  ___ _   \ \/ /__ ____
+ _\ \/ // / _ \/ / _ \/ _ `/    \  / _ `/ _ \
+/___/\_,_/_//_/_/_//_/\_, /     /_/\_,_/\___/
+                     /___/                   </pre>
       <pre class="ascii-art small">
-     __ __                     __    __
- ___/ // /   ____ __ __ _  __ / /__ / /
-/ _  // _ \ / __// // /| |/ //  '_// _ \
-\_,_//_//_//_/   \_,_/ |___//_/\_\/_.__/</pre>
+   ____          _             __  __
+  / __/_ _____  (_)__  ___ _   \ \/ /__ ____
+ _\ \/ // / _ \/ / _ \/ _ `/    \  / _ `/ _ \
+/___/\_,_/_//_/_/_//_/\_, /     /_/\_,_/\___/
+                     /___/                   </pre>
       <div class="links">
       <a
         v-for="(link, index) in resumeLinks"
@@ -43,8 +42,8 @@
           :path="icons.code"
           is-inline/>
         <span>
-            source LaTeX
-          </span>
+            source
+        </span>
       </a>
     </div>
   </div>
@@ -65,18 +64,17 @@
       Icon
     },
     data () {
-      const resumeBaseUrl = 'https://dhruvkb.github.io/resume'
       return {
-        resumeRepoUrl: 'https://github.com/dhruvkb/resume/',
+        resumeRepoUrl: 'https://github.com/fewwwww/resume/',
         resumeLinks: [
           {
             name: 'résumé',
-            url: `${resumeBaseUrl}/resume.pdf`,
+            url: 'https://fewwwww.github.io/resume/',
             shortkey: 'r' // 'r' for Résumé
           },
           {
-            name: 'cover letter',
-            url: `${resumeBaseUrl}/cover.pdf`,
+            name: '我的简历',
+            url: 'https://fewwwww.github.io/resume-Chinese/',
             shortkey: 'c' // 'c' for Cover letter
           }
         ],

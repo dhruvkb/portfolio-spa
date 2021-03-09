@@ -7,12 +7,12 @@
         :color="color"
         title="Say 'Hi!'">
         <p>
-          I would absolutely love to connect with you. Being the introvert
-          I am, I shy away from initiating conversations but if you take
+          I would absolutely love to connect with you. Being an introvert
+          , I sometimes shy away from initiating conversations but if you take
           the initiative, I'll be more than happy to reciprocate!
         </p>
         <p>
-          We could talk over coffee. I absolutely love coffee.
+          We could talk over coffee. I absolutely love flat white.
         </p>
         <RouterLink
           class="cta"

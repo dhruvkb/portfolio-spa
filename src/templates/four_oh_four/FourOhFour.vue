@@ -19,7 +19,7 @@
       </div>
 
       <footer>
-        <p title="I made a funny!">
+        <p title="Gotcha!">
           You seem lost.
           Go
           <RouterLink

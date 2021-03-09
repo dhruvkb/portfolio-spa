@@ -38,8 +38,8 @@
       Themer
     },
     metaInfo: {
-      title: 'Software engineer & other things', // fallback if page does not populate
-      titleTemplate: '%s | Dhruv Bhanushali'
+      title: 'Web dev & more', // fallback if page does not populate
+      titleTemplate: '%s | Suning Yao'
     },
     data () {
       return {
@@ -51,7 +51,7 @@
        * Log all the content in the logs file.
        */
       logAll () {
-        this.logTitle('@dhruvkb')
+        this.logTitle('@suningyao')
         this.logs.forEach(category => {
           this.logHeading(category.heading)
           category.lines.forEach(line => this.logContent(line))

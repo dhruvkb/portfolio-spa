@@ -14,17 +14,17 @@
     }
   },
   "ship_containers": {
-    "main": "ship {one} and {two} containers",
+    "main": "ship {one} and {two} solutions",
     "adjectives": {
       "one": "scalable",
-      "two": "production-ready"
+      "two": "cloud-based"
     }
   },
   "craft_experiences": {
-    "main": "craft {one} and {two} experiences",
+    "main": "crave {one} and {two} body",
     "adjectives": {
-      "one": "functional",
-      "two": "accessible"
+      "one": "aesthetic",
+      "two": "athletic"
     }
   },
   "build_communities": {
@@ -35,10 +35,10 @@
     }
   },
   "evoke_emotions": {
-    "main": "evoke emotions of {one} and {two}",
+    "main": "produce {one} and {two} rap",
     "adjectives": {
-      "one": "delight",
-      "two": "joy"
+      "one": "lovable",
+      "two": "peaceful"
     }
   }
 }

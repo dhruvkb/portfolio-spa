@@ -4,7 +4,7 @@
       :key="role"
       class="image"
       :src="source"
-      alt="Dhruv Bhanushali"
+      alt="Suning Yao"
       :title="title"/>
   </div>
 </template>

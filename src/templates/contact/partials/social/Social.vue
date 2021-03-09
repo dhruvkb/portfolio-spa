@@ -6,21 +6,21 @@
         title="You meant socially?">
         <p>
           In that case, you can connect with me on any of my social media
-          presences. I'm way more active on GitHub (duh!) than I am on any
+          presences. I'm way more active on GitHub (Maybe?) than I am on any
           of these other sites. You can see photos of the cool stuff I've
-          come across on Instagram, all my favourite music is on Apple
-          Music and I irregularly write on my blog.
+          come across on WeChat, all my favourite music & my music is on Netease Cloud Music
+          and I irregularly update my Linkedin.
         </p>
         <RouterLink
           class="cta"
           tabindex="0"
-          :to="{name: 'blog'}"
+          :to="{name: 'about'}"
           @focus.native="handleCtaFocus"
           @blur.native="handleCtaBlur">
           <Pointer
             :color="color"
             :is-focused="isCtaFocused">
-            <template #default>Read my blog</template>
+            <template #default>Read about me</template>
             <template #punctuation>!</template>
           </Pointer>
         </RouterLink>
@@ -54,6 +54,8 @@
   import { path as instagram } from 'simple-icons/icons/instagram'
   import { path as appleMusic } from 'simple-icons/icons/applemusic'
   import { path as spotify } from 'simple-icons/icons/spotify'
+  import { path as wechat } from 'simple-icons/icons/wechat'
+  import { path as weibo } from 'simple-icons/icons/sinaweibo'
 
   import Card from '@/components/layout/card/Card'
   import Grid from '@/components/layout/grid/Grid'
@@ -92,7 +94,9 @@
           twitter,
           instagram,
           appleMusic,
-          spotify
+          spotify,
+          wechat,
+          weibo
         }
       }
     }
