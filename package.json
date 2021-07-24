@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "prepare": "husky install",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
@@ -39,7 +40,8 @@
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.2.2",
     "fibers": "^5.0.0",
-    "husky": "^4.3.0",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.1.1",
     "sass": "^1.26.11",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.14",
