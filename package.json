@@ -13,7 +13,7 @@
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "lodash": "^4.17.21",
-    "prismjs": "^1.24.0",
+    "prismjs": "^1.27.0",
     "register-service-worker": "^1.7.1",
     "simple-icons": "^3.9.0",
     "vue": "^2.6.14",
